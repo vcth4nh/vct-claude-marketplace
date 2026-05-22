@@ -319,5 +319,35 @@ class TestLogEvent(unittest.TestCase):
         self.assertTrue(nested.exists())
 
 
+class TestPendingFiles(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.env = mock.patch.dict(
+            "os.environ",
+            {"CLAUDE_AUTO_RETRY_PENDING_DIR": self.tmp.name},
+        )
+        self.env.start()
+        self.addCleanup(self.env.stop)
+
+    def test_write_creates_pidfile(self):
+        auto_retry._write_pending({"pid": 9999, "pane_id": "%7", "fires_at": "x"})
+        self.assertTrue((pathlib.Path(self.tmp.name) / "9999.json").exists())
+
+    def test_delete_removes_pidfile(self):
+        auto_retry._write_pending({"pid": 9999})
+        auto_retry._delete_pending(9999)
+        self.assertFalse((pathlib.Path(self.tmp.name) / "9999.json").exists())
+
+    def test_delete_missing_is_silent(self):
+        auto_retry._delete_pending(12345)
+
+    def test_list_pending(self):
+        auto_retry._write_pending({"pid": 100, "pane_id": "%7", "fires_at": "x"})
+        auto_retry._write_pending({"pid": 200, "pane_id": "%9", "fires_at": "y"})
+        items = sorted(auto_retry._list_pending(), key=lambda e: e["pid"])
+        self.assertEqual([i["pid"] for i in items], [100, 200])
+
+
 if __name__ == "__main__":
     unittest.main()

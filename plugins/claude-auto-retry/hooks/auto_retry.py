@@ -224,6 +224,38 @@ def _log_event(event: dict) -> None:
         pass
 
 
+def _pending_path(pid: int) -> pathlib.Path:
+    return _pending_dir() / f"{pid}.json"
+
+
+def _write_pending(entry: dict) -> None:
+    path = _pending_path(int(entry["pid"]))
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(entry, ensure_ascii=False))
+
+
+def _delete_pending(pid: int) -> None:
+    try:
+        _pending_path(pid).unlink()
+    except FileNotFoundError:
+        pass
+
+
+def _list_pending() -> list[dict]:
+    out = []
+    try:
+        for p in _pending_dir().iterdir():
+            if not p.name.endswith(".json"):
+                continue
+            try:
+                out.append(json.loads(p.read_text()))
+            except Exception:
+                continue
+    except FileNotFoundError:
+        pass
+    return out
+
+
 def _hook() -> None:
     """Read StopFailure event, classify, schedule timer. Stub for now."""
     pass
