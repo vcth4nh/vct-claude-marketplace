@@ -441,8 +441,62 @@ def _timer(pane: str, delay: int, error: str) -> None:
 
 
 def _status() -> None:
-    """Print recent + pending. Stub for now."""
-    pass
+    """Print pending + recent retry events as two tables."""
+    print(_status_text())
+
+
+def _status_text() -> str:
+    now = datetime.datetime.now().astimezone()
+    pending = _list_pending()
+
+    pending_rows = []
+    for entry in pending:
+        try:
+            fires_at = datetime.datetime.fromisoformat(entry["fires_at"])
+            delta = int((fires_at - now).total_seconds())
+            in_str = f"{delta}s" if delta < 60 else f"{delta // 60}m {delta % 60}s"
+        except Exception:
+            in_str = "?"
+        pending_rows.append((
+            entry.get("pane_name") or entry.get("pane_id") or "-",
+            in_str,
+            entry.get("error", "-"),
+            f"{entry.get('backoff', '-')}s",
+            entry.get("source", "-"),
+        ))
+
+    recent_rows = []
+    try:
+        with open(_log_path(), encoding="utf-8") as f:
+            for line in f.read().splitlines()[-20:]:
+                try:
+                    rec = json.loads(line)
+                except Exception:
+                    continue
+                recent_rows.append((
+                    rec.get("outcome", "-"),
+                    rec.get("ts", "-")[:19],
+                    rec.get("pane_name") or rec.get("pane_id") or "-",
+                    rec.get("error", "-"),
+                    f"{rec.get('backoff', '-')}s" if rec.get("backoff") else "-",
+                    rec.get("source") or rec.get("reason") or "-",
+                ))
+    except FileNotFoundError:
+        pass
+
+    lines = []
+    lines.append(f"PENDING ({len(pending_rows)})")
+    if pending_rows:
+        lines.append(f"  {'pane':<30} {'fires in':>10}  {'error':<14} {'backoff':>8}  source")
+        for row in pending_rows:
+            lines.append(f"  {row[0]:<30} {row[1]:>10}  {row[2]:<14} {row[3]:>8}  {row[4]}")
+    lines.append("")
+    lines.append(f"RECENT ({len(recent_rows)})")
+    if recent_rows:
+        lines.append(f"  {'outcome':<10} {'ts':<19}  {'pane':<24} {'error':<14} {'backoff':>8}  source")
+        for row in recent_rows:
+            lines.append(f"  {row[0]:<10} {row[1]:<19}  {row[2]:<24} {row[3]:<14} {row[4]:>8}  {row[5]}")
+    return "\n".join(lines)
 
 
 def _init_config() -> None:

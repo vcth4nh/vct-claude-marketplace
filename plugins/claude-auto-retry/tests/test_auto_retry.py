@@ -606,5 +606,63 @@ class TestTimer(unittest.TestCase):
         self.assertEqual(auto_retry._list_pending(), [])
 
 
+class TestStatus(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.log = pathlib.Path(self.tmp.name) / "log.jsonl"
+        self.pending = pathlib.Path(self.tmp.name) / "pending"
+        self.env = mock.patch.dict(
+            "os.environ",
+            {
+                "CLAUDE_AUTO_RETRY_LOG_PATH": str(self.log),
+                "CLAUDE_AUTO_RETRY_PENDING_DIR": str(self.pending),
+            },
+        )
+        self.env.start()
+        self.addCleanup(self.env.stop)
+
+    def _capture(self) -> str:
+        buf = io.StringIO()
+        with mock.patch.object(sys, "stdout", buf):
+            auto_retry._status()
+        return buf.getvalue()
+
+    def test_empty_state(self):
+        out = self._capture()
+        self.assertIn("PENDING (0)", out)
+        self.assertIn("RECENT (0)", out)
+
+    def test_shows_pending(self):
+        future = (datetime.datetime.now() + datetime.timedelta(seconds=60))\
+                 .astimezone().isoformat()
+        auto_retry._write_pending({
+            "pid": 100, "pane_id": "%7", "pane_name": "my:0.1",
+            "error": "rate_limit", "fires_at": future, "backoff": 60,
+            "source": "transient",
+        })
+        out = self._capture()
+        self.assertIn("PENDING (1)", out)
+        self.assertIn("my:0.1", out)
+        self.assertIn("rate_limit", out)
+
+    def test_shows_recent_log_entries(self):
+        auto_retry._log_event({"outcome": "fired", "error": "rate_limit",
+                              "pane_name": "my:0.1", "backoff": 60,
+                              "source": "transient"})
+        out = self._capture()
+        self.assertIn("RECENT (1)", out)
+        self.assertIn("fired", out)
+        self.assertIn("rate_limit", out)
+
+    def test_recent_capped_at_20(self):
+        for i in range(25):
+            auto_retry._log_event({"outcome": "fired", "error": "rate_limit",
+                                  "pane_name": "p", "backoff": 60,
+                                  "source": "transient"})
+        out = self._capture()
+        self.assertIn("RECENT (20)", out)
+
+
 if __name__ == "__main__":
     unittest.main()
