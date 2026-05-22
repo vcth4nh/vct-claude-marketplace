@@ -598,7 +598,7 @@ class TestTimer(unittest.TestCase):
     def test_tmux_failure_logs_error_and_still_cleans_up(self):
         with mock.patch.object(auto_retry.time, "sleep"), \
              mock.patch.object(auto_retry.subprocess, "run",
-                               return_value=mock.Mock(returncode=1)):
+                               return_value=mock.Mock(returncode=1, stderr="tmux: bad pane identifier: %7")):
             auto_retry._timer("%7", 0, "rate_limit")
         rec = json.loads(self.log.read_text().splitlines()[-1])
         self.assertEqual(rec["outcome"], "error")

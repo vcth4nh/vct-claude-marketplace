@@ -420,10 +420,9 @@ def _timer(pane: str, delay: int, error: str) -> None:
             capture_output=True, text=True,
         )
         if send.returncode != 0:
-            stderr_str = send.stderr if isinstance(send.stderr, str) else ""
             _log_event({**entry, "outcome": "error", "error_text": error_text,
                        "reason": "tmux_send_failed",
-                       "stderr": stderr_str[:200]})
+                       "stderr": (send.stderr or "")[:200]})
             return
 
         cfg = _load_config(os.getcwd())
