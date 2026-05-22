@@ -210,6 +210,20 @@ def _dedup_acquire(pane_id: str, window: int) -> bool:
         return False
 
 
+def _log_event(event: dict) -> None:
+    """Append one JSON line to the persistent log. Best-effort, never raises."""
+    try:
+        path = _log_path()
+        path.parent.mkdir(parents=True, exist_ok=True)
+        if "ts" not in event:
+            event = {"ts": datetime.datetime.now().astimezone().isoformat(),
+                     **event}
+        with open(path, "a", encoding="utf-8") as f:
+            f.write(json.dumps(event, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
+
+
 def _hook() -> None:
     """Read StopFailure event, classify, schedule timer. Stub for now."""
     pass

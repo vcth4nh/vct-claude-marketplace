@@ -284,5 +284,40 @@ class TestDedupAcquire(unittest.TestCase):
         self.assertTrue(auto_retry._dedup_acquire("%9", 30))
 
 
+class TestLogEvent(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.log_path = pathlib.Path(self.tmp.name) / "log.jsonl"
+        self.env = mock.patch.dict(
+            "os.environ",
+            {"CLAUDE_AUTO_RETRY_LOG_PATH": str(self.log_path)},
+        )
+        self.env.start()
+        self.addCleanup(self.env.stop)
+
+    def test_log_appends_one_line(self):
+        auto_retry._log_event({"outcome": "fired", "error": "rate_limit"})
+        lines = self.log_path.read_text().splitlines()
+        self.assertEqual(len(lines), 1)
+        import json as _j
+        rec = _j.loads(lines[0])
+        self.assertEqual(rec["outcome"], "fired")
+        self.assertEqual(rec["error"], "rate_limit")
+        self.assertIn("ts", rec)
+
+    def test_log_appends_multiple_lines(self):
+        for i in range(3):
+            auto_retry._log_event({"i": i})
+        self.assertEqual(len(self.log_path.read_text().splitlines()), 3)
+
+    def test_log_creates_parent_dirs(self):
+        nested = pathlib.Path(self.tmp.name) / "a/b/c/log.jsonl"
+        with mock.patch.dict("os.environ",
+                             {"CLAUDE_AUTO_RETRY_LOG_PATH": str(nested)}):
+            auto_retry._log_event({"x": 1})
+        self.assertTrue(nested.exists())
+
+
 if __name__ == "__main__":
     unittest.main()
