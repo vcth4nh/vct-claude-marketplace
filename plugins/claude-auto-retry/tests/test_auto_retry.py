@@ -664,5 +664,27 @@ class TestStatus(unittest.TestCase):
         self.assertIn("RECENT (20)", out)
 
 
+class TestInitConfig(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.cwd = pathlib.Path(self.tmp.name)
+
+    def test_copies_example_into_dot_claude(self):
+        with mock.patch.object(auto_retry.os, "getcwd", return_value=str(self.cwd)):
+            auto_retry._init_config()
+        out = self.cwd / ".claude" / "claude-auto-retry.toml"
+        self.assertTrue(out.exists())
+        self.assertIn("enabled = true", out.read_text())
+
+    def test_refuses_to_overwrite(self):
+        out = self.cwd / ".claude" / "claude-auto-retry.toml"
+        out.parent.mkdir()
+        out.write_text("# mine\n")
+        with mock.patch.object(auto_retry.os, "getcwd", return_value=str(self.cwd)):
+            auto_retry._init_config()
+        self.assertEqual(out.read_text(), "# mine\n")
+
+
 if __name__ == "__main__":
     unittest.main()

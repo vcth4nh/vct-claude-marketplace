@@ -16,6 +16,7 @@ import json
 import os
 import pathlib
 import re
+import shutil
 import subprocess
 import sys
 import time
@@ -500,8 +501,16 @@ def _status_text() -> str:
 
 
 def _init_config() -> None:
-    """Copy examples/config.toml into <cwd>/.claude/. Stub for now."""
-    pass
+    """Copy examples/config.toml to <cwd>/.claude/claude-auto-retry.toml."""
+    src = pathlib.Path(__file__).resolve().parent.parent / "examples" / "config.toml"
+    dst_dir = pathlib.Path(os.getcwd()) / ".claude"
+    dst = dst_dir / "claude-auto-retry.toml"
+    if dst.exists():
+        print(f"refusing to overwrite existing {dst}", file=sys.stderr)
+        return
+    dst_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(src, dst)
+    print(f"wrote {dst}")
 
 
 def main() -> None:
