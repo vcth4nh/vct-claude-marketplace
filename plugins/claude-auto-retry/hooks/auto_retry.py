@@ -88,6 +88,30 @@ def _load_config(cwd: str) -> dict:
     return cfg
 
 
+# Error classes that map to retryable transient backoffs.
+_RETRYABLE = {"rate_limit", "server_error", "unknown"}
+
+
+def _classify(err: str, text: str, cfg: dict) -> tuple[int | None, str]:
+    """Decide retry backoff for an error.
+
+    Returns (seconds, source) on retry; (None, reason) on skip.
+    Does NOT consult TMUX_PANE, enabled, or per-error-enable — those are
+    handled by _hook's skip-check ladder.
+    """
+    if err not in _RETRYABLE:
+        return None, "not_retryable"
+    if err == "rate_limit":
+        if "hit your" in text and "limit" in text:
+            # Hard usage quota — handled in Task 9 (parse reset time).
+            return None, "quota_unimplemented"
+        return int(cfg["backoff"]["rate_limit_transient"]), "transient"
+    if err == "server_error":
+        return int(cfg["backoff"]["server_error"]), "transient"
+    # err == "unknown"
+    return int(cfg["backoff"]["unknown"]), "transient"
+
+
 def _hook() -> None:
     """Read StopFailure event, classify, schedule timer. Stub for now."""
     pass

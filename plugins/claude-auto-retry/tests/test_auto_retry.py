@@ -1,4 +1,5 @@
 from __future__ import annotations
+import copy
 import io
 import pathlib
 import sys
@@ -142,6 +143,37 @@ class TestLoadConfig(unittest.TestCase):
                              {"CLAUDE_AUTO_RETRY_USER_CONFIG": str(user_cfg)}):
             cfg = auto_retry._load_config(str(self.cwd))
         self.assertEqual(cfg, auto_retry.DEFAULT_CONFIG)
+
+
+class TestClassifyTransient(unittest.TestCase):
+    def setUp(self):
+        self.cfg = copy.deepcopy(auto_retry.DEFAULT_CONFIG)
+
+    def test_rate_limit_transient(self):
+        text = "API Error: Server is temporarily limiting requests · Rate limited"
+        backoff, source = auto_retry._classify("rate_limit", text, self.cfg)
+        self.assertEqual(backoff, 60)
+        self.assertEqual(source, "transient")
+
+    def test_server_error(self):
+        backoff, source = auto_retry._classify("server_error", "500 Internal", self.cfg)
+        self.assertEqual(backoff, 30)
+        self.assertEqual(source, "transient")
+
+    def test_unknown(self):
+        backoff, source = auto_retry._classify("unknown", "Overloaded", self.cfg)
+        self.assertEqual(backoff, 30)
+        self.assertEqual(source, "transient")
+
+    def test_invalid_request_skip(self):
+        backoff, source = auto_retry._classify("invalid_request", "policy", self.cfg)
+        self.assertIsNone(backoff)
+        self.assertEqual(source, "not_retryable")
+
+    def test_max_output_tokens_skip(self):
+        backoff, source = auto_retry._classify("max_output_tokens", "", self.cfg)
+        self.assertIsNone(backoff)
+        self.assertEqual(source, "not_retryable")
 
 
 if __name__ == "__main__":
