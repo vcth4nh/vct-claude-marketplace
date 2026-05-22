@@ -73,5 +73,22 @@ class TestPathHelpers(unittest.TestCase):
             self.assertEqual(str(auto_retry._sentinel_dir()), "/tmp")
 
 
+class TestDefaultConfig(unittest.TestCase):
+    def test_defaults_present(self):
+        c = auto_retry.DEFAULT_CONFIG
+        self.assertTrue(c["enabled"])
+        self.assertEqual(c["dedup_window"], 30)
+        self.assertFalse(c["quiet"])
+        self.assertEqual(c["backoff"]["rate_limit_transient"], 60)
+        self.assertEqual(c["backoff"]["server_error"], 30)
+        self.assertEqual(c["backoff"]["unknown"], 30)
+        self.assertEqual(c["backoff"]["hard_quota_fallback"], 1800)
+        self.assertTrue(c["hard_quota"]["parse_reset_time"])
+        self.assertEqual(c["hard_quota"]["max_wait"], 14400)
+        self.assertTrue(c["per_error_enable"]["rate_limit"])
+        self.assertTrue(c["per_error_enable"]["server_error"])
+        self.assertTrue(c["per_error_enable"]["unknown"])
+
+
 if __name__ == "__main__":
     unittest.main()

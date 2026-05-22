@@ -33,6 +33,28 @@ def _sentinel_dir() -> pathlib.Path:
     return pathlib.Path(os.environ.get("CLAUDE_AUTO_RETRY_SENTINEL_DIR") or "/tmp")
 
 
+DEFAULT_CONFIG: dict = {
+    "enabled": True,
+    "dedup_window": 30,
+    "quiet": False,
+    "backoff": {
+        "rate_limit_transient": 60,
+        "server_error": 30,
+        "unknown": 30,
+        "hard_quota_fallback": 1800,
+    },
+    "hard_quota": {
+        "parse_reset_time": True,
+        "max_wait": 14400,
+    },
+    "per_error_enable": {
+        "rate_limit": True,
+        "server_error": True,
+        "unknown": True,
+    },
+}
+
+
 def _hook() -> None:
     """Read StopFailure event, classify, schedule timer. Stub for now."""
     pass
