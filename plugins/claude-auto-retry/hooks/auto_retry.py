@@ -256,6 +256,37 @@ def _list_pending() -> list[dict]:
     return out
 
 
+def _cleanup_stale_pending(grace: int) -> None:
+    """Remove pending entries whose fires_at is more than `grace` seconds past."""
+    now = datetime.datetime.now().astimezone()
+    for entry in _list_pending():
+        try:
+            fires_at = datetime.datetime.fromisoformat(entry["fires_at"])
+            if (now - fires_at).total_seconds() > grace:
+                _delete_pending(int(entry["pid"]))
+                _log_event({
+                    "outcome": "error",
+                    "reason": "stale_orphan",
+                    "pid": entry.get("pid"),
+                    "pane_id": entry.get("pane_id"),
+                })
+        except Exception:
+            continue
+
+
+def _rotate_log_if_needed(threshold: int = 5 * 1024 * 1024) -> None:
+    """Rotate log.jsonl → log.jsonl.1 when it exceeds threshold bytes."""
+    try:
+        path = _log_path()
+        if path.stat().st_size > threshold:
+            rotated = pathlib.Path(str(path) + ".1")
+            path.rename(rotated)
+    except FileNotFoundError:
+        pass
+    except Exception:
+        pass
+
+
 def _hook() -> None:
     """Read StopFailure event, classify, schedule timer. Stub for now."""
     pass

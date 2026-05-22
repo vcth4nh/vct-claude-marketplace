@@ -349,5 +349,66 @@ class TestPendingFiles(unittest.TestCase):
         self.assertEqual([i["pid"] for i in items], [100, 200])
 
 
+class TestStaleCleanup(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.log = pathlib.Path(self.tmp.name) / "log.jsonl"
+        self.pending = pathlib.Path(self.tmp.name) / "pending"
+        self.env = mock.patch.dict(
+            "os.environ",
+            {
+                "CLAUDE_AUTO_RETRY_LOG_PATH": str(self.log),
+                "CLAUDE_AUTO_RETRY_PENDING_DIR": str(self.pending),
+            },
+        )
+        self.env.start()
+        self.addCleanup(self.env.stop)
+
+    def test_unlinks_entry_past_grace(self):
+        far_past = (datetime.datetime.now() - datetime.timedelta(hours=24))\
+                   .astimezone().isoformat()
+        auto_retry._write_pending(
+            {"pid": 9999, "pane_id": "%7", "fires_at": far_past})
+        auto_retry._cleanup_stale_pending(grace=300)
+        self.assertEqual(auto_retry._list_pending(), [])
+
+    def test_keeps_entry_within_grace(self):
+        soon = (datetime.datetime.now() + datetime.timedelta(seconds=60))\
+               .astimezone().isoformat()
+        auto_retry._write_pending(
+            {"pid": 9999, "pane_id": "%7", "fires_at": soon})
+        auto_retry._cleanup_stale_pending(grace=300)
+        self.assertEqual(len(auto_retry._list_pending()), 1)
+
+
+class TestLogRotation(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.log = pathlib.Path(self.tmp.name) / "log.jsonl"
+        self.env = mock.patch.dict(
+            "os.environ",
+            {"CLAUDE_AUTO_RETRY_LOG_PATH": str(self.log)},
+        )
+        self.env.start()
+        self.addCleanup(self.env.stop)
+
+    def test_no_rotation_under_threshold(self):
+        self.log.parent.mkdir(parents=True, exist_ok=True)
+        self.log.write_text("x" * 100)
+        auto_retry._rotate_log_if_needed(threshold=1024)
+        self.assertTrue(self.log.exists())
+        self.assertFalse(self.log.with_suffix(".jsonl.1").exists())
+
+    def test_rotates_at_threshold(self):
+        self.log.parent.mkdir(parents=True, exist_ok=True)
+        self.log.write_text("x" * 2000)
+        auto_retry._rotate_log_if_needed(threshold=1024)
+        rotated = pathlib.Path(str(self.log) + ".1")
+        self.assertTrue(rotated.exists())
+        self.assertFalse(self.log.exists())
+
+
 if __name__ == "__main__":
     unittest.main()
