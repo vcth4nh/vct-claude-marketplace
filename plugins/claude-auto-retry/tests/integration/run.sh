@@ -38,9 +38,10 @@ echo "Test pane: $TMUX_PANE"
 # Project config: 1s transient backoff, quiet (no display-message).
 mkdir -p "$WORK/.claude"
 cat > "$WORK/.claude/claude-auto-retry.toml" <<TOML
+quiet = true
+
 [backoff]
 rate_limit_transient = 1
-quiet = true
 TOML
 
 EVT='{"hook_event_name":"StopFailure","error":"rate_limit","error_details":"Server is temporarily limiting","session_id":"itest","cwd":"'$WORK'"}'
