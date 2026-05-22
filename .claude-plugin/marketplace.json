@@ -7,5 +7,17 @@
     "version": "0.1.0",
     "description": "Public Claude Code plugins by vcth4nh"
   },
-  "plugins": []
+  "plugins": [
+    {
+      "name": "claude-auto-retry",
+      "version": "0.1.0",
+      "source": "./plugins/claude-auto-retry",
+      "description": "Auto-retry Claude Code sessions on transient API errors via StopFailure hook + tmux send-keys. Pure stdlib, no daemon, no wrapper.",
+      "author": {
+        "name": "vcth4nh"
+      },
+      "license": "CC-BY-SA-4.0",
+      "keywords": ["rate-limit", "retry", "tmux", "hook", "resilience"]
+    }
+  ]
 }
