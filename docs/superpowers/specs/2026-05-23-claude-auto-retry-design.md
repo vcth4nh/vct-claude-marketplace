@@ -20,6 +20,11 @@ a TOML config schema, a passive skill that lets Claude answer "how does
 auto-retry work?" or "disable rate-limit retry", and a user-invoked
 `/claude-auto-retry:status` slash skill.
 
+**Migration:** subsumes the existing prototype at
+`/home/ubuntu/dev/claude-auto-retry/hook.py`. The `--timer` self-spawn
+pattern there is reused verbatim; classification logic ports directly.
+The prototype directory will be retired after first-pass implementation.
+
 ## Goals
 
 - **Recover from transient errors automatically.** 429 "temporarily limiting",
@@ -270,14 +275,20 @@ _classify sees "hit your … limit" in error_details
 
 ### Skip branches (all log an entry for `--status` visibility)
 
-| Condition | source |
-|---|---|
-| `TMUX_PANE` unset | `no_tmux` |
-| `cfg.enabled = false` | `disabled` |
-| `cfg.per_error_enable.<class> = false` | `per_error_disabled` |
-| Error class not in retry table | `not_retryable` |
-| Hard quota with delta > `max_wait` | `quota_too_far` |
-| Dedup sentinel already present | `dedup_bounced` |
+Skip checks run in this fixed order; the first match logs and returns:
+
+| Order | Condition | source |
+|---|---|---|
+| 1 | `cfg.enabled = false` | `disabled` |
+| 2 | `TMUX_PANE` unset | `no_tmux` |
+| 3 | Error class not in retry table | `not_retryable` |
+| 4 | `cfg.per_error_enable.<class> = false` | `per_error_disabled` |
+| 5 | Dedup sentinel already present (acquire failed) | `dedup_bounced` |
+| 6 | Hard quota with delta > `max_wait` | `quota_too_far` |
+
+`enabled = false` short-circuits everything (including logging the
+per-error decision) so users can fully suppress the plugin without
+removing it.
 
 ### `--status` read path
 
@@ -300,8 +311,10 @@ The hook is fire-and-forget from Claude's side; failures can't surface back.
 Strategy: log everything, never crash, never hang.
 
 **Hook (`_hook`):**
-- Whole body wrapped in `try/except BaseException as e` → log
+- Whole body wrapped in `try/except Exception as e` → log
   `{outcome: "error", reason: str(e)}`, exit 0. Never re-raise.
+  (Use `Exception`, not `BaseException` — `KeyboardInterrupt` /
+  `SystemExit` should still propagate.)
 - Must return in <1s. Long operations are in the detached `--timer` child.
 - Stdin JSON parse failure → log + exit 0.
 
