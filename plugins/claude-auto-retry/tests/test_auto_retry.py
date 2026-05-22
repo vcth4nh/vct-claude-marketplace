@@ -44,5 +44,34 @@ class TestArgparseModes(unittest.TestCase):
         m.assert_called_once()
 
 
+class TestPathHelpers(unittest.TestCase):
+    def test_log_path_default(self):
+        with mock.patch.dict("os.environ", {}, clear=False):
+            __import__("os").environ.pop("CLAUDE_AUTO_RETRY_LOG_PATH", None)
+            p = auto_retry._log_path()
+        self.assertTrue(str(p).endswith(".local/state/claude-auto-retry/log.jsonl"))
+
+    def test_log_path_env_override(self):
+        with mock.patch.dict("os.environ",
+                             {"CLAUDE_AUTO_RETRY_LOG_PATH": "/tmp/x/y.jsonl"}):
+            self.assertEqual(str(auto_retry._log_path()), "/tmp/x/y.jsonl")
+
+    def test_pending_dir_default(self):
+        with mock.patch.dict("os.environ", {}, clear=False):
+            __import__("os").environ.pop("CLAUDE_AUTO_RETRY_PENDING_DIR", None)
+            self.assertEqual(str(auto_retry._pending_dir()),
+                             "/tmp/claude-auto-retry/pending")
+
+    def test_pending_dir_env_override(self):
+        with mock.patch.dict("os.environ",
+                             {"CLAUDE_AUTO_RETRY_PENDING_DIR": "/tmp/zz"}):
+            self.assertEqual(str(auto_retry._pending_dir()), "/tmp/zz")
+
+    def test_sentinel_dir_default(self):
+        with mock.patch.dict("os.environ", {}, clear=False):
+            __import__("os").environ.pop("CLAUDE_AUTO_RETRY_SENTINEL_DIR", None)
+            self.assertEqual(str(auto_retry._sentinel_dir()), "/tmp")
+
+
 if __name__ == "__main__":
     unittest.main()

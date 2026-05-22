@@ -10,7 +10,27 @@ Runs in four modes via argparse:
 from __future__ import annotations
 
 import argparse
+import os
+import pathlib
 import sys
+
+
+def _log_path() -> pathlib.Path:
+    return pathlib.Path(
+        os.environ.get("CLAUDE_AUTO_RETRY_LOG_PATH")
+        or (pathlib.Path.home() / ".local/state/claude-auto-retry/log.jsonl")
+    )
+
+
+def _pending_dir() -> pathlib.Path:
+    return pathlib.Path(
+        os.environ.get("CLAUDE_AUTO_RETRY_PENDING_DIR")
+        or "/tmp/claude-auto-retry/pending"
+    )
+
+
+def _sentinel_dir() -> pathlib.Path:
+    return pathlib.Path(os.environ.get("CLAUDE_AUTO_RETRY_SENTINEL_DIR") or "/tmp")
 
 
 def _hook() -> None:
