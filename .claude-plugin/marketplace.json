@@ -1,0 +1,11 @@
+{
+  "name": "vct-public",
+  "owner": {
+    "name": "vcth4nh"
+  },
+  "metadata": {
+    "version": "0.1.0",
+    "description": "Public Claude Code plugins by vcth4nh"
+  },
+  "plugins": []
+}
