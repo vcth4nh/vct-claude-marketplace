@@ -2,6 +2,7 @@ from __future__ import annotations
 import copy
 import datetime
 import io
+import json
 import pathlib
 import sys
 import tempfile
@@ -428,6 +429,104 @@ class TestResolvePane(unittest.TestCase):
         with mock.patch.object(auto_retry.subprocess, "run",
                                side_effect=FileNotFoundError):
             self.assertEqual(auto_retry._resolve_pane("%7"), "%7")
+
+
+class TestHookOrchestration(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.log = pathlib.Path(self.tmp.name) / "log.jsonl"
+        self.pending = pathlib.Path(self.tmp.name) / "pending"
+        self.sentinel = pathlib.Path(self.tmp.name) / "sentinel"
+        self.sentinel.mkdir()
+        self.env = mock.patch.dict(
+            "os.environ",
+            {
+                "CLAUDE_AUTO_RETRY_LOG_PATH": str(self.log),
+                "CLAUDE_AUTO_RETRY_PENDING_DIR": str(self.pending),
+                "CLAUDE_AUTO_RETRY_SENTINEL_DIR": str(self.sentinel),
+                "CLAUDE_AUTO_RETRY_USER_CONFIG": str(self.sentinel / "nope.toml"),
+                "TMUX_PANE": "%7",
+            },
+        )
+        self.env.start()
+        self.addCleanup(self.env.stop)
+
+    def _feed(self, event: dict) -> None:
+        with mock.patch.object(sys, "stdin", io.StringIO(json.dumps(event))):
+            auto_retry._hook()
+
+    def test_disabled_short_circuits(self):
+        cfg_path = pathlib.Path(self.tmp.name) / "u.toml"
+        cfg_path.write_text("enabled = false\n")
+        with mock.patch.dict("os.environ",
+                             {"CLAUDE_AUTO_RETRY_USER_CONFIG": str(cfg_path)}), \
+             mock.patch.object(auto_retry.subprocess, "Popen") as p:
+            self._feed({"hook_event_name": "StopFailure", "error": "rate_limit",
+                        "error_details": "transient", "cwd": self.tmp.name})
+            p.assert_not_called()
+        rec = json.loads(self.log.read_text().splitlines()[-1])
+        self.assertEqual(rec["source"], "disabled")
+
+    def test_no_tmux_skipped(self):
+        with mock.patch.dict("os.environ", {"TMUX_PANE": ""}), \
+             mock.patch.object(auto_retry.subprocess, "Popen") as p:
+            self._feed({"hook_event_name": "StopFailure", "error": "rate_limit",
+                        "error_details": "transient", "cwd": self.tmp.name})
+            p.assert_not_called()
+        rec = json.loads(self.log.read_text().splitlines()[-1])
+        self.assertEqual(rec["source"], "no_tmux")
+
+    def test_not_retryable_skipped(self):
+        with mock.patch.object(auto_retry.subprocess, "Popen") as p:
+            self._feed({"hook_event_name": "StopFailure", "error": "invalid_request",
+                        "error_details": "policy", "cwd": self.tmp.name})
+            p.assert_not_called()
+        rec = json.loads(self.log.read_text().splitlines()[-1])
+        self.assertEqual(rec["source"], "not_retryable")
+
+    def test_per_error_disabled_skipped(self):
+        cfg_path = pathlib.Path(self.tmp.name) / "u.toml"
+        cfg_path.write_text("[per_error_enable]\nrate_limit = false\n")
+        with mock.patch.dict("os.environ",
+                             {"CLAUDE_AUTO_RETRY_USER_CONFIG": str(cfg_path)}), \
+             mock.patch.object(auto_retry.subprocess, "Popen") as p:
+            self._feed({"hook_event_name": "StopFailure", "error": "rate_limit",
+                        "error_details": "transient text",
+                        "cwd": self.tmp.name})
+            p.assert_not_called()
+        rec = json.loads(self.log.read_text().splitlines()[-1])
+        self.assertEqual(rec["source"], "per_error_disabled")
+
+    def test_happy_path_spawns_timer(self):
+        with mock.patch.object(auto_retry.subprocess, "Popen") as p, \
+             mock.patch.object(auto_retry, "_resolve_pane", return_value="my:0.1"):
+            self._feed({"hook_event_name": "StopFailure", "error": "rate_limit",
+                        "error_details": "Server is temporarily limiting",
+                        "session_id": "abc", "cwd": self.tmp.name})
+            p.assert_called_once()
+            args, kwargs = p.call_args
+            self.assertIn("--timer", args[0])
+            self.assertIn("%7", args[0])
+            self.assertIn("60", args[0])
+            self.assertEqual(kwargs.get("start_new_session"), True)
+        self.assertTrue((self.sentinel / "claude-retry-7").exists())
+
+    def test_dedup_bounces_second_hook(self):
+        with mock.patch.object(auto_retry.subprocess, "Popen") as p, \
+             mock.patch.object(auto_retry, "_resolve_pane", return_value="my:0.1"):
+            evt = {"hook_event_name": "StopFailure", "error": "rate_limit",
+                   "error_details": "Server is temporarily limiting",
+                   "session_id": "abc", "cwd": self.tmp.name}
+            self._feed(evt)
+            self._feed(evt)
+            self.assertEqual(p.call_count, 1)
+        rec = json.loads(self.log.read_text().splitlines()[-1])
+        self.assertEqual(rec["source"], "dedup_bounced")
+
+    def test_malformed_stdin_does_not_crash(self):
+        with mock.patch.object(sys, "stdin", io.StringIO("not json")):
+            auto_retry._hook()  # should not raise
 
 
 if __name__ == "__main__":

@@ -303,8 +303,84 @@ def _resolve_pane(pane_id: str) -> str:
 
 
 def _hook() -> None:
-    """Read StopFailure event, classify, schedule timer. Stub for now."""
-    pass
+    """StopFailure entry. Fast (<1s), fire-and-forget."""
+    try:
+        raw = sys.stdin.read()
+        try:
+            event = json.loads(raw) if raw.strip() else {}
+        except json.JSONDecodeError:
+            _log_event({"outcome": "error", "reason": "stdin_not_json"})
+            return
+
+        err = event.get("error", "unknown")
+        text = event.get("error_details") or event.get("last_assistant_message") or ""
+        text = text[:500]
+        status = event.get("apiErrorStatus")
+        session_id = event.get("session_id")
+        cwd = event.get("cwd") or os.getcwd()
+
+        cfg = _load_config(cwd)
+
+        base_event = {
+            "error": err,
+            "error_status": status,
+            "error_text": text,
+            "session_id": session_id,
+        }
+
+        if not bool(cfg.get("enabled", True)):
+            _log_event({**base_event, "outcome": "skipped", "source": "disabled"})
+            return
+
+        pane_id = os.environ.get("TMUX_PANE") or ""
+        if not pane_id:
+            _log_event({**base_event, "outcome": "skipped", "source": "no_tmux"})
+            return
+
+        if err not in _RETRYABLE:
+            _log_event({**base_event, "outcome": "skipped", "source": "not_retryable"})
+            return
+
+        per_err = cfg.get("per_error_enable", {})
+        if not bool(per_err.get(err, True)):
+            _log_event({**base_event, "outcome": "skipped",
+                       "source": "per_error_disabled"})
+            return
+
+        grace = int(cfg["hard_quota"]["max_wait"]) + 300
+        _cleanup_stale_pending(grace=grace)
+        _rotate_log_if_needed()
+
+        if not _dedup_acquire(pane_id, int(cfg.get("dedup_window", 30))):
+            _log_event({**base_event, "outcome": "skipped",
+                       "source": "dedup_bounced", "pane_id": pane_id})
+            return
+
+        backoff, source = _classify(err, text, cfg)
+        if backoff is None:
+            _log_event({**base_event, "outcome": "skipped", "source": source,
+                       "pane_id": pane_id})
+            return
+
+        pane_name = _resolve_pane(pane_id)
+
+        subprocess.Popen(
+            [sys.executable, os.path.abspath(__file__),
+             "--timer", pane_id, str(backoff), err],
+            start_new_session=True,
+            stdin=subprocess.DEVNULL,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            env={**os.environ, "_CAR_PANE_NAME": pane_name,
+                 "_CAR_SOURCE": source,
+                 "_CAR_ERROR_STATUS": "" if status is None else str(status),
+                 "_CAR_SESSION_ID": session_id or "",
+                 "_CAR_ERROR_TEXT": text},
+        )
+        _log_event({**base_event, "outcome": "scheduled", "source": source,
+                   "backoff": backoff, "pane_id": pane_id, "pane_name": pane_name})
+    except Exception as e:
+        _log_event({"outcome": "error", "reason": f"hook_exception: {e}"})
 
 
 def _timer(pane: str, delay: int, error: str) -> None:
