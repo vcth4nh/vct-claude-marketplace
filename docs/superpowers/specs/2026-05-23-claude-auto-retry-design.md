@@ -20,11 +20,6 @@ a TOML config schema, a passive skill that lets Claude answer "how does
 auto-retry work?" or "disable rate-limit retry", and a user-invoked
 `/claude-auto-retry:status` slash skill.
 
-**Migration:** subsumes the existing prototype at
-`/home/ubuntu/dev/claude-auto-retry/hook.py`. The `--timer` self-spawn
-pattern there is reused verbatim; classification logic ports directly.
-The prototype directory will be retired after first-pass implementation.
-
 ## Goals
 
 - **Recover from transient errors automatically.** 429 "temporarily limiting",
