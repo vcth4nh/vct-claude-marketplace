@@ -11,9 +11,12 @@ from __future__ import annotations
 
 import argparse
 import copy
+import datetime
 import os
 import pathlib
+import re
 import sys
+from zoneinfo import ZoneInfo
 
 
 def _log_path() -> pathlib.Path:
@@ -110,6 +113,63 @@ def _classify(err: str, text: str, cfg: dict) -> tuple[int | None, str]:
         return int(cfg["backoff"]["server_error"]), "transient"
     # err == "unknown"
     return int(cfg["backoff"]["unknown"]), "transient"
+
+
+# "resets 3am (Asia/Bangkok)" or "resets May 13, 1pm (Asia/Bangkok)"
+_RESET_RE = re.compile(
+    r"resets\s+"
+    r"(?:(?P<month>Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+"
+    r"(?P<day>\d{1,2}),\s+)?"
+    r"(?P<hour>\d{1,2})(?::(?P<minute>\d{2}))?(?P<ampm>am|pm)"
+    r"(?:\s*\((?P<tz>[^)]+)\))?",
+    re.IGNORECASE,
+)
+
+_MONTHS = {
+    "jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
+    "jul": 7, "aug": 8, "sep": 9, "oct": 10, "nov": 11, "dec": 12,
+}
+
+
+def _parse_reset_time(text: str,
+                      now: datetime.datetime | None = None) -> int | None:
+    """Parse '...resets 3am (Asia/Bangkok)...' → seconds from now until reset.
+
+    Returns None on any parse failure. If no timezone is in the text, UTC is
+    assumed.
+    """
+    try:
+        m = _RESET_RE.search(text)
+        if not m:
+            return None
+        tz = ZoneInfo(m.group("tz")) if m.group("tz") else ZoneInfo("UTC")
+        if now is None:
+            now = datetime.datetime.now(tz=tz)
+        elif now.tzinfo is None:
+            now = now.replace(tzinfo=tz)
+        else:
+            now = now.astimezone(tz)
+
+        hour = int(m.group("hour")) % 12
+        if m.group("ampm").lower() == "pm":
+            hour += 12
+        minute = int(m.group("minute") or 0)
+
+        if m.group("month"):
+            month = _MONTHS[m.group("month").lower()]
+            day = int(m.group("day"))
+            target = datetime.datetime(now.year, month, day, hour, minute, tzinfo=tz)
+            if target < now:
+                target = target.replace(year=now.year + 1)
+        else:
+            target = now.replace(hour=hour, minute=minute, second=0, microsecond=0)
+            if target <= now:
+                target += datetime.timedelta(days=1)
+
+        delta = int((target - now).total_seconds())
+        return max(delta, 0)
+    except Exception:
+        return None
 
 
 def _hook() -> None:

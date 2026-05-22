@@ -1,11 +1,13 @@
 from __future__ import annotations
 import copy
+import datetime
 import io
 import pathlib
 import sys
 import tempfile
 import unittest
 from unittest import mock
+from zoneinfo import ZoneInfo
 
 from conftest_helpers import *  # noqa: F401,F403  -- side effect: sys.path
 
@@ -143,6 +145,44 @@ class TestLoadConfig(unittest.TestCase):
                              {"CLAUDE_AUTO_RETRY_USER_CONFIG": str(user_cfg)}):
             cfg = auto_retry._load_config(str(self.cwd))
         self.assertEqual(cfg, auto_retry.DEFAULT_CONFIG)
+
+
+class TestParseResetTime(unittest.TestCase):
+    def test_3am_today_if_in_future(self):
+        now = datetime.datetime(2026, 5, 23, 2, 0, tzinfo=ZoneInfo("Asia/Bangkok"))
+        text = "You've hit your limit · resets 3am (Asia/Bangkok)"
+        delta = auto_retry._parse_reset_time(text, now=now)
+        self.assertEqual(delta, 3600)
+
+    def test_3am_tomorrow_if_already_past(self):
+        now = datetime.datetime(2026, 5, 23, 5, 0, tzinfo=ZoneInfo("Asia/Bangkok"))
+        text = "You've hit your limit · resets 3am (Asia/Bangkok)"
+        delta = auto_retry._parse_reset_time(text, now=now)
+        self.assertEqual(delta, 22 * 3600)
+
+    def test_8pm_today(self):
+        now = datetime.datetime(2026, 5, 23, 14, 0, tzinfo=ZoneInfo("Asia/Bangkok"))
+        text = "You've hit your session limit · resets 8pm (Asia/Bangkok)"
+        delta = auto_retry._parse_reset_time(text, now=now)
+        self.assertEqual(delta, 6 * 3600)
+
+    def test_explicit_date(self):
+        now = datetime.datetime(2026, 5, 8, 10, 0, tzinfo=ZoneInfo("Asia/Bangkok"))
+        text = "You've hit your limit · resets May 13, 1pm (Asia/Bangkok)"
+        delta = auto_retry._parse_reset_time(text, now=now)
+        self.assertEqual(delta, 5 * 86400 + 3 * 3600)
+
+    def test_no_timezone_uses_utc(self):
+        now = datetime.datetime(2026, 5, 23, 2, 0, tzinfo=ZoneInfo("UTC"))
+        text = "You've hit your limit · resets 3am"
+        delta = auto_retry._parse_reset_time(text, now=now)
+        self.assertEqual(delta, 3600)
+
+    def test_gibberish_returns_none(self):
+        self.assertIsNone(auto_retry._parse_reset_time("nope"))
+
+    def test_no_time_returns_none(self):
+        self.assertIsNone(auto_retry._parse_reset_time("resets soon"))
 
 
 class TestClassifyTransient(unittest.TestCase):
