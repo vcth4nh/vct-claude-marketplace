@@ -253,5 +253,36 @@ class TestClassifyHardQuota(unittest.TestCase):
         self.assertEqual(source, "quota_fallback")
 
 
+class TestDedupAcquire(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.env = mock.patch.dict(
+            "os.environ",
+            {"CLAUDE_AUTO_RETRY_SENTINEL_DIR": self.tmp.name},
+        )
+        self.env.start()
+        self.addCleanup(self.env.stop)
+
+    def test_first_call_wins(self):
+        self.assertTrue(auto_retry._dedup_acquire("%7", 30))
+
+    def test_second_call_within_window_loses(self):
+        self.assertTrue(auto_retry._dedup_acquire("%7", 30))
+        self.assertFalse(auto_retry._dedup_acquire("%7", 30))
+
+    def test_stale_sentinel_lets_next_through(self):
+        import time as _t
+        sentinel = pathlib.Path(self.tmp.name) / "claude-retry-7"
+        sentinel.touch()
+        old = _t.time() - 60
+        __import__("os").utime(sentinel, (old, old))
+        self.assertTrue(auto_retry._dedup_acquire("%7", 30))
+
+    def test_different_panes_dont_collide(self):
+        self.assertTrue(auto_retry._dedup_acquire("%7", 30))
+        self.assertTrue(auto_retry._dedup_acquire("%9", 30))
+
+
 if __name__ == "__main__":
     unittest.main()

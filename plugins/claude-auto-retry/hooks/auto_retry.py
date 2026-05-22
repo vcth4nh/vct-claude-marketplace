@@ -12,10 +12,13 @@ from __future__ import annotations
 import argparse
 import copy
 import datetime
+import json
 import os
 import pathlib
 import re
+import subprocess
 import sys
+import time
 from zoneinfo import ZoneInfo
 
 
@@ -177,6 +180,34 @@ def _parse_reset_time(text: str,
         return max(delta, 0)
     except Exception:
         return None
+
+
+def _sentinel_path(pane_id: str) -> pathlib.Path:
+    return _sentinel_dir() / f"claude-retry-{pane_id.lstrip('%')}"
+
+
+def _dedup_acquire(pane_id: str, window: int) -> bool:
+    """Return True if we got the dedup slot for this pane.
+
+    Uses O_CREAT|O_EXCL for atomicity. If a sentinel exists but is older
+    than `window` seconds, replace it and return True.
+    """
+    path = _sentinel_path(pane_id)
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+    try:
+        age = time.time() - path.stat().st_mtime
+        if age > window:
+            path.unlink(missing_ok=True)
+    except FileNotFoundError:
+        pass
+
+    try:
+        fd = os.open(str(path), os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o644)
+        os.close(fd)
+        return True
+    except FileExistsError:
+        return False
 
 
 def _hook() -> None:
