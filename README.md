@@ -11,4 +11,6 @@ Public Claude Code plugins by [@vcth4nh](https://github.com/vcth4nh).
 
 ## Plugins
 
-_(none yet — first plugin in progress)_
+| Plugin | Version | Description |
+|---|---|---|
+| [`claude-auto-retry`](plugins/claude-auto-retry/) | 0.1.0 | Auto-retry on transient API errors (rate limits, 5xx, overloaded) via StopFailure hook + tmux send-keys. |
