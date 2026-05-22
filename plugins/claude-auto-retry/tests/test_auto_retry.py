@@ -216,5 +216,42 @@ class TestClassifyTransient(unittest.TestCase):
         self.assertEqual(source, "not_retryable")
 
 
+class TestClassifyHardQuota(unittest.TestCase):
+    def setUp(self):
+        self.cfg = copy.deepcopy(auto_retry.DEFAULT_CONFIG)
+        self.now = datetime.datetime(
+            2026, 5, 23, 2, 0, tzinfo=ZoneInfo("Asia/Bangkok"))
+
+    def test_parsed_within_max_wait(self):
+        text = "You've hit your limit · resets 3am (Asia/Bangkok)"
+        with mock.patch.object(auto_retry, "_parse_reset_time", return_value=3600):
+            backoff, source = auto_retry._classify("rate_limit", text, self.cfg)
+        self.assertEqual(backoff, 3600)
+        self.assertEqual(source, "quota_parsed")
+
+    def test_parse_fails_uses_fallback(self):
+        text = "You've hit your limit · resets at some weird time"
+        with mock.patch.object(auto_retry, "_parse_reset_time", return_value=None):
+            backoff, source = auto_retry._classify("rate_limit", text, self.cfg)
+        self.assertEqual(backoff, self.cfg["backoff"]["hard_quota_fallback"])
+        self.assertEqual(source, "quota_fallback")
+
+    def test_too_far_skipped(self):
+        text = "You've hit your limit · resets May 30, 1pm (Asia/Bangkok)"
+        with mock.patch.object(auto_retry, "_parse_reset_time", return_value=10 * 86400):
+            backoff, source = auto_retry._classify("rate_limit", text, self.cfg)
+        self.assertIsNone(backoff)
+        self.assertEqual(source, "quota_too_far")
+
+    def test_parse_disabled_uses_fallback(self):
+        self.cfg["hard_quota"]["parse_reset_time"] = False
+        text = "You've hit your limit · resets 3am (Asia/Bangkok)"
+        with mock.patch.object(auto_retry, "_parse_reset_time") as m:
+            backoff, source = auto_retry._classify("rate_limit", text, self.cfg)
+        m.assert_not_called()
+        self.assertEqual(backoff, self.cfg["backoff"]["hard_quota_fallback"])
+        self.assertEqual(source, "quota_fallback")
+
+
 if __name__ == "__main__":
     unittest.main()

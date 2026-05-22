@@ -106,8 +106,15 @@ def _classify(err: str, text: str, cfg: dict) -> tuple[int | None, str]:
         return None, "not_retryable"
     if err == "rate_limit":
         if "hit your" in text and "limit" in text:
-            # Hard usage quota — handled in Task 9 (parse reset time).
-            return None, "quota_unimplemented"
+            # Hard usage quota
+            if not bool(cfg["hard_quota"]["parse_reset_time"]):
+                return int(cfg["backoff"]["hard_quota_fallback"]), "quota_fallback"
+            delta = _parse_reset_time(text)
+            if delta is None:
+                return int(cfg["backoff"]["hard_quota_fallback"]), "quota_fallback"
+            if delta > int(cfg["hard_quota"]["max_wait"]):
+                return None, "quota_too_far"
+            return delta, "quota_parsed"
         return int(cfg["backoff"]["rate_limit_transient"]), "transient"
     if err == "server_error":
         return int(cfg["backoff"]["server_error"]), "transient"
