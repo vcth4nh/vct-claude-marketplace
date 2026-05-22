@@ -108,6 +108,41 @@ class TestLoadConfig(unittest.TestCase):
         cfg = auto_retry._load_config(str(self.cwd))
         self.assertEqual(cfg, auto_retry.DEFAULT_CONFIG)
 
+    def test_user_overrides_defaults(self):
+        user_cfg = self.cwd / "user.toml"
+        user_cfg.write_text(
+            "dedup_window = 90\n"
+            "[backoff]\n"
+            "rate_limit_transient = 120\n"
+        )
+        with mock.patch.dict("os.environ",
+                             {"CLAUDE_AUTO_RETRY_USER_CONFIG": str(user_cfg)}):
+            cfg = auto_retry._load_config(str(self.cwd))
+        self.assertEqual(cfg["dedup_window"], 90)
+        self.assertEqual(cfg["backoff"]["rate_limit_transient"], 120)
+        self.assertEqual(cfg["backoff"]["server_error"], 30)
+
+    def test_project_overrides_user(self):
+        user_cfg = self.cwd / "user.toml"
+        user_cfg.write_text("[backoff]\nrate_limit_transient = 120\n")
+        project_dir = self.cwd / ".claude"
+        project_dir.mkdir()
+        (project_dir / "claude-auto-retry.toml").write_text(
+            "[backoff]\nrate_limit_transient = 300\n"
+        )
+        with mock.patch.dict("os.environ",
+                             {"CLAUDE_AUTO_RETRY_USER_CONFIG": str(user_cfg)}):
+            cfg = auto_retry._load_config(str(self.cwd))
+        self.assertEqual(cfg["backoff"]["rate_limit_transient"], 300)
+
+    def test_malformed_toml_falls_back_silently(self):
+        user_cfg = self.cwd / "user.toml"
+        user_cfg.write_text("this is = not [ valid TOML\n")
+        with mock.patch.dict("os.environ",
+                             {"CLAUDE_AUTO_RETRY_USER_CONFIG": str(user_cfg)}):
+            cfg = auto_retry._load_config(str(self.cwd))
+        self.assertEqual(cfg, auto_retry.DEFAULT_CONFIG)
+
 
 if __name__ == "__main__":
     unittest.main()
