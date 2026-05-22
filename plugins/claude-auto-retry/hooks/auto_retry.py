@@ -287,6 +287,21 @@ def _rotate_log_if_needed(threshold: int = 5 * 1024 * 1024) -> None:
         pass
 
 
+_PANE_FORMAT = "#{session_name}:#{window_index}.#{pane_index} (#{pane_title})"
+
+
+def _resolve_pane(pane_id: str) -> str:
+    """Return a human-readable name for a tmux pane ID. Falls back to the ID."""
+    try:
+        r = subprocess.run(
+            ["tmux", "display-message", "-t", pane_id, "-p", _PANE_FORMAT],
+            capture_output=True, text=True, timeout=2, check=True,
+        )
+        return r.stdout.strip() or pane_id
+    except Exception:
+        return pane_id
+
+
 def _hook() -> None:
     """Read StopFailure event, classify, schedule timer. Stub for now."""
     pass

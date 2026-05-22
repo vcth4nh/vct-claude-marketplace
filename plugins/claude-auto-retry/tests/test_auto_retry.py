@@ -410,5 +410,25 @@ class TestLogRotation(unittest.TestCase):
         self.assertFalse(self.log.exists())
 
 
+import subprocess
+
+class TestResolvePane(unittest.TestCase):
+    def test_returns_tmux_output_on_success(self):
+        completed = mock.Mock(returncode=0, stdout="mywork:0.1 (claude)\n")
+        with mock.patch.object(auto_retry.subprocess, "run", return_value=completed):
+            self.assertEqual(auto_retry._resolve_pane("%7"), "mywork:0.1 (claude)")
+
+    def test_falls_back_on_tmux_error(self):
+        def boom(*a, **k):
+            raise subprocess.CalledProcessError(1, "tmux")
+        with mock.patch.object(auto_retry.subprocess, "run", side_effect=boom):
+            self.assertEqual(auto_retry._resolve_pane("%7"), "%7")
+
+    def test_falls_back_on_missing_tmux(self):
+        with mock.patch.object(auto_retry.subprocess, "run",
+                               side_effect=FileNotFoundError):
+            self.assertEqual(auto_retry._resolve_pane("%7"), "%7")
+
+
 if __name__ == "__main__":
     unittest.main()
