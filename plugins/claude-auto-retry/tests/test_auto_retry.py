@@ -529,5 +529,82 @@ class TestHookOrchestration(unittest.TestCase):
             auto_retry._hook()  # should not raise
 
 
+class TestTimer(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.log = pathlib.Path(self.tmp.name) / "log.jsonl"
+        self.pending = pathlib.Path(self.tmp.name) / "pending"
+        self.env = mock.patch.dict(
+            "os.environ",
+            {
+                "CLAUDE_AUTO_RETRY_LOG_PATH": str(self.log),
+                "CLAUDE_AUTO_RETRY_PENDING_DIR": str(self.pending),
+                "_CAR_PANE_NAME": "my:0.1 (claude)",
+                "_CAR_SOURCE": "transient",
+                "_CAR_ERROR_STATUS": "429",
+                "_CAR_SESSION_ID": "abc",
+                "_CAR_ERROR_TEXT": "test",
+            },
+        )
+        self.env.start()
+        self.addCleanup(self.env.stop)
+
+    def test_writes_pending_then_deletes(self):
+        sleeps = []
+        with mock.patch.object(auto_retry.time, "sleep",
+                               side_effect=lambda s: sleeps.append(s)), \
+             mock.patch.object(auto_retry.subprocess, "run", return_value=mock.Mock(returncode=0)):
+            auto_retry._timer("%7", 0, "rate_limit")
+        self.assertEqual(sleeps, [0])
+        self.assertEqual(auto_retry._list_pending(), [])
+
+    def test_sends_up_and_enter(self):
+        calls = []
+        def fake_run(args, **kwargs):
+            calls.append(args)
+            return mock.Mock(returncode=0)
+        with mock.patch.object(auto_retry.time, "sleep"), \
+             mock.patch.object(auto_retry.subprocess, "run", side_effect=fake_run):
+            auto_retry._timer("%7", 0, "rate_limit")
+        send_keys = [c for c in calls if c[:2] == ["tmux", "send-keys"]]
+        self.assertEqual(len(send_keys), 1)
+        self.assertIn("Up", send_keys[0])
+        self.assertIn("Enter", send_keys[0])
+        self.assertIn("%7", send_keys[0])
+
+    def test_quiet_skips_display_message(self):
+        cfg_path = pathlib.Path(self.tmp.name) / "u.toml"
+        cfg_path.write_text("quiet = true\n")
+        with mock.patch.dict("os.environ",
+                             {"CLAUDE_AUTO_RETRY_USER_CONFIG": str(cfg_path)}), \
+             mock.patch.object(auto_retry.time, "sleep"), \
+             mock.patch.object(auto_retry.subprocess, "run",
+                               return_value=mock.Mock(returncode=0)) as run:
+            auto_retry._timer("%7", 0, "rate_limit")
+        cmds = [c.args[0] for c in run.call_args_list]
+        self.assertFalse(any(c[:2] == ["tmux", "display-message"] for c in cmds))
+
+    def test_logs_fired_outcome(self):
+        with mock.patch.object(auto_retry.time, "sleep"), \
+             mock.patch.object(auto_retry.subprocess, "run",
+                               return_value=mock.Mock(returncode=0)):
+            auto_retry._timer("%7", 0, "rate_limit")
+        rec = json.loads(self.log.read_text().splitlines()[-1])
+        self.assertEqual(rec["outcome"], "fired")
+        self.assertEqual(rec["pane_id"], "%7")
+        self.assertEqual(rec["error"], "rate_limit")
+
+    def test_tmux_failure_logs_error_and_still_cleans_up(self):
+        with mock.patch.object(auto_retry.time, "sleep"), \
+             mock.patch.object(auto_retry.subprocess, "run",
+                               return_value=mock.Mock(returncode=1)):
+            auto_retry._timer("%7", 0, "rate_limit")
+        rec = json.loads(self.log.read_text().splitlines()[-1])
+        self.assertEqual(rec["outcome"], "error")
+        self.assertEqual(rec["reason"], "tmux_send_failed")
+        self.assertEqual(auto_retry._list_pending(), [])
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -384,8 +384,61 @@ def _hook() -> None:
 
 
 def _timer(pane: str, delay: int, error: str) -> None:
-    """Sleep, then inject Up+Enter via tmux. Stub for now."""
-    pass
+    """Sleep, then send Up+Enter to `pane`. Append fired/error log entry."""
+    pid = os.getpid()
+    now = datetime.datetime.now().astimezone()
+    fires_at = (now + datetime.timedelta(seconds=delay)).isoformat()
+    pane_name = os.environ.get("_CAR_PANE_NAME") or pane
+    source = os.environ.get("_CAR_SOURCE") or "transient"
+    error_status_raw = os.environ.get("_CAR_ERROR_STATUS") or ""
+    error_status: int | None
+    try:
+        error_status = int(error_status_raw) if error_status_raw else None
+    except ValueError:
+        error_status = None
+    session_id = os.environ.get("_CAR_SESSION_ID") or None
+    error_text = os.environ.get("_CAR_ERROR_TEXT") or ""
+
+    entry = {
+        "pid": pid,
+        "pane_id": pane,
+        "pane_name": pane_name,
+        "session_id": session_id,
+        "error": error,
+        "error_status": error_status,
+        "scheduled_at": now.isoformat(),
+        "fires_at": fires_at,
+        "backoff": delay,
+        "source": source,
+    }
+    try:
+        _write_pending(entry)
+        time.sleep(delay)
+
+        send = subprocess.run(
+            ["tmux", "send-keys", "-t", pane, "Up", "Enter"],
+            capture_output=True, text=True,
+        )
+        if send.returncode != 0:
+            stderr_str = send.stderr if isinstance(send.stderr, str) else ""
+            _log_event({**entry, "outcome": "error", "error_text": error_text,
+                       "reason": "tmux_send_failed",
+                       "stderr": stderr_str[:200]})
+            return
+
+        cfg = _load_config(os.getcwd())
+        if not bool(cfg.get("quiet", False)):
+            subprocess.run(
+                ["tmux", "display-message", "-t", pane,
+                 f"[auto-retry: {error} — retried after {delay}s]"],
+                capture_output=True, text=True,
+            )
+        _log_event({**entry, "outcome": "fired", "error_text": error_text})
+    except Exception as e:
+        _log_event({**entry, "outcome": "error",
+                   "reason": f"timer_exception: {e}"})
+    finally:
+        _delete_pending(pid)
 
 
 def _status() -> None:
