@@ -1,6 +1,8 @@
 from __future__ import annotations
 import io
+import pathlib
 import sys
+import tempfile
 import unittest
 from unittest import mock
 
@@ -88,6 +90,23 @@ class TestDefaultConfig(unittest.TestCase):
         self.assertTrue(c["per_error_enable"]["rate_limit"])
         self.assertTrue(c["per_error_enable"]["server_error"])
         self.assertTrue(c["per_error_enable"]["unknown"])
+
+
+class TestLoadConfig(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.cwd = pathlib.Path(self.tmp.name)
+        self.env_patch = mock.patch.dict(
+            "os.environ",
+            {"CLAUDE_AUTO_RETRY_USER_CONFIG": str(self.cwd / "nonexistent.toml")},
+        )
+        self.env_patch.start()
+        self.addCleanup(self.env_patch.stop)
+
+    def test_defaults_when_no_files(self):
+        cfg = auto_retry._load_config(str(self.cwd))
+        self.assertEqual(cfg, auto_retry.DEFAULT_CONFIG)
 
 
 if __name__ == "__main__":

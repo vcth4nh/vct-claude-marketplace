@@ -10,6 +10,7 @@ Runs in four modes via argparse:
 from __future__ import annotations
 
 import argparse
+import copy
 import os
 import pathlib
 import sys
@@ -53,6 +54,38 @@ DEFAULT_CONFIG: dict = {
         "unknown": True,
     },
 }
+
+
+def _user_config_path() -> pathlib.Path:
+    return pathlib.Path(
+        os.environ.get("CLAUDE_AUTO_RETRY_USER_CONFIG")
+        or (pathlib.Path.home() / ".config/claude-auto-retry/config.toml")
+    )
+
+
+def _project_config_path(cwd: str) -> pathlib.Path:
+    return pathlib.Path(cwd) / ".claude" / "claude-auto-retry.toml"
+
+
+def _load_config(cwd: str) -> dict:
+    """Resolve config: DEFAULT_CONFIG <- user <- project. Section-shallow merge."""
+    import tomllib
+
+    cfg = copy.deepcopy(DEFAULT_CONFIG)
+    for path in (_user_config_path(), _project_config_path(cwd)):
+        try:
+            with open(path, "rb") as f:
+                layer = tomllib.load(f)
+        except FileNotFoundError:
+            continue
+        except Exception:
+            continue
+        for top_key, value in layer.items():
+            if isinstance(value, dict) and isinstance(cfg.get(top_key), dict):
+                cfg[top_key].update(value)
+            else:
+                cfg[top_key] = value
+    return cfg
 
 
 def _hook() -> None:
