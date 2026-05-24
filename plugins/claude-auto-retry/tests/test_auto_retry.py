@@ -686,5 +686,41 @@ class TestInitConfig(unittest.TestCase):
         self.assertEqual(out.read_text(), "# mine\n")
 
 
+class TestSkipLadderOrder(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.log = pathlib.Path(self.tmp.name) / "log.jsonl"
+        self.pending = pathlib.Path(self.tmp.name) / "pending"
+        self.sentinel = pathlib.Path(self.tmp.name) / "sentinel"
+        self.sentinel.mkdir()
+        self.env = mock.patch.dict(
+            "os.environ",
+            {
+                "CLAUDE_AUTO_RETRY_LOG_PATH": str(self.log),
+                "CLAUDE_AUTO_RETRY_PENDING_DIR": str(self.pending),
+                "CLAUDE_AUTO_RETRY_SENTINEL_DIR": str(self.sentinel),
+                "CLAUDE_AUTO_RETRY_USER_CONFIG": str(self.sentinel / "nope.toml"),
+                "TMUX_PANE": "%7",
+            },
+        )
+        self.env.start()
+        self.addCleanup(self.env.stop)
+
+    def test_quota_too_far_does_not_consume_sentinel(self):
+        """A skipped quota_too_far must not leave a sentinel that blocks the next real retry."""
+        # Force quota_too_far by mocking _parse_reset_time to return huge delta
+        with mock.patch.object(auto_retry, "_parse_reset_time", return_value=10 * 86400), \
+             mock.patch.object(auto_retry.subprocess, "Popen") as p:
+            event = {"hook_event_name": "StopFailure", "error": "rate_limit",
+                     "error_details": "You've hit your limit · resets May 30, 1pm",
+                     "session_id": "abc", "cwd": self.tmp.name}
+            with mock.patch.object(sys, "stdin", io.StringIO(json.dumps(event))):
+                auto_retry._hook()
+            p.assert_not_called()
+        # Sentinel must NOT exist after the skip
+        self.assertFalse((self.sentinel / "claude-retry-7").exists())
+
+
 if __name__ == "__main__":
     unittest.main()

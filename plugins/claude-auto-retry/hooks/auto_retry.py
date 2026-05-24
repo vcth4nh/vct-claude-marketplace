@@ -352,15 +352,15 @@ def _hook() -> None:
         _cleanup_stale_pending(grace=grace)
         _rotate_log_if_needed()
 
-        if not _dedup_acquire(pane_id, int(cfg.get("dedup_window", 30))):
-            _log_event({**base_event, "outcome": "skipped",
-                       "source": "dedup_bounced", "pane_id": pane_id})
-            return
-
         backoff, source = _classify(err, text, cfg)
         if backoff is None:
             _log_event({**base_event, "outcome": "skipped", "source": source,
                        "pane_id": pane_id})
+            return
+
+        if not _dedup_acquire(pane_id, int(cfg.get("dedup_window", 30))):
+            _log_event({**base_event, "outcome": "skipped",
+                       "source": "dedup_bounced", "pane_id": pane_id})
             return
 
         pane_name = _resolve_pane(pane_id)
