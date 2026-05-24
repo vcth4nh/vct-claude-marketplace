@@ -426,10 +426,15 @@ def _timer(pane: str, delay: int, error: str) -> None:
         _write_pending(entry)
         time.sleep(delay)
 
-        send = subprocess.run(
-            ["tmux", "send-keys", "-t", pane, "Up", "Enter"],
-            capture_output=True, text=True,
-        )
+        try:
+            send = subprocess.run(
+                ["tmux", "send-keys", "-t", pane, "Up", "Enter"],
+                capture_output=True, text=True, timeout=5,
+            )
+        except subprocess.TimeoutExpired:
+            _log_event({**entry, "outcome": "error",
+                       "error_text": error_text, "reason": "tmux_send_timeout"})
+            return
         if send.returncode != 0:
             _log_event({**entry, "outcome": "error", "error_text": error_text,
                        "reason": "tmux_send_failed",
@@ -438,11 +443,14 @@ def _timer(pane: str, delay: int, error: str) -> None:
 
         cfg = _load_config(os.environ.get("_CAR_CWD") or os.getcwd())
         if not bool(cfg.get("quiet", False)):
-            subprocess.run(
-                ["tmux", "display-message", "-t", pane,
-                 f"[auto-retry: {error} — retried after {delay}s]"],
-                capture_output=True, text=True,
-            )
+            try:
+                subprocess.run(
+                    ["tmux", "display-message", "-t", pane,
+                     f"[auto-retry: {error} — retried after {delay}s]"],
+                    capture_output=True, text=True, timeout=5,
+                )
+            except subprocess.TimeoutExpired:
+                pass  # display-message is best-effort
         _log_event({**entry, "outcome": "fired", "error_text": error_text})
     except Exception as e:
         _log_event({**entry, "outcome": "error",

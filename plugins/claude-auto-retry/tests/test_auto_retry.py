@@ -628,6 +628,16 @@ class TestTimer(unittest.TestCase):
         self.assertEqual(rec["reason"], "tmux_send_failed")
         self.assertEqual(auto_retry._list_pending(), [])
 
+    def test_tmux_send_timeout_logs_and_cleans_up(self):
+        with mock.patch.object(auto_retry.time, "sleep"), \
+             mock.patch.object(auto_retry.subprocess, "run",
+                               side_effect=subprocess.TimeoutExpired(cmd="tmux", timeout=5)):
+            auto_retry._timer("%7", 0, "rate_limit")
+        rec = json.loads(self.log.read_text().splitlines()[-1])
+        self.assertEqual(rec["outcome"], "error")
+        self.assertEqual(rec["reason"], "tmux_send_timeout")
+        self.assertEqual(auto_retry._list_pending(), [])
+
     def test_quiet_uses_event_cwd_not_process_cwd(self):
         """When _CAR_CWD points at a project with quiet=true, no display-message fires."""
         proj = pathlib.Path(self.tmp.name) / "proj"
