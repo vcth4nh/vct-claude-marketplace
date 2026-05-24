@@ -552,6 +552,15 @@ class TestHookOrchestration(unittest.TestCase):
             auto_retry._hook()  # should not raise
 
 
+def _ok_run_with_claude_probe(*args, **kwargs):
+    """Mock that returns 'claude' from the foreground-command probe and
+    returncode=0 for everything else."""
+    cmd = args[0] if args else []
+    if cmd[:2] == ["tmux", "display-message"] and "pane_current_command" in (cmd[-1] if cmd else ""):
+        return mock.Mock(returncode=0, stdout="claude\n", stderr="")
+    return mock.Mock(returncode=0, stdout="", stderr="")
+
+
 class TestTimer(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
@@ -577,7 +586,8 @@ class TestTimer(unittest.TestCase):
         sleeps = []
         with mock.patch.object(auto_retry.time, "sleep",
                                side_effect=lambda s: sleeps.append(s)), \
-             mock.patch.object(auto_retry.subprocess, "run", return_value=mock.Mock(returncode=0)):
+             mock.patch.object(auto_retry.subprocess, "run",
+                               side_effect=_ok_run_with_claude_probe):
             auto_retry._timer("%7", 0, "rate_limit")
         self.assertEqual(sleeps, [0])
         self.assertEqual(auto_retry._list_pending(), [])
@@ -586,7 +596,9 @@ class TestTimer(unittest.TestCase):
         calls = []
         def fake_run(args, **kwargs):
             calls.append(args)
-            return mock.Mock(returncode=0)
+            if args[:2] == ["tmux", "display-message"] and "pane_current_command" in (args[-1] if args else ""):
+                return mock.Mock(returncode=0, stdout="claude\n", stderr="")
+            return mock.Mock(returncode=0, stdout="", stderr="")
         with mock.patch.object(auto_retry.time, "sleep"), \
              mock.patch.object(auto_retry.subprocess, "run", side_effect=fake_run):
             auto_retry._timer("%7", 0, "rate_limit")
@@ -603,15 +615,20 @@ class TestTimer(unittest.TestCase):
                              {"CLAUDE_AUTO_RETRY_USER_CONFIG": str(cfg_path)}), \
              mock.patch.object(auto_retry.time, "sleep"), \
              mock.patch.object(auto_retry.subprocess, "run",
-                               return_value=mock.Mock(returncode=0)) as run:
+                               side_effect=_ok_run_with_claude_probe) as run:
             auto_retry._timer("%7", 0, "rate_limit")
+        # Exclude the idle-state probe (which also uses display-message but has
+        # #{pane_current_command} as its last arg) — only the user-facing notice matters.
         cmds = [c.args[0] for c in run.call_args_list]
-        self.assertFalse(any(c[:2] == ["tmux", "display-message"] for c in cmds))
+        user_notice = [c for c in cmds
+                       if c[:2] == ["tmux", "display-message"]
+                       and "pane_current_command" not in (c[-1] if c else "")]
+        self.assertEqual(user_notice, [])
 
     def test_logs_fired_outcome(self):
         with mock.patch.object(auto_retry.time, "sleep"), \
              mock.patch.object(auto_retry.subprocess, "run",
-                               return_value=mock.Mock(returncode=0)):
+                               side_effect=_ok_run_with_claude_probe):
             auto_retry._timer("%7", 0, "rate_limit")
         rec = json.loads(self.log.read_text().splitlines()[-1])
         self.assertEqual(rec["outcome"], "fired")
@@ -619,9 +636,15 @@ class TestTimer(unittest.TestCase):
         self.assertEqual(rec["error"], "rate_limit")
 
     def test_tmux_failure_logs_error_and_still_cleans_up(self):
+        def fake_run(*args, **kwargs):
+            cmd = args[0] if args else []
+            if cmd[:2] == ["tmux", "display-message"] and "pane_current_command" in (cmd[-1] if cmd else ""):
+                return mock.Mock(returncode=0, stdout="claude\n", stderr="")
+            if cmd[:2] == ["tmux", "send-keys"]:
+                return mock.Mock(returncode=1, stdout="", stderr="tmux: bad pane identifier: %7")
+            return mock.Mock(returncode=0, stdout="", stderr="")
         with mock.patch.object(auto_retry.time, "sleep"), \
-             mock.patch.object(auto_retry.subprocess, "run",
-                               return_value=mock.Mock(returncode=1, stderr="tmux: bad pane identifier: %7")):
+             mock.patch.object(auto_retry.subprocess, "run", side_effect=fake_run):
             auto_retry._timer("%7", 0, "rate_limit")
         rec = json.loads(self.log.read_text().splitlines()[-1])
         self.assertEqual(rec["outcome"], "error")
@@ -629,9 +652,15 @@ class TestTimer(unittest.TestCase):
         self.assertEqual(auto_retry._list_pending(), [])
 
     def test_tmux_send_timeout_logs_and_cleans_up(self):
+        def fake_run(*args, **kwargs):
+            cmd = args[0] if args else []
+            if cmd[:2] == ["tmux", "display-message"] and "pane_current_command" in (cmd[-1] if cmd else ""):
+                return mock.Mock(returncode=0, stdout="claude\n", stderr="")
+            if cmd[:2] == ["tmux", "send-keys"]:
+                raise subprocess.TimeoutExpired(cmd="tmux", timeout=5)
+            return mock.Mock(returncode=0, stdout="", stderr="")
         with mock.patch.object(auto_retry.time, "sleep"), \
-             mock.patch.object(auto_retry.subprocess, "run",
-                               side_effect=subprocess.TimeoutExpired(cmd="tmux", timeout=5)):
+             mock.patch.object(auto_retry.subprocess, "run", side_effect=fake_run):
             auto_retry._timer("%7", 0, "rate_limit")
         rec = json.loads(self.log.read_text().splitlines()[-1])
         self.assertEqual(rec["outcome"], "error")
@@ -646,11 +675,48 @@ class TestTimer(unittest.TestCase):
         with mock.patch.dict("os.environ", {"_CAR_CWD": str(proj)}), \
              mock.patch.object(auto_retry.time, "sleep"), \
              mock.patch.object(auto_retry.subprocess, "run",
-                               return_value=mock.Mock(returncode=0, stderr="")) as run:
+                               side_effect=_ok_run_with_claude_probe) as run:
             auto_retry._timer("%7", 0, "rate_limit")
         cmds = [c.args[0] for c in run.call_args_list]
-        # No display-message even though process cwd doesn't have quiet=true
-        self.assertFalse(any(c[:2] == ["tmux", "display-message"] for c in cmds))
+        # No user-facing display-message even though process cwd doesn't have quiet=true.
+        # (Exclude the idle-state probe which also uses display-message.)
+        user_notice = [c for c in cmds
+                       if c[:2] == ["tmux", "display-message"]
+                       and "pane_current_command" not in (c[-1] if c else "")]
+        self.assertEqual(user_notice, [])
+
+    def test_idle_gate_skips_when_pane_not_claude(self):
+        # Probe returns "bash" — should skip without sending keys.
+        def fake_run(args, **kwargs):
+            if args[:2] == ["tmux", "display-message"]:
+                return mock.Mock(returncode=0, stdout="bash\n", stderr="")
+            # Any send-keys call would mean the gate failed.
+            raise AssertionError(f"unexpected tmux call: {args}")
+        with mock.patch.object(auto_retry.time, "sleep"), \
+             mock.patch.object(auto_retry.subprocess, "run", side_effect=fake_run):
+            auto_retry._timer("%7", 0, "rate_limit")
+        rec = json.loads(self.log.read_text().splitlines()[-1])
+        self.assertEqual(rec["outcome"], "skipped")
+        self.assertEqual(rec["reason"], "pane_not_claude")
+        self.assertEqual(auto_retry._list_pending(), [])
+
+    def test_idle_gate_proceeds_when_pane_is_claude(self):
+        # Probe returns "claude" — should send keys.
+        sent_send_keys = []
+        def fake_run(args, **kwargs):
+            if args[:2] == ["tmux", "display-message"] and "pane_current_command" in (args[-1] if args else ""):
+                return mock.Mock(returncode=0, stdout="node\nclaude\n", stderr="")
+            if args[:2] == ["tmux", "send-keys"]:
+                sent_send_keys.append(args)
+                return mock.Mock(returncode=0, stdout="", stderr="")
+            # display-message for the user notice
+            return mock.Mock(returncode=0, stdout="", stderr="")
+        with mock.patch.object(auto_retry.time, "sleep"), \
+             mock.patch.object(auto_retry.subprocess, "run", side_effect=fake_run):
+            auto_retry._timer("%7", 0, "rate_limit")
+        self.assertEqual(len(sent_send_keys), 1)
+        rec = json.loads(self.log.read_text().splitlines()[-1])
+        self.assertEqual(rec["outcome"], "fired")
 
 
 class TestStatus(unittest.TestCase):

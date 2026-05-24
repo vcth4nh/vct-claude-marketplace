@@ -31,7 +31,10 @@ export CLAUDE_AUTO_RETRY_USER_CONFIG="$WORK/nope.toml"
 mkdir -p "$CLAUDE_AUTO_RETRY_SENTINEL_DIR"
 
 # Now `tmux` (via shim) uses -L it-test for the engine too.
-tmux new-session -d -s test 'cat'
+# Use bash with argv[0]="claude" so #{pane_current_command} reports "claude"
+# (we just need the foreground command name to look like claude for the
+# idle-state gate; we don't need actual Claude behavior here).
+tmux new-session -d -s test 'exec -a claude bash -c "while sleep 60; do :; done"'
 TMUX_PANE=$(tmux list-panes -t test -F '#{pane_id}')
 echo "Test pane: $TMUX_PANE"
 

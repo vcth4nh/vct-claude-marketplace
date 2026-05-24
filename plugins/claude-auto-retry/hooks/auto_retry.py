@@ -426,6 +426,25 @@ def _timer(pane: str, delay: int, error: str) -> None:
         _write_pending(entry)
         time.sleep(delay)
 
+        # Idle-state gate: confirm Claude is still the foreground process in the
+        # pane. If the user closed Claude and the pane is now a shell/vim/etc.,
+        # injecting Up+Enter could execute arbitrary commands. Skip + log.
+        try:
+            probe = subprocess.run(
+                ["tmux", "display-message", "-t", pane, "-p",
+                 "#{pane_current_command}"],
+                capture_output=True, text=True, timeout=5,
+            )
+            current_cmd = (probe.stdout or "").strip().lower()
+        except (subprocess.TimeoutExpired, FileNotFoundError, OSError):
+            current_cmd = ""
+        if "claude" not in current_cmd:
+            _log_event({**entry, "outcome": "skipped",
+                       "error_text": error_text,
+                       "reason": "pane_not_claude",
+                       "pane_current_command": current_cmd or "<unavailable>"})
+            return
+
         try:
             send = subprocess.run(
                 ["tmux", "send-keys", "-t", pane, "Up", "Enter"],
