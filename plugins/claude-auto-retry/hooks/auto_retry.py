@@ -358,6 +358,14 @@ def _hook() -> None:
                        "pane_id": pane_id})
             return
 
+        # If a timer is already pending for this pane, don't schedule another.
+        # The dedup window is 30s but timers can run for hours (hard-quota).
+        for entry in _list_pending():
+            if entry.get("pane_id") == pane_id:
+                _log_event({**base_event, "outcome": "skipped",
+                           "source": "already_pending", "pane_id": pane_id})
+                return
+
         if not _dedup_acquire(pane_id, int(cfg.get("dedup_window", 30))):
             _log_event({**base_event, "outcome": "skipped",
                        "source": "dedup_bounced", "pane_id": pane_id})

@@ -686,6 +686,48 @@ class TestInitConfig(unittest.TestCase):
         self.assertEqual(out.read_text(), "# mine\n")
 
 
+class TestAlreadyPending(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.log = pathlib.Path(self.tmp.name) / "log.jsonl"
+        self.pending = pathlib.Path(self.tmp.name) / "pending"
+        self.sentinel = pathlib.Path(self.tmp.name) / "sentinel"
+        self.sentinel.mkdir()
+        self.env = mock.patch.dict(
+            "os.environ",
+            {
+                "CLAUDE_AUTO_RETRY_LOG_PATH": str(self.log),
+                "CLAUDE_AUTO_RETRY_PENDING_DIR": str(self.pending),
+                "CLAUDE_AUTO_RETRY_SENTINEL_DIR": str(self.sentinel),
+                "CLAUDE_AUTO_RETRY_USER_CONFIG": str(self.sentinel / "nope.toml"),
+                "TMUX_PANE": "%7",
+            },
+        )
+        self.env.start()
+        self.addCleanup(self.env.stop)
+
+    def test_already_pending_skipped(self):
+        # Pre-populate a pending file for the target pane
+        future = (datetime.datetime.now() + datetime.timedelta(seconds=3600))\
+                 .astimezone().isoformat()
+        auto_retry._write_pending({
+            "pid": 99999, "pane_id": "%7", "pane_name": "x",
+            "error": "rate_limit", "fires_at": future, "backoff": 3600,
+            "source": "quota_parsed",
+        })
+        event = {"hook_event_name": "StopFailure", "error": "rate_limit",
+                 "error_details": "Server is temporarily limiting",
+                 "session_id": "abc", "cwd": self.tmp.name}
+        with mock.patch.object(sys, "stdin", io.StringIO(json.dumps(event))), \
+             mock.patch.object(auto_retry, "_resolve_pane", return_value="my:0.1"), \
+             mock.patch.object(auto_retry.subprocess, "Popen") as p:
+            auto_retry._hook()
+            p.assert_not_called()
+        rec = json.loads(self.log.read_text().splitlines()[-1])
+        self.assertEqual(rec["source"], "already_pending")
+
+
 class TestSkipLadderOrder(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
