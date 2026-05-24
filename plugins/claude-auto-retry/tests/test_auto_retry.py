@@ -186,6 +186,29 @@ class TestParseResetTime(unittest.TestCase):
         self.assertIsNone(auto_retry._parse_reset_time("resets soon"))
 
 
+class TestParseResetTimeDST(unittest.TestCase):
+    def test_dst_spring_forward_gap(self):
+        """2026-03-08 01:30 America/New_York → 3am same day:
+        Wall-clock 1.5h; real elapsed 30 min because 2-3am doesn't exist."""
+        now = datetime.datetime(2026, 3, 8, 1, 30,
+                                tzinfo=ZoneInfo("America/New_York"))
+        text = "You've hit your limit · resets 3am (America/New_York)"
+        delta = auto_retry._parse_reset_time(text, now=now)
+        self.assertEqual(delta, 1800)  # 30 minutes, not 5400 seconds
+
+    def test_dst_fall_back_fold(self):
+        """2026-11-01 01:00 America/New_York → 3am: wall-clock 2h; real 3h because
+        1-2am happens twice. (We accept either now to start, but target is unambiguous.)"""
+        now = datetime.datetime(2026, 11, 1, 1, 0,
+                                tzinfo=ZoneInfo("America/New_York"))
+        text = "You've hit your limit · resets 3am (America/New_York)"
+        delta = auto_retry._parse_reset_time(text, now=now)
+        # The first 1:00 is DST (fold=0); the second is standard (fold=1).
+        # Python's datetime constructor defaults to fold=0 (DST/EDT).
+        # 1:00 EDT → 3:00 EST = 3 hours of real time.
+        self.assertEqual(delta, 3 * 3600)
+
+
 class TestClassifyTransient(unittest.TestCase):
     def setUp(self):
         self.cfg = copy.deepcopy(auto_retry.DEFAULT_CONFIG)

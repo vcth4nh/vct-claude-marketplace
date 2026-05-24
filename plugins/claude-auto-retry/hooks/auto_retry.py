@@ -177,7 +177,8 @@ def _parse_reset_time(text: str,
             if target <= now:
                 target += datetime.timedelta(days=1)
 
-        delta = int((target - now).total_seconds())
+        delta = int((target.astimezone(datetime.timezone.utc)
+                     - now.astimezone(datetime.timezone.utc)).total_seconds())
         return max(delta, 0)
     except Exception:
         return None
