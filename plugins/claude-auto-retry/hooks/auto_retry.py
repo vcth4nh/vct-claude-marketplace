@@ -314,8 +314,8 @@ def _hook() -> None:
             return
 
         err = event.get("error", "unknown")
-        text = event.get("error_details") or event.get("last_assistant_message") or ""
-        text = text[:500]
+        full_text = event.get("error_details") or event.get("last_assistant_message") or ""
+        text = full_text[:500]  # truncated copy for log/env storage only
         status = event.get("apiErrorStatus")
         session_id = event.get("session_id")
         cwd = event.get("cwd") or os.getcwd()
@@ -352,7 +352,7 @@ def _hook() -> None:
         _cleanup_stale_pending(grace=grace)
         _rotate_log_if_needed()
 
-        backoff, source = _classify(err, text, cfg)
+        backoff, source = _classify(err, full_text, cfg)
         if backoff is None:
             _log_event({**base_event, "outcome": "skipped", "source": source,
                        "pane_id": pane_id})

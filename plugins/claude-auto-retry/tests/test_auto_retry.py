@@ -700,6 +700,44 @@ class TestInitConfig(unittest.TestCase):
         self.assertEqual(out.read_text(), "# mine\n")
 
 
+class TestClassifyAgainstFullText(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.log = pathlib.Path(self.tmp.name) / "log.jsonl"
+        self.pending = pathlib.Path(self.tmp.name) / "pending"
+        self.sentinel = pathlib.Path(self.tmp.name) / "sentinel"
+        self.sentinel.mkdir()
+        self.env = mock.patch.dict(
+            "os.environ",
+            {
+                "CLAUDE_AUTO_RETRY_LOG_PATH": str(self.log),
+                "CLAUDE_AUTO_RETRY_PENDING_DIR": str(self.pending),
+                "CLAUDE_AUTO_RETRY_SENTINEL_DIR": str(self.sentinel),
+                "CLAUDE_AUTO_RETRY_USER_CONFIG": str(self.sentinel / "nope.toml"),
+                "TMUX_PANE": "%7",
+            },
+        )
+        self.env.start()
+        self.addCleanup(self.env.stop)
+
+    def test_quota_marker_past_500_chars_still_detected(self):
+        # Build a 700-char error_details where the "hit your limit · resets" phrase
+        # sits at character 600 — past the old 500-char truncation point.
+        padding = "x" * 600
+        text = padding + " You've hit your limit · resets 3am (Asia/Bangkok)"
+        event = {"hook_event_name": "StopFailure", "error": "rate_limit",
+                 "error_details": text, "session_id": "abc", "cwd": self.tmp.name}
+        with mock.patch.object(sys, "stdin", io.StringIO(json.dumps(event))), \
+             mock.patch.object(auto_retry, "_resolve_pane", return_value="x"), \
+             mock.patch.object(auto_retry.subprocess, "Popen") as p:
+            auto_retry._hook()
+        # Should have classified as quota_parsed or quota_fallback (NOT transient,
+        # which is what the old truncation bug would have produced).
+        rec = json.loads(self.log.read_text().splitlines()[-1])
+        self.assertIn(rec.get("source"), ("quota_parsed", "quota_fallback", "quota_too_far"))
+
+
 class TestAlreadyPending(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory()
