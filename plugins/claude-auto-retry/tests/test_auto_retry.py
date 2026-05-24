@@ -605,6 +605,20 @@ class TestTimer(unittest.TestCase):
         self.assertEqual(rec["reason"], "tmux_send_failed")
         self.assertEqual(auto_retry._list_pending(), [])
 
+    def test_quiet_uses_event_cwd_not_process_cwd(self):
+        """When _CAR_CWD points at a project with quiet=true, no display-message fires."""
+        proj = pathlib.Path(self.tmp.name) / "proj"
+        (proj / ".claude").mkdir(parents=True)
+        (proj / ".claude" / "claude-auto-retry.toml").write_text("quiet = true\n")
+        with mock.patch.dict("os.environ", {"_CAR_CWD": str(proj)}), \
+             mock.patch.object(auto_retry.time, "sleep"), \
+             mock.patch.object(auto_retry.subprocess, "run",
+                               return_value=mock.Mock(returncode=0, stderr="")) as run:
+            auto_retry._timer("%7", 0, "rate_limit")
+        cmds = [c.args[0] for c in run.call_args_list]
+        # No display-message even though process cwd doesn't have quiet=true
+        self.assertFalse(any(c[:2] == ["tmux", "display-message"] for c in cmds))
+
 
 class TestStatus(unittest.TestCase):
     def setUp(self):

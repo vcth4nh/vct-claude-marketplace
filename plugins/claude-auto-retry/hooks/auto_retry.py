@@ -384,7 +384,8 @@ def _hook() -> None:
                  "_CAR_SOURCE": source,
                  "_CAR_ERROR_STATUS": "" if status is None else str(status),
                  "_CAR_SESSION_ID": session_id or "",
-                 "_CAR_ERROR_TEXT": text},
+                 "_CAR_ERROR_TEXT": text,
+                 "_CAR_CWD": cwd},
         )
         _log_event({**base_event, "outcome": "scheduled", "source": source,
                    "backoff": backoff, "pane_id": pane_id, "pane_name": pane_name})
@@ -434,7 +435,7 @@ def _timer(pane: str, delay: int, error: str) -> None:
                        "stderr": (send.stderr or "")[:200]})
             return
 
-        cfg = _load_config(os.getcwd())
+        cfg = _load_config(os.environ.get("_CAR_CWD") or os.getcwd())
         if not bool(cfg.get("quiet", False)):
             subprocess.run(
                 ["tmux", "display-message", "-t", pane,
