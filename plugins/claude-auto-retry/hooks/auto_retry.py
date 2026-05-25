@@ -438,13 +438,19 @@ def _hook() -> None:
                        "pane_id": pane_id})
             return
 
-        # If a timer is already pending for this pane, don't schedule another.
-        # The dedup window is 30s but timers can run for hours (hard-quota).
+        # If a LIVE timer is already pending for this pane, don't schedule another.
+        # Pending entries with dead PIDs are stale (orphan cleanup will sweep them
+        # later; for now don't let them false-block new retries).
         for entry in _list_pending():
-            if entry.get("pane_id") == pane_id:
-                _log_event({**base_event, "outcome": "skipped",
-                           "source": "already_pending", "pane_id": pane_id})
-                return
+            if entry.get("pane_id") != pane_id:
+                continue
+            entry_pid = int(entry.get("pid") or 0)
+            if entry_pid <= 0 or not _pid_alive(entry_pid):
+                continue   # stale pidfile, ignore
+            _log_event({**base_event, "outcome": "skipped",
+                       "source": "already_pending", "pane_id": pane_id,
+                       "blocking_pid": entry_pid})
+            return
 
         if not _dedup_acquire(pane_id, int(cfg.get("dedup_window", 30))):
             _log_event({**base_event, "outcome": "skipped",

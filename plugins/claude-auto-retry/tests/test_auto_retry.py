@@ -865,7 +865,7 @@ class TestAlreadyPending(unittest.TestCase):
         self.addCleanup(self.env.stop)
 
     def test_already_pending_skipped(self):
-        # Pre-populate a pending file for the target pane
+        # Pre-populate a pending file for the target pane with a "live" PID
         future = (datetime.datetime.now() + datetime.timedelta(seconds=3600))\
                  .astimezone().isoformat()
         auto_retry._write_pending({
@@ -878,11 +878,31 @@ class TestAlreadyPending(unittest.TestCase):
                  "session_id": "abc", "cwd": self.tmp.name}
         with mock.patch.object(sys, "stdin", io.StringIO(json.dumps(event))), \
              mock.patch.object(auto_retry, "_resolve_pane", return_value="my:0.1"), \
+             mock.patch.object(auto_retry, "_pid_alive", return_value=True), \
              mock.patch.object(auto_retry.subprocess, "Popen") as p:
             auto_retry._hook()
             p.assert_not_called()
         rec = json.loads(self.log.read_text().splitlines()[-1])
         self.assertEqual(rec["source"], "already_pending")
+
+    def test_already_pending_with_dead_pid_does_not_block(self):
+        # Pre-populate a pending file with a clearly-dead PID
+        future = (datetime.datetime.now() + datetime.timedelta(seconds=3600))\
+                 .astimezone().isoformat()
+        auto_retry._write_pending({
+            "pid": 2**31 - 1, "pane_id": "%7", "pane_name": "x",
+            "error": "rate_limit", "fires_at": future, "backoff": 3600,
+            "source": "quota_parsed",
+        })
+        event = {"hook_event_name": "StopFailure", "error": "rate_limit",
+                 "error_details": "Server is temporarily limiting",
+                 "session_id": "abc", "cwd": self.tmp.name}
+        with mock.patch.object(sys, "stdin", io.StringIO(json.dumps(event))), \
+             mock.patch.object(auto_retry, "_resolve_pane", return_value="my:0.1"), \
+             mock.patch.object(auto_retry.subprocess, "Popen") as p:
+            auto_retry._hook()
+            # SHOULD spawn — the dead pid in pending shouldn't block
+            p.assert_called_once()
 
 
 class TestSkipLadderOrder(unittest.TestCase):
