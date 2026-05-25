@@ -304,6 +304,85 @@ def _resolve_pane(pane_id: str) -> str:
         return pane_id
 
 
+def _claude_pid_from_self() -> int | None:
+    """Return the PID of our grandparent (= Claude), or None.
+
+    Hook invocation chain: claude → /bin/sh -c "auto_retry.py --hook" → us.
+    Our parent is the shell; its parent is Claude.
+    """
+    # Test/integration override
+    override = os.environ.get("CLAUDE_AUTO_RETRY_CLAUDE_PID_OVERRIDE")
+    if override:
+        try:
+            return int(override)
+        except ValueError:
+            return None
+    try:
+        sh_pid = os.getppid()
+        with open(f"/proc/{sh_pid}/stat") as f:
+            # stat format: <pid> (<comm with possible spaces>) <state> <ppid> ...
+            # comm can contain ')' so split on the LAST ')' to be safe.
+            raw = f.read()
+        rparen = raw.rfind(")")
+        if rparen < 0:
+            return None
+        rest = raw[rparen + 1:].split()
+        # rest = [state, ppid, pgrp, ...]
+        return int(rest[1])
+    except Exception:
+        return None
+
+
+def _pid_alive(pid: int) -> bool:
+    """True if a process with this pid currently exists (this user can signal it)."""
+    if pid <= 0:
+        return False
+    try:
+        os.kill(pid, 0)
+        return True
+    except ProcessLookupError:
+        return False
+    except PermissionError:
+        # Process exists but we can't signal it (different uid). Treat as alive.
+        return True
+    except OSError:
+        return False
+
+
+def _pid_ancestors(pid: int, max_depth: int = 32) -> list[int]:
+    """Return ancestors of `pid`, immediate-parent first, stopping at PID 1 or unknown."""
+    out = []
+    current = pid
+    for _ in range(max_depth):
+        if current <= 1:
+            break
+        try:
+            with open(f"/proc/{current}/stat") as f:
+                raw = f.read()
+            rparen = raw.rfind(")")
+            if rparen < 0:
+                break
+            rest = raw[rparen + 1:].split()
+            ppid = int(rest[1])
+        except (FileNotFoundError, ValueError, IndexError, OSError):
+            break
+        out.append(ppid)
+        current = ppid
+    return out
+
+
+def _pane_shell_pid(pane: str) -> int | None:
+    """Return tmux's reported pane_pid (the shell running in the pane), or None."""
+    try:
+        r = subprocess.run(
+            ["tmux", "display-message", "-t", pane, "-p", "#{pane_pid}"],
+            capture_output=True, text=True, timeout=5, check=True,
+        )
+        return int(r.stdout.strip())
+    except Exception:
+        return None
+
+
 def _hook() -> None:
     """StopFailure entry. Fast (<1s), fire-and-forget."""
     try:
@@ -373,6 +452,7 @@ def _hook() -> None:
             return
 
         pane_name = _resolve_pane(pane_id)
+        claude_pid = _claude_pid_from_self()
 
         subprocess.Popen(
             [sys.executable, os.path.abspath(__file__),
@@ -386,10 +466,12 @@ def _hook() -> None:
                  "_CAR_ERROR_STATUS": "" if status is None else str(status),
                  "_CAR_SESSION_ID": session_id or "",
                  "_CAR_ERROR_TEXT": text,
-                 "_CAR_CWD": cwd},
+                 "_CAR_CWD": cwd,
+                 "_CAR_CLAUDE_PID": str(claude_pid) if claude_pid else ""},
         )
         _log_event({**base_event, "outcome": "scheduled", "source": source,
-                   "backoff": backoff, "pane_id": pane_id, "pane_name": pane_name})
+                   "backoff": backoff, "pane_id": pane_id, "pane_name": pane_name,
+                   "claude_pid": claude_pid})
     except Exception as e:
         _log_event({"outcome": "error", "reason": f"hook_exception: {e}"})
 
@@ -426,23 +508,34 @@ def _timer(pane: str, delay: int, error: str) -> None:
         _write_pending(entry)
         time.sleep(delay)
 
-        # Idle-state gate: confirm Claude is still the foreground process in the
-        # pane. If the user closed Claude and the pane is now a shell/vim/etc.,
-        # injecting Up+Enter could execute arbitrary commands. Skip + log.
+        # Idle-state gate (PID-based): the Claude process that asked us to
+        # schedule this retry must still be alive AND still living in this pane.
+        claude_pid_raw = os.environ.get("_CAR_CLAUDE_PID") or ""
         try:
-            probe = subprocess.run(
-                ["tmux", "display-message", "-t", pane, "-p",
-                 "#{pane_current_command}"],
-                capture_output=True, text=True, timeout=5,
-            )
-            current_cmd = (probe.stdout or "").strip().lower()
-        except (subprocess.TimeoutExpired, FileNotFoundError, OSError):
-            current_cmd = ""
-        if "claude" not in current_cmd:
+            claude_pid = int(claude_pid_raw) if claude_pid_raw else 0
+        except ValueError:
+            claude_pid = 0
+
+        gate_skipped: tuple[str, dict] | None = None
+        if claude_pid <= 0:
+            gate_skipped = ("claude_pid_unknown", {})
+        elif not _pid_alive(claude_pid):
+            gate_skipped = ("claude_process_gone", {"claude_pid": claude_pid})
+        else:
+            pane_pid = _pane_shell_pid(pane)
+            if pane_pid is None:
+                gate_skipped = ("pane_pid_unknown", {"claude_pid": claude_pid})
+            else:
+                ancestors = _pid_ancestors(claude_pid)
+                if pane_pid not in ancestors:
+                    gate_skipped = ("claude_not_in_pane", {
+                        "claude_pid": claude_pid, "pane_shell_pid": pane_pid})
+
+        if gate_skipped:
+            reason, extra = gate_skipped
             _log_event({**entry, "outcome": "skipped",
                        "error_text": error_text,
-                       "reason": "pane_not_claude",
-                       "pane_current_command": current_cmd or "<unavailable>"})
+                       "reason": reason, **extra})
             return
 
         try:

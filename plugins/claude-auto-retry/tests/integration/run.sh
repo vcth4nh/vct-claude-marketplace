@@ -30,13 +30,19 @@ export CLAUDE_AUTO_RETRY_SENTINEL_DIR="$WORK/sentinel"
 export CLAUDE_AUTO_RETRY_USER_CONFIG="$WORK/nope.toml"
 mkdir -p "$CLAUDE_AUTO_RETRY_SENTINEL_DIR"
 
-# Now `tmux` (via shim) uses -L it-test for the engine too.
-# Use bash with argv[0]="claude" so #{pane_current_command} reports "claude"
-# (we just need the foreground command name to look like claude for the
-# idle-state gate; we don't need actual Claude behavior here).
-tmux new-session -d -s test 'exec -a claude bash -c "while sleep 60; do :; done"'
+# Start a tmux pane with bash; spawn a sleep child to act as "Claude".
+tmux new-session -d -s test 'bash -c "sleep 9999 & wait"'
+sleep 0.3   # let bash spawn its child
 TMUX_PANE=$(tmux list-panes -t test -F '#{pane_id}')
-echo "Test pane: $TMUX_PANE"
+PANE_SHELL_PID=$(tmux display-message -t "$TMUX_PANE" -p '#{pane_pid}')
+FAKE_CLAUDE_PID=$(pgrep -P "$PANE_SHELL_PID" | head -1)
+if [ -z "$FAKE_CLAUDE_PID" ]; then
+  echo "FAIL: could not find child of pane bash"
+  exit 1
+fi
+echo "Test pane: $TMUX_PANE; fake-claude pid: $FAKE_CLAUDE_PID"
+
+export CLAUDE_AUTO_RETRY_CLAUDE_PID_OVERRIDE="$FAKE_CLAUDE_PID"
 
 # Project config: 1s transient backoff, quiet (no display-message).
 mkdir -p "$WORK/.claude"
