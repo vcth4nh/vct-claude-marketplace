@@ -444,7 +444,10 @@ def _hook() -> None:
         for entry in _list_pending():
             if entry.get("pane_id") != pane_id:
                 continue
-            entry_pid = int(entry.get("pid") or 0)
+            try:
+                entry_pid = int(entry.get("pid") or 0)
+            except (TypeError, ValueError):
+                continue  # malformed pidfile, ignore
             if entry_pid <= 0 or not _pid_alive(entry_pid):
                 continue   # stale pidfile, ignore
             _log_event({**base_event, "outcome": "skipped",

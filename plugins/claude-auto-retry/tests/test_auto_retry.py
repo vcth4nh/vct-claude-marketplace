@@ -925,6 +925,31 @@ class TestAlreadyPending(unittest.TestCase):
             # SHOULD spawn — the dead pid in pending shouldn't block
             p.assert_called_once()
 
+    def test_already_pending_with_malformed_pid_does_not_crash(self):
+        """A pending file with a non-integer pid (corrupted/manual edit) must be
+        ignored, not bubble up to hook_exception."""
+        # Write a malformed pending file directly (bypass _write_pending)
+        pending_dir = pathlib.Path(self.pending)
+        pending_dir.mkdir(parents=True, exist_ok=True)
+        (pending_dir / "garbage.json").write_text(json.dumps({
+            "pid": "not_a_number", "pane_id": "%7", "pane_name": "x",
+            "error": "rate_limit", "fires_at": "x", "backoff": 60,
+            "source": "transient",
+        }))
+        event = {"hook_event_name": "StopFailure", "error": "rate_limit",
+                 "error_details": "Server is temporarily limiting",
+                 "session_id": "abc", "cwd": self.tmp.name}
+        with mock.patch.object(sys, "stdin", io.StringIO(json.dumps(event))), \
+             mock.patch.object(auto_retry, "_resolve_pane", return_value="my:0.1"), \
+             mock.patch.object(auto_retry.subprocess, "Popen") as p:
+            auto_retry._hook()
+            # Should have scheduled normally; malformed entry ignored, not crashed
+            p.assert_called_once()
+        rec = json.loads(self.log.read_text().splitlines()[-1])
+        self.assertEqual(rec["outcome"], "scheduled")
+        # And specifically NOT hook_exception
+        self.assertNotIn("hook_exception", json.dumps(rec))
+
 
 class TestSkipLadderOrder(unittest.TestCase):
     def setUp(self):
