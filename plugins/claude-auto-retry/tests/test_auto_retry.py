@@ -706,6 +706,27 @@ class TestTimer(unittest.TestCase):
         self.assertEqual(rec["outcome"], "skipped")
         self.assertEqual(rec["reason"], "claude_not_in_pane")
 
+    def test_idle_gate_passes_when_pane_pid_equals_claude_pid(self):
+        """tmux new-session claude / exec claude: pane_pid == claude_pid.
+        Gate must accept this (no ancestors needed)."""
+        self._ancestors.stop()
+        self._pane_pid.stop()
+        # claude_pid in setUp env is "54321". Make pane_pid match.
+        sent = []
+        def fake_run(args, **kwargs):
+            sent.append(args)
+            return mock.Mock(returncode=0, stderr="")
+        with mock.patch.object(auto_retry, "_pane_shell_pid", return_value=54321), \
+             mock.patch.object(auto_retry, "_pid_ancestors", return_value=[]), \
+             mock.patch.object(auto_retry.time, "sleep"), \
+             mock.patch.object(auto_retry.subprocess, "run", side_effect=fake_run):
+            auto_retry._timer("%7", 0, "rate_limit")
+        # Must have actually sent keys (not skipped)
+        send_keys = [c for c in sent if c[:2] == ["tmux", "send-keys"]]
+        self.assertEqual(len(send_keys), 1)
+        rec = json.loads(self.log.read_text().splitlines()[-1])
+        self.assertEqual(rec["outcome"], "fired")
+
 
 class TestPidHelpers(unittest.TestCase):
     def test_pid_alive_for_self(self):

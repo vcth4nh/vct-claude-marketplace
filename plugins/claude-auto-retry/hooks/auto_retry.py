@@ -532,8 +532,8 @@ def _timer(pane: str, delay: int, error: str) -> None:
             if pane_pid is None:
                 gate_skipped = ("pane_pid_unknown", {"claude_pid": claude_pid})
             else:
-                ancestors = _pid_ancestors(claude_pid)
-                if pane_pid not in ancestors:
+                if pane_pid != claude_pid \
+                        and pane_pid not in _pid_ancestors(claude_pid):
                     gate_skipped = ("claude_not_in_pane", {
                         "claude_pid": claude_pid, "pane_shell_pid": pane_pid})
 
