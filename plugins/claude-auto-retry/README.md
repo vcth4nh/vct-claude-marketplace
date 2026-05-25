@@ -59,7 +59,7 @@ echo '{"hook_event_name":"StopFailure","error":"rate_limit","error_details":"Ser
 # /claude-auto-retry:status will show one fired event.
 ```
 
-## Known limitations (v0.1.0)
+## Known limitations
 
 - Subagent errors (`isSidechain: true`) do not trigger `StopFailure` on the
   main session and are not retried. Planned for v0.2.
