@@ -1,6 +1,6 @@
 {
   "name": "claude-auto-retry",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Auto-retry Claude Code sessions on transient API errors (rate limits, 5xx, overloaded) via a StopFailure hook + tmux send-keys. Hard usage quotas parsed from the error text and scheduled. Pure stdlib, no daemon, no wrapper.",
   "author": {
     "name": "vcth4nh"
