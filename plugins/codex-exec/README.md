@@ -14,17 +14,24 @@ this is the lightweight alternative for people who just want `codex exec` used
 
 - **Discussion first.** New topic → `codex exec`; every follow-up on that topic
   → `codex exec resume <session-id>` so Codex keeps its context. Codex's
-  verdict is quoted verbatim, then Claude gives its own take.
+  verdict is quoted verbatim, then Claude gives its own take. Discussion
+  prompts explicitly prohibit file or external-state changes.
+- **Folder-aware sessions.** Claude inspects and selects the folder appropriate
+  to each topic instead of forcing a Git or project root, then records that
+  absolute folder with the session ID for follow-ups. Verified non-Git folders
+  use Codex's `--skip-git-repo-check` flag automatically.
 - **Default flags only.** No `-s/--sandbox`, `--full-auto`, `--cd`, or model
-  overrides — your `~/.codex/config.toml` governs. Tested finding: unprompted
-  sandbox flags *broke every single baseline run* on a containerized machine
-  (Codex's bubblewrap sandbox can't nest), and `-s` doesn't exist on `resume`.
-- **Background execution** with `-o <file>` output capture — Codex runs take
-  minutes; foreground runs blow Bash's 2-minute default timeout.
+  overrides — Codex's configuration and built-in defaults govern. Explicit
+  sandbox flags can fail under nested sandboxing, and `-s` isn't accepted by
+  `resume`.
+- **Background execution.** Long runs go in the background with a per-topic
+  `-o` file; its exit status and non-empty contents are checked before Claude
+  quotes it, so a failed or empty run is reported, never a stale file.
 - **Preflight once per session** (`codex login status`) with fix suggestions,
   never auto-install.
-- **Delegation hygiene.** When Codex edits files, the result is verified with
-  `git diff` and a quick test — never its prose summary.
+- **Delegation hygiene.** Existing content is recorded first using Git status
+  and diffs when available or a file-content baseline otherwise. Changes and a
+  focused test are checked afterward — never just Codex's prose summary.
 
 ## Install
 
@@ -36,7 +43,7 @@ this is the lightweight alternative for people who just want `codex exec` used
 ## Requirements
 
 - [Codex CLI](https://developers.openai.com/codex/cli/) (`npm install -g @openai/codex`), logged in (`codex login`)
-- Codex usage is billed to your ChatGPT plan / OpenAI API key
+- Usage counts toward your ChatGPT plan's Codex limits or API billing
 
 ## Usage
 
@@ -57,5 +64,4 @@ silent).
 TDD for documentation: 7 baseline (no-skill) agent runs were recorded first —
 7/7 invented sandbox flags and every one broke or degraded the run, 0 checked
 login state, 0 used background execution. The skill targets exactly those
-failures; with it present, follow-up runs passed every dimension. Scenarios and
-verbatim results live in the design spec history.
+failures; with it present, follow-up runs passed every dimension.
