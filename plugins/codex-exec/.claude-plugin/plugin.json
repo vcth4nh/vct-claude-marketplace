@@ -1,0 +1,10 @@
+{
+  "name": "codex-exec",
+  "version": "0.1.0",
+  "description": "Consult OpenAI Codex from Claude Code as a discussion peer — second opinions and multi-turn debate via codex exec/resume, delegation only when trusted or required. One skill, no scripts, no hooks, no state.",
+  "author": {
+    "name": "vcth4nh"
+  },
+  "keywords": ["codex", "second-opinion", "delegation", "codex-cli", "skill"],
+  "license": "CC-BY-SA-4.0"
+}

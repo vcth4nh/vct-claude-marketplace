@@ -18,6 +18,17 @@
       },
       "license": "CC-BY-SA-4.0",
       "keywords": ["rate-limit", "retry", "tmux", "hook", "resilience"]
+    },
+    {
+      "name": "codex-exec",
+      "version": "0.1.0",
+      "source": "./plugins/codex-exec",
+      "description": "Consult OpenAI Codex as a discussion peer — second opinions and multi-turn debate via codex exec/resume, delegation only when trusted. One skill, no scripts, no hooks, no state.",
+      "author": {
+        "name": "vcth4nh"
+      },
+      "license": "CC-BY-SA-4.0",
+      "keywords": ["codex", "second-opinion", "delegation", "codex-cli", "skill"]
     }
   ]
 }
