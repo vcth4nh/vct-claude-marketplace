@@ -16,10 +16,9 @@ this is the lightweight alternative for people who just want `codex exec` used
   → `codex exec resume <session-id>` so Codex keeps its context. Codex's
   verdict is quoted verbatim, then Claude gives its own take. Discussion
   prompts explicitly prohibit file or external-state changes.
-- **Folder-aware sessions.** Claude inspects and selects the folder appropriate
-  to each topic instead of forcing a Git or project root, then records that
-  absolute folder with the session ID for follow-ups. Verified non-Git folders
-  use Codex's `--skip-git-repo-check` flag automatically.
+- **Folder-aware sessions.** Codex runs from the folder each topic is about —
+  usually the repo root, a subfolder or elsewhere when that fits better — with
+  `--skip-git-repo-check` added in non-Git folders.
 - **Default flags only.** No `-s/--sandbox`, `--full-auto`, `--cd`, or model
   overrides — Codex's configuration and built-in defaults govern. Explicit
   sandbox flags can fail under nested sandboxing, and `-s` isn't accepted by
@@ -29,9 +28,10 @@ this is the lightweight alternative for people who just want `codex exec` used
   quotes it, so a failed or empty run is reported, never a stale file.
 - **Preflight once per session** (`codex login status`) with fix suggestions,
   never auto-install.
-- **Delegation hygiene.** Existing content is recorded first using Git status
-  and diffs when available or a file-content baseline otherwise. Changes and a
-  focused test are checked afterward — never just Codex's prose summary.
+- **Delegation hygiene.** After Codex edits files, changes are verified with
+  `git status` + `git diff` and a quick test — never just Codex's prose
+  summary. In non-Git folders, file contents are noted before and compared
+  after.
 
 ## Install
 

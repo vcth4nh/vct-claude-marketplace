@@ -66,9 +66,10 @@ breaks Codex on containerized machines (its bubblewrap sandbox can't nest), and
 ## Delegation (only when trusted or required)
 
 - "Have codex fix/do/explain X" from the user → delegate exactly that.
-- After Codex edits files: verify with `git diff` and a quick test — never
-  trust its prose summary. In a non-git folder, compare against the file
-  contents you noted before the run.
+- After Codex edits files: verify with `git status` + `git diff` (diff alone
+  misses newly created files) and a quick test — never trust its prose
+  summary. In a non-git folder, note the relevant file contents before the
+  run and compare after.
 - Announce proactive consultations before running ("Getting a second opinion
   from Codex…") so quota use is never silent.
 
