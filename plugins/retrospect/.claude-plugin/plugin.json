@@ -1,0 +1,10 @@
+{
+  "name": "retrospect",
+  "version": "0.1.0",
+  "description": "Retrospective over your past Claude Code sessions — parallel subagents mine each transcript for your corrections, recurring failure patterns, workflow friction, and wins, then reconcile everything into a report plus approved CLAUDE.md updates — or hunt one specific recurring instruction across your history with a topic argument. One skill, one agent, read-only until you approve.",
+  "author": {
+    "name": "vcth4nh"
+  },
+  "keywords": ["retrospective", "introspection", "session-history", "transcripts", "claude-md", "subagents", "skill"],
+  "license": "CC-BY-SA-4.0"
+}
