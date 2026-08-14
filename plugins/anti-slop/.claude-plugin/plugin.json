@@ -1,0 +1,10 @@
+{
+  "name": "anti-slop",
+  "version": "0.1.0",
+  "description": "Remove AI-slop tone from prose. Two skills: deslop for engineering prose (docs, commits, PRs, READMEs) and academic-voice for paper prose with per-repo voice matching. Ships an opt-in ASD-STE100 output style.",
+  "author": {
+    "name": "vcth4nh"
+  },
+  "keywords": ["writing", "style", "anti-slop", "prose", "humanizer", "skill"],
+  "license": "CC-BY-SA-4.0"
+}
