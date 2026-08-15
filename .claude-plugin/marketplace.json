@@ -18,6 +18,28 @@
       },
       "license": "CC-BY-SA-4.0",
       "keywords": ["codex", "second-opinion", "delegation", "codex-cli", "skill"]
+    },
+    {
+      "name": "anti-slop",
+      "version": "0.1.0",
+      "source": "./plugins/anti-slop",
+      "description": "Remove AI-slop tone from prose. Two skills: deslop for engineering prose (docs, commits, PRs, READMEs) and academic-voice for paper prose with per-repo voice matching. Ships an opt-in ASD-STE100 output style.",
+      "author": {
+        "name": "vcth4nh"
+      },
+      "license": "CC-BY-SA-4.0",
+      "keywords": ["writing", "style", "anti-slop", "prose", "humanizer", "skill"]
+    },
+    {
+      "name": "leak-check",
+      "version": "0.1.0",
+      "source": "./plugins/leak-check",
+      "description": "Audit public-facing text for internal-context leaks before it ships — paths, run IDs, infra names, private provenance, dev-log narrative, unexpanded jargon. Inline audit for routine text; fresh-context external-reviewer agent with a BLOCK/PASS verdict for papers and release notes.",
+      "author": {
+        "name": "vcth4nh"
+      },
+      "license": "CC-BY-SA-4.0",
+      "keywords": ["leak", "sanitize", "public", "hygiene", "review", "paper", "skill"]
     }
   ]
 }
