@@ -41,5 +41,5 @@ If the text is already clean, output `Clean — no slop found.` and stop.
 
 ## Ordering
 
-Style before gate: if the `leak-check` plugin is installed, it runs after
+Style before gate: if the `public-hygiene` plugin is installed, it runs after
 this skill, on the final text — never before.

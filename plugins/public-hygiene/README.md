@@ -1,4 +1,4 @@
-# leak-check
+# public-hygiene
 
 Audit public-facing text for internal-context leaks before it ships: local
 paths, run/experiment IDs, infra names, ticket IDs, private provenance,
@@ -20,7 +20,7 @@ Two layers:
 
 ```
 /plugin marketplace add vcth4nh/vct-claude-marketplace-public
-/plugin install leak-check@vct-public
+/plugin install public-hygiene@vct-public
 ```
 
 ## Usage

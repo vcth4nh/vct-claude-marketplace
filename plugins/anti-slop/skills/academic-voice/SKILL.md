@@ -54,5 +54,5 @@ concrete subjects, claims sized to the evidence.
 
 ## Ordering
 
-If the `leak-check` plugin is installed, it runs after this skill, on the
+If the `public-hygiene` plugin is installed, it runs after this skill, on the
 final text — never before.

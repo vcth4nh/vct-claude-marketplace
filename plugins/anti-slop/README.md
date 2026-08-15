@@ -55,7 +55,7 @@ rhythm.
 
 ## Pipeline order
 
-Style first, gate last: run [`leak-check`](../leak-check/) on the final text
+Style first, gate last: run [`public-hygiene`](../public-hygiene/) on the final text
 after any rewrite here.
 
 ## Credits

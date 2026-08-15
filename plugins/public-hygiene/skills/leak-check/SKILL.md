@@ -74,7 +74,7 @@ sentences — they run before this gate, never after it.
 
 ````markdown
 # Leak glossary (internal -> public)
-# Read by the leak-check plugin. Internal-column terms are leaks by definition.
+# Read by the public-hygiene plugin. Internal-column terms are leaks by definition.
 
 | Internal term | Public replacement |
 |---|---|

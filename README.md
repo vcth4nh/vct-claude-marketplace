@@ -15,5 +15,5 @@ Public Claude Code plugins by [@vcth4nh](https://github.com/vcth4nh).
 |---|---|---|
 | [`codex-exec`](plugins/codex-exec/) | 0.1.0 | Consult Codex as a discussion peer with safe, folder-aware multi-turn execution and delegation checks. |
 | [`anti-slop`](plugins/anti-slop/) | 0.1.0 | Remove AI-slop tone from prose: `deslop` (engineering) + `academic-voice` (papers), plus an opt-in ASD-STE100 output style. |
-| [`leak-check`](plugins/leak-check/) | 0.1.0 | Audit public-facing text for internal-context leaks: inline audit + fresh-context `external-reviewer` agent with a BLOCK/PASS verdict. |
+| [`public-hygiene`](plugins/public-hygiene/) | 0.1.0 | Audit public-facing text for internal-context leaks: inline audit + fresh-context `external-reviewer` agent with a BLOCK/PASS verdict. |
 | [`retrospect`](plugins/retrospect/) | 0.3.0 | Mine past session transcripts with parallel per-project miners: corrections → approval-gated CLAUDE.md rules, plus failure patterns, friction, and wins; topic and project scoping. |

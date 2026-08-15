@@ -1,5 +1,5 @@
 {
-  "name": "leak-check",
+  "name": "public-hygiene",
   "version": "0.1.0",
   "description": "Audit public-facing text for internal-context leaks before it ships — paths, run IDs, infra names, private provenance, dev-log narrative, unexpanded jargon. Inline audit for routine text; fresh-context external-reviewer agent with a BLOCK/PASS verdict for papers and release notes.",
   "author": {
