@@ -1,7 +1,7 @@
 {
   "name": "retrospect",
-  "version": "0.1.0",
-  "description": "Retrospective over your past Claude Code sessions — parallel subagents mine each transcript for your corrections, recurring failure patterns, workflow friction, and wins, then reconcile everything into a report plus approved CLAUDE.md updates — or hunt one specific recurring instruction across your history with a topic argument. One skill, one agent, read-only until you approve.",
+  "version": "0.2.0",
+  "description": "Retrospective over your past Claude Code sessions — parallel subagents mine each transcript for your corrections, recurring failure patterns, workflow friction, and wins, then reconcile everything into a report plus approved CLAUDE.md updates — or hunt one specific recurring instruction across your history with a topic argument — in this project, another project, or all of them. One skill, one agent, read-only until you approve.",
   "author": {
     "name": "vcth4nh"
   },

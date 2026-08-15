@@ -50,7 +50,15 @@ One skill (`/retrospect:retrospect`) plus one agent
 /retrospect:retrospect all                   full retro, every transcript
 /retrospect:retrospect folder structure      targeted: everything you said about a topic
 /retrospect:retrospect 30d naming rules      targeted, last 30 days
+/retrospect:retrospect everywhere            full retro across all your projects
+/retrospect:retrospect all ~/dev/other-repo  full retro over one other project
+/retrospect:retrospect everywhere naming     targeted hunt across all projects
 ```
+
+The middle token picks the place: absent = the current project, `everywhere`
+= all projects, a path-like token = that project. Partial paths match against
+the transcript folders; ambiguity is asked, never guessed. Write targets stay
+the global CLAUDE.md plus the current or specified project.
 
 Targeted mode hunts one specific, recurring instruction across your history:
 it shortlists sessions by grep, mines only those, and reports a dated timeline
