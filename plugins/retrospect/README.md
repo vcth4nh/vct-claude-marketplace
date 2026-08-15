@@ -1,7 +1,7 @@
 # retrospect
 
 Run a retrospective over your past Claude Code sessions in a project:
-**quick recon → parallel per-session miner subagents → reconcile**. You get a
+**quick recon → parallel per-project miner subagents → reconcile**. You get a
 chat report — recurring failure patterns, workflow friction, what went well —
 plus CLAUDE.md rule proposals built from your own corrections, each one traced
 to a verbatim quote. Read-only throughout; only the diffs you approve are
@@ -16,9 +16,11 @@ One skill (`/retrospect:retrospect`) plus one agent
   `*.jsonl` only; `subagents/agent-*.jsonl` and `isSidechain` turns are
   Claude's own prompts, never mined; the current session is excluded;
   relocated (worktree) and still-live sessions are detected and labeled.
-- **Fan-out for scale.** One read-only miner per session file, all in
-  parallel, each returning one small JSON object — the main context never
-  reads a transcript. Big files are `jq`-prefiltered inside the miner.
+- **Fan-out for scale, extract-first for cost.** One read-only miner per
+  project (split above ~5MB), all in parallel. Miners never read raw
+  transcripts start to finish: a `jq` role filter (user text plus error
+  feedback, ~2–5% of the raw bytes) feeds the model, and neighborhoods are
+  pulled only around hits. The main context sees only compact JSON.
 - **Evidence discipline.** Every proposed rule carries the user's words
   verbatim; quoteless proposals land in a marked "inferred" list; pasted
   third-party text (reviews) counts only where the user endorsed it; dropped
@@ -78,4 +80,7 @@ targets exactly those gaps. In the GREEN pass, two miners ran in parallel on
 real 631KB and 2.7MB transcripts: both returned contract-valid JSON, every
 spot-checked quote matched the raw file verbatim, and one miner correctly
 recovered a session that had relocated into a worktree project folder
-mid-test — behavior the agent definition now encodes.
+mid-test — behavior the agent definition now encodes. A later cost pass
+(0.3.0) added fork/rewind deduplication by quote-plus-timestamp identity and
+moved the fan-out from per-session to per-project with the extract-first
+flow, cutting an all-projects run several-fold.

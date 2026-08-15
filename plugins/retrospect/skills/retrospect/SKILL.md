@@ -42,8 +42,10 @@ mode — hunt every instruction the user ever gave about that topic.
   windows, worktrees) — miners flag relocated or still-growing files in
   `parse_note`; label those sessions partial in the report.
 - Apply the scope by mtime. Report session count, date range, total size —
-  per project in `everywhere` mode. More than 20 sessions in scope → state the
-  subagent count and get a go-ahead before the fan-out.
+  per project in `everywhere` mode. More than 20 sessions in scope → state
+  the miner count and a token estimate before the fan-out, and get a
+  go-ahead. Estimate: miners read roughly 2–5% of the raw bytes (the
+  role-filtered extract) plus ~15k tokens of overhead each.
 - Fewer sessions than expected? `~/.claude/history.jsonl` still holds the
   typed prompts of cleaned-up sessions — say so, and see the retention note in
   step 5.
@@ -54,13 +56,14 @@ mode — hunt every instruction the user ever gave about that topic.
 
 ## 2. Fan out
 
-Dispatch one `retrospect:session-insight-miner` subagent per session file —
-all in a single message so they run in parallel. Each dispatch prompt is the
-absolute transcript path and the project directory — plus, in targeted mode,
-one `Topic: …` line. The extraction rules live in the agent, not in your
-prompt. Miners return one
-JSON object each; a miner that returns prose instead gets one retry, then is
-dropped with a note in the report.
+Dispatch one `retrospect:session-insight-miner` subagent per project — all in
+a single message so they run in parallel. Split a project along session
+boundaries into several miners when its transcripts total more than ~5MB.
+Each dispatch prompt is the project directory plus the list of its transcript
+paths — and, in targeted mode, one `Topic: …` line. The extraction rules live
+in the agent, not in your prompt. Miners return a JSON array, one object per
+file; a miner that returns prose instead gets one retry, then is dropped with
+a note in the report.
 
 ## 3. Reconcile (main context)
 
@@ -68,6 +71,10 @@ dropped with a note in the report.
   wording) into one imperative rule each, citing all source sessions. Where
   corrections conflict, provisionally prefer the most recent but list both
   versions with dates for the user to decide.
+- **Fork dedup:** resumed or forked sessions copy entries with their original
+  timestamps. An identical quote with an identical `ts`, in any number of
+  files, is one utterance — cite it once and never count it as recurrence.
+  Genuine repetition has distinct timestamps.
 - **Patterns, friction, wins:** group across sessions; label what only one
   session shows as single-session.
 - **Existing memory:** check the project `CLAUDE.md`, `CLAUDE.local.md`, and
@@ -121,3 +128,4 @@ confirm. If history looked thin, note that `cleanupPeriodDays` in
 | Repeating extraction rules in dispatch prompts | The agent definition owns them; duplicated copies drift. |
 | Stretching thin topic matches into findings | An empty targeted result is correct. Report the terms tried and stop. |
 | Writing a rule into an unrelated project from `everywhere` mode | Write targets are only the global file and the current or specified project. |
+| Counting a forked or resumed copy as recurrence | Same quote + same timestamp = one utterance, cited once. |
