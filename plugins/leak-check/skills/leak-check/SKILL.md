@@ -53,6 +53,9 @@ End with `N findings` or `No leaks found.` — nothing else in the report.
 - An unfamiliar term that recurs in a URL, a path, and plain prose (such
   as a subject line) is a project codename — give every plain-prose
   occurrence its own jargon finding, glossary or not.
+- FIX text is assembled only from the glossary and from facts the
+  source states — a characterization the source never makes ("default",
+  "legacy", "temporary") is invention, even offered as an example.
 
 ## Modes
 
