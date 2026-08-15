@@ -43,7 +43,7 @@ N. QUOTE:    `exact span from the text`
    FIX:      proposed replacement, or "delete"
 ```
 
-End with `N findings` or `No leaks found.` — nothing else.
+End with `N findings` or `No leaks found.` — nothing else in the report.
 
 ## Hard limits
 
