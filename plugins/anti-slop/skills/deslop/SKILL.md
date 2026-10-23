@@ -1,6 +1,6 @@
 ---
 name: deslop
-description: Use when writing, editing, or polishing public engineering prose — READMEs, docs, commit messages, PR descriptions, release notes, blog posts — or when the user says "deslop", "remove AI slop", "sounds like AI", "make this sound human", or "fix the tone".
+description: Use when writing, editing, or polishing engineering prose for a human reader (READMEs, docs, reports, write-ups, commit messages, PR descriptions, release notes, blog posts), or when the user says "deslop", "remove AI slop", "sounds like AI", "make this sound human", or "fix the tone".
 ---
 
 # Deslop
@@ -12,13 +12,14 @@ against the ban list, rewrite, report what changed.
 
 1. Read `${CLAUDE_PLUGIN_ROOT}/references/ban-list.md`.
 2. Audit the input: collect every violation as `span` + pattern class.
+   Check every heading line and every `—`.
 3. Rewrite. Change only what a ban or the replacement principle requires.
 4. Output, in this order:
    1. The rewritten text, ready to paste.
    2. `Changes:` — one line per violation: `` `span` `` → `` `replacement` ``
       (or "cut").
 
-If the text is already clean, output `Clean — no slop found.` and stop.
+If the text is already clean, output `Clean, no slop found.` and stop.
 
 ## Modes
 
