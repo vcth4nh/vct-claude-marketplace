@@ -32,9 +32,10 @@
    reachable text, resolve this span to its intended meaning? A "no" is a
    gap. Flag only the spans that fail this test: a span that the field
    knowledge of the audience resolves passes. Accuracy, wording,
-   placement, structure, and topics that the text does not cover belong
-   to other checks, so leave them out of the report. The audit never
-   looks inside code blocks, commands, or math.
+   structure, topics that the text does not cover, and the placement of
+   text that the reader can already resolve belong to other checks, so
+   leave them out of the report. The audit never looks inside code
+   blocks, commands, or math.
 
 4. **Categories.** These are common shapes of a "no", not the boundary:
    any span that fails the master test is a gap, listed here or not.
@@ -57,8 +58,7 @@
      script up to that slide does not supply the fact; it gets
      `RESOLVE: in the script by slide N`. The check never asks a slide to
      carry what the script can carry. When the deck has no script, still
-     give each information gap `RESOLVE: in the script by slide N`, and
-     never ask the slide to carry the fact.
+     give each information gap `RESOLVE: in the script by slide N`.
 
 6. **Boundary with `leak-check`.** Terms listed in `.claude/leak-glossary.md`
    (internal column or never-public list) belong to `leak-check`; skip
@@ -69,8 +69,7 @@
    "slides", "deck", or "talk" in the file name or the request. Everything
    else is a doc. Apart from that markup, type detection reads only the
    file name and the user's own words about the text. Words inside the
-   draft never select the slide type, so a document that mentions slides
-   stays a doc.
+   draft never select the slide type.
 
 8. **Example questions.** These QUESTION lines are examples. Write each
    QUESTION so that it asks for the missing fact and offers no guess.
