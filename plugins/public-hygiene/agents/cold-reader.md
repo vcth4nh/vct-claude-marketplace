@@ -22,7 +22,11 @@ own words about the audience or venue.
    and that exists, and for slides the script. Use Glob and Grep only to
    locate the files and symbols that the draft names. Never search
    unlinked files for definitions.
-5. Apply the master test to every span, and quote each gap.
+5. Apply the master test to every span, and quote each gap. Pass a span
+   when you can say what it means without a guess. Do not flag it only
+   because the text does not tell how or over what period a number was
+   measured, how a comparison was made, or how a feature works. What a
+   number counts and what it is compared with are part of its meaning.
 
 ## Output
 
