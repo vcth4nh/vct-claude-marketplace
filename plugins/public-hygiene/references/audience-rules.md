@@ -53,9 +53,10 @@
    - Slide: report a span that misleads on its own (the slide alone leads
      the audience to a wrong meaning) as a finding with
      `RESOLVE: on the slide`, even when the script explains it, because
-     the audience reads the slide before or while the speaker talks. An
-     information gap (the slide lacks a fact) is a finding only when the
-     script up to that slide does not supply the fact; it gets
+     the audience reads the slide before or while the speaker talks. Give
+     `RESOLVE: on the slide` to each span that adds to that wrong meaning.
+     An information gap (the slide lacks a fact) is a finding only when
+     the script up to that slide does not supply the fact; it gets
      `RESOLVE: in the script by slide N`. The check never asks a slide to
      carry what the script can carry. When the deck has no script, still
      give each information gap `RESOLVE: in the script by slide N`.
