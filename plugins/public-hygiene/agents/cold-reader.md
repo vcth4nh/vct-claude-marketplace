@@ -22,7 +22,15 @@ own words about the audience or venue.
    and that exists, and for slides the script. Use Glob and Grep only to
    locate the files and symbols that the draft names. Never search
    unlinked files for definitions.
-5. Apply the master test to every span, and quote each gap.
+5. Apply the master test to every span, and quote each gap. Pass a span
+   when you can say what it means without a guess. A number passes when
+   the text tells what it counts and, in a comparison, what it is
+   compared with, even when the text does not tell how or over what
+   period it was measured, or how the comparison was made. Without
+   these, the number fails. Do not flag a span only because the text
+   does not tell how a feature works. A name for a part of the project,
+   such as a feature, a setting, or a method, fails when the reachable
+   text never introduces it, even when its words suggest a meaning.
 
 ## Output
 
