@@ -33,8 +33,9 @@ missing facts.
    the author's notes and their paths, glossary meanings, your
    explanations, and any audience profile that the user did not give,
    because they carry internal context into the fresh reader.
-6. Relay the agent's report to the user verbatim, with its VERDICT line
-   and no answers or guesses of your own.
+6. Relay the agent's report verbatim, with its VERDICT line. Add no
+   answers, guesses, or context questions of your own, even about code
+   blocks.
 7. Apply. Send the report, then wait: before the author answers, change
    no file and write no corrected draft. On "apply" after the answers,
    insert only the facts that the answers state, at the flagged span or
