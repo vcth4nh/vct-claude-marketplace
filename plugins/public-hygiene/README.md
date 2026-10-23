@@ -26,7 +26,11 @@ Two checks for public-facing text before it ships:
 /plugin install public-hygiene@vct-public
 ```
 
-## Usage
+The bare forms `/leak-check` and `/cold-read` work, and so do the
+namespaced forms `/public-hygiene:leak-check` and
+`/public-hygiene:cold-read`.
+
+## leak-check
 
 ```text
 Leak check this commit message: <paste>
@@ -40,7 +44,8 @@ or pushes public-facing text.
 
 ## Per-repo glossary (recommended)
 
-Create `.claude/leak-glossary.md` — the skill offers to scaffold it:
+Create `.claude/leak-glossary.md` (the `leak-check` skill offers to
+scaffold it, and `cold-read` does not):
 
 ```markdown
 | Internal term | Public replacement |
@@ -51,8 +56,9 @@ Create `.claude/leak-glossary.md` — the skill offers to scaffold it:
 - gpu-node-07
 ```
 
-Internal-column terms are leaks by definition. Without the file, the audit
-still covers the generic categories.
+Internal-column terms are leaks by definition. Without the file, the
+`leak-check` audit still covers the generic categories. `cold-read` skips
+the terms in this file, because `leak-check` handles them.
 
 ## cold-read
 
@@ -63,7 +69,7 @@ they could not resolve: a term nobody introduced, a number without its
 base, a "we" or "the tool" with no clear referent, a quote with no source.
 Each finding is a question for you, because only the author knows the
 missing fact. When you answer and say "apply", it inserts your answers and
-nothing else.
+invents nothing.
 
 Slides and documents get different standards:
 
@@ -77,7 +83,7 @@ Slides and documents get different standards:
 The type comes from the file and your request. High-stakes text goes to a
 fresh-context `cold-reader` agent, which sees only the text the audience
 sees. Commit messages and short fragments get an inline pass. The report
-starts with the audience the check assumed, so you can correct it.
+names the audience the check assumed, so you can correct it.
 
 ```text
 /cold-read talk/deck.md
@@ -103,7 +109,8 @@ audit runs on the final text, never before a rewrite.
 
 ## Scope
 
-Context leaks, not credentials. For actual secrets (keys, tokens), run
-[gitleaks](https://github.com/gitleaks/gitleaks) or equivalent in CI —
-never leave credentials to an LLM. v1 has no deterministic hook floor; a
-commit-message denylist hook is planned future work.
+Context leaks and missing context, not credentials. For actual secrets
+(keys, tokens), run [gitleaks](https://github.com/gitleaks/gitleaks) or
+equivalent in CI. Never leave credentials to an LLM. Neither skill has a
+deterministic hook floor yet; a commit-message denylist hook is planned
+future work.
