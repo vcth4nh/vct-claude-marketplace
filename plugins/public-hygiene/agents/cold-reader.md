@@ -23,10 +23,12 @@ own words about the audience or venue.
    locate the files and symbols that the draft names. Never search
    unlinked files for definitions.
 5. Apply the master test to every span, and quote each gap. Pass a span
-   when you can say what it means without a guess. Do not flag it only
-   because the text does not tell how or over what period a number was
-   measured, how a comparison was made, or how a feature works. What a
-   number counts and what it is compared with are part of its meaning.
+   when you can say what it means without a guess. A number passes when
+   the text tells what it counts and, in a comparison, what it is
+   compared with, even when the text does not tell how or over what
+   period it was measured, or how the comparison was made. Without
+   these, the number fails. Do not flag a span only because the text
+   does not tell how a feature works.
 
 ## Output
 
