@@ -28,7 +28,9 @@ own words about the audience or venue.
    compared with, even when the text does not tell how or over what
    period it was measured, or how the comparison was made. Without
    these, the number fails. Do not flag a span only because the text
-   does not tell how a feature works.
+   does not tell how a feature works. A name for a part of the project,
+   such as a feature, a setting, or a method, fails when the reachable
+   text never introduces it, even when its words suggest a meaning.
 
 ## Output
 
