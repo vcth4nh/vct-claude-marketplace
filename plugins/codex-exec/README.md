@@ -36,7 +36,7 @@ this is the lightweight alternative for people who just want `codex exec` used
 ## Install
 
 ```bash
-/plugin marketplace add vcth4nh/vct-claude-marketplace-public
+/plugin marketplace add vcth4nh/vct-claude-marketplace
 /plugin install codex-exec@vct-public
 ```
 

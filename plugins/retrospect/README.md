@@ -36,7 +36,7 @@ One skill (`/retrospect:retrospect`) plus one agent
 ## Install
 
 ```text
-/plugin marketplace add vcth4nh/vct-claude-marketplace-public
+/plugin marketplace add vcth4nh/vct-claude-marketplace
 /plugin install retrospect@vct-public
 ```
 

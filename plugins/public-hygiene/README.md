@@ -22,7 +22,7 @@ Two checks for public-facing text before it ships:
 ## Install
 
 ```
-/plugin marketplace add vcth4nh/vct-claude-marketplace-public
+/plugin marketplace add vcth4nh/vct-claude-marketplace
 /plugin install public-hygiene@vct-public
 ```
 

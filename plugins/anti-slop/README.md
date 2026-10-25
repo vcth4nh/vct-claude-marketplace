@@ -17,7 +17,7 @@ the body.
 ## Install
 
 ```
-/plugin marketplace add vcth4nh/vct-claude-marketplace-public
+/plugin marketplace add vcth4nh/vct-claude-marketplace
 /plugin install anti-slop@vct-public
 ```
 
