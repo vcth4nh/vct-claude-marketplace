@@ -13,14 +13,15 @@ own words about the audience or venue.
 
 ## Steps
 
-1. Read `${CLAUDE_PLUGIN_ROOT}/references/audience-rules.md`.
-2. Read `.claude/leak-glossary.md` in the working repo if it exists, only
-   to skip its terms.
+1. Read the [audience rules](../references/audience-rules.md), resolving
+   the link relative to this file.
+2. Read `.agents/leak-glossary.md` in the working repo if it exists,
+   falling back to `.claude/leak-glossary.md`, only to skip its terms.
 3. Infer the audience from the handoff and the text, and detect the type
    (rule 7).
 4. Read the reachable text: each document that the draft links or names
-   and that exists, and for slides the script. Use Glob and Grep only to
-   locate the files and symbols that the draft names. Never search
+   and that exists, and for slides the script. Search only to locate
+   the files and symbols that the draft names. Never search
    unlinked files for definitions.
 5. Apply the master test to every span, and quote each gap. Pass a span
    when you can say what it means without a guess. A number passes when
@@ -48,6 +49,7 @@ An empty findings list is the only path to PASS.
 
 ## Hard limits
 
+- Read-only; never change files.
 - Never rewrite the text.
 - QUESTION lines ask and never propose an answer.
 - Never add facts.

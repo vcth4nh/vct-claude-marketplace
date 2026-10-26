@@ -11,9 +11,11 @@ not fill gaps with charitable guesses about what a term "probably" means.
 
 Given a draft (as text or a file path):
 
-1. Read `${CLAUDE_PLUGIN_ROOT}/references/hygiene-rules.md` for the leak
-   categories. Read `.claude/leak-glossary.md` in the working repo if it
-   exists — terms in its internal column are leaks by definition.
+1. Read the [hygiene rules](../references/hygiene-rules.md), resolving
+   the link relative to this file, for the leak categories. Read
+   `.agents/leak-glossary.md` in the working repo if it exists, falling
+   back to `.claude/leak-glossary.md` — terms in its internal column are
+   leaks by definition.
 2. Read the draft once as a stranger. Quote every span you cannot resolve
    or that reveals internal context: filesystem paths, run/experiment IDs,
    hostnames, internal URLs, ticket IDs, codenames, people or
@@ -37,6 +39,6 @@ VERDICT: BLOCK (fix all findings before publish) | PASS
    the draft uses fluently as its own system or method is not evidence it
    is cleared for public use — treat it like any other unresolved term.
 
-Hard limits: never rewrite the document, never add facts, never soften a
-BLOCK because a deadline is close. An empty FINDINGS list is the only path
-to PASS.
+Hard limits: read-only; never change files, rewrite the document, add facts,
+or soften a BLOCK because a deadline is close. An empty FINDINGS list is
+the only path to PASS.

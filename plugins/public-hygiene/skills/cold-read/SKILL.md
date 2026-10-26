@@ -11,25 +11,28 @@ missing facts.
 
 ## Workflow
 
-1. Read `${CLAUDE_PLUGIN_ROOT}/references/audience-rules.md`. If the
-   input is empty or the draft path does not exist, ask for the text or
-   path.
+1. Read the [audience rules](../../references/audience-rules.md), resolving
+   the link relative to this file. If the input is empty or the draft
+   path does not exist, ask for the text or path.
 2. Detect the type (rule 7).
 3. Collect the companions. For slides, embedded speaker notes are the
    script (marp/HTML comments, reveal.js notes, beamer `\note{}`). An
    external script counts when the user names it or the deck links it.
    Every path after the first in the invocation is a companion.
-4. Route by stakes. Send a whole document of these classes to the
-   `cold-reader` agent at any length: slides and talk scripts, papers,
-   READMEs and docs, blog posts, release notes, and PR descriptions. A
-   commit message, or a fragment of any class (a paragraph or less, not a
-   whole document), gets an inline pass: skip the terms in
-   `.claude/leak-glossary.md` if it exists, apply the rules as the reader
-   they describe, and report in the format below. Without a glossary,
-   audit normally and make no offer to create one.
-5. Clean handoff. The dispatch carries only the draft (path or pasted
-   text), the companion paths, the detected type in one line (slide or
-   doc), and the user's own words about the audience or venue. Leave out
+4. Route by stakes. For slides and talk scripts, papers, READMEs and docs,
+   blog posts, release notes, and PR descriptions, send the whole document
+   at any length to a fresh, read-only subagent reviewer using the
+   [reader instructions](../../agents/cold-reader.md), without inherited
+   conversation. A commit message, or a fragment of any class (a paragraph
+   or less, not a whole document), gets an inline pass: skip the terms in
+   `.agents/leak-glossary.md` (falling back to `.claude/leak-glossary.md`)
+   if it exists, apply the rules as the reader they describe, and report
+   in the format below. Without a glossary, audit normally and make no
+   offer to create one.
+5. Clean handoff. The dispatch carries the reader instruction-file path,
+   the draft (path or pasted text), the companion paths, the detected
+   type in one line (slide or doc), and the user's own words about the
+   audience or venue. Leave out
    the author's notes and their paths, glossary meanings, your
    explanations, and any audience profile that the user did not give,
    because they carry internal context into the fresh reader.
@@ -63,10 +66,17 @@ with nothing else in the report.
 
 | Invocation | Behavior |
 |---|---|
-| `/cold-read <text>` | audit, report questions |
-| `/cold-read <file>` | Read the file, then audit |
-| `/cold-read <file> <companion>...` | each path after the first is a companion (a script, a named doc) |
+| `cold-read <text>` | audit, report questions |
+| `cold-read <file>` | Read the file, then audit |
+| `cold-read <file> <companion>...` | each path after the first is a companion (a script, a named doc) |
 | "apply" after answers | insert only facts the answers state |
+
+## Harness notes
+
+- **Claude Code:** invoke `/public-hygiene:cold-read`; use the bundled
+  `cold-reader` agent for subagent reviews.
+- **Codex:** invoke `$public-hygiene:cold-read`; start a fresh subagent
+  with the linked reader instructions.
 
 ## Ordering
 

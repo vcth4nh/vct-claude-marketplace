@@ -13,7 +13,7 @@ reader cannot resolve — or should not see — is a leak, listed here or not.
 | infra | Hosts, IPs, buckets, cluster names, Jira/Slack/Notion URLs, ticket IDs (`DEV-123`) | Omit. Public issue/PR references like `#123` are fine. |
 | provenance | People and private channels: "per Alice", "as discussed in standup" | State the rationale itself. Credit people only where public convention expects it (Co-authored-by, acknowledgments). |
 | dev-log | Chronology and scrap: "tried X, broke", "hack for demo", TODO/FIXME, commented-out alternatives | Commits: what changed and why. Papers: final method and ablations, not the journey. |
-| jargon | Unexpanded internal jargon, acronyms, codenames | Map via the repo glossary (`.claude/leak-glossary.md`) or define in plain language on first use. |
+| jargon | Unexpanded internal jargon, acronyms, codenames | Map via the repo leak glossary or define in plain language on first use. |
 | meta | AI/session scaffolding: "Here is the updated...", placeholders, tool or session references | Emit only the finalized deliverable. |
 
 Replacements come from the glossary or by generalizing. Never invent facts,

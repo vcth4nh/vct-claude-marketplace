@@ -13,7 +13,7 @@ Two checks for public-facing text before it ships:
   README fragments). Quotes every offending span, names the category,
   proposes a fix. Applies fixes only on request; never invents facts to
   fill a redaction.
-- **`external-reviewer` agent** — a fresh-context, read-only reviewer for
+- **Fresh subagent reviewer** — a read-only reviewer for
   high-stakes text (papers, release notes, public PR descriptions, blog
   posts). Its ignorance is the mechanism: what it cannot resolve, the
   public cannot resolve. Returns quoted findings and a BLOCK/PASS verdict;
@@ -21,31 +21,49 @@ Two checks for public-facing text before it ships:
 
 ## Install
 
+Claude Code:
+
 ```
 /plugin marketplace add vcth4nh/vct-claude-marketplace
 /plugin install public-hygiene@vct-public
 ```
 
-The bare forms `/leak-check` and `/cold-read` work, and so do the
-namespaced forms `/public-hygiene:leak-check` and
-`/public-hygiene:cold-read`.
+Codex:
+
+```bash
+codex plugin marketplace add vcth4nh/vct-claude-marketplace
+codex plugin add public-hygiene@vct-public
+```
+
+Start a new session after installation. Both harnesses use the same
+skills, rules, and reviewer instructions.
+
+## Harness notes
+
+- **Claude Code:** invoke `/public-hygiene:leak-check` or
+  `/public-hygiene:cold-read`. The bundled `external-reviewer` and
+  `cold-reader` agents provide the fresh reviews.
+- **Codex:** invoke `$public-hygiene:leak-check` or
+  `$public-hygiene:cold-read`. The skills link the instructions for a
+  fresh subagent to read, without inheriting the conversation.
 
 ## leak-check
 
 ```text
 Leak check this commit message: <paste>
-/leak-check fix <paste>              # audit + sanitized text in one pass
-/leak-check paper/intro.tex          # high-stakes → external reviewer
+Leak check and fix this text: <paste>
+Leak check paper/intro.tex          # high-stakes → fresh subagent reviewer
 Is this changelog safe to publish?
 ```
 
-Claude also runs the audit on its own before it publishes, submits, tags,
-or pushes public-facing text.
+The skill also applies before publishing, submitting, tagging, or pushing
+public-facing text.
 
 ## Per-repo glossary (recommended)
 
-Create `.claude/leak-glossary.md` (the `leak-check` skill offers to
-scaffold it, and `cold-read` does not):
+Create `.agents/leak-glossary.md` (the `leak-check` skill offers to
+scaffold it, and `cold-read` does not). Both skills fall back to an
+existing `.claude/leak-glossary.md`:
 
 ```markdown
 | Internal term | Public replacement |
@@ -81,19 +99,19 @@ Slides and documents get different standards:
   team when you mean the whole industry, must change on the slide.
 
 The type comes from the file and your request. High-stakes text goes to a
-fresh-context `cold-reader` agent, which sees only the text the audience
+fresh subagent reviewer, which sees only the text the audience
 sees. Commit messages and short fragments get an inline pass. The report
 names the audience the check assumed, so you can correct it.
 
 ```text
-/cold-read talk/deck.md
-/cold-read talk/slides.tex talk/script.md   # deck plus script
-/cold-read README.md
+Cold read talk/deck.md
+Cold read talk/slides.tex talk/script.md   # deck plus script
+Cold read README.md
 Will readers follow this release note? <paste>
 ```
 
-Claude also runs the check on its own before it publishes, submits, tags,
-or pushes audience-facing text.
+The skill also applies before publishing, submitting, tagging, or pushing
+audience-facing text.
 
 ## Pipeline order
 

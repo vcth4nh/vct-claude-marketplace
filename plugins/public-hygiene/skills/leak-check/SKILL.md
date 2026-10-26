@@ -11,17 +11,21 @@ failed the audit.
 
 ## Workflow
 
-1. Read `${CLAUDE_PLUGIN_ROOT}/references/hygiene-rules.md`.
-2. Read `.claude/leak-glossary.md` in this repo if it exists. Terms in its
-   internal column are leaks by definition, wherever they appear.
+1. Read the [hygiene rules](../../references/hygiene-rules.md), resolving
+   the link relative to this file.
+2. Read `.agents/leak-glossary.md` in this repo if it exists, falling back
+   to `.claude/leak-glossary.md`. Terms in its internal column are leaks
+   by definition, wherever they appear.
    - No glossary → still audit every generic category, then offer once to
      create the file from the template below. Do not block on the offer.
 3. Route by stakes:
    - **High-stakes** (paper prose, release notes, public PR descriptions,
-     blog posts): launch the `external-reviewer` agent with the draft or its
-     file path. Relay its findings and verdict verbatim. Never audit
-     high-stakes text inline — a context saturated with internal terms is
-     exactly what stops seeing them.
+     blog posts): launch a fresh, read-only subagent reviewer using the
+     [reviewer instructions](../../agents/external-reviewer.md). Pass it
+     that instruction-file path and the draft or its file path, without
+     inherited conversation. Relay its findings and verdict verbatim.
+     Never audit high-stakes text inline — a context saturated with
+     internal terms is exactly what stops seeing them.
    - **Routine** (commit messages, README fragments, short snippets): audit
      inline. Read the text as an external reader with no access to this
      team's infrastructure, chat history, or trackers. Flag every span that
@@ -61,16 +65,23 @@ End with `N findings` or `No leaks found.` — nothing else in the report.
 
 | Invocation | Behavior |
 |---|---|
-| `/leak-check <text>` | audit, then offer to apply fixes |
-| `/leak-check fix <text>` | audit and emit sanitized text in one pass (report first) |
-| `/leak-check <file path>` | Read the file, then audit as above |
+| `leak-check <text>` | audit, then offer to apply fixes |
+| `leak-check fix <text>` | audit and emit sanitized text in one pass (report first) |
+| `leak-check <file path>` | Read the file, then audit as above |
+
+## Harness notes
+
+- **Claude Code:** invoke `/public-hygiene:leak-check`; use the bundled
+  `external-reviewer` agent for subagent reviews.
+- **Codex:** invoke `$public-hygiene:leak-check`; start a fresh subagent
+  with the linked reviewer instructions.
 
 ## Ordering
 
 Run on final text only. Style passes (`deslop`, `academic-voice`) rewrite
 sentences — they run before this gate, never after it.
 
-## Glossary template (`.claude/leak-glossary.md`)
+## Glossary template (`.agents/leak-glossary.md`)
 
 ````markdown
 # Leak glossary (internal -> public)
