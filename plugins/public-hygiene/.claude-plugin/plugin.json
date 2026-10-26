@@ -1,7 +1,7 @@
 {
   "name": "public-hygiene",
-  "version": "0.2.0",
-  "description": "Check public-facing text before it ships. leak-check finds internal-context leaks (local paths, run IDs, infra names, private provenance, dev-log narrative, unexpanded jargon) and sends high-stakes text to a fresh-context external-reviewer agent with a BLOCK/PASS verdict. cold-read finds context the audience lacks (terms nobody introduced, numbers without a base, unclear referents, unattributed quotes), applies separate standards to slides and documents, and asks the author for the missing facts.",
+  "version": "0.2.1",
+  "description": "Check public-facing text before it ships. leak-check finds internal-context leaks (local paths, run IDs, infra names, private provenance, dev-log narrative, unexpanded jargon) and sends high-stakes text to a fresh subagent reviewer with a BLOCK/PASS verdict. cold-read finds context the audience lacks (terms nobody introduced, numbers without a base, unclear referents, unattributed quotes), applies separate standards to slides and documents, and asks the author for the missing facts.",
   "author": {
     "name": "vcth4nh"
   },

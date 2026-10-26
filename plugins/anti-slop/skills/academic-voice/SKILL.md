@@ -8,17 +8,20 @@ description: Use when writing or editing paper prose — abstracts, introduction
 Rewrite paper prose so it reads like a person wrote it: varied rhythm,
 concrete subjects, claims sized to the evidence.
 
+Resolve bundled links relative to this file's directory.
+
 ## Workflow
 
-1. Read `${CLAUDE_PLUGIN_ROOT}/references/ban-list.md`. Every ban applies to
+1. Read the [ban list](../../references/ban-list.md). Every ban applies to
    paper prose too.
 2. Pick the voice source:
-   - `.claude/writing-samples.md` exists in this repo → match its rhythm,
+   - Use `.agents/writing-samples.md` in this repo, falling back to
+     `.claude/writing-samples.md` if absent. Match its rhythm,
      sentence-length variation, and concreteness. Register, never phrases:
      copying a distinctive wording from the samples is a defect.
    - No samples file → use the built-in register below. After the rewrite,
-     offer once to create `.claude/writing-samples.md` from
-     `${CLAUDE_PLUGIN_ROOT}/references/writing-samples-template.md`. Do not
+     offer once to create `.agents/writing-samples.md` from the
+     [template](../../references/writing-samples-template.md). Do not
      block on the offer.
 3. Rewrite the prose.
 4. Output: the rewritten text, then `Changes:` — one line per edit:
@@ -49,8 +52,10 @@ concrete subjects, claims sized to the evidence.
 
 | Invocation | Behavior |
 |---|---|
-| `/anti-slop:academic-voice <text>` | rewrite (default) |
-| `/anti-slop:academic-voice <file path>` | Read the file, then rewrite |
+| `academic-voice <text>` | rewrite (default) |
+| `academic-voice <file path>` | Read the file, then rewrite |
+
+Claude Code: `/anti-slop:academic-voice`. Codex: `$anti-slop:academic-voice`.
 
 ## Ordering
 

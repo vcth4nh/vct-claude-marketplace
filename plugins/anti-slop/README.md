@@ -16,35 +16,46 @@ the body.
 
 ## Install
 
+Claude Code:
+
 ```
 /plugin marketplace add vcth4nh/vct-claude-marketplace
 /plugin install anti-slop@vct-public
+```
+
+Codex:
+
+```bash
+codex plugin marketplace add vcth4nh/vct-claude-marketplace
+codex plugin add anti-slop@vct-public
 ```
 
 ## Usage
 
 ```text
 Deslop this README section: <paste>
-/anti-slop:deslop check <paste>              # report violations, no rewrite
+deslop check <paste>                        # report violations, no rewrite
 Humanize this paragraph for the paper: <paste>
-/anti-slop:academic-voice paper/intro.tex
+academic-voice paper/intro.tex
 ```
 
-Claude also applies the skills on its own when it writes prose for a human
-reader.
+Claude Code uses `/anti-slop:<skill>`; Codex uses `$anti-slop:<skill>`.
+The skills also apply automatically when the agent writes prose for a
+human reader.
 
 ## Per-repo voice (optional)
 
-Create `.claude/writing-samples.md` in your repo, or let `academic-voice`
-scaffold it from its template. Paste 2-3 paragraphs each of engineering and
-paper prose you admire. The rewrite matches their rhythm and concreteness,
-never their phrases. Keep the file private; do not republish borrowed
-excerpts.
+Create `.agents/writing-samples.md` in your repo, or let `academic-voice`
+scaffold it from its template. An existing `.claude/writing-samples.md` is
+used when the shared file is absent. Paste 2-3 paragraphs each of engineering
+and paper prose you admire. The rewrite matches their rhythm and
+concreteness, never their phrases. Keep the file private; do not republish
+borrowed excerpts.
 
 ## ASD-STE100 output style (opt-in)
 
 The plugin ships an [ASD-STE100](https://www.asd-ste100.org/) (Simplified
-Technical English) output style for Claude's own replies. It stays inert
+Technical English) output style for Claude Code replies only. It stays inert
 until you select it: `/config` → Output style, or per repo in
 `.claude/settings.json`:
 

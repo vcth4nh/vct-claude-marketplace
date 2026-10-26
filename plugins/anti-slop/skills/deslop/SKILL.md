@@ -8,9 +8,11 @@ description: Use when writing, editing, or polishing engineering prose for a hum
 Rewrite engineering prose so a careful human could have written it. Audit
 against the ban list, rewrite, report what changed.
 
+Resolve bundled links relative to this file's directory.
+
 ## Workflow
 
-1. Read `${CLAUDE_PLUGIN_ROOT}/references/ban-list.md`.
+1. Read the [ban list](../../references/ban-list.md).
 2. Audit the input: collect every violation as `span` + pattern class.
    Check every heading line and every `—`.
 3. Rewrite. Change only what a ban or the replacement principle requires.
@@ -25,9 +27,11 @@ If the text is already clean, output `Clean, no slop found.` and stop.
 
 | Invocation | Behavior |
 |---|---|
-| `/anti-slop:deslop <text>` | audit + rewrite (default) |
-| `/anti-slop:deslop check <text>` | violation list only, no rewrite |
-| `/anti-slop:deslop <file path>` | Read the file, then proceed as above |
+| `deslop <text>` | audit + rewrite (default) |
+| `deslop check <text>` | violation list only, no rewrite |
+| `deslop <file path>` | Read the file, then proceed as above |
+
+Claude Code: `/anti-slop:deslop`. Codex: `$anti-slop:deslop`.
 
 ## Hard constraints
 

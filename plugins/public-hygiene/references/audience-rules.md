@@ -61,7 +61,7 @@
      carry what the script can carry. When the deck has no script, still
      give each information gap `RESOLVE: in the script by slide N`.
 
-6. **Boundary with `leak-check`.** Terms listed in `.claude/leak-glossary.md`
+6. **Boundary with `leak-check`.** Terms listed in the repo leak glossary
    (internal column or never-public list) belong to `leak-check`; skip
    them. The glossary never resolves a span.
 

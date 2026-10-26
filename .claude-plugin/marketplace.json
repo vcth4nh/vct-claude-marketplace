@@ -4,8 +4,8 @@
     "name": "vcth4nh"
   },
   "metadata": {
-    "version": "0.1.0",
-    "description": "Public Claude Code plugins by vcth4nh"
+    "version": "0.1.1",
+    "description": "Public agent skills and plugins by vcth4nh"
   },
   "plugins": [
     {
@@ -32,9 +32,9 @@
     },
     {
       "name": "anti-slop",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "source": "./plugins/anti-slop",
-      "description": "Remove AI-slop tone from prose. Two skills: deslop for engineering prose (docs, commits, PRs, READMEs) and academic-voice for paper prose with per-repo voice matching. Ships an opt-in ASD-STE100 output style.",
+      "description": "Remove AI-slop tone from prose. Two skills: deslop for engineering prose (docs, commits, PRs, READMEs) and academic-voice for paper prose with per-repo voice matching. Ships an opt-in Claude Code ASD-STE100 output style.",
       "author": {
         "name": "vcth4nh"
       },
@@ -43,9 +43,9 @@
     },
     {
       "name": "public-hygiene",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "source": "./plugins/public-hygiene",
-      "description": "Check public-facing text before it ships. leak-check finds internal-context leaks (local paths, run IDs, infra names, private provenance, dev-log narrative, unexpanded jargon) and sends high-stakes text to a fresh-context external-reviewer agent with a BLOCK/PASS verdict. cold-read finds context the audience lacks (terms nobody introduced, numbers without a base, unclear referents, unattributed quotes), applies separate standards to slides and documents, and asks the author for the missing facts.",
+      "description": "Check public-facing text before it ships. leak-check finds internal-context leaks (local paths, run IDs, infra names, private provenance, dev-log narrative, unexpanded jargon) and sends high-stakes text to a fresh subagent reviewer with a BLOCK/PASS verdict. cold-read finds context the audience lacks (terms nobody introduced, numbers without a base, unclear referents, unattributed quotes), applies separate standards to slides and documents, and asks the author for the missing facts.",
       "author": {
         "name": "vcth4nh"
       },
