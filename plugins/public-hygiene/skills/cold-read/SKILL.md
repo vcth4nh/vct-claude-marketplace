@@ -19,6 +19,11 @@ missing facts.
    script (marp/HTML comments, reveal.js notes, beamer `\note{}`). An
    external script counts when the user names it or the deck links it.
    Every path after the first in the invocation is a companion.
+   For a review of a particular commit or PR, collect its exact diff as
+   text or a read-only file, plus relevant metadata quoted verbatim from
+   the publication surface or the user's supplied text.
+   If the target change is unclear, ask which change to review; do not
+   substitute an unrelated working-tree diff.
 4. Route by stakes. For slides and talk scripts, papers, READMEs and docs,
    blog posts, release notes, and PR descriptions, send the whole document
    at any length to a fresh, read-only subagent reviewer using the
@@ -29,8 +34,12 @@ missing facts.
    if it exists, apply the rules as the reader they describe, and report
    in the format below. Without a glossary, audit normally and make no
    offer to create one.
+   If a fresh reviewer cannot run, report the independent check as
+   incomplete instead of issuing a PASS or silently substituting an inline
+   review.
 5. Clean handoff. The dispatch carries the reader instruction-file path,
-   the draft (path or pasted text), the companion paths, the detected
+   the draft (path or pasted text), the companions (paths or quoted public
+   text, including the diff), the detected
    type in one line (slide or doc), and the user's own words about the
    audience or venue. Leave out
    the author's notes and their paths, glossary meanings, your

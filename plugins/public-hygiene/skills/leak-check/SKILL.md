@@ -22,10 +22,15 @@ failed the audit.
    - **High-stakes** (paper prose, release notes, public PR descriptions,
      blog posts): launch a fresh, read-only subagent reviewer using the
      [reviewer instructions](../../agents/external-reviewer.md). Pass it
-     that instruction-file path and the draft or its file path, without
-     inherited conversation. Relay its findings and verdict verbatim.
+     that instruction-file path, the draft or its file path, and the
+     user's own words about the venue, anonymity requirements, and names
+     approved for release. Leave out your explanations and private
+     background, and do not inherit the conversation. Relay its findings
+     and verdict verbatim.
      Never audit high-stakes text inline — a context saturated with
      internal terms is exactly what stops seeing them.
+     If a fresh reviewer cannot run, report the independent check as
+     incomplete instead of issuing a PASS.
    - **Routine** (commit messages, README fragments, short snippets): audit
      inline. Read the text as an external reader with no access to this
      team's infrastructure, chat history, or trackers. Flag every span that
@@ -33,7 +38,8 @@ failed the audit.
      included. A codename is still a leak even when it reads as an ordinary
      word or matches nothing you recognize — do not exempt it for sounding
      plausible.
-4. Report in the format below.
+4. For an inline audit, report in the format below. A subagent review keeps
+   the reviewer's findings and verdict format.
 5. On "fix" or "apply": emit the corrected text, changing only flagged
    spans. Replacements come from the glossary or by generalizing — never
    invent facts, names, numbers, or citations to fill a redaction.
@@ -47,7 +53,8 @@ N. QUOTE:    `exact span from the text`
    FIX:      proposed replacement, or "delete"
 ```
 
-End with `N findings` or `No leaks found.` — nothing else in the report.
+The inline report ends with `N findings` or `No leaks found.` — nothing
+else in the report.
 
 ## Hard limits
 

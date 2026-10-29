@@ -47,6 +47,13 @@ skills, rules, and reviewer instructions.
   `$public-hygiene:cold-read`. The skills link the instructions for a
   fresh subagent to read, without inheriting the conversation.
 
+On Claude Code 2.1.271 or later, the bundled reviewers use `omitClaudeMd`
+to exclude initial user, project, and local instructions. This limits
+context carryover; it is not a sandbox. Managed policy and path-scoped
+instructions can still load. Reviewers must not use private definitions
+as evidence of what the audience knows. On either harness, an unavailable
+fresh reviewer leaves the independent check incomplete.
+
 ## leak-check
 
 ```text
@@ -58,6 +65,9 @@ Is this changelog safe to publish?
 
 The skill also applies before publishing, submitting, tagging, or pushing
 public-facing text.
+
+The reviewer receives any venue, anonymity requirements, and public-name
+approvals you state, so those constraints survive the fresh handoff.
 
 ## Per-repo glossary (recommended)
 
@@ -99,9 +109,14 @@ Slides and documents get different standards:
   team when you mean the whole industry, must change on the slide.
 
 The type comes from the file and your request. High-stakes text goes to a
-fresh subagent reviewer, which sees only the text the audience
-sees. Commit messages and short fragments get an inline pass. The report
-names the audience the check assumed, so you can correct it.
+fresh subagent reviewer with a limited handoff of audience-reachable text
+and your stated constraints. Commit messages and short fragments get an
+inline pass. The report names the audience the check assumed, so you can
+correct it.
+
+For a particular commit or PR, the handoff includes its exact diff and
+relevant metadata visible to readers. If the target change is unclear,
+the skill asks which change to review.
 
 ```text
 Cold read talk/deck.md
@@ -132,3 +147,16 @@ Context leaks and missing context, not credentials. For actual secrets
 equivalent in CI. Never leave credentials to an LLM. Neither skill has a
 deterministic hook floor yet; a commit-message denylist hook is planned
 future work.
+
+## Related reader workflows
+
+- [Anthropic's doc-coauthoring](https://github.com/anthropics/skills/tree/main/skills/doc-coauthoring)
+  includes fresh-reader question testing within a broader drafting workflow.
+- [cold-read-gate](https://github.com/laurigates/claude-plugins/tree/main/agent-patterns-plugin/skills/cold-read-gate)
+  reviews outgoing text with an isolated reader and publication-surface context.
+- [cold-reader-skill](https://github.com/brendanlong/cold-reader-skill)
+  reads a document in chunks to preserve the first-read experience.
+
+These are related approaches, not dependencies. This plugin keeps separate
+leak and context checks, slide/script timing rules, and corrections drawn
+only from the author's answers.

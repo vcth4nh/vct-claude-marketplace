@@ -14,8 +14,10 @@
    - Doc type: earlier text in the same document, and any document, file,
      or code symbol that the draft links or names and that exists. A later
      definition in the same document counts only when the first use points
-     to it. For a commit message or a PR description, the diff it describes
-     is also reachable.
+     to it. For a commit message or a PR description, the associated diff
+     and metadata visible on its publication surface are also reachable.
+     Use the supplied or retrieved metadata, not assumed branch names or
+     an unrelated working-tree diff.
    - Slide type: the slides up to and including slide N, and the script up
      to and including slide N. An external script maps to slides by its
      per-slide markers (a heading or label per slide). A script without
@@ -57,11 +59,13 @@
    For numbers, identify the measured quantity, unit, population, and any
    comparison baseline. Ask only for a missing base needed to interpret
    the claim. A time window can define a total, a rate, or a before/after
-   comparison; naming the counted object alone does not resolve it. A
-   fraction over an explicitly scoped set, such as completed jobs in a
-   test suite, needs no calendar dates merely to explain the fraction.
+   comparison; naming the counted object alone does not supply the time
+   window. A fraction over an explicitly scoped set needs no calendar
+   dates merely to explain the fraction.
    Do not require a list of individual samples when the population is
-   already identified, or ask how the comparison was performed.
+   already identified. Do not ask how the comparison was performed.
+   For each numeric finding, ask for all missing bases needed to interpret
+   that claim.
 
 5. **Type standards.**
    - Doc: every gap is a finding.
