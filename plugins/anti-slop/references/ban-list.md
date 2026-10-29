@@ -2,10 +2,15 @@
 
 The patterns below are examples of each class, not the full boundary. Judge
 borderline text by one test: would an experienced human editor cut it?
+Apply them to editable prose. Factual meaning, explicit negations,
+conditions, and established technical terms take priority over a style
+pattern. For example, "robust regression" names a method, not praise.
 
 ## Banned constructions
 - Contrast reveals: "It's not X. It's Y." and softened variants ("This isn't
   about X — it's about Y", "not just a cache").
+  Remove rhetorical staging while retaining substantive distinctions;
+  a factual denial or limitation is not disposable emphasis.
 - Colon reveals: "The best part: ...", "The result: ..."
 - Punchy lines, at any position: a short sentence or a verbless fragment that
   adds emphasis and no fact ("No guesswork.", "The future is already
@@ -41,12 +46,13 @@ underscores, game-changer, game-changing, cutting-edge, elevate,
 A heading names its topic and stops: "Enumeration methodology", "How we
 enumerated". A short status tag may follow, such as "(optional)". Claims,
 reasons, and previews go in the body.
-- A tail after the topic (in parentheses, after a dash or a colon) that is a
-  slogan, a contrast, or a preview: cut it. "How we enumerated (method, not
+- A tail after the topic (in parentheses, after a dash or a colon) that adds
+  only a slogan or preview: cut it. "How we enumerated (method, not
   guesswork)" → "How we enumerated". "How we found the bugs — the reasoning,
   step by step" → "How we found the bugs".
-- A tail that holds a claim or a reason: move it into the first body
-  sentence and write the link as a word ("because", "so"). "Binary file
+- A tail that holds a claim, condition, or factual contrast: move it into
+  the first body sentence. Preserve the stated relationship; use
+  "because" or "so" only when the source gives that causal link. "Binary file
   formats (highest value — custom parsers, integer math)" → heading "Binary
   file formats", first sentence "These formats have the highest value
   because of their custom parsers and integer math."
@@ -56,5 +62,6 @@ reasons, and previews go in the body.
   join two full sentences or make a list unclear, use a spaced hyphen ( - ).
 
 ## Replacement principle
-Cut, or replace with a concrete, checkable statement. Shorter is the default:
-a rewrite that is longer than the original is a defect. Never pad.
+Cut, or replace with a concrete, checkable statement. The rewrite must not
+grow, except for words needed to move factual heading content into a
+grammatical body sentence. Never pad or remove a fact to meet the limit.

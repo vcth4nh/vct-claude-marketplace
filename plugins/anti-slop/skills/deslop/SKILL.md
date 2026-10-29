@@ -16,6 +16,8 @@ Resolve bundled links relative to this file's directory.
 2. Audit the input: collect every violation as `span` + pattern class.
    Check every heading line and every `—`.
 3. Rewrite. Change only what a ban or the replacement principle requires.
+   Compare the result with the source for lost facts, negations, and
+   conditions as well as unsupported additions.
 4. Output, in this order:
    1. The rewritten text, ready to paste.
    2. `Changes:` — one line per violation: `` `span` `` → `` `replacement` ``
@@ -38,11 +40,12 @@ Claude Code: `/anti-slop:deslop`. Codex: `$anti-slop:deslop`.
 - Preserve meaning and facts. Never add facts, numbers, names, or claims.
 - Code blocks, commands, sample output, and quoted material stay
   byte-identical.
-- The rewrite must not be longer than the original. Cutting beats rephrasing.
+- The rewrite must not be longer than the original, except for words
+  needed to move factual heading content into a grammatical body sentence.
 - Keep the author's technical terms. Replace slop, not vocabulary you would
   merely phrase differently.
-- A contrast reveal ("It's not X. It's Y.") never confirms X. When cutting
-  it, keep only the concrete claim both clauses share — do not assert X.
+- When removing rhetorical contrast, preserve each substantive claim and
+  its negation. A denial of X does not assert X; "not just X" does include X.
 
 ## Ordering
 

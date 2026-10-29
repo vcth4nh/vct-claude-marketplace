@@ -23,7 +23,8 @@ Resolve bundled links relative to this file's directory.
      offer once to create `.agents/writing-samples.md` from the
      [template](../../references/writing-samples-template.md). Do not
      block on the offer.
-3. Rewrite the prose.
+3. Rewrite the prose. Compare it with the source for lost claims,
+   negations, conditions, and citations as well as unsupported additions.
 4. Output: the rewritten text, then `Changes:` — one line per edit:
    `` `span` `` → `` `replacement` ``.
 

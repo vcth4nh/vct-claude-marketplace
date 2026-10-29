@@ -12,7 +12,8 @@ Both audit against [`references/ban-list.md`](references/ban-list.md),
 rewrite, and report every change as `span` → `replacement`. Hard constraints:
 no new facts, code blocks and math stay byte-identical, rewrites never get
 longer than the original, except where a claim moves out of a heading into
-the body.
+the body. Factual negations, conditions, and established technical terms
+take priority over style patterns.
 
 ## Install
 
