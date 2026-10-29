@@ -19,8 +19,8 @@ Resolve bundled links relative to this file's directory.
      `.claude/writing-samples.md` if absent. Match its rhythm,
      sentence-length variation, and concreteness. Register, never phrases:
      copying a distinctive wording from the samples is a defect.
-   - No samples file → use the built-in register below. In a standalone
-     editing task, offer once after the rewrite to create
+   - No samples file → use the built-in register below. For a standalone
+     rewrite (text or a path-only invocation), offer once afterward to create
      `.agents/writing-samples.md` from the
      [template](../../references/writing-samples-template.md). Do not
      block on the offer or include it in a requested artifact.

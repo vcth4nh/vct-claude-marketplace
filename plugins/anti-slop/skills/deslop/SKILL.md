@@ -13,7 +13,8 @@ Resolve bundled links relative to this file's directory.
 ## Workflow
 
 1. Read the [ban list](../../references/ban-list.md).
-2. Audit the input: collect every violation as `span` + pattern class.
+2. Audit prose only, outside the protected spans listed below: collect
+   every violation as `span` + pattern class.
    Check every heading line and every `—`.
 3. Rewrite. Change only what a ban or the replacement principle requires.
    Compare the result with the source for lost facts, negations, and
