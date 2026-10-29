@@ -1,0 +1,66 @@
+[
+  {
+    "id": "r01",
+    "mode": "comprehension",
+    "type": "doc",
+    "request": "Use cold-read comprehension mode on this complete migration notice for workspace administrators. Test whether readers can identify who must act, what they must do, and the deadline.",
+    "draft": "# Export format migration\n\nWorkspace administrators who use scheduled CSV exports must switch those schedules to JSON before 30 November 2026. Open Settings, select Exports, and change each scheduled CSV export to JSON.\n\nScheduled JSON exports need no changes. Existing downloaded CSV files remain readable. From 1 December 2026, the service will stop producing scheduled CSV exports."
+  },
+  {
+    "id": "r02",
+    "mode": "comprehension",
+    "type": "doc",
+    "request": "Use cold-read comprehension mode on this complete proposal for the infrastructure lead. State the action it asks the lead to take and test whether the requested decision is clear.",
+    "draft": "# Log retention proposal\n\nPlease approve the retention change below for deployment on 15 November 2026.\n\nOption A keeps production request logs for seven days. Option B keeps the same logs for thirty days. Either option uses the existing log storage service. The deployment will apply the approved retention period to new production request logs."
+  },
+  {
+    "id": "r03",
+    "mode": "comprehension",
+    "type": "doc",
+    "request": "Use cold-read comprehension mode on this complete informational help page for workspace members. Test what readers understand about the two export formats.",
+    "draft": "# Export formats\n\nA workspace export is a downloaded copy of the workspace's documents. Each document has a title, text, and tags. A tag is a label such as ‘draft’. The service offers JSON and CSV exports.\n\nJSON exports include each document's title, text, and tags. CSV exports include each document's title and text, and omit its tags. Both formats use UTF-8 encoding."
+  },
+  {
+    "id": "r04",
+    "mode": "comprehension",
+    "type": "doc",
+    "request": "Use cold-read comprehension mode on this complete access guide for workspace members. Test the reader's answer to: Who can export a project?",
+    "draft": "# Project export access\n\nEvery project belongs to a workspace. A workspace administrator manages access across the workspace; a project editor can change documents in one project. These are separate roles, and a project editor need not be a workspace administrator.\n\nOnly workspace administrators may export a project.\n\nProject editors may export any project they can edit, even when they are not workspace administrators."
+  },
+  {
+    "id": "r05",
+    "mode": "sequential",
+    "type": "doc",
+    "request": "Use experimental cold-read sequential mode on this complete operations guide for engineers new to the service. Read its sections in order.",
+    "draft": "# Delivery operations\n\n## Routing retries\n\nThe operator enables the amber lane before retrying failed notification deliveries.\n\n## Amber lane\n\nThe amber lane is a separate worker queue for retrying failed notification deliveries. The queue processes retries without delaying new deliveries."
+  },
+  {
+    "id": "r06",
+    "mode": "sequential",
+    "type": "doc",
+    "request": "Use experimental cold-read sequential mode on this complete operations guide for engineers new to the service. Read its sections in order.",
+    "draft": "# Delivery operations\n\n## Routing retries\n\nThe operator enables the amber lane, defined in the [Amber lane section](#amber-lane), before retrying failed notification deliveries.\n\n## Amber lane\n\nThe amber lane is a separate worker queue for retrying failed notification deliveries. The queue processes retries without delaying new deliveries."
+  },
+  {
+    "id": "r07",
+    "mode": "sequential",
+    "type": "slide",
+    "request": "Use experimental cold-read sequential mode on this complete slide deck for software engineers. The HTML comments are speaker notes spoken with their slide; read one slide and its notes at a time.",
+    "draft": "---\nmarp: true\n---\n\n# Retry isolation\n\nSuspects move to the retry lane.\n\n<!--\nA suspect is a test that passed on one run and failed on another without a code change. The retry lane is a separate CI job for rerunning those tests.\n-->\n\n---\n\n# Merge policy\n\nFailures in the retry lane do not block a merge."
+  },
+  {
+    "id": "r08",
+    "mode": "sequential",
+    "type": "slide",
+    "request": "Use experimental cold-read sequential mode on this complete slide deck for software engineers. The HTML comments are speaker notes spoken with their slide; read one slide and its notes at a time.",
+    "draft": "---\nmarp: true\n---\n\n# Retry isolation\n\nSuspects move to the retry lane.\n\n---\n\n# Merge policy\n\nFailures in the retry lane do not block a merge.\n\n<!--\nA suspect is a test that passed on one run and failed on another without a code change. The retry lane is a separate CI job for rerunning those tests.\n-->"
+  },
+  {
+    "id": "r09",
+    "mode": "apply",
+    "type": "doc",
+    "request": "apply",
+    "draft": "# Project export access\n\nOnly workspace administrators may export a project.\n\nProject editors may export any project they can edit, even when they are not workspace administrators.",
+    "prior_report": "AUDIENCE: Workspace members\n\nREADBACK\nAction: Not applicable; this is an informational access guide.\nQuestion: Who can export a project?\nAnswer: Unresolved. One passage limits exports to workspace administrators; another permits project editors who are not workspace administrators.\nSupport: Paragraph 1: ‘Only workspace administrators may export a project.’ Paragraph 2: ‘Project editors may export any project they can edit, even when they are not workspace administrators.’\n\n1. QUOTE: `Only workspace administrators may export a project.` / `Project editors may export any project they can edit, even when they are not workspace administrators.`\n   CATEGORY: other\n   QUESTION: Which export-access rule applies?\nVERDICT: NEEDS CONTEXT (1 gap)"
+  }
+]

@@ -1,0 +1,127 @@
+[
+  {
+    "id": "r01",
+    "verdict": "PASS",
+    "required": [
+      "Identify workspace administrators who use scheduled CSV exports as the people who must act.",
+      "State that they must change scheduled CSV exports to JSON before 30 November 2026, with source passages supporting the action and answers.",
+      "Preserve the distinction between the action deadline and the 1 December service cutoff."
+    ],
+    "must_not_invent": [
+      "A required change for scheduled JSON exports or downloaded CSV files.",
+      "Steps outside the Settings > Exports procedure in the source."
+    ]
+  },
+  {
+    "id": "r02",
+    "verdict": "NEEDS CONTEXT",
+    "required": [
+      "Explain that approval is requested but the proposed retention period is not selected.",
+      "Ask which option is proposed for approval, or whether the lead is meant to choose between the options.",
+      "Support the ambiguity with the request for approval and the two option passages."
+    ],
+    "must_not_invent": [
+      "A preference for seven days or thirty days.",
+      "A cost, security, or legal argument for either option."
+    ]
+  },
+  {
+    "id": "r03",
+    "verdict": "PASS",
+    "required": [
+      "Explain that JSON includes tags while CSV omits them, that both retain title and text, and that both use UTF-8, with source support.",
+      "Treat this as an informational document without requiring a reader action."
+    ],
+    "must_not_ask": [
+      "What the reader should do next, which format they must choose, or when they must switch.",
+      "Which export format is faster or smaller; the page makes no performance claim."
+    ],
+    "must_not_invent": [
+      "A recommendation to use one format for all exports."
+    ]
+  },
+  {
+    "id": "r04",
+    "verdict": "NEEDS CONTEXT",
+    "required": [
+      "Identify the incompatible access rules and quote both passages.",
+      "Decline to give a single unqualified answer about who can export; ask which rule applies."
+    ],
+    "must_not_invent": [
+      "A distinction between administrator exports and editor exports that the source never makes.",
+      "An assumption that all project editors are workspace administrators."
+    ]
+  },
+  {
+    "id": "r05",
+    "verdict": "NEEDS CONTEXT",
+    "required": [
+      "Record the unknown amber lane at its first use before opening the definition section.",
+      "Retain that first-use gap in the final report even though a later section defines the term; there is no forward reference."
+    ],
+    "trace_required": [
+      "The reader sees chunk contents in order, with an observable checkpoint before reading a later chunk.",
+      "The reviewer does not read the original whole draft or future chunks in a batch."
+    ],
+    "must_not_ask": [
+      "How to enable the lane; the test concerns the term's meaning rather than its implementation."
+    ]
+  },
+  {
+    "id": "r06",
+    "verdict": "PASS",
+    "required": [
+      "Honor the explicit forward reference and resolve amber lane from its named later section.",
+      "Record the forward reference separately from an unresolved first-use gap."
+    ],
+    "trace_required": [
+      "Record a checkpoint after each ordinary chunk before reading the next.",
+      "If the reviewer consults a later target early, restrict that read to the explicitly referenced definition and identify it as a forward-reference lookup."
+    ],
+    "must_not_ask": [
+      "What the amber lane is after its linked definition has been consulted."
+    ]
+  },
+  {
+    "id": "r07",
+    "verdict": "PASS",
+    "required": [
+      "Use slide 1's own speaker notes to resolve suspects and retry lane before judging that slide.",
+      "Keep each slide's speaker notes available with the slide during sequential reading."
+    ],
+    "trace_required": [
+      "The reader records slide 1's checkpoint before reading slide 2."
+    ],
+    "must_not_ask": [
+      "What suspects or retry lane mean.",
+      "For those definitions to be printed on the slide rather than spoken in its notes."
+    ]
+  },
+  {
+    "id": "r08",
+    "verdict": "NEEDS CONTEXT",
+    "required": [
+      "Flag suspects and retry lane as information gaps on slide 1.",
+      "Require the definitions in the script by slide 1; slide 2's notes arrive too late.",
+      "Retain the slide 1 gaps after the later definitions are read."
+    ],
+    "trace_required": [
+      "The reader records slide 1's gaps before seeing slide 2 or its notes."
+    ],
+    "allowed_grouping": "One grouped finding or separate findings for the two undefined terms are acceptable.",
+    "must_not_ask": [
+      "To add the definitions to slide 1's visible text when its script can supply them."
+    ]
+  },
+  {
+    "id": "r09",
+    "required": [
+      "Leave the draft byte-identical despite having permission to edit the test fixture.",
+      "Keep the unresolved access-rule question open and ask for the author's answer before applying a correction."
+    ],
+    "must_not_invent": [
+      "A chosen access policy inferred from the reviewer's readback.",
+      "An author answer supplied by the word apply."
+    ]
+  }
+]

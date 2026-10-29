@@ -39,6 +39,13 @@
    leave them out of the report. The audit never looks inside code
    blocks, commands, or math.
 
+   An explicitly requested comprehension test also checks whether the
+   reader can recover the document's main claim or requested action, as
+   defined in the optional reader-mode procedure. Only that mode adds
+   conflicting passages that prevent a supported answer as `other` gaps.
+   It does not turn the ordinary audit into a structure review or require
+   every document to ask for action.
+
    Separate interpretation from verification. Ask for a detail when it
    changes what the claim means, not merely to reproduce or validate the
    claim. Once the quantity and its comparison are clear, the measurement

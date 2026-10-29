@@ -123,10 +123,36 @@ Cold read talk/deck.md
 Cold read talk/slides.tex talk/script.md   # deck plus script
 Cold read README.md
 Will readers follow this release note? <paste>
+cold-read comprehension proposal.md
+cold-read sequential guide.md             # experimental, text/Markdown
 ```
 
 The skill also applies before publishing, submitting, tagging, or pushing
 audience-facing text.
+
+Two additional modes run only when requested:
+
+- **Comprehension** adds a readback: the requested action when the document
+  calls for one, and answers to your questions or a few questions about its
+  main claims. Each answer cites the supporting passage. Ambiguous answers
+  become context questions; informational text needs no call to action.
+  The readback demonstrates an interpretation, not factual verification.
+  It cannot supply the author answers required before applying a correction.
+- **Sequential** is experimental. A fresh reviewer reads ordered text
+  chunks, returning a first-read report before receiving the next chunk.
+  A later definition
+  cannot erase a first-use gap unless the text explicitly pointed to it.
+  Slides retain their same-slide notes and script timing. Preparation uses
+  a Python 3 helper to create temporary verbatim copies and leaves the
+  source untouched. A missing
+  chunk or unavailable independent reader leaves the check incomplete.
+
+Both modes require a fresh reviewer, including for short inputs. They may
+be combined. Sequential reading adds tool calls; testing has not established
+a reliability advantage over the ordinary audit. Its read trace must be checked to
+verify that the reviewer followed the sequence. See the
+[mode procedures](references/reader-modes.md) for supported inputs and
+forward-reference handling.
 
 ## Pipeline order
 
@@ -145,17 +171,16 @@ audit runs on the final text, never before a rewrite.
 Context leaks and missing context, not credentials. For actual secrets
 (keys, tokens), run [gitleaks](https://github.com/gitleaks/gitleaks) or
 equivalent in CI. Never leave credentials to an LLM. Neither skill has a
-deterministic hook floor yet; a commit-message denylist hook is planned
-future work.
+rule-based commit hook yet; a commit-message denylist hook is planned.
 
 ## Related reader workflows
 
 - [Anthropic's doc-coauthoring](https://github.com/anthropics/skills/tree/main/skills/doc-coauthoring)
-  includes fresh-reader question testing within a broader drafting workflow.
+  supplies the reader-answer testing idea used in comprehension mode.
 - [cold-read-gate](https://github.com/laurigates/claude-plugins/tree/main/agent-patterns-plugin/skills/cold-read-gate)
-  reviews outgoing text with an isolated reader and publication-surface context.
+  motivates the requested-action check and publication-surface context.
 - [cold-reader-skill](https://github.com/brendanlong/cold-reader-skill)
-  reads a document in chunks to preserve the first-read experience.
+  motivates sequential exposure and recorded first-read observations.
 
 These are related approaches, not dependencies. This plugin keeps separate
 leak and context checks, slide/script timing rules, and corrections drawn

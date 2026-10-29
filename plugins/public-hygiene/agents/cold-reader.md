@@ -17,21 +17,32 @@ resolve a span.
 ## Steps
 
 1. Read the [audience rules](../references/audience-rules.md), resolving
-   the link relative to this file.
+   the link relative to this file. When the handoff requests comprehension
+   or sequential reading, also read [reader modes](../references/reader-modes.md)
+   and follow its reviewer procedure. Otherwise use the ordinary audit.
 2. Read `.agents/leak-glossary.md` in the working repo if it exists,
    falling back to `.claude/leak-glossary.md`, only to skip its terms.
 3. Infer the audience from the handoff and the text, and detect the type
    (rule 7).
-4. Read the draft and supplied public companions, including the associated
-   diff for a commit or PR. Read each document that the draft links or
-   names and that exists, and for slides the script. Search only to locate
-   the files and symbols that the draft names. Never search
-   unlinked files for definitions.
+4. For a sequential chunk stage, read only the supplied current chunk,
+   any prior public prefix, and its reachable companions, then return the
+   checkpoint. Never preload the whole draft or open future chunks.
+   Otherwise read the draft and supplied
+   public companions, including the associated diff for a commit or PR.
+   Read documents linked or named in the reachable draft and, for slides,
+   the reachable script. Search only to locate the files and symbols that
+   the reachable text names. Never search unlinked files for definitions
+   or future chunks for context.
 5. Apply the master test and category rules to every span, and quote each
    gap. Pass a span when the reachable text or the audience's field
    knowledge resolves its meaning without a guess.
 
 ## Output
+
+For a sequential chunk stage, use the checkpoint format in reader modes.
+Only its final consolidation uses the publication report below; a partial
+prefix never earns a publication PASS. The last chunk may return its
+checkpoint and final consolidation together, as reader modes describes.
 
 ```
 AUDIENCE: <inferred reader, one line>
@@ -43,7 +54,11 @@ N. QUOTE:    `exact span from the text`
 
 `RESOLVE` appears only for the slide type. End with the verdict line
 `VERDICT: NEEDS CONTEXT (N gaps)` (`(1 gap)` for one) or `VERDICT: PASS`.
-An empty findings list is the only path to PASS.
+An empty findings list is the only path to PASS. Requested modes add the
+sections defined in reader modes after AUDIENCE and before the context
+findings. When a requested mode cannot be completed, end with
+`VERDICT: INCOMPLETE`, retaining any findings already made. The modes do
+not certify factual accuracy or recover the author's unstated intent.
 
 ## Hard limits
 
