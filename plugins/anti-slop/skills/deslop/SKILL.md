@@ -44,8 +44,10 @@ Claude Code: `/anti-slop:deslop`. Codex: `$anti-slop:deslop`.
   needed to move factual heading content into a grammatical body sentence.
 - Keep the author's technical terms. Replace slop, not vocabulary you would
   merely phrase differently.
-- When removing rhetorical contrast, preserve each substantive claim and
-  its negation. A denial of X does not assert X; "not just X" does include X.
+- When removing rhetorical contrast, keep the concrete behavior and any
+  factual limitations. A denied or minimized label in the reveal is not
+  a new fact to assert or a function to infer. Use it as a positive claim
+  only when the source states that claim independently of the reveal.
 
 ## Ordering
 

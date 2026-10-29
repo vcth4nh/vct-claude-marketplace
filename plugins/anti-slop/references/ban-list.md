@@ -2,9 +2,10 @@
 
 The patterns below are examples of each class, not the full boundary. Judge
 borderline text by one test: would an experienced human editor cut it?
-Apply them to editable prose. Factual meaning, explicit negations,
-conditions, and established technical terms take priority over a style
-pattern. For example, "robust regression" names a method, not praise.
+Factual meaning, explicit negations, and conditions take priority over a
+style pattern. A banned word stays when it is part of a fixed technical
+name, such as "robust regression" or "loss landscape"; general praise
+such as "robust method" is still subject to the ban.
 
 ## Banned constructions
 - Contrast reveals: "It's not X. It's Y." and softened variants ("This isn't
@@ -47,14 +48,15 @@ A heading names its topic and stops: "Enumeration methodology", "How we
 enumerated". A short status tag may follow, such as "(optional)". Claims,
 reasons, and previews go in the body.
 - A tail after the topic (in parentheses, after a dash or a colon) that adds
-  only a slogan or preview: cut it. "How we enumerated (method, not
-  guesswork)" → "How we enumerated". "How we found the bugs — the reasoning,
+  only a slogan, decorative contrast, or preview: cut it. "How we enumerated
+  (method, not guesswork)" → "How we enumerated". "How we found the bugs — the reasoning,
   step by step" → "How we found the bugs".
 - A tail that holds a claim, condition, or factual contrast: move it into
-  the first body sentence. Preserve the stated relationship; use
-  "because" or "so" only when the source gives that causal link. "Binary file
-  formats (highest value — custom parsers, integer math)" → heading "Binary
-  file formats", first sentence "These formats have the highest value
+  the first body sentence and preserve its relationship. When a judgement
+  is followed by its reasons, a dash or comma can carry the causal link:
+  write it as "because" or "so". Do not add causality to a mere list or
+  condition. "Binary file formats (highest value — custom parsers, integer
+  math)" → heading "Binary file formats", first sentence "These formats have the highest value
   because of their custom parsers and integer math."
 
 ## Punctuation

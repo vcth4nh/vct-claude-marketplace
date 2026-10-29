@@ -12,7 +12,7 @@ Both audit against [`references/ban-list.md`](references/ban-list.md),
 rewrite, and report every change as `span` → `replacement`. Hard constraints:
 no new facts, code blocks and math stay byte-identical, rewrites never get
 longer than the original, except where a claim moves out of a heading into
-the body. Factual negations, conditions, and established technical terms
+the body. Factual negations, conditions, and fixed technical names
 take priority over style patterns.
 
 ## Install
@@ -80,6 +80,8 @@ checks must see those additions. Repeat the affected checks after later edits.
   art for slop-removal skills.
 - [matsuikentaro1/humanizer_academic](https://github.com/matsuikentaro1/humanizer_academic),
   prior art for the academic register pass.
+- [blader/humanizer](https://github.com/blader/humanizer), a related skill
+  with an explicit audit for added or dropped claims after rewriting.
 - [ASD-STE100](https://www.asd-ste100.org/), the Simplified Technical
   English specification.
 
