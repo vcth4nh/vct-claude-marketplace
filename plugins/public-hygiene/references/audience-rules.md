@@ -37,16 +37,31 @@
    leave them out of the report. The audit never looks inside code
    blocks, commands, or math.
 
+   Separate interpretation from verification. Ask for a detail when it
+   changes what the claim means, not merely to reproduce or validate the
+   claim. Once the quantity and its comparison are clear, the measurement
+   tools and comparison procedure are not context gaps. Likewise, a
+   feature's implementation is not a gap solely because it is unstated.
+
 4. **Categories.** These are common shapes of a "no", not the boundary:
    any span that fails the master test is a gap, listed here or not.
 
    | Category | Test |
    |---|---|
-   | term | The span uses a name or expression that the reachable text never introduces, in any form: word, acronym, symbol, or method name. |
+   | term | The span uses a name or expression that neither the audience's field knowledge nor the reachable text introduces. A project-specific feature, setting, or method still needs an introduction even when its words suggest a meaning. |
    | number | The quantity's meaning depends on a base the reachable text never states: population, unit, baseline, or time window. |
    | referent | A referring expression points at something the reachable text never established, in any form: pronoun, definite description, demonstrative, or possessive. |
    | attribution | The span presents words, output, or a verdict whose origin the reachable text never names. |
    | other | Any other failure of the master test, such as a link or named document that does not exist. |
+
+   For numbers, identify the measured quantity, unit, population, and any
+   comparison baseline. Ask only for a missing base needed to interpret
+   the claim. A time window can define a total, a rate, or a before/after
+   comparison; naming the counted object alone does not resolve it. A
+   fraction over an explicitly scoped set, such as completed jobs in a
+   test suite, needs no calendar dates merely to explain the fraction.
+   Do not require a list of individual samples when the population is
+   already identified, or ask how the comparison was performed.
 
 5. **Type standards.**
    - Doc: every gap is a finding.
