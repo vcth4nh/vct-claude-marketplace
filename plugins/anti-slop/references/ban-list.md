@@ -67,3 +67,10 @@ reasons, and previews go in the body.
 Cut, or replace with a concrete, checkable statement. The rewrite must not
 grow, except for words needed to move factual heading content into a
 grammatical body sentence. Never pad or remove a fact to meet the limit.
+
+Before finishing, compare the source and rewrite for excessive editing.
+Keep meaningful uncertainty, the author's clear cadence, and explanations
+that help the reader follow the claim. Leave sound passages alone; do not
+compress them merely to shorten the draft or make every paragraph sound
+alike. These checks preserve voice within the factual and style constraints
+above; they do not excuse a listed pattern or add a new opinion.

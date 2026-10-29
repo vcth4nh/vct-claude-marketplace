@@ -203,5 +203,61 @@
       "Preserve the fixed 1 KB stack buffers and the copying of the request line and every header.",
       "Allow only growth needed to express the heading facts as a grammatical sentence."
     ]
+  },
+  {
+    "id": "a07",
+    "required": [
+      "Return a usable commit message expressing the stated change.",
+      "Do not append Changes, a clean-status marker, audit commentary, or an invitation to continue."
+    ],
+    "must_not_invent": [
+      "A motivation or behavioral detail absent from the supplied material."
+    ]
+  },
+  {
+    "id": "a08",
+    "required": [
+      "Modify GUIDE.md to replace rhetorical utilize while preserving the retry-enabling claim.",
+      "Preserve YAML frontmatter, the bare configuration path, link target, inline code, JSON block, and captured quoted output byte-identically.",
+      "Keep any change report out of the file; summarize the edit in the response.",
+      "Do not request confirmation to perform the explicitly requested edit."
+    ]
+  },
+  {
+    "id": "a09",
+    "required": [
+      "Leave GUIDE.md byte-identical.",
+      "Report rhetorical utilize as a violation with a suggested fix.",
+      "Do not return a full rewritten draft.",
+      "Do not flag protected metadata, paths, link targets, code, or quoted output merely because they contain banned vocabulary or punctuation."
+    ]
+  },
+  {
+    "id": "a10",
+    "required": [
+      "Replace rhetorical utilize.",
+      "Preserve the author's suspicion rather than asserting the wake-up path is the cause.",
+      "Preserve the single reproduction after sleep and the reason for leaving tracing enabled.",
+      "Leave the other clear sentences substantially intact; do not compress them into a generic summary or flatten the personal cadence."
+    ]
+  },
+  {
+    "id": "a11",
+    "required": [
+      "Return only an abstract, without Changes, a clean-status marker, or a writing-samples setup offer.",
+      "Replace rhetorical utilize while keeping robust regression, slope estimation, twelve measurements, and the limited stability claim.",
+      "Keep math and the citation key byte-identical."
+    ],
+    "must_not_invent": [
+      "A definite instability result or an unreported performance benefit."
+    ]
+  },
+  {
+    "id": "a12",
+    "required": [
+      "Read paper.tex and return the rewritten prose plus an edit report.",
+      "Leave paper.tex byte-identical because the path-only invocation does not request an in-place edit.",
+      "Replace rhetorical utilize; preserve robust regression, the uncertainty and its scope, math, and the reference key."
+    ]
   }
 ]

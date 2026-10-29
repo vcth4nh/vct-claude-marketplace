@@ -34,5 +34,47 @@
     "skill": "deslop",
     "request": "Deslop this security review note.",
     "draft": "# Audit notes: tinyhttpd 1.2\n\n## Request parser (top priority — hand-written, never fuzzed)\n\nThe parser copies the request line and every header into fixed 1 KB stack buffers.\n"
+  },
+  {
+    "id": "a07",
+    "skill": "deslop",
+    "request": "Write the commit message for this change, using deslop while drafting it.",
+    "draft": "Skip cache reads for authenticated requests."
+  },
+  {
+    "id": "a08",
+    "skill": "deslop",
+    "request": "Use deslop to edit GUIDE.md in place.",
+    "files": {
+      "GUIDE.md": "---\ntitle: \"Robust — setup\"\nslug: seamless-setup\n---\n# Setup\n\nWe utilize the configuration below to enable retries.\n\nConfiguration: configs/robust—trial.yaml.\nRead the [setup guide](https://example.test/comprehensive—setup?mode=robust).\nThe `utilize()` call returns `robust—trial`.\n\n```json\n{\"label\": \"seamless\", \"timeout_ms\": 200}\n```\n\nThe captured output was \"robust—trial\".\n"
+    }
+  },
+  {
+    "id": "a09",
+    "skill": "deslop",
+    "request": "deslop check GUIDE.md. Review only.",
+    "files": {
+      "GUIDE.md": "---\ntitle: \"Robust — setup\"\nslug: seamless-setup\n---\n# Setup\n\nWe utilize the configuration below to enable retries.\n\nConfiguration: configs/robust—trial.yaml.\nRead the [setup guide](https://example.test/comprehensive—setup?mode=robust).\nThe `utilize()` call returns `robust—trial`.\n\n```json\n{\"label\": \"seamless\", \"timeout_ms\": 200}\n```\n\nThe captured output was \"robust—trial\".\n"
+    }
+  },
+  {
+    "id": "a10",
+    "skill": "deslop",
+    "request": "Deslop this engineering incident note.",
+    "draft": "We utilize a retry queue. I suspect the wake-up path is involved. I reproduced it once, after my laptop woke from sleep. I left tracing on because the next failure may happen while I am away."
+  },
+  {
+    "id": "a11",
+    "skill": "academic-voice",
+    "request": "Write the abstract from this material, using academic-voice while drafting it.",
+    "draft": "We utilize robust regression to estimate the slope. The sample contains twelve measurements. The estimate may be unstable outside the observed range. We minimize $L(\\theta)$ using the method of Chen~\\cite{chen2024}."
+  },
+  {
+    "id": "a12",
+    "skill": "academic-voice",
+    "request": "academic-voice paper.tex",
+    "files": {
+      "paper.tex": "We utilize robust regression to estimate the slope. The estimate may be unstable outside the observed range. We minimize $L(\\theta)$; Figure~\\ref{fig:loss} shows the objective.\n"
+    }
   }
 ]

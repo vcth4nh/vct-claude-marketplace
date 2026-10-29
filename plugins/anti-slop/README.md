@@ -8,12 +8,12 @@ Remove AI-slop tone from prose. Two skills, one shared ban list:
   work, camera-ready text. Matches your voice from an optional per-repo
   samples file.
 
-Both audit against [`references/ban-list.md`](references/ban-list.md),
-rewrite, and report every change as `span` → `replacement`. Hard constraints:
-no new facts, code blocks and math stay byte-identical, rewrites never get
-longer than the original, except where a claim moves out of a heading into
-the body. Factual negations, conditions, and fixed technical names
-take priority over style patterns.
+Both audit against [`references/ban-list.md`](references/ban-list.md) and
+check the rewrite for lost facts, unsupported additions, and excessive
+editing. Meaningful uncertainty, clear cadence, and useful explanations
+survive the edit. Factual negations, conditions, and fixed technical names
+take priority over style patterns. Rewrites cannot grow except where a
+claim moves out of a heading into the body.
 
 ## Install
 
@@ -38,11 +38,22 @@ Deslop this README section: <paste>
 deslop check <paste>                        # report violations, no rewrite
 Humanize this paragraph for the paper: <paste>
 academic-voice paper/intro.tex
+Edit paper/intro.tex in place with academic-voice
 ```
 
 Claude Code uses `/anti-slop:<skill>`; Codex uses `$anti-slop:<skill>`.
 The skills also apply automatically when the agent writes prose for a
 human reader.
+
+Standalone rewrites include a change report. Naming a file alone reads it
+and returns a rewrite; asking to edit it applies the changes to the file
+and returns a brief summary. Review-only requests leave files untouched.
+When used inside a drafting task, the skills return only the requested
+artifact, with no change report or setup offer attached.
+
+File edits change prose only. Code, commands, paths, YAML metadata, data,
+and link targets stay byte-identical; `academic-voice` also protects math,
+LaTeX macros, citation/reference keys, and tables.
 
 ## Per-repo voice (optional)
 
@@ -77,11 +88,13 @@ checks must see those additions. Repeat the affected checks after later edits.
 ## Credits
 
 - [petergyang/no-ai-slop](https://github.com/petergyang/no-ai-slop), prior
-  art for slop-removal skills.
+  art for slop-removal skills and checks for excessive compression and
+  loss of the author's voice.
 - [matsuikentaro1/humanizer_academic](https://github.com/matsuikentaro1/humanizer_academic),
   prior art for the academic register pass.
 - [blader/humanizer](https://github.com/blader/humanizer), a related skill
-  with an explicit audit for added or dropped claims after rewriting.
+  with an explicit audit for added or dropped claims, separate embedded
+  and file output modes, and protection for non-prose file content.
 - [ASD-STE100](https://www.asd-ste100.org/), the Simplified Technical
   English specification.
 
