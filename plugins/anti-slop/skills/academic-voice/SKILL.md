@@ -59,5 +59,6 @@ Claude Code: `/anti-slop:academic-voice`. Codex: `$anti-slop:academic-voice`.
 
 ## Ordering
 
-If the `public-hygiene` plugin is installed, it runs after this skill, on the
-final text — never before.
+When using `public-hygiene`, run `cold-read` and apply the author's
+answers before this style pass. Run `leak-check` after this pass, on the
+final text. If later edits add or change prose, repeat the affected checks.

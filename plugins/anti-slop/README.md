@@ -60,7 +60,7 @@ until you select it: `/config` → Output style, or per repo in
 `.claude/settings.json`:
 
 ```json
-{ "outputStyle": "ASD-STE100" }
+{ "outputStyle": "anti-slop:ASD-STE100" }
 ```
 
 Not recommended for paper repos, because STE's uniform short sentences fight
@@ -68,8 +68,10 @@ paper rhythm.
 
 ## Pipeline order
 
-Style first, gate last: run [`public-hygiene`](../public-hygiene/) on the final text
-after any rewrite here.
+When using [`public-hygiene`](../public-hygiene/), run `cold-read` and
+apply the author's answers first, then `deslop` or `academic-voice`, and
+finally `leak-check`. Context answers can add prose, so the style and leak
+checks must see those additions. Repeat the affected checks after later edits.
 
 ## Credits
 
