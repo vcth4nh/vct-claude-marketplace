@@ -1,0 +1,207 @@
+[
+  {
+    "id": "c01",
+    "verdict": "PASS",
+    "required": [],
+    "must_not_ask": [
+      "Which decks were tested: the population is the 40 bundled sample decks.",
+      "How the maintainers compared Chrome with the PDF, what comparison tool they used, or over what dates they tested.",
+      "Where speaker notes come from or how the --notes implementation works."
+    ]
+  },
+  {
+    "id": "c02",
+    "verdict": "PASS",
+    "required": [],
+    "must_not_ask": [
+      "A calendar date or measurement duration for the explicitly scoped 200-job suite.",
+      "Another denominator for the defined retry rate or the 5% threshold.",
+      "How retries are detected or how the threshold was chosen."
+    ]
+  },
+  {
+    "id": "c03",
+    "verdict": "NEEDS CONTEXT",
+    "required": [
+      {
+        "anchor": "18%",
+        "category": "number",
+        "question_must_seek": "The counted population or denominator: 18% of which entities."
+      }
+    ],
+    "must_not_ask": [
+      "A time window: May 2026 is stated.",
+      "How the outage was measured or diagnosed."
+    ]
+  },
+  {
+    "id": "c04",
+    "verdict": "NEEDS CONTEXT",
+    "required": [
+      {
+        "anchor": "12",
+        "category": "number",
+        "question_must_seek": "The time unit for the median response time."
+      }
+    ],
+    "must_not_ask": [
+      "A different request population: the bundled 200-request fixture is stated.",
+      "The date, measurement tool, or sampling implementation merely to establish validity."
+    ]
+  },
+  {
+    "id": "c05",
+    "verdict": "NEEDS CONTEXT",
+    "required": [
+      {
+        "anchor": "40%",
+        "category": "number",
+        "question_must_seek": "The comparison baseline, such as which version or configuration the reduction compares against."
+      }
+    ],
+    "must_not_ask": [
+      "A different population or the response-time unit: both are supplied.",
+      "How the comparison was performed."
+    ],
+    "must_not_invent": [
+      "Version 1 as the comparison baseline.",
+      "A baseline identity inferred from the stated percentage."
+    ]
+  },
+  {
+    "id": "c06",
+    "verdict": "NEEDS CONTEXT",
+    "required": [
+      {
+        "anchor": "US$8 per workspace",
+        "category": "number",
+        "question_must_seek": "The billing period or payment interval, which determines the meaning of this subscription price."
+      }
+    ],
+    "must_not_ask": [
+      "Currency or per-seat versus per-workspace pricing: those are stated.",
+      "How billing is implemented."
+    ]
+  },
+  {
+    "id": "c07",
+    "verdict": "NEEDS CONTEXT",
+    "required": [
+      {
+        "anchor": "amber lane",
+        "category": "term",
+        "question_must_seek": "What the amber lane is; its project-specific meaning has not been introduced."
+      }
+    ],
+    "must_not_ask": [
+      "An implementation algorithm or evidence proving the reduction in duplicates."
+    ]
+  },
+  {
+    "id": "c08",
+    "verdict": "NEEDS CONTEXT",
+    "required": [
+      {
+        "anchor_any": [
+          "What our team does today",
+          "We rerun every failed test twice"
+        ],
+        "category": "referent",
+        "resolve": "on the slide",
+        "question_must_seek": "Whose practice the opening slide describes; the slide says the speaker's team but the notes mean teams across the industry."
+      }
+    ],
+    "allowed_grouping": "One grouped finding or separate findings for the title and pronoun are acceptable.",
+    "must_not_flag": [
+      "suspects",
+      "retry lane",
+      "retry rate",
+      "4%"
+    ],
+    "reason": "The same-slide notes define these terms and supply the numeric population. The notes cannot repair the misleading standalone team referent."
+  },
+  {
+    "id": "c09",
+    "verdict": "NEEDS CONTEXT",
+    "required": [
+      "Ask which observation windows the before/after counts cover and whether their durations are comparable."
+    ],
+    "must_not_ask": [
+      "What a failed job is; it is defined.",
+      "Which queue or worker pool; the same queue and pool are stated."
+    ]
+  },
+  {
+    "id": "c10",
+    "verdict": "PASS",
+    "must_not_ask": [
+      "Sample size, observed population, or dates for a defined policy threshold.",
+      "Why the 95% threshold was chosen."
+    ]
+  },
+  {
+    "id": "c11",
+    "verdict": "NEEDS CONTEXT",
+    "required": [
+      "Ask for the comparison baseline AND the benchmark population or workload."
+    ],
+    "must_not_invent": [
+      "A prior version or named competing tool as the baseline."
+    ]
+  },
+  {
+    "id": "a01",
+    "required": [
+      "Move the authenticated-request condition into the body and keep the five-minute duration.",
+      "Allow only growth needed to express the moved heading fact as a sentence."
+    ]
+  },
+  {
+    "id": "a02",
+    "required": [
+      "Preserve that invoices are not deleted and are marked void.",
+      "Remove the magic setup while retaining the scheduled-job fact.",
+      "Move authenticity and lack of confidentiality from the heading into the body.",
+      "Keep the signing key on the server."
+    ],
+    "must_not_invent": [
+      "A causal relationship between the three separate subjects."
+    ]
+  },
+  {
+    "id": "a03",
+    "required": [
+      "Replace rhetorical utilize.",
+      "Keep robust regression and loss landscape as technical names.",
+      "Preserve both minima, slope-estimation claim, the exact quotation, math, and citation/reference keys."
+    ]
+  },
+  {
+    "id": "a04",
+    "required": [
+      "Keep the 20-event batch size and five-second request interval.",
+      "Keep the shell block byte-identical, including its label.",
+      "Remove empty praise, staging, and the fact-free closing; shrink the prose."
+    ]
+  },
+  {
+    "id": "a05",
+    "required": [
+      "Retain replica synchronization and zero configuration.",
+      "Keep the command byte-identical.",
+      "Remove promotional adjectives and the contrast setup."
+    ],
+    "must_not_invent": [
+      "An identity as a cache or a caching function inferred solely from the rhetorical not-just-a-cache label."
+    ]
+  },
+  {
+    "id": "a06",
+    "required": [
+      "Move the priority judgement and its reasons out of the heading.",
+      "Express that the parser is top priority because it is hand-written and has never been fuzzed.",
+      "Preserve the fixed 1 KB stack buffers and the copying of the request line and every header.",
+      "Allow only growth needed to express the heading facts as a grammatical sentence."
+    ]
+  }
+]

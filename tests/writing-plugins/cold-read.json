@@ -1,0 +1,68 @@
+[
+  {
+    "id": "c01",
+    "type": "doc",
+    "request": "Cold read this complete release note for developers who use this utility.",
+    "draft": "# Deckpress 2.0 release notes\n\nDeckpress turns Markdown slide decks into PDF files.\n\nVersion 2.0 embeds each font that permits embedding. When a font license forbids embedding, Deckpress skips that font and prints a warning naming it. The --notes flag adds one page of speaker notes after each slide.\n\nThe maintainers tested version 2.0 on the 40 sample decks included in the Deckpress repository. For 38 decks, the generated PDF rendered identically to the same deck in Chrome. The remaining two decks used fonts that forbid embedding.\n\nDeckpress 2.0 requires Node.js 20 or later; version 1.x required Node.js 16."
+  },
+  {
+    "id": "c02",
+    "type": "doc",
+    "request": "Cold read this complete dashboard help text for software engineers.",
+    "draft": "# Retry rate\n\nThis dashboard summarizes the 200 completed jobs in the bundled acceptance test suite. A job requires a retry when its first execution fails and the runner executes it again.\n\nRetry rate is the percentage of completed jobs that required at least one retry. Six of the 200 jobs required a retry, so the retry rate is 3%. The dashboard highlights retry rates above 5%."
+  },
+  {
+    "id": "c03",
+    "type": "doc",
+    "request": "Cold read this complete service incident summary for customers.",
+    "draft": "# May outage\n\nCourier is a service for sending notifications. Each customer organization has one or more projects, and each project submits notification jobs.\n\nDuring the May 2026 outage, 18% were affected. Delivery has resumed."
+  },
+  {
+    "id": "c04",
+    "type": "doc",
+    "request": "Cold read this complete benchmark result for software engineers.",
+    "draft": "# Response time\n\nThe benchmark sends the 200 API requests in the bundled request fixture to the server. For those requests, the median response time was 12."
+  },
+  {
+    "id": "c05",
+    "type": "doc",
+    "request": "Cold read this complete benchmark result for software engineers.",
+    "draft": "# Version 2 response time\n\nThe benchmark sends the 200 API requests in the bundled request fixture to the server. Version 2 had a median response time of 12 ms for those requests, a reduction of 40%."
+  },
+  {
+    "id": "c06",
+    "type": "doc",
+    "request": "Cold read this complete pricing notice for customers.",
+    "draft": "# Team plan\n\nThe Team plan is a subscription for shared workspaces. It costs US$8 per workspace. Every member of a workspace can use its shared documents."
+  },
+  {
+    "id": "c07",
+    "type": "doc",
+    "request": "Cold read this complete release note for developers who use this service.",
+    "draft": "# Delivery retries\n\nCourier sends notification jobs to delivery workers. When a worker fails to deliver a notification, Courier schedules another delivery attempt.\n\nCourier now routes these retry attempts through the amber lane. This reduces duplicate deliveries."
+  },
+  {
+    "id": "c08",
+    "type": "slide",
+    "request": "Cold read this complete slide deck for a software testing meetup. The HTML comments are speaker notes and will be spoken with their slide.",
+    "draft": "---\nmarp: true\n---\n\n# What our team does today\n\nWe rerun every failed test twice.\n\n<!--\nHere I am describing a practice across the software industry, not the practice of my team. In this sentence, we means teams across the industry.\n-->\n\n---\n\n# Separate retries\n\nSuspects move to the retry lane.\n\n<!--\nA suspect is a test that passed on one run and failed on another without a code change. The retry lane is a separate CI job where these tests run; failures in that job do not block a merge.\n-->\n\n---\n\n# Retry rate\n\nThe retry rate is 4%.\n\n<!--\nIn last week's acceptance test suite, eight of 200 completed test jobs needed at least one additional execution. Retry rate is the percentage of completed test jobs that needed at least one additional execution.\n-->"
+  },
+  {
+    "id": "c09",
+    "type": "doc",
+    "request": "Cold read this complete rollout report for operations engineers.",
+    "draft": "# Worker rollout\n\nA failed job is a job whose worker exits with a nonzero status. The same job queue and worker pool were used before and after the rollout. The failed-job count fell from 120 before the rollout to 30 afterward."
+  },
+  {
+    "id": "c10",
+    "type": "doc",
+    "request": "Cold read this complete dashboard help text for software testing engineers.",
+    "draft": "# Repeated-run agreement\n\nRepeated-run agreement is the fraction of test reruns that produce the same output as their original run. The dashboard highlights repeated-run agreement below 95%."
+  },
+  {
+    "id": "c11",
+    "type": "doc",
+    "request": "Cold read this complete benchmark summary for software engineers.",
+    "draft": "# Renderer benchmark\n\nRenderer compares UI screenshots and reports visual differences. In our benchmark, Renderer reduced false-positive alerts by 70%."
+  }
+]

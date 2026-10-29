@@ -1,0 +1,38 @@
+[
+  {
+    "id": "a01",
+    "skill": "deslop",
+    "request": "Deslop this complete documentation fragment.",
+    "draft": "## Checkout cache (disabled for authenticated requests)\n\nThe cache stores responses for five minutes."
+  },
+  {
+    "id": "a02",
+    "skill": "deslop",
+    "request": "Deslop this engineering documentation.",
+    "draft": "## Invoice status\n\nThis endpoint does not delete invoices. It marks them void.\n\nThe nightly sync is not magic. It is a scheduled job.\n\n## Signing (authenticity, not confidentiality)\n\nThe signing key stays on the server."
+  },
+  {
+    "id": "a03",
+    "skill": "academic-voice",
+    "request": "Polish this paper paragraph with academic-voice.",
+    "draft": "We utilize robust regression to estimate the slope. The loss landscape has two minima. The report states, “Two crashes. One root cause.” \\cite{incident} We minimize $L(\\theta)$; Figure~\\ref{fig:loss} shows the objective."
+  },
+  {
+    "id": "a04",
+    "skill": "deslop",
+    "request": "Deslop this README fragment.",
+    "draft": "# Quartz\n\nIn today's fast-paced world, Quartz is a robust and seamless solution. Quartz batches up to 20 events and sends one request every 5 seconds. The best part: no guesswork.\n\n```sh\nquartz --label 'robust—trial'\n```"
+  },
+  {
+    "id": "a05",
+    "skill": "deslop",
+    "request": "Deslop this README fragment.",
+    "draft": "The replication worker is not just a cache. It is a comprehensive solution that seamlessly keeps every replica in sync. It requires no configuration.\n\n```sh\nreplication-worker start --replicas 3\n```"
+  },
+  {
+    "id": "a06",
+    "skill": "deslop",
+    "request": "Deslop this security review note.",
+    "draft": "# Audit notes: tinyhttpd 1.2\n\n## Request parser (top priority — hand-written, never fuzzed)\n\nThe parser copies the request line and every header into fixed 1 KB stack buffers.\n"
+  }
+]
