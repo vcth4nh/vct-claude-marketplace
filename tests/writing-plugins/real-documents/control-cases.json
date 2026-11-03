@@ -1,0 +1,126 @@
+[
+  {
+    "id": "retrospect-leak-publication-context",
+    "source": "/tmp/writing-real-documents/local-pr/retrospect.md",
+    "audience": "Claude Code users considering this plugin for retrospectives over their own sessions.",
+    "mode": "leak",
+    "companions": [],
+    "request": " Publication context: this is the original text of an already-public, non-anonymous artifact. Assess unintended internal context while retaining material that serves this artifact\u2019s stated purpose."
+  },
+  {
+    "id": "uv-pr-leak-publication-context",
+    "source": "/tmp/writing-real-documents/local-pr/pr.md",
+    "audience": "Python developers and uv contributors reading the archived merged PR to understand the change.",
+    "mode": "leak",
+    "companions": [
+      {
+        "source": "/tmp/writing-real-documents/local-pr/pr.diff"
+      },
+      {
+        "source": "/tmp/writing-real-documents/local-pr/publication.json"
+      }
+    ],
+    "request": "This is an archived merged pull request. Review the meaning of its current public description with the supplied diff and publication metadata. Publication context: this is the original text of an already-public, non-anonymous artifact. Assess unintended internal context while retaining material that serves this artifact\u2019s stated purpose."
+  },
+  {
+    "id": "uv-pr-style-only-control",
+    "source": "/tmp/writing-real-documents/local-pr/pr.md",
+    "audience": "Python developers and uv contributors reading the archived merged PR to understand the change.",
+    "mode": "deslop",
+    "companions": [
+      {
+        "source": "/tmp/writing-real-documents/local-pr/pr.diff"
+      },
+      {
+        "source": "/tmp/writing-real-documents/local-pr/publication.json"
+      }
+    ],
+    "request": "This is the archived PR description."
+  },
+  {
+    "id": "retrospect-seeded-leak",
+    "source": "/tmp/writing-real-documents/mutations/retrospect-seeded.md",
+    "mode": "leak",
+    "audience": "Claude Code users considering this plugin for retrospectives over their own sessions.",
+    "request": "Review this README draft for public, non-anonymous release.",
+    "setup_files": [
+      {
+        "source": "/tmp/writing-real-documents/mutations/leak-glossary.md",
+        "target": ".agents/leak-glossary.md"
+      }
+    ]
+  },
+  {
+    "id": "raft-anonymous-leak",
+    "source": "/tmp/writing-real-documents/documents/raft-excerpt.md",
+    "mode": "leak",
+    "audience": "Distributed-systems conference reviewers.",
+    "request": "This abstract and introduction are being prepared for an anonymous submission. Author names and institutional affiliations must not appear."
+  },
+  {
+    "id": "retrospect-seeded-leak-publication",
+    "source": "/tmp/writing-real-documents/mutations/retrospect-seeded.md",
+    "mode": "leak",
+    "audience": "Claude Code users considering this plugin for retrospectives over their own sessions.",
+    "request": "This draft adapts an already-public, non-anonymous README. Assess unintended internal context while retaining material that serves its stated purpose.",
+    "setup_files": [
+      {
+        "source": "/tmp/writing-real-documents/mutations/leak-glossary.md",
+        "target": ".agents/leak-glossary.md"
+      }
+    ]
+  },
+  {
+    "id": "retrospect-seeded-leak-install",
+    "source": "/tmp/writing-real-documents/mutations/retrospect-install-seeded.md",
+    "mode": "leak",
+    "audience": "Claude Code users considering this plugin for retrospectives over their own sessions.",
+    "request": "Review this README draft for public, non-anonymous release.",
+    "setup_files": [
+      {
+        "source": "/tmp/writing-real-documents/mutations/leak-glossary.md",
+        "target": ".agents/leak-glossary.md"
+      }
+    ]
+  },
+  {
+    "id": "retrospect-seeded-leak-publication-install",
+    "source": "/tmp/writing-real-documents/mutations/retrospect-install-seeded.md",
+    "mode": "leak",
+    "audience": "Claude Code users considering this plugin for retrospectives over their own sessions.",
+    "request": "This draft adapts an already-public, non-anonymous README. Assess unintended internal context while retaining material that serves its stated purpose.",
+    "setup_files": [
+      {
+        "source": "/tmp/writing-real-documents/mutations/leak-glossary.md",
+        "target": ".agents/leak-glossary.md"
+      }
+    ]
+  },
+  {
+    "id": "retrospect-leak",
+    "source": "/tmp/writing-real-documents/local-pr/retrospect.md",
+    "audience": "Claude Code users considering this plugin for retrospectives over their own sessions.",
+    "mode": "leak",
+    "companions": []
+  },
+  {
+    "id": "retrospect-leak-final3",
+    "mode": "leak",
+    "source": "/tmp/writing-real-documents/local-pr/retrospect.md",
+    "audience": "Claude Code users considering this plugin for retrospectives over their own sessions."
+  },
+  {
+    "id": "history-seeded-no-glossary",
+    "mode": "leak",
+    "source": "/tmp/writing-real-documents/final-guard-inputs/history-seeded.md",
+    "audience": "Claude Code users considering this plugin for retrospectives over their own sessions.",
+    "request": "Review this public README draft, including its build-history section."
+  },
+  {
+    "id": "repeated-public-coordinate",
+    "mode": "leak",
+    "source": "/tmp/writing-real-documents/final-guard-inputs/public-coordinate.md",
+    "audience": "Python developers using Velora.",
+    "request": "Review this public project README."
+  }
+]

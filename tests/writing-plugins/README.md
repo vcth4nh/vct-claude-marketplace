@@ -6,6 +6,8 @@ factual preservation during style edits, and output modes.
 
 [0.3.0 validation](validation-0.3.0.md) records the adoption results and
 their limits.
+[The real-document pilot](real-documents/results-0.3.1.md) records the eight
+artifact tests, controls, fixes, and remaining limitations for 0.3.1.
 
 - [cold-read.json](cold-read.json) contains reader requests and drafts.
 - [anti-slop.json](anti-slop.json) contains style requests and drafts.

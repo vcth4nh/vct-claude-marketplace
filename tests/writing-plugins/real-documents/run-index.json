@@ -1,0 +1,3012 @@
+{
+  "schema_version": 1,
+  "recorded_at_utc": "2026-11-03T18:57:33.518356+00:00",
+  "interpretation": "Attempt ledger, not a pass/fail score. Original corpus, controls, baselines, failed setup, and retests are separate groups. Raw files remain in temporary storage; hashes identify the assessed artifacts.",
+  "attempt_count": 66,
+  "backend_counts": {
+    "codex": 51,
+    "claude": 15
+  },
+  "runs": [
+    {
+      "id": "retrospect-deslop",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 34.25,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [
+        "retrospect.md"
+      ],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 63735,
+        "cached_input_tokens": 55936,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1457,
+        "reasoning_output_tokens": 62
+      },
+      "group": "run-baseline",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": true,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "b1cd28de9593bed9b19eed580887390188711aa1c75a4a3cd09987369f21bd0d",
+      "plugin_snapshot_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "evidence_directory": "/tmp/writing-real-documents/run-baseline/runs/retrospect-deslop",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "eb2e251e95162feaf54b81a20297e9724724be28549bd1d5edc77742cd63f28b",
+        "inputs.json": "0f2da240097ea141e16db7c367b63368328592f9c15196d3eef499510c1591c2",
+        "before.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "after.json": "87549f46b91b93e435de2f5ce99d4bea36e4025627ffb591ab056b20cae6db51",
+        "report.txt": "4bfc4920c15344c2474bf18a6d75793436f016296e736b651e479268583c493f",
+        "trace.json": "10ea12abbad0911aabe59491db8ea8170f952a48c26e24726eda2ee502cbdea1",
+        "log.jsonl": "0c329ee6a2603a8a221dca26ffb6ac27952f1fadd79e582dbada9570a4b9205b"
+      }
+    },
+    {
+      "id": "uv-pr-deslop",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 48.99,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [
+        "pr.md"
+      ],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 151116,
+        "cached_input_tokens": 128640,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2263,
+        "reasoning_output_tokens": 40
+      },
+      "group": "run-baseline",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": true,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "b1cd28de9593bed9b19eed580887390188711aa1c75a4a3cd09987369f21bd0d",
+      "plugin_snapshot_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "evidence_directory": "/tmp/writing-real-documents/run-baseline/runs/uv-pr-deslop",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "5f5d5be565e5d1975d515658303bcc8e7d6665da6180bdd3bf07800ab614081e",
+        "inputs.json": "79cdad96f4f90e9fc0161086352452034bf52e53058b247f34757cb69cdea4a2",
+        "before.json": "f192869cfbb3cd03a87a2a14c7de8c516b2a756857b5e78358d9d4d876d02c10",
+        "after.json": "ee0a9c5ae21d2525a79241a96272bfd5b23e879a144c9e945c395ec00ca6a617",
+        "report.txt": "a4cfed6454dde375ce8881ad20422c54821a341f8cbc07e5aff451c0592e9d47",
+        "trace.json": "5757a1c00600b65daa24720514589114a24b263c4bae28a1a5d9ac962e358bdc",
+        "log.jsonl": "404d7c0903d41bdfe1c8a0d6afce5fe80907fea2c48450e2c6bf89bd1149d350"
+      }
+    },
+    {
+      "id": "retrospect-leak",
+      "backend": "claude",
+      "model": "claude-opus-4-6",
+      "exit_code": 0,
+      "elapsed_seconds": 98.8,
+      "result_received": true,
+      "result_subtype": "success",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": 0.41019025,
+      "usage": {
+        "input_tokens": 6,
+        "cache_creation_input_tokens": 18176,
+        "cache_read_input_tokens": 45423,
+        "output_tokens": 2313,
+        "output_tokens_details": {
+          "thinking_tokens": 540
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 18176,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 1,
+            "output_tokens": 901,
+            "cache_read_input_tokens": 16074,
+            "cache_creation_input_tokens": 2102,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 2102
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "group": "run-claude-first",
+      "cli_version": "2.1.317 (Claude Code)",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "b5c3030df72c433e4d8965c3d4cb6dcaa0b1fb19b7e826072dbf362b0072b4da",
+      "plugin_snapshot_sha256": "2d2199a7cc31893ae317596fe6fd7c4f999af3d77d40c5cedbaad4ec4abde022",
+      "evidence_directory": "/tmp/writing-real-documents/run-claude-first/runs/retrospect-leak",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "10a9b15a0088f4b6548dcf7c075e94c64959a34cfe1e95c33c2e8840ad7d724b",
+        "inputs.json": "0f2da240097ea141e16db7c367b63368328592f9c15196d3eef499510c1591c2",
+        "before.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "after.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "report.txt": "5093b0fbbceeb91c9c0a2eea0515f8ff82d03705cf5bda38e4e5792a698d1a02",
+        "trace.json": "988b400f9a4bed6228edca435203782651fb88f81266318f2f5e5cb6c0298c77",
+        "log.jsonl": "268cd368ac332c5487f1d41365b4bb72d25cdd840596cebc00490c8d9daa8514"
+      }
+    },
+    {
+      "id": "retrospect-sequential-comprehension",
+      "backend": "claude",
+      "model": "claude-opus-4-6",
+      "exit_code": null,
+      "elapsed_seconds": 537.192,
+      "result_received": true,
+      "result_subtype": "success",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": 1.7233102500000004,
+      "usage": {
+        "input_tokens": 11,
+        "cache_creation_input_tokens": 43062,
+        "cache_read_input_tokens": 246084,
+        "output_tokens": 12565,
+        "output_tokens_details": {
+          "thinking_tokens": 6842
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 43062,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 1,
+            "output_tokens": 1167,
+            "cache_read_input_tokens": 40007,
+            "cache_creation_input_tokens": 3055,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 3055
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "group": "run-claude-first",
+      "cli_version": "2.1.317 (Claude Code)",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "b5c3030df72c433e4d8965c3d4cb6dcaa0b1fb19b7e826072dbf362b0072b4da",
+      "plugin_snapshot_sha256": "2d2199a7cc31893ae317596fe6fd7c4f999af3d77d40c5cedbaad4ec4abde022",
+      "evidence_directory": "/tmp/writing-real-documents/run-claude-first/runs/retrospect-sequential-comprehension",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "recovery_note": "Runner process received SIGTERM; actual child exit code is unavailable. Complete native result event recovered from retained log.",
+      "artifact_sha256": {
+        "prompt.txt": "7b384cea80c6bf7217bba8d528a6653ce4855c88542d31cafcf78da4181896b5",
+        "inputs.json": "0f2da240097ea141e16db7c367b63368328592f9c15196d3eef499510c1591c2",
+        "before.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "after.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "report.txt": "dc06f62d83fefb88f364e37e48cc93dfa03656e6c76f37297b53f40237bc8802",
+        "trace.json": "773624d8a77b59dd5bafcd1a517bc8cb4ae598eb8ec088f96246518a3a153ad7",
+        "log.jsonl": "5cd9e1ce9f1a48fc1f8a20526f1dbd11e9443c11f60babda6f9aaddb37c39793"
+      }
+    },
+    {
+      "id": "uv-pr-leak",
+      "backend": "claude",
+      "model": "claude-opus-4-6",
+      "exit_code": null,
+      "elapsed_seconds": 59.608,
+      "result_received": true,
+      "result_subtype": "success",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": 0.46505725,
+      "usage": {
+        "input_tokens": 6,
+        "cache_creation_input_tokens": 28968,
+        "cache_read_input_tokens": 93787,
+        "output_tokens": 1606,
+        "output_tokens_details": {
+          "thinking_tokens": 258
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 28968,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 1,
+            "output_tokens": 155,
+            "cache_read_input_tokens": 36216,
+            "cache_creation_input_tokens": 1556,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1556
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "group": "run-claude-first",
+      "cli_version": "2.1.317 (Claude Code)",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "b5c3030df72c433e4d8965c3d4cb6dcaa0b1fb19b7e826072dbf362b0072b4da",
+      "plugin_snapshot_sha256": "2d2199a7cc31893ae317596fe6fd7c4f999af3d77d40c5cedbaad4ec4abde022",
+      "evidence_directory": "/tmp/writing-real-documents/run-claude-first/runs/uv-pr-leak",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "recovery_note": "Runner process received SIGTERM; actual child exit code is unavailable. Complete native result event recovered from retained log.",
+      "artifact_sha256": {
+        "prompt.txt": "30d798b3acf1e16c7842a4ced7d40beed8a28b7528515368c4dadd7ef694f94c",
+        "inputs.json": "79cdad96f4f90e9fc0161086352452034bf52e53058b247f34757cb69cdea4a2",
+        "before.json": "f192869cfbb3cd03a87a2a14c7de8c516b2a756857b5e78358d9d4d876d02c10",
+        "after.json": "f192869cfbb3cd03a87a2a14c7de8c516b2a756857b5e78358d9d4d876d02c10",
+        "report.txt": "8cc93afb301cd4502af2575c5adbc148d3de2cd95208401b8ad8472537a47ca9",
+        "trace.json": "e05c47ffbbcc0fef4efae4a1c553bf08f01fff4654bb2d16a8fbf861be1b21d1",
+        "log.jsonl": "3e1307409b8120a9056d95ba88a3e04e3f6ce1008ec835fd2e5ba0bf9130caf1"
+      }
+    },
+    {
+      "id": "cloudflare-outage-comprehension",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 77.47,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 180582,
+        "cached_input_tokens": 160896,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1460,
+        "reasoning_output_tokens": 30
+      },
+      "group": "run-documents",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "d71d05c47c8620bbb70e4baeaeeaeaefde0ffb60726e92761de1767f684efe29",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-documents/runs/cloudflare-outage-comprehension",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "fbe799af83a9b578e2297325ff1afe419a1c61c7559b407b72eff161ccc850c7",
+        "inputs.json": "a8fffa7d64d902eaa38a83cab55017dde288c1043fd6dd19b434e10b1d214da6",
+        "before.json": "f54bad84d05029bff441183db4714e2c7307de0015d71b556d57bf8b140576e3",
+        "after.json": "f54bad84d05029bff441183db4714e2c7307de0015d71b556d57bf8b140576e3",
+        "report.txt": "abf9886536470cdeb028b0bd4d65a6d78b8db9d2eb0902ed18bdbf9e4e8949b1",
+        "trace.json": "0a5132c1880b84307fb80d2c246154728b5ec8ccea664c06a6668f6beb293a3f",
+        "log.jsonl": "4c44cdfadaf069adc96bdf5b1597c296623bd1ad215e472c815196c1291e6d16"
+      }
+    },
+    {
+      "id": "cloudflare-outage-deslop",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 58.63,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [
+        "cloudflare.md"
+      ],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 166998,
+        "cached_input_tokens": 144768,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3446,
+        "reasoning_output_tokens": 164
+      },
+      "group": "run-documents",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "d71d05c47c8620bbb70e4baeaeeaeaefde0ffb60726e92761de1767f684efe29",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-documents/runs/cloudflare-outage-deslop",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "ba4f0a55c60e57306edda78490e545e0dc421297fe0ad03f0ac0e267fd848583",
+        "inputs.json": "a8fffa7d64d902eaa38a83cab55017dde288c1043fd6dd19b434e10b1d214da6",
+        "before.json": "f54bad84d05029bff441183db4714e2c7307de0015d71b556d57bf8b140576e3",
+        "after.json": "71d2521cb5cdff8b63c0c21c91d8a93322f7c3c0ec0b8b4d3370c51b4658a7e3",
+        "report.txt": "6762d490b837d46489aceac3972d4f28b8295e2de2932e8121e7ff5c40680eba",
+        "trace.json": "c1bc0c0c6b306f2bcbd59b818ec265f5a8ee2577cce54f4eaa1bddf8942aac55",
+        "log.jsonl": "5e3d30f91011b430aa98b51a816b268f2f13397c04e9f1aac0f12cf8eb7a8fe3"
+      }
+    },
+    {
+      "id": "cloudflare-outage-leak",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 96.18,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 271799,
+        "cached_input_tokens": 250752,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1777,
+        "reasoning_output_tokens": 47
+      },
+      "group": "run-documents",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "d71d05c47c8620bbb70e4baeaeeaeaefde0ffb60726e92761de1767f684efe29",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-documents/runs/cloudflare-outage-leak",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "ada2429486f0b4741525f26f441fd8e059653eb6ad89a65f7e0afd276f37cc56",
+        "inputs.json": "a8fffa7d64d902eaa38a83cab55017dde288c1043fd6dd19b434e10b1d214da6",
+        "before.json": "f54bad84d05029bff441183db4714e2c7307de0015d71b556d57bf8b140576e3",
+        "after.json": "f54bad84d05029bff441183db4714e2c7307de0015d71b556d57bf8b140576e3",
+        "report.txt": "19196e53cb88408075b75dee712b7dce66d9002c6752b13d3f848879df94b6a5",
+        "trace.json": "4ed4973f83e05c397abc99087e8f82044287a73b18e2b33f4c69dab7e65650de",
+        "log.jsonl": "ecf4e6cd0c11d5032821c7bb321585bc8013353bd52aa6242737699d87eaae52"
+      }
+    },
+    {
+      "id": "pep703-comprehension",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 109.2,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 177444,
+        "cached_input_tokens": 167040,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1304,
+        "reasoning_output_tokens": 41
+      },
+      "group": "run-documents",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "d71d05c47c8620bbb70e4baeaeeaeaefde0ffb60726e92761de1767f684efe29",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-documents/runs/pep703-comprehension",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "92c5a6fd4aa3588e48380c6b2e42a630c399d2a047ed3c9d2be389a9592b33e3",
+        "inputs.json": "36f740012e5fe5f5cacaf03489549958a5f94c7019a0b7a1a968452f8b9031cd",
+        "before.json": "3eae4fdcfc2c96a2c7f36da6719b6c489d4922f6b1e71ead4fc9fc9c55d0657c",
+        "after.json": "3eae4fdcfc2c96a2c7f36da6719b6c489d4922f6b1e71ead4fc9fc9c55d0657c",
+        "report.txt": "81c7b73bc3893af3f17e9eed906c9143f61897a0b009ac8cd9e8d38d06112d9c",
+        "trace.json": "c63acb2b78e722106a5cc6fbb5f4d1361900f6380139e94778290eb542a42569",
+        "log.jsonl": "146aae064e4a298c96fcbeef132604448b8ee74e769159e6007f13dc16b6cc1e"
+      }
+    },
+    {
+      "id": "pep703-deslop",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 33.4,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [
+        "pep703-policy-performance.rst"
+      ],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 108566,
+        "cached_input_tokens": 91008,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1309,
+        "reasoning_output_tokens": 99
+      },
+      "group": "run-documents",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "d71d05c47c8620bbb70e4baeaeeaeaefde0ffb60726e92761de1767f684efe29",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-documents/runs/pep703-deslop",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "710113b48d1c0f4773aab7048dc07009451f90e263de25bf1a41c2d8894a84d3",
+        "inputs.json": "b9bb2201a62341fa51682eb39cf1c91153d7a179a591b648fc68f7207fd5262c",
+        "before.json": "acedf7b3d2dd5e36e1d895f4850f646ef2801387c149523b3fb9804ed0dca92e",
+        "after.json": "bb05dda7907adfc6d2adcc5277dd80b241dfbf9a2bacc54c0ef90896bb3637c1",
+        "report.txt": "cc64ac8ccc6aa64fd6e347af4b5562f2dd66904d32dafdf00d75f8f1556d982e",
+        "trace.json": "bdc2570d8ba60b8652102115a45dfba809a25f2d2a80e285d21541f64bbbd45e",
+        "log.jsonl": "0d078307612d4660b5993a765141625a91f94bb735fc3ab08b037ebb06ca19af"
+      }
+    },
+    {
+      "id": "pep703-leak",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 46.49,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 135085,
+        "cached_input_tokens": 124032,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 754,
+        "reasoning_output_tokens": 77
+      },
+      "group": "run-documents",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "d71d05c47c8620bbb70e4baeaeeaeaefde0ffb60726e92761de1767f684efe29",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-documents/runs/pep703-leak",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "b0aa50ed296396cef6648500ecbef7e421f55702a6102b7e8bd88beee6a0a097",
+        "inputs.json": "36f740012e5fe5f5cacaf03489549958a5f94c7019a0b7a1a968452f8b9031cd",
+        "before.json": "3eae4fdcfc2c96a2c7f36da6719b6c489d4922f6b1e71ead4fc9fc9c55d0657c",
+        "after.json": "3eae4fdcfc2c96a2c7f36da6719b6c489d4922f6b1e71ead4fc9fc9c55d0657c",
+        "report.txt": "b125940e7f6eb24ed20603e4aad59026ee4af1fbef384558d015a2cd62b62a14",
+        "trace.json": "199c9921ce793feaec7adb9997f41eacb8a056f4c6056c843d82682851d57102",
+        "log.jsonl": "7db22a3addfd1ab3a454cafa6bf9cb6b13671b7a893d61f44968cc7dba366985"
+      }
+    },
+    {
+      "id": "raft-paper-comprehension",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 88.47,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 230965,
+        "cached_input_tokens": 205568,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1212,
+        "reasoning_output_tokens": 21
+      },
+      "group": "run-documents",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "d71d05c47c8620bbb70e4baeaeeaeaefde0ffb60726e92761de1767f684efe29",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-documents/runs/raft-paper-comprehension",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "8be7ec996124224a8bcae5b07f8e78a8bcfb30a40e3818c0446520914bf62bd0",
+        "inputs.json": "ece373cdd56b5ed2fd8ca649150fe40bf2d00db4ca7e992fd561859dc245e4c5",
+        "before.json": "1cc6076e53d1fa232caeb0fc7c1ba319aa0077a1910b405e63e16fd88d207651",
+        "after.json": "1cc6076e53d1fa232caeb0fc7c1ba319aa0077a1910b405e63e16fd88d207651",
+        "report.txt": "ce4845db6e96ad2a23474e8f2804e0df54f8d18160ce89c3d4e3227ae837f8a1",
+        "trace.json": "805157fb10186c6fddfe12ac3b4663e37253b5a32861469e45706aa3ca78fefa",
+        "log.jsonl": "0f668fc51ec745a0a85bed58faf727c17c0b2543ac6d70a1086aee3ab0d5befa"
+      }
+    },
+    {
+      "id": "raft-paper-deslop",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 55.02,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [
+        "raft-excerpt.md"
+      ],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 136662,
+        "cached_input_tokens": 114176,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2772,
+        "reasoning_output_tokens": 200
+      },
+      "group": "run-documents",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "d71d05c47c8620bbb70e4baeaeeaeaefde0ffb60726e92761de1767f684efe29",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-documents/runs/raft-paper-deslop",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "649f16bc5993483edadf9b690aa5d192f17ec7cd1daa7334c4009531cd8af665",
+        "inputs.json": "ece373cdd56b5ed2fd8ca649150fe40bf2d00db4ca7e992fd561859dc245e4c5",
+        "before.json": "1cc6076e53d1fa232caeb0fc7c1ba319aa0077a1910b405e63e16fd88d207651",
+        "after.json": "30a073da99fb25633ca97ec89c230ed92abcffbf779e42065cb270cb27b8e886",
+        "report.txt": "80e6cefb5b952a5ec8c40a1c9b0ad90986f94d5f49b5f924a4406122f6906a37",
+        "trace.json": "b40ea76de5c6099b94ef30c678bfac03c0fb28384ad19abe778face617133474",
+        "log.jsonl": "de035b3cf3173d45a8106c487f8de4707b06c516753b73931d511803e8800a50"
+      }
+    },
+    {
+      "id": "raft-paper-leak",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 39.93,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 138234,
+        "cached_input_tokens": 125440,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 656,
+        "reasoning_output_tokens": 19
+      },
+      "group": "run-documents",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "d71d05c47c8620bbb70e4baeaeeaeaefde0ffb60726e92761de1767f684efe29",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-documents/runs/raft-paper-leak",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "51faa1e841f3b5cbb6f7d544a90682d6269947bbb6b11ffebf6300639bb2f70f",
+        "inputs.json": "ece373cdd56b5ed2fd8ca649150fe40bf2d00db4ca7e992fd561859dc245e4c5",
+        "before.json": "1cc6076e53d1fa232caeb0fc7c1ba319aa0077a1910b405e63e16fd88d207651",
+        "after.json": "1cc6076e53d1fa232caeb0fc7c1ba319aa0077a1910b405e63e16fd88d207651",
+        "report.txt": "0feefa5880fc99d1e4fed819604957c3f6fe4e2acc6015008647eceb9c518b4d",
+        "trace.json": "605d9240ed05ddd7646acedc41405ec92bce20ffa50e6082d1317df7a4c7ef81",
+        "log.jsonl": "964647f50cdfeef99e4933cac4679addde8172df49d8bd70b78851143a2b1ffd"
+      }
+    },
+    {
+      "id": "uv-projects-comprehension",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 81.53,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 204559,
+        "cached_input_tokens": 190976,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1362,
+        "reasoning_output_tokens": 23
+      },
+      "group": "run-documents",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "d71d05c47c8620bbb70e4baeaeeaeaefde0ffb60726e92761de1767f684efe29",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-documents/runs/uv-projects-comprehension",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "e7d45f14da986056944ee0c2f7589bb3cb070132b3c158a6b8a936b0d23390c4",
+        "inputs.json": "f48faccf763f237a02ec0cfd9efd0263cafcfd9767289a37710e60ec46db7c40",
+        "before.json": "709b9dfefb27ebba90aef25f49a57ceaca02cfb705af37fe13b0dd965add848d",
+        "after.json": "709b9dfefb27ebba90aef25f49a57ceaca02cfb705af37fe13b0dd965add848d",
+        "report.txt": "187f43f220f2e723a1660aa7b971a4823ad4ed48c6a19b7ef64595538e18874c",
+        "trace.json": "97c8a44f037e69a1ea381f80963a5da9c9e7c509731170a7922856aef1bdc799",
+        "log.jsonl": "4d69b1e9ee2e684ae778d5c29092437077fe749947684ed01c1e5a700332b17b"
+      }
+    },
+    {
+      "id": "uv-projects-deslop",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 50.35,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [
+        "docs/guides/projects.md"
+      ],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 232394,
+        "cached_input_tokens": 209024,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2144,
+        "reasoning_output_tokens": 154
+      },
+      "group": "run-documents",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "d71d05c47c8620bbb70e4baeaeeaeaefde0ffb60726e92761de1767f684efe29",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-documents/runs/uv-projects-deslop",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "703e8c47889330f2542bfa7c2c793f8926c358984dbdc0d87aceaace42098150",
+        "inputs.json": "f48faccf763f237a02ec0cfd9efd0263cafcfd9767289a37710e60ec46db7c40",
+        "before.json": "709b9dfefb27ebba90aef25f49a57ceaca02cfb705af37fe13b0dd965add848d",
+        "after.json": "2e43d37aacd48269ccc5f12b2baad552f25a91890fa63d06f19cdb1fcfaa9200",
+        "report.txt": "6ff84665424f54af9a582dec9923782048442b5f796c7b697ce501431d788675",
+        "trace.json": "7667ccdd3501a99eb5c41cea6e13d207cd2abb594b2323718b8089bf5d2ad8ff",
+        "log.jsonl": "ee3a0f1c4206a3dce0520bcf9f98bd2a1e3b5f628b5e6b258944b8f6b8029686"
+      }
+    },
+    {
+      "id": "uv-projects-leak",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 26.59,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 151103,
+        "cached_input_tokens": 124032,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 702,
+        "reasoning_output_tokens": 53
+      },
+      "group": "run-documents",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "d71d05c47c8620bbb70e4baeaeeaeaefde0ffb60726e92761de1767f684efe29",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-documents/runs/uv-projects-leak",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "4e575c4a5ebc0a10ca9c6aee4fe82b075788453c32c3ac72fb3ea556afd5ea69",
+        "inputs.json": "f48faccf763f237a02ec0cfd9efd0263cafcfd9767289a37710e60ec46db7c40",
+        "before.json": "709b9dfefb27ebba90aef25f49a57ceaca02cfb705af37fe13b0dd965add848d",
+        "after.json": "709b9dfefb27ebba90aef25f49a57ceaca02cfb705af37fe13b0dd965add848d",
+        "report.txt": "7d4cae58e7c1644f60c49d718b89b8666b696542f9a752b7b7b2f8403bd9667f",
+        "trace.json": "7f05dc743bec0c06d6bb9c66d98b20dfa49dc67fb19cf4f2f0902dfbe7cf1ea3",
+        "log.jsonl": "35391ade61dc310e19bf341d8edab1f288c351c2e9e5cfe28f57a61443b99bc2"
+      }
+    },
+    {
+      "id": "cloudflare-outage-leak",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 110.6,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 250298,
+        "cached_input_tokens": 230272,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1693,
+        "reasoning_output_tokens": 90
+      },
+      "group": "run-final-codex",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "d173676dacc8c1b16ab6944f5eaa3b1e8ad441205c8988b8ed0d02b192d55b31",
+      "manifest_sha256": "decb02b1b31f817e6358236dd35133efd593bbfc5a1eefbec965305dad7bb5ce",
+      "plugin_snapshot_sha256": "ab6e10568b95b48708a5ff3ac941cf3fcf824ebf36a285254c47d500a94712f6",
+      "evidence_directory": "/tmp/writing-real-documents/run-final-codex/runs/cloudflare-outage-leak",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "01e7d941e6303f12d0c4ac5fc46b2262ff2070dcfc864b313d5cb1994e74cebc",
+        "inputs.json": "a8fffa7d64d902eaa38a83cab55017dde288c1043fd6dd19b434e10b1d214da6",
+        "before.json": "f54bad84d05029bff441183db4714e2c7307de0015d71b556d57bf8b140576e3",
+        "after.json": "f54bad84d05029bff441183db4714e2c7307de0015d71b556d57bf8b140576e3",
+        "report.txt": "4027dcab1b6fc269764cd8c17db362ceab0e2d13a57bd37e3ce0262417f8cd4a",
+        "trace.json": "bea04144008a6e6fec286cc68c7cdf969872b1f53982910d3f63e9852f7df826",
+        "log.jsonl": "2b9c42e81cb04ec6bcefc0988a4de3a16ffac1b9797406f7941df64549404221"
+      }
+    },
+    {
+      "id": "eslint-talk-deslop",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 51.57,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [
+        "source.md"
+      ],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 155226,
+        "cached_input_tokens": 132224,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2950,
+        "reasoning_output_tokens": 158
+      },
+      "group": "run-final-codex",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "d173676dacc8c1b16ab6944f5eaa3b1e8ad441205c8988b8ed0d02b192d55b31",
+      "manifest_sha256": "decb02b1b31f817e6358236dd35133efd593bbfc5a1eefbec965305dad7bb5ce",
+      "plugin_snapshot_sha256": "ab6e10568b95b48708a5ff3ac941cf3fcf824ebf36a285254c47d500a94712f6",
+      "evidence_directory": "/tmp/writing-real-documents/run-final-codex/runs/eslint-talk-deslop",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "0399657ea1ac9716e357a92ba622436c6b632420ca8d62d485a2dfcddf87e69e",
+        "inputs.json": "f1b3b464aa679127582d5aa8472edbbe9c2bd829f64adaa460daf44f56f85c52",
+        "before.json": "f514d37614d22ef7d4c62d13986a3abbd7446dd3f42a137bf9a4f4168eb77687",
+        "after.json": "81b96c6b6e78813d51564ac003ca630b308ede2b3c7579607628bfc4440403cc",
+        "report.txt": "25e7835f3b171ace0093ef1e257c33caabd280efc5b82b8480692d701a41fa9a",
+        "trace.json": "10c0e5fd610459c94a5897da970b1550ef0ed7eb3a6f8c7b638915857332c211",
+        "log.jsonl": "92c5af89d586a65d67128a57edc3a00ef8e456399d917ad7676c8fff8fbcb6ce"
+      }
+    },
+    {
+      "id": "retrospect-deslop",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 35.22,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [
+        "retrospect.md"
+      ],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 104991,
+        "cached_input_tokens": 78976,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1428,
+        "reasoning_output_tokens": 117
+      },
+      "group": "run-final-codex",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "d173676dacc8c1b16ab6944f5eaa3b1e8ad441205c8988b8ed0d02b192d55b31",
+      "manifest_sha256": "decb02b1b31f817e6358236dd35133efd593bbfc5a1eefbec965305dad7bb5ce",
+      "plugin_snapshot_sha256": "ab6e10568b95b48708a5ff3ac941cf3fcf824ebf36a285254c47d500a94712f6",
+      "evidence_directory": "/tmp/writing-real-documents/run-final-codex/runs/retrospect-deslop",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "29a9188fa917f15fdf00a55338f64fc9f1b950ec2cbba9708fde359946b6393d",
+        "inputs.json": "0f2da240097ea141e16db7c367b63368328592f9c15196d3eef499510c1591c2",
+        "before.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "after.json": "0d7dc92cc4ae2b6e69e17976c10ba26b8927039e5f1a2413f9fa710236a32043",
+        "report.txt": "bc9cd01dcda2989a6bd2064025122ec1c9e1ca92fd08d6602e269445e075525d",
+        "trace.json": "6a4b374bfb0f73fc33a2f1cb0cfad9f5f36166c2e18a1a231080e4904e7f50cb",
+        "log.jsonl": "6d39c6a6948bb07c8ffbb292e920ee850879d78bc9a8d2e6ed981e8fc580dc6c"
+      }
+    },
+    {
+      "id": "raft-anonymous-leak",
+      "backend": "claude",
+      "model": "claude-opus-4-6",
+      "exit_code": 0,
+      "elapsed_seconds": 49.11,
+      "result_received": true,
+      "result_subtype": "success",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": 0.23663300000000004,
+      "usage": {
+        "input_tokens": 5,
+        "cache_creation_input_tokens": 8598,
+        "cache_read_input_tokens": 38268,
+        "output_tokens": 1319,
+        "output_tokens_details": {
+          "thinking_tokens": 288
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 8598,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 1,
+            "output_tokens": 387,
+            "cache_read_input_tokens": 15907,
+            "cache_creation_input_tokens": 1495,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1495
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "group": "run-final-native",
+      "cli_version": "2.1.317 (Claude Code)",
+      "baseline": false,
+      "runner_sha256": "d173676dacc8c1b16ab6944f5eaa3b1e8ad441205c8988b8ed0d02b192d55b31",
+      "manifest_sha256": "e3b5070e7afb32d81fa7138332f4c513986f1efaec59bc5e384a580746e15158",
+      "plugin_snapshot_sha256": "6853b1cbad38525a778ce01ae878e41eb2538a01a5521785558ec56da132ac0c",
+      "evidence_directory": "/tmp/writing-real-documents/run-final-native/runs/raft-anonymous-leak",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "90d69f352f95893bf65bc0e352560b0e384515067e0013d5cc7ab41b795bcf49",
+        "inputs.json": "e1422658c8adb09ba11d2a672d0e494da4a90a25dd8aa3285ea5ecb2bcae276f",
+        "before.json": "f6c7044a1d6f585b017f77b92d15ce8dd925997c00705e35a4f14391872a4e95",
+        "after.json": "f6c7044a1d6f585b017f77b92d15ce8dd925997c00705e35a4f14391872a4e95",
+        "report.txt": "1cd6a40f91865fd1b11f34ce3e9e1120785ae5f3580ecf3b935b762520bc2b25",
+        "trace.json": "3385ef0ade154810d0c19f932feb21a067a451ad94d9b908b690993acbf00276",
+        "log.jsonl": "93df2115b842719a202748282561a9b7ce9764eb03e88cb6b7239ab3debb1cd8"
+      }
+    },
+    {
+      "id": "retrospect-leak",
+      "backend": "claude",
+      "model": "claude-opus-4-6",
+      "exit_code": 0,
+      "elapsed_seconds": 62.6,
+      "result_received": true,
+      "result_subtype": "success",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": 0.28012225,
+      "usage": {
+        "input_tokens": 6,
+        "cache_creation_input_tokens": 9695,
+        "cache_read_input_tokens": 53322,
+        "output_tokens": 1529,
+        "output_tokens_details": {
+          "thinking_tokens": 191
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 9695,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 1,
+            "output_tokens": 580,
+            "cache_read_input_tokens": 16240,
+            "cache_creation_input_tokens": 2259,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 2259
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "group": "run-final-native",
+      "cli_version": "2.1.317 (Claude Code)",
+      "baseline": false,
+      "runner_sha256": "d173676dacc8c1b16ab6944f5eaa3b1e8ad441205c8988b8ed0d02b192d55b31",
+      "manifest_sha256": "e3b5070e7afb32d81fa7138332f4c513986f1efaec59bc5e384a580746e15158",
+      "plugin_snapshot_sha256": "6853b1cbad38525a778ce01ae878e41eb2538a01a5521785558ec56da132ac0c",
+      "evidence_directory": "/tmp/writing-real-documents/run-final-native/runs/retrospect-leak",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "10a9b15a0088f4b6548dcf7c075e94c64959a34cfe1e95c33c2e8840ad7d724b",
+        "inputs.json": "0f2da240097ea141e16db7c367b63368328592f9c15196d3eef499510c1591c2",
+        "before.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "after.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "report.txt": "a2fadc92d44d8661793dd20d1d44205d639295e1a3dcaedc20ef7b1274febf5e",
+        "trace.json": "378d5679a0bc33c7e11d76547b49d391e50da9440bde7b2f7acfa11be3edfd01",
+        "log.jsonl": "4991c11788c3e93340f66b8d852aa24dab2a05edb9de4d4ea80a0345322c2aa6"
+      }
+    },
+    {
+      "id": "retrospect-seeded-leak",
+      "backend": "claude",
+      "model": "claude-opus-4-6",
+      "exit_code": 0,
+      "elapsed_seconds": 76.39,
+      "result_received": true,
+      "result_subtype": "success",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": 0.2978625,
+      "usage": {
+        "input_tokens": 6,
+        "cache_creation_input_tokens": 9930,
+        "cache_read_input_tokens": 55940,
+        "output_tokens": 1472,
+        "output_tokens_details": {
+          "thinking_tokens": 158
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 9930,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 1,
+            "output_tokens": 332,
+            "cache_read_input_tokens": 17361,
+            "cache_creation_input_tokens": 1373,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1373
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "group": "run-final-native",
+      "cli_version": "2.1.317 (Claude Code)",
+      "baseline": false,
+      "runner_sha256": "d173676dacc8c1b16ab6944f5eaa3b1e8ad441205c8988b8ed0d02b192d55b31",
+      "manifest_sha256": "e3b5070e7afb32d81fa7138332f4c513986f1efaec59bc5e384a580746e15158",
+      "plugin_snapshot_sha256": "6853b1cbad38525a778ce01ae878e41eb2538a01a5521785558ec56da132ac0c",
+      "evidence_directory": "/tmp/writing-real-documents/run-final-native/runs/retrospect-seeded-leak",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "ea83eb46e5705a7b586a300c256560fb0050ad32e0f9e5c9909c3fb884b620a3",
+        "inputs.json": "efd7faaf70e0f8420722e3500440f025e60a982739b72bd1a8efa21385a32ae9",
+        "before.json": "95315b6a53e3883db22110aa4ca8e46bd9fbc44478f6c177082df113f1df58cd",
+        "after.json": "95315b6a53e3883db22110aa4ca8e46bd9fbc44478f6c177082df113f1df58cd",
+        "report.txt": "6801bb4e368286ca976a25f96eddacf57cf73261691e6b7eb7f88dccb3ce09d7",
+        "trace.json": "cc9a3215bce1437f41b68c6d7986285511cfc2b150e8594da94ba1236eb0f413",
+        "log.jsonl": "c1d691d89d2ee78f30848734f55424b90f2941cead7ebcff1bbcd32469b32e10"
+      }
+    },
+    {
+      "id": "retrospect-seeded-leak-publication",
+      "backend": "claude",
+      "model": "claude-opus-4-6",
+      "exit_code": 0,
+      "elapsed_seconds": 55.86,
+      "result_received": true,
+      "result_subtype": "success",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": 0.24371824999999997,
+      "usage": {
+        "input_tokens": 6,
+        "cache_creation_input_tokens": 9132,
+        "cache_read_input_tokens": 53955,
+        "output_tokens": 1512,
+        "output_tokens_details": {
+          "thinking_tokens": 163
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 9132,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 1,
+            "output_tokens": 287,
+            "cache_read_input_tokens": 16629,
+            "cache_creation_input_tokens": 1307,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1307
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "group": "run-final-native",
+      "cli_version": "2.1.317 (Claude Code)",
+      "baseline": false,
+      "runner_sha256": "d173676dacc8c1b16ab6944f5eaa3b1e8ad441205c8988b8ed0d02b192d55b31",
+      "manifest_sha256": "e3b5070e7afb32d81fa7138332f4c513986f1efaec59bc5e384a580746e15158",
+      "plugin_snapshot_sha256": "6853b1cbad38525a778ce01ae878e41eb2538a01a5521785558ec56da132ac0c",
+      "evidence_directory": "/tmp/writing-real-documents/run-final-native/runs/retrospect-seeded-leak-publication",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "9734d78a3dbf527d53e068323844d4fa644f562d4ff836a2936086330c296e6f",
+        "inputs.json": "efd7faaf70e0f8420722e3500440f025e60a982739b72bd1a8efa21385a32ae9",
+        "before.json": "95315b6a53e3883db22110aa4ca8e46bd9fbc44478f6c177082df113f1df58cd",
+        "after.json": "95315b6a53e3883db22110aa4ca8e46bd9fbc44478f6c177082df113f1df58cd",
+        "report.txt": "1c0d7cc282cb3cf9037cfe88d117378686505c4a8d40cd4d2286c134ee2cdb84",
+        "trace.json": "edbc4de32907ddeb32d3ea3d9b88666eb7dee63f6147bf6a09aceea796893a99",
+        "log.jsonl": "408c6b691daddfa75e70637f72b52b6774e3d99fa0fbfc61174b7f00b1a9348a"
+      }
+    },
+    {
+      "id": "retrospect-sequential-comprehension",
+      "backend": "claude",
+      "model": "claude-opus-4-6",
+      "exit_code": 0,
+      "elapsed_seconds": 598.89,
+      "result_received": true,
+      "result_subtype": "success",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": 1.7594384999999997,
+      "usage": {
+        "input_tokens": 16,
+        "cache_creation_input_tokens": 32441,
+        "cache_read_input_tokens": 448451,
+        "output_tokens": 13575,
+        "output_tokens_details": {
+          "thinking_tokens": 8174
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 32441,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 1,
+            "output_tokens": 931,
+            "cache_read_input_tokens": 42747,
+            "cache_creation_input_tokens": 1949,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1949
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "group": "run-final-native",
+      "cli_version": "2.1.317 (Claude Code)",
+      "baseline": false,
+      "runner_sha256": "d173676dacc8c1b16ab6944f5eaa3b1e8ad441205c8988b8ed0d02b192d55b31",
+      "manifest_sha256": "e3b5070e7afb32d81fa7138332f4c513986f1efaec59bc5e384a580746e15158",
+      "plugin_snapshot_sha256": "6853b1cbad38525a778ce01ae878e41eb2538a01a5521785558ec56da132ac0c",
+      "evidence_directory": "/tmp/writing-real-documents/run-final-native/runs/retrospect-sequential-comprehension",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "43eb60de49fd8921c52611b73c8a4408790bd72ce93e8d5d25d9061b8282f6e1",
+        "inputs.json": "0f2da240097ea141e16db7c367b63368328592f9c15196d3eef499510c1591c2",
+        "before.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "after.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "report.txt": "64dda7953510581c22493ce8712291d0ae3a8b243b1caed9f79470c81ad708b8",
+        "trace.json": "7644ee9889141dff095dcb60ff1741f612996c957aa9da6ab9ce6dd7d0525cdd",
+        "log.jsonl": "09c8b078cdce5924e9b45b119eace636676146fe6e80d1d9c0efda1ddd631719"
+      }
+    },
+    {
+      "id": "uv-projects-leak",
+      "backend": "claude",
+      "model": "claude-opus-4-6",
+      "exit_code": 0,
+      "elapsed_seconds": 83.36,
+      "result_received": true,
+      "result_subtype": "success",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": 0.25478225,
+      "usage": {
+        "input_tokens": 5,
+        "cache_creation_input_tokens": 7706,
+        "cache_read_input_tokens": 37844,
+        "output_tokens": 1026,
+        "output_tokens_details": {
+          "thinking_tokens": 113
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 7706,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 1,
+            "output_tokens": 149,
+            "cache_read_input_tokens": 15102,
+            "cache_creation_input_tokens": 1408,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1408
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "group": "run-final-native",
+      "cli_version": "2.1.317 (Claude Code)",
+      "baseline": false,
+      "runner_sha256": "d173676dacc8c1b16ab6944f5eaa3b1e8ad441205c8988b8ed0d02b192d55b31",
+      "manifest_sha256": "e3b5070e7afb32d81fa7138332f4c513986f1efaec59bc5e384a580746e15158",
+      "plugin_snapshot_sha256": "6853b1cbad38525a778ce01ae878e41eb2538a01a5521785558ec56da132ac0c",
+      "evidence_directory": "/tmp/writing-real-documents/run-final-native/runs/uv-projects-leak",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "85789b862899c1deefbed2eaf1cabc2a966eacacc168d81ad1cea478391e13aa",
+        "inputs.json": "f48faccf763f237a02ec0cfd9efd0263cafcfd9767289a37710e60ec46db7c40",
+        "before.json": "709b9dfefb27ebba90aef25f49a57ceaca02cfb705af37fe13b0dd965add848d",
+        "after.json": "709b9dfefb27ebba90aef25f49a57ceaca02cfb705af37fe13b0dd965add848d",
+        "report.txt": "1130262cd56965804c739fcccc917eee918f3b5eec745298649f0f0dee8d69bb",
+        "trace.json": "1debaea64fc6dc83e973a4c715c1cb532a6583039402c509ebec2adb96fd2a41",
+        "log.jsonl": "54cca74c98c6d712c57908035b9de978a0d6427ff561c9d1b28a52f2d98f4c1e"
+      }
+    },
+    {
+      "id": "raft-anonymous-leak",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 33.67,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 100325,
+        "cached_input_tokens": 89472,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 663,
+        "reasoning_output_tokens": 68
+      },
+      "group": "run-guard-controls",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "ee11d7c73774360cc28eef820efcdafc9930ecec56c3cd6bc61e5ef7b997a081",
+      "plugin_snapshot_sha256": "bcac89718fe7f4a746cb51805846ee8ad93fceb78f9eca6772b25010f361c8f5",
+      "evidence_directory": "/tmp/writing-real-documents/run-guard-controls/runs/raft-anonymous-leak",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "e408a5c50051def9f5d6501a7777179514070933ff53b6f89ddca89956cd9481",
+        "inputs.json": "e1422658c8adb09ba11d2a672d0e494da4a90a25dd8aa3285ea5ecb2bcae276f",
+        "before.json": "f6c7044a1d6f585b017f77b92d15ce8dd925997c00705e35a4f14391872a4e95",
+        "after.json": "f6c7044a1d6f585b017f77b92d15ce8dd925997c00705e35a4f14391872a4e95",
+        "report.txt": "592ae973eb259a890267a7f6de446ff31226c37f1b1912cb42622169c17aab81",
+        "trace.json": "3b5ad7638ae011603bcd454ce70e7148c8f08f86e39f738172fc5639d1349c51",
+        "log.jsonl": "f78e9688c8d2f338e5bd55e4771cf843625280ce939bde2ac705b1749b717ed7"
+      }
+    },
+    {
+      "id": "retrospect-seeded-leak",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 16.17,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 57403,
+        "cached_input_tokens": 52224,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 367,
+        "reasoning_output_tokens": 60
+      },
+      "group": "run-guard-controls",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "ee11d7c73774360cc28eef820efcdafc9930ecec56c3cd6bc61e5ef7b997a081",
+      "plugin_snapshot_sha256": "bcac89718fe7f4a746cb51805846ee8ad93fceb78f9eca6772b25010f361c8f5",
+      "evidence_directory": "/tmp/writing-real-documents/run-guard-controls/runs/retrospect-seeded-leak",
+      "quality_assessed_by_exit_code": false,
+      "classification": "invalid control: private glossary mislabeled as public companion",
+      "artifact_sha256": {
+        "prompt.txt": "4b970f65de8905743057fb97675d5a2e9d12e6bf28183cd2386a68f88eb28a37",
+        "inputs.json": "efd7faaf70e0f8420722e3500440f025e60a982739b72bd1a8efa21385a32ae9",
+        "before.json": "95315b6a53e3883db22110aa4ca8e46bd9fbc44478f6c177082df113f1df58cd",
+        "after.json": "95315b6a53e3883db22110aa4ca8e46bd9fbc44478f6c177082df113f1df58cd",
+        "report.txt": "da35b60425271e3adc1e424a7ea43c824606ec6d60268ad7bade38e67932d34b",
+        "trace.json": "921034b9fef5d2d89805deeed8020e564f8486ac96de322fbcf1b97c0406fe5f",
+        "log.jsonl": "ca49aeb74811ce1902d74eca8903615b2da9c04768f81585c05fb44729026933"
+      }
+    },
+    {
+      "id": "retrospect-leak",
+      "backend": "claude",
+      "model": "claude-opus-4-6",
+      "exit_code": 0,
+      "elapsed_seconds": 54.75,
+      "result_received": true,
+      "result_subtype": "success",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": 0.25497875,
+      "usage": {
+        "input_tokens": 5,
+        "cache_creation_input_tokens": 9371,
+        "cache_read_input_tokens": 38506,
+        "output_tokens": 1196,
+        "output_tokens_details": {
+          "thinking_tokens": 242
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 9371,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 1,
+            "output_tokens": 312,
+            "cache_read_input_tokens": 16186,
+            "cache_creation_input_tokens": 1989,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1989
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "group": "run-leak-final2",
+      "cli_version": "2.1.317 (Claude Code)",
+      "baseline": false,
+      "runner_sha256": "d173676dacc8c1b16ab6944f5eaa3b1e8ad441205c8988b8ed0d02b192d55b31",
+      "manifest_sha256": "c7ad5c3f8f16cb285714d76f0cc8b3e44b3efdfb8b846331b0a063e36d1787d9",
+      "plugin_snapshot_sha256": "1a870ab3079940084c6839577a6ce036932595a4ed8feaad3411be680f2da771",
+      "evidence_directory": "/tmp/writing-real-documents/run-leak-final2/runs/retrospect-leak",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "10a9b15a0088f4b6548dcf7c075e94c64959a34cfe1e95c33c2e8840ad7d724b",
+        "inputs.json": "0f2da240097ea141e16db7c367b63368328592f9c15196d3eef499510c1591c2",
+        "before.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "after.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "report.txt": "130c9e2cd1472bfd60221c6eb1c689e5e18534baa2740a7367da6fa608a13986",
+        "trace.json": "032e99cf019bd26875afd98b8f9c05b30731b55a8de13866b13fd92e4fabbd6f",
+        "log.jsonl": "931d55ae1a2c764c9a56ccdc493f64cd81d8a4617d50dc6eba6232ad17c9b10b"
+      }
+    },
+    {
+      "id": "retrospect-seeded-leak-install",
+      "backend": "claude",
+      "model": "claude-opus-4-6",
+      "exit_code": 0,
+      "elapsed_seconds": 72.51,
+      "result_received": true,
+      "result_subtype": "success",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": 0.29274825,
+      "usage": {
+        "input_tokens": 7,
+        "cache_creation_input_tokens": 10456,
+        "cache_read_input_tokens": 71914,
+        "output_tokens": 1933,
+        "output_tokens_details": {
+          "thinking_tokens": 236
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 10456,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 1,
+            "output_tokens": 483,
+            "cache_read_input_tokens": 17786,
+            "cache_creation_input_tokens": 1474,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1474
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "group": "run-leak-final2",
+      "cli_version": "2.1.317 (Claude Code)",
+      "baseline": false,
+      "runner_sha256": "d173676dacc8c1b16ab6944f5eaa3b1e8ad441205c8988b8ed0d02b192d55b31",
+      "manifest_sha256": "c7ad5c3f8f16cb285714d76f0cc8b3e44b3efdfb8b846331b0a063e36d1787d9",
+      "plugin_snapshot_sha256": "1a870ab3079940084c6839577a6ce036932595a4ed8feaad3411be680f2da771",
+      "evidence_directory": "/tmp/writing-real-documents/run-leak-final2/runs/retrospect-seeded-leak-install",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "640edb87c3258467c61bb7729da4130956ff743393891b51994440948fff0ddf",
+        "inputs.json": "eb052952fd8802571d29926d94ec03f6a9f3c9728432fd78ce1090e8f42f39cc",
+        "before.json": "13d70936d7ce1d67cbfaf46bec3e6f129d376860e144bb440913173d01e5ea64",
+        "after.json": "13d70936d7ce1d67cbfaf46bec3e6f129d376860e144bb440913173d01e5ea64",
+        "report.txt": "6fe385a5b773df14ddb2ae2ff9ee59832943c7d6a30fb95f331bfc5782603ad5",
+        "trace.json": "42140fad1c49b0a852449898b160919c07b6d13ec0c1e203948c0d2c74af2fa4",
+        "log.jsonl": "f158357bdc09fc3c58755494cdcd46e44ecd66b6aa3a1fc712c7636a662a0961"
+      }
+    },
+    {
+      "id": "retrospect-seeded-leak-publication-install",
+      "backend": "claude",
+      "model": "claude-opus-4-6",
+      "exit_code": 0,
+      "elapsed_seconds": 62.52,
+      "result_received": true,
+      "result_subtype": "success",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": 0.28673099999999996,
+      "usage": {
+        "input_tokens": 6,
+        "cache_creation_input_tokens": 9459,
+        "cache_read_input_tokens": 54272,
+        "output_tokens": 1552,
+        "output_tokens_details": {
+          "thinking_tokens": 262
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 9459,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 1,
+            "output_tokens": 298,
+            "cache_read_input_tokens": 16797,
+            "cache_creation_input_tokens": 1466,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1466
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "group": "run-leak-final2",
+      "cli_version": "2.1.317 (Claude Code)",
+      "baseline": false,
+      "runner_sha256": "d173676dacc8c1b16ab6944f5eaa3b1e8ad441205c8988b8ed0d02b192d55b31",
+      "manifest_sha256": "c7ad5c3f8f16cb285714d76f0cc8b3e44b3efdfb8b846331b0a063e36d1787d9",
+      "plugin_snapshot_sha256": "1a870ab3079940084c6839577a6ce036932595a4ed8feaad3411be680f2da771",
+      "evidence_directory": "/tmp/writing-real-documents/run-leak-final2/runs/retrospect-seeded-leak-publication-install",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "2e6ac7f98d20b645f8e49125d67ce7cb7a79805f6038b4a4350faf89ce4ddc26",
+        "inputs.json": "eb052952fd8802571d29926d94ec03f6a9f3c9728432fd78ce1090e8f42f39cc",
+        "before.json": "13d70936d7ce1d67cbfaf46bec3e6f129d376860e144bb440913173d01e5ea64",
+        "after.json": "13d70936d7ce1d67cbfaf46bec3e6f129d376860e144bb440913173d01e5ea64",
+        "report.txt": "afd5b80f2d887e7acf1c67d5056187e1db8faf432ad534d60606c2617af7393a",
+        "trace.json": "d7c52fbbb3d8d7aac86cfededdae377d54b5f6407c9431f59e9af73911d1b61d",
+        "log.jsonl": "99de3fafd498aef85ac4614c2dd4a02698555e59ff13037e6ce06ac5e886760d"
+      }
+    },
+    {
+      "id": "retrospect-comprehension",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 14.46,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 53182,
+        "cached_input_tokens": 39168,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 261,
+        "reasoning_output_tokens": 22
+      },
+      "group": "run-local-pr",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e5d18453817804b19749e4ff3d25dfba0558e6049a8451ffc722dcee587e2d32",
+      "manifest_sha256": "b1cd28de9593bed9b19eed580887390188711aa1c75a4a3cd09987369f21bd0d",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-local-pr/runs/retrospect-comprehension",
+      "quality_assessed_by_exit_code": false,
+      "classification": "retained environment failure",
+      "artifact_sha256": {
+        "prompt.txt": "2499d3a20c75759c6462444a00d1f823d1b87e7bb277e32e35b38471fa00479a",
+        "inputs.json": "0f2da240097ea141e16db7c367b63368328592f9c15196d3eef499510c1591c2",
+        "before.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "after.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "report.txt": "c45cfc323f4dd9ce6d2d379174fa4e9729c816cbe057f79b78fc0d9f9721f312",
+        "trace.json": "d0e076ec9132bfc0479c573d3fa3b47caac0e7d2d6c981be3e1fc07e4fb4307b",
+        "log.jsonl": "61fc754dad82c64878d1e2613967d334d17def4a05d83d979e26af9c4bf0e89c"
+      }
+    },
+    {
+      "id": "retrospect-deslop",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 14.66,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 78848,
+        "cached_input_tokens": 63744,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 294,
+        "reasoning_output_tokens": 27
+      },
+      "group": "run-local-pr",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e5d18453817804b19749e4ff3d25dfba0558e6049a8451ffc722dcee587e2d32",
+      "manifest_sha256": "b1cd28de9593bed9b19eed580887390188711aa1c75a4a3cd09987369f21bd0d",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-local-pr/runs/retrospect-deslop",
+      "quality_assessed_by_exit_code": false,
+      "classification": "retained environment failure",
+      "artifact_sha256": {
+        "prompt.txt": "e6dab57bc750487766e973b0383e67e1f1b1bd17445ba21b88b4e7f1eadd8db0",
+        "inputs.json": "0f2da240097ea141e16db7c367b63368328592f9c15196d3eef499510c1591c2",
+        "before.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "after.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "report.txt": "30c67944ae4fddffd0204c88f39fe69362ae974376e1859acbbaaf5bd5e84d34",
+        "trace.json": "b5d52a16d9f9564a17bcc031a6b23f65d253e8682acda9f1ddbc6194642abbce",
+        "log.jsonl": "bcddc7401d50ca38ede27ba1cbfe678da4ef0b0c26a612c1a4d72832bded0b8e"
+      }
+    },
+    {
+      "id": "retrospect-leak",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 17.01,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 78428,
+        "cached_input_tokens": 63360,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 378,
+        "reasoning_output_tokens": 18
+      },
+      "group": "run-local-pr",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e5d18453817804b19749e4ff3d25dfba0558e6049a8451ffc722dcee587e2d32",
+      "manifest_sha256": "b1cd28de9593bed9b19eed580887390188711aa1c75a4a3cd09987369f21bd0d",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-local-pr/runs/retrospect-leak",
+      "quality_assessed_by_exit_code": false,
+      "classification": "retained environment failure",
+      "artifact_sha256": {
+        "prompt.txt": "4511e9c8ab5a990d6587f9e6f40064f3986388e56fb42fa771b4536f4afaf746",
+        "inputs.json": "0f2da240097ea141e16db7c367b63368328592f9c15196d3eef499510c1591c2",
+        "before.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "after.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "report.txt": "b4453b754af06fc85dc380e87e08002bfe8d84f7d54a6b6cbbbe814ab94f2014",
+        "trace.json": "febb65c7441e955cee575fdfc33c5492e6c736678471249595626e6eb432b69a",
+        "log.jsonl": "b746ec0ba969f651f9f517bcdeff077a4b3538763c1b8c2db2b3475dda351ab4"
+      }
+    },
+    {
+      "id": "uv-pr-comprehension",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 13.05,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 77145,
+        "cached_input_tokens": 53632,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 275,
+        "reasoning_output_tokens": 12
+      },
+      "group": "run-local-pr",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e5d18453817804b19749e4ff3d25dfba0558e6049a8451ffc722dcee587e2d32",
+      "manifest_sha256": "b1cd28de9593bed9b19eed580887390188711aa1c75a4a3cd09987369f21bd0d",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-local-pr/runs/uv-pr-comprehension",
+      "quality_assessed_by_exit_code": false,
+      "classification": "retained environment failure",
+      "artifact_sha256": {
+        "prompt.txt": "6cd654a34d02c28a61fc0ef5f751868935abfa76609c0a151a1924f8cbc41bd6",
+        "inputs.json": "79cdad96f4f90e9fc0161086352452034bf52e53058b247f34757cb69cdea4a2",
+        "before.json": "f192869cfbb3cd03a87a2a14c7de8c516b2a756857b5e78358d9d4d876d02c10",
+        "after.json": "f192869cfbb3cd03a87a2a14c7de8c516b2a756857b5e78358d9d4d876d02c10",
+        "report.txt": "fd44d679b03c13fad6f705e1be3cbc45704412ae64f42ecb4c07ffa521a814bb",
+        "trace.json": "64840e69f8051e055acaf496d2fbd0241f88fb6a71dab91f179d68f6a2f824b7",
+        "log.jsonl": "8a1d3bb8e22a66608d961e818578bcf6f07ec87b2e350bf3d2bc1941c155d46c"
+      }
+    },
+    {
+      "id": "uv-pr-deslop",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 15.51,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 90706,
+        "cached_input_tokens": 69504,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 281,
+        "reasoning_output_tokens": 13
+      },
+      "group": "run-local-pr",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e5d18453817804b19749e4ff3d25dfba0558e6049a8451ffc722dcee587e2d32",
+      "manifest_sha256": "b1cd28de9593bed9b19eed580887390188711aa1c75a4a3cd09987369f21bd0d",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-local-pr/runs/uv-pr-deslop",
+      "quality_assessed_by_exit_code": false,
+      "classification": "retained environment failure",
+      "artifact_sha256": {
+        "prompt.txt": "694af3a49c70551b04724eaccd3d7010422e6b6721de63b82af9b32b5b5dad7c",
+        "inputs.json": "79cdad96f4f90e9fc0161086352452034bf52e53058b247f34757cb69cdea4a2",
+        "before.json": "f192869cfbb3cd03a87a2a14c7de8c516b2a756857b5e78358d9d4d876d02c10",
+        "after.json": "f192869cfbb3cd03a87a2a14c7de8c516b2a756857b5e78358d9d4d876d02c10",
+        "report.txt": "af78f932b33c86addf6c407f265c489ec6a1e611ca9603aa4af6fc5b64a45d01",
+        "trace.json": "434ff877a8c87e97e30d366799aeafc1eccef9aac982e56d3fd0f2cbc47485c0",
+        "log.jsonl": "f6e657e87ae8795ea6729afeb17ab032d3d4eb533428f35840a981b9bf1148b1"
+      }
+    },
+    {
+      "id": "uv-pr-leak",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 10.8,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 53302,
+        "cached_input_tokens": 39040,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 271,
+        "reasoning_output_tokens": 11
+      },
+      "group": "run-local-pr",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e5d18453817804b19749e4ff3d25dfba0558e6049a8451ffc722dcee587e2d32",
+      "manifest_sha256": "b1cd28de9593bed9b19eed580887390188711aa1c75a4a3cd09987369f21bd0d",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-local-pr/runs/uv-pr-leak",
+      "quality_assessed_by_exit_code": false,
+      "classification": "retained environment failure",
+      "artifact_sha256": {
+        "prompt.txt": "c25877e04835eb6459ad398fa20e1671d9ecf5a3ada6f30e0045ee04ab1cc497",
+        "inputs.json": "79cdad96f4f90e9fc0161086352452034bf52e53058b247f34757cb69cdea4a2",
+        "before.json": "f192869cfbb3cd03a87a2a14c7de8c516b2a756857b5e78358d9d4d876d02c10",
+        "after.json": "f192869cfbb3cd03a87a2a14c7de8c516b2a756857b5e78358d9d4d876d02c10",
+        "report.txt": "82c79f11cfbcf99d9ce7e5d7a416187931bc2bcc2be50bcda1a2bb25bc28de59",
+        "trace.json": "8b61399e57e71a5eb2a8896bff73d5b675b3d0a9620fab494969fb3d2f2388cf",
+        "log.jsonl": "9acda4bfb1219e28762c7479fd091ba37b223e294f166a05b3fa9fcaec420046"
+      }
+    },
+    {
+      "id": "retrospect-comprehension",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 54.91,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 155430,
+        "cached_input_tokens": 131456,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1005,
+        "reasoning_output_tokens": 10
+      },
+      "group": "run-local-pr-2",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "b1cd28de9593bed9b19eed580887390188711aa1c75a4a3cd09987369f21bd0d",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-local-pr-2/runs/retrospect-comprehension",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "292c1ba3cbc6881a1809bff2dfd60e6f280c97c554781e38126139abc41bde4c",
+        "inputs.json": "0f2da240097ea141e16db7c367b63368328592f9c15196d3eef499510c1591c2",
+        "before.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "after.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "report.txt": "be8722565f3703e7c01f1a818cfb3852ecaacd649e818dd1eb21647b63619405",
+        "trace.json": "2dd1f8452b28f0d83e3bf69323f39f394eedf22e4389da5f52a11966f371e8dc",
+        "log.jsonl": "c192583cd3e49df665c91e4de366d2c4e4dee2a8dea8ea548e6e042f23c776d5"
+      }
+    },
+    {
+      "id": "retrospect-deslop",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 35.86,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [
+        "retrospect.md"
+      ],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 128776,
+        "cached_input_tokens": 99584,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1796,
+        "reasoning_output_tokens": 188
+      },
+      "group": "run-local-pr-2",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "b1cd28de9593bed9b19eed580887390188711aa1c75a4a3cd09987369f21bd0d",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-local-pr-2/runs/retrospect-deslop",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "630c4ff3a0863ff5c027fc2180f90af4d0aee17d257c87c999c4279db157dd20",
+        "inputs.json": "0f2da240097ea141e16db7c367b63368328592f9c15196d3eef499510c1591c2",
+        "before.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "after.json": "381a384539c24172bec7fb333417a31aeb749bcff8f8b526aa4a840f17a00252",
+        "report.txt": "f8886827f984c7af9161ce9ce47b55dfbb6f610f63065e76494b44ac99235d55",
+        "trace.json": "f3f7cfb7fbad12b5063580b64cad94aefd7be0b84e96e59423590a5c5f76562c",
+        "log.jsonl": "9b0c47c6ae544a1e08a81fa93caaf25bd3d6de9d09f50fb8145ea8f3d5f32ef3"
+      }
+    },
+    {
+      "id": "retrospect-leak",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 48.74,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 100758,
+        "cached_input_tokens": 90880,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1084,
+        "reasoning_output_tokens": 31
+      },
+      "group": "run-local-pr-2",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "b1cd28de9593bed9b19eed580887390188711aa1c75a4a3cd09987369f21bd0d",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-local-pr-2/runs/retrospect-leak",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "c58d3d2ae9a2e68c76cd48c51f3e97d738879d1c780d4d0af715c0b801d991c7",
+        "inputs.json": "0f2da240097ea141e16db7c367b63368328592f9c15196d3eef499510c1591c2",
+        "before.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "after.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "report.txt": "80acc3d3ebea990c8c883e304afbc18c2db9315153e72833aaf0caacee53dc02",
+        "trace.json": "6ba15dffd14d5c2d8d63779d95545050a7320e9e7bc348ea696b949d5331f3c6",
+        "log.jsonl": "3b1a6685378f1f5ad0da07a2aca68ef9126e991a2d6b2ddf75275afa66348b87"
+      }
+    },
+    {
+      "id": "uv-pr-comprehension",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 49.6,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 134960,
+        "cached_input_tokens": 119168,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1133,
+        "reasoning_output_tokens": 9
+      },
+      "group": "run-local-pr-2",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "b1cd28de9593bed9b19eed580887390188711aa1c75a4a3cd09987369f21bd0d",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-local-pr-2/runs/uv-pr-comprehension",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "7699ef3a0fc2bb867f6648fc4b1d9658b35f09427ef312ac9a927005642b07aa",
+        "inputs.json": "79cdad96f4f90e9fc0161086352452034bf52e53058b247f34757cb69cdea4a2",
+        "before.json": "f192869cfbb3cd03a87a2a14c7de8c516b2a756857b5e78358d9d4d876d02c10",
+        "after.json": "f192869cfbb3cd03a87a2a14c7de8c516b2a756857b5e78358d9d4d876d02c10",
+        "report.txt": "f2849cb68d72d859d2bab472c8e2311481bd5f31fc7cc09ceabe06cbf36dda43",
+        "trace.json": "9180205a99b43b70d18a70516b3bef073c7f391c040695a3b494b360f747c9bc",
+        "log.jsonl": "4e1132821e55e87dfd2b5924f308182f869567af1413c0adb0b221ed1960e9dc"
+      }
+    },
+    {
+      "id": "uv-pr-deslop",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 37.57,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [
+        "pr.md"
+      ],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 155393,
+        "cached_input_tokens": 133504,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1609,
+        "reasoning_output_tokens": 156
+      },
+      "group": "run-local-pr-2",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "b1cd28de9593bed9b19eed580887390188711aa1c75a4a3cd09987369f21bd0d",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-local-pr-2/runs/uv-pr-deslop",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "cc0c1c4fadb83e8eaeaf47551837af650dd7c3ad8e8740b781f731f806c08a82",
+        "inputs.json": "79cdad96f4f90e9fc0161086352452034bf52e53058b247f34757cb69cdea4a2",
+        "before.json": "f192869cfbb3cd03a87a2a14c7de8c516b2a756857b5e78358d9d4d876d02c10",
+        "after.json": "f6d71e7c5041f410e3c4ede52f06340da53bd5257b5a35fe3c17bc9f5200b394",
+        "report.txt": "b1bc749028f42ad38341b251a19026a7948172506b9306f676d2e677ac6e9fc0",
+        "trace.json": "39d46cfbe5477c64a05d4bfe43d3eb46fc86828e4be1c8363e143c67e446cc04",
+        "log.jsonl": "95a2fa605457a1d95ec9724579f34c6510e297bc6623d791c78e48ed507af23a"
+      }
+    },
+    {
+      "id": "uv-pr-leak",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 87.95,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 183388,
+        "cached_input_tokens": 165120,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 853,
+        "reasoning_output_tokens": 33
+      },
+      "group": "run-local-pr-2",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "b1cd28de9593bed9b19eed580887390188711aa1c75a4a3cd09987369f21bd0d",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-local-pr-2/runs/uv-pr-leak",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "70d3fb984b119b40e1b6b2a27864e5c94f1f0f5766874044300ab8260294adea",
+        "inputs.json": "79cdad96f4f90e9fc0161086352452034bf52e53058b247f34757cb69cdea4a2",
+        "before.json": "f192869cfbb3cd03a87a2a14c7de8c516b2a756857b5e78358d9d4d876d02c10",
+        "after.json": "f192869cfbb3cd03a87a2a14c7de8c516b2a756857b5e78358d9d4d876d02c10",
+        "report.txt": "1a0b15d6bbd18bf790fd1bdfb60011aa5875295e3a56c2abfc7aa5bf33026bc8",
+        "trace.json": "c9ab1e3ae85cef7555fae0715dc548255f30d5dfe5a34b2bd1d61739896a094d",
+        "log.jsonl": "99feb7f10f6bdff0232ba53220ba08c5227a23a37a68d0ada50420c193179760"
+      }
+    },
+    {
+      "id": "retrospect-leak-publication-context",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 35.12,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 121949,
+        "cached_input_tokens": 103168,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 605,
+        "reasoning_output_tokens": 39
+      },
+      "group": "run-publication-context",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "3783bdf531917bf85d853968a4d726c9ebebb895535aa58c6ad114e64c093f35",
+      "plugin_snapshot_sha256": "2d2199a7cc31893ae317596fe6fd7c4f999af3d77d40c5cedbaad4ec4abde022",
+      "evidence_directory": "/tmp/writing-real-documents/run-publication-context/runs/retrospect-leak-publication-context",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "60298f79bd10e4e709711dac84f6fe53fd142d713f32900eef884686e2c7d89d",
+        "inputs.json": "0f2da240097ea141e16db7c367b63368328592f9c15196d3eef499510c1591c2",
+        "before.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "after.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "report.txt": "30b0c68f86902c35f5a4f1e7a4d4ebf6f5a332b03de9b709dc86acfd5bc729a2",
+        "trace.json": "9468a3acf2995cf7024734c8457eadb5841fda9a73ab53a812f01ba295b7ff07",
+        "log.jsonl": "d51b763404691d4dd32915e2eb59f7e7f9f0bda0f352b00f940478eba0f2ca0c"
+      }
+    },
+    {
+      "id": "uv-pr-leak-publication-context",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 34.56,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 153771,
+        "cached_input_tokens": 131072,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 576,
+        "reasoning_output_tokens": 28
+      },
+      "group": "run-publication-context",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "3783bdf531917bf85d853968a4d726c9ebebb895535aa58c6ad114e64c093f35",
+      "plugin_snapshot_sha256": "2d2199a7cc31893ae317596fe6fd7c4f999af3d77d40c5cedbaad4ec4abde022",
+      "evidence_directory": "/tmp/writing-real-documents/run-publication-context/runs/uv-pr-leak-publication-context",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "95d30527cf95ff68bb53281ec7d83b3f6a090da979276f88a67b4c0f22fdf7db",
+        "inputs.json": "79cdad96f4f90e9fc0161086352452034bf52e53058b247f34757cb69cdea4a2",
+        "before.json": "f192869cfbb3cd03a87a2a14c7de8c516b2a756857b5e78358d9d4d876d02c10",
+        "after.json": "f192869cfbb3cd03a87a2a14c7de8c516b2a756857b5e78358d9d4d876d02c10",
+        "report.txt": "6df9cb491c714b149b07d2e65f5b00a7070a62b8a0ea46c933215a9d0c2f72a6",
+        "trace.json": "febdb96f5a7356ea38a8c710e30a39c1508cf4f846a3f5158f092917c7611bb0",
+        "log.jsonl": "639e35e7f3a64db9d656a2eaf48f72279c6d48b14b7f5fbcb1c9c03d896d75bd"
+      }
+    },
+    {
+      "id": "retrospect-seeded-leak-publication-install",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 22.04,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 48830,
+        "cached_input_tokens": 40448,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 565,
+        "reasoning_output_tokens": 133
+      },
+      "group": "run-seeded-context-before",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "d173676dacc8c1b16ab6944f5eaa3b1e8ad441205c8988b8ed0d02b192d55b31",
+      "manifest_sha256": "c7ad5c3f8f16cb285714d76f0cc8b3e44b3efdfb8b846331b0a063e36d1787d9",
+      "plugin_snapshot_sha256": "2d2199a7cc31893ae317596fe6fd7c4f999af3d77d40c5cedbaad4ec4abde022",
+      "evidence_directory": "/tmp/writing-real-documents/run-seeded-context-before/runs/retrospect-seeded-leak-publication-install",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "537821e288d070ae6d070075678c875a7faf9177f1e9e844292911aa46ffde06",
+        "inputs.json": "eb052952fd8802571d29926d94ec03f6a9f3c9728432fd78ce1090e8f42f39cc",
+        "before.json": "13d70936d7ce1d67cbfaf46bec3e6f129d376860e144bb440913173d01e5ea64",
+        "after.json": "13d70936d7ce1d67cbfaf46bec3e6f129d376860e144bb440913173d01e5ea64",
+        "report.txt": "2bbbfbbdda6d4574dfbf2676ac068f614139fc8d5ec00c06fa561f32a5c46009",
+        "trace.json": "fcc32623ccb475dbcb1f9b4f55bd5034ea1f87be1d3d4e536dc59f61c7e44157",
+        "log.jsonl": "4b7f8dee0b7115cd52c7711d444a896ea07d9d5d9946cadf97154b2198618543"
+      }
+    },
+    {
+      "id": "retrospect-sequential-comprehension",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 96.68,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 426759,
+        "cached_input_tokens": 403200,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2084,
+        "reasoning_output_tokens": 8
+      },
+      "group": "run-sequential",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "81cc6aa09d55ca697ababd429becd120e672cf739e4fcbe4b23a63d5eec11eea",
+      "plugin_snapshot_sha256": "2d2199a7cc31893ae317596fe6fd7c4f999af3d77d40c5cedbaad4ec4abde022",
+      "evidence_directory": "/tmp/writing-real-documents/run-sequential/runs/retrospect-sequential-comprehension",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "eb3f814967ce6a9dd74476086bf09f6023df522787396b0384a38bc56cd793a1",
+        "inputs.json": "0f2da240097ea141e16db7c367b63368328592f9c15196d3eef499510c1591c2",
+        "before.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "after.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "report.txt": "7f8388cba7d68c541f3ba59e2d0cfcf50bf6e9aa3504c0efa3e8a962e3cb4869",
+        "trace.json": "177d1a09358922eb2ed523bcb236aada380f69f0c3e93a2610619eb48038b0a0",
+        "log.jsonl": "bc5ea57459185e7a08a37cc14db7b1a516f93381230cace0f78b88b093c161a9"
+      }
+    },
+    {
+      "id": "eslint-talk-comprehension",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 60.53,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 158083,
+        "cached_input_tokens": 139264,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1097,
+        "reasoning_output_tokens": 31
+      },
+      "group": "run-slides",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "4fc1b24e300262d38704fcfc4a6a45df16065af82413308ab7a5d26aa12cf837",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-slides/runs/eslint-talk-comprehension",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "6fd870fa383b6a68b14a4ae524c1cbb411627233fcfc2c376f62dc0432da92d9",
+        "inputs.json": "c4de68cc4f3ea5830701f2e04731ac63f7a7d735ee8d2160947200f7d38e7f3c",
+        "before.json": "f24df1fe4ee58cce08dea16a58c7485f5b9d513820dd1b2cda298750e7013c89",
+        "after.json": "f24df1fe4ee58cce08dea16a58c7485f5b9d513820dd1b2cda298750e7013c89",
+        "report.txt": "ba9816f01b68afdca56704ba6a26094876e5cf82a0868e0af766439020c1d901",
+        "trace.json": "5eee3dee10cf8bf2a41f32798d5df5bfc373a69503b682ce09cdfacf1bf99915",
+        "log.jsonl": "db72c313c33870391ecfb6c61bb023986abd9b400e35a32ab4340562e5a83fcd"
+      }
+    },
+    {
+      "id": "eslint-talk-deslop",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 66.25,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [
+        "source.md"
+      ],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 177572,
+        "cached_input_tokens": 160896,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3983,
+        "reasoning_output_tokens": 171
+      },
+      "group": "run-slides",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "4fc1b24e300262d38704fcfc4a6a45df16065af82413308ab7a5d26aa12cf837",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-slides/runs/eslint-talk-deslop",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "f110c53216e946e53646c64e01dd78471439e8727c3dd857319ec7cee6942b79",
+        "inputs.json": "f1b3b464aa679127582d5aa8472edbbe9c2bd829f64adaa460daf44f56f85c52",
+        "before.json": "f514d37614d22ef7d4c62d13986a3abbd7446dd3f42a137bf9a4f4168eb77687",
+        "after.json": "8871b081e73af78dd5416425da5dd7c9ed078bfda68e726f309c72cedfbb0a3e",
+        "report.txt": "ace24cc0a65baceedb0fc56d423a8bd70f4ca0fed3e9af8d65b6f0b36bedcb95",
+        "trace.json": "b5164d8cc0548d68e0d700f5e17e2c3bd0bd1cbb8e0d6bd423d0795cc5d94bd8",
+        "log.jsonl": "f66587000afb13dd15fa3c3727148bff21508e58eb893e6d4299164c5e909bb5"
+      }
+    },
+    {
+      "id": "eslint-talk-excerpt-comprehension",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 62.1,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 132769,
+        "cached_input_tokens": 108672,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1170,
+        "reasoning_output_tokens": 20
+      },
+      "group": "run-slides",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "4fc1b24e300262d38704fcfc4a6a45df16065af82413308ab7a5d26aa12cf837",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-slides/runs/eslint-talk-excerpt-comprehension",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "94f729b38f32ce059bfe11974e7b1cc7b2a6c39576d66f565f6dad877dd84173",
+        "inputs.json": "9ba35a1b026a2d7ca816e92b4505daa382373947c0402059109c5e52e39b76e9",
+        "before.json": "947bcc88e1b042cb201033f90f2be4b64af7c9794636843037dbd195f1e02014",
+        "after.json": "947bcc88e1b042cb201033f90f2be4b64af7c9794636843037dbd195f1e02014",
+        "report.txt": "315b515ece6832c9333161c3f7bb17bd899951e38ff6353d8e23f0a20c684b74",
+        "trace.json": "a435977c521f396e88275c5ef9fed6350fb520ebaa4e6074e8c97c35ccbfc706",
+        "log.jsonl": "09df1c01c0eeb82db51ba2e29904c38fec3ea135691522d7fc8ab177da97987c"
+      }
+    },
+    {
+      "id": "eslint-talk-excerpt-sequential-comprehension",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 120.45,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 511254,
+        "cached_input_tokens": 476672,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2333,
+        "reasoning_output_tokens": 16
+      },
+      "group": "run-slides",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "4fc1b24e300262d38704fcfc4a6a45df16065af82413308ab7a5d26aa12cf837",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-slides/runs/eslint-talk-excerpt-sequential-comprehension",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "58e843b44b944c06913b17b1033e7845e07739cccad17ffd16fe5793dec9621c",
+        "inputs.json": "9ba35a1b026a2d7ca816e92b4505daa382373947c0402059109c5e52e39b76e9",
+        "before.json": "947bcc88e1b042cb201033f90f2be4b64af7c9794636843037dbd195f1e02014",
+        "after.json": "947bcc88e1b042cb201033f90f2be4b64af7c9794636843037dbd195f1e02014",
+        "report.txt": "2ceb3b9aaace63e907dd20f5baf8980504f524aa47307e3425f86ddf01edb9bf",
+        "trace.json": "8b7d7ed83c6db8e38d02489dabc27e0b7fc2acea1efcbce8afd1c5bb0dc57dd3",
+        "log.jsonl": "28accbe1fa1bf27b579cd33f5c2dc18085d8afbf91b8e72626407e9729189b77"
+      }
+    },
+    {
+      "id": "eslint-talk-leak",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 53.57,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 120578,
+        "cached_input_tokens": 102912,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 769,
+        "reasoning_output_tokens": 59
+      },
+      "group": "run-slides",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "4fc1b24e300262d38704fcfc4a6a45df16065af82413308ab7a5d26aa12cf837",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-slides/runs/eslint-talk-leak",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "30bb4475038b3c3608afcd960b18074a80b9b4b6c47a2d5ca308fb2cb5ab1e79",
+        "inputs.json": "c4de68cc4f3ea5830701f2e04731ac63f7a7d735ee8d2160947200f7d38e7f3c",
+        "before.json": "f24df1fe4ee58cce08dea16a58c7485f5b9d513820dd1b2cda298750e7013c89",
+        "after.json": "f24df1fe4ee58cce08dea16a58c7485f5b9d513820dd1b2cda298750e7013c89",
+        "report.txt": "b870c2b119e4203611892ec575b5af9dd02b2a97e480467df9d579937ebc577c",
+        "trace.json": "4d12960b035ee3ee29361eb8ae9d2bf5ee6a64ea02023a7eb058edc9a61c702f",
+        "log.jsonl": "d1e8671f74b2128c76e7c7c85c05a83c9842942ecba08749284efb0ec30344dd"
+      }
+    },
+    {
+      "id": "tools-talk-comprehension",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 52.06,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 155596,
+        "cached_input_tokens": 143104,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 893,
+        "reasoning_output_tokens": 10
+      },
+      "group": "run-slides",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "4fc1b24e300262d38704fcfc4a6a45df16065af82413308ab7a5d26aa12cf837",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-slides/runs/tools-talk-comprehension",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "ae9c61ee9ea812e28c67772c7b8c0eb4b9b4d66130dceecb63f08b6ce42b1e66",
+        "inputs.json": "fb64858ed6b47a871e57266d4d9d0c78d14de701adcba68e5778bda11f7504e1",
+        "before.json": "4091ab976506cf6de6006c41781b2963d9ee3a9a00b16ea96e978199be233ff0",
+        "after.json": "4091ab976506cf6de6006c41781b2963d9ee3a9a00b16ea96e978199be233ff0",
+        "report.txt": "a5311ecec1fe5f3c062499031ec7d0d12d6cb77a341ed9394f13b0714c456d56",
+        "trace.json": "5e7735805a5233393572e88ff781941c208590a534bcec08652e1858295ab69a",
+        "log.jsonl": "6579382b88c263a2d906da3a7ffb8ce45caf107cea8bd588086e1fa1dbece957"
+      }
+    },
+    {
+      "id": "tools-talk-deslop",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 83.81,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [
+        "source.md"
+      ],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 176657,
+        "cached_input_tokens": 159232,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3903,
+        "reasoning_output_tokens": 157
+      },
+      "group": "run-slides",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "4fc1b24e300262d38704fcfc4a6a45df16065af82413308ab7a5d26aa12cf837",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-slides/runs/tools-talk-deslop",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "70a03b54e0a49570e18963097a13651922562f44ce8c27b254725b2a06aa6f2f",
+        "inputs.json": "66fba2c70b77517327f2301fabdb3f927b4db222ca5d6db462482ff4abe7bf05",
+        "before.json": "648f5e6446a6d9234d2fe8f25fe590af25bc12ed38c3352ed0b94a65330c1d42",
+        "after.json": "f75406ed72430df0555ab681a530a340bb07c3f2d883631c506e7557fe32f560",
+        "report.txt": "8753427a834baca644be9b1ff913ef5774e54c8b6d4ac3dac5e34f79237a77a5",
+        "trace.json": "e9e7b339b29f724113b0a4f8f20f3f1059137b4ecb92f092ce509483f1eb02fe",
+        "log.jsonl": "30cad7eee890c04daefbc3277ae117c119c01ff6af809c49866a8fbb212a874e"
+      }
+    },
+    {
+      "id": "tools-talk-excerpt-comprehension",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 46.95,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 136210,
+        "cached_input_tokens": 115584,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1095,
+        "reasoning_output_tokens": 41
+      },
+      "group": "run-slides",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "4fc1b24e300262d38704fcfc4a6a45df16065af82413308ab7a5d26aa12cf837",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-slides/runs/tools-talk-excerpt-comprehension",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "043aa4f4113645a93168c4bcd2f688775a19e9f17491ce604eac6c3a6bc60161",
+        "inputs.json": "9176b74ed46e8d1cbd3968fb2b41b96497451b1dba86c47e72d5bb377a7b0ffe",
+        "before.json": "8d860ad61d0cd998251a45bc550eaae5c8e02d29568ca7a0cb268fd97fc8879b",
+        "after.json": "8d860ad61d0cd998251a45bc550eaae5c8e02d29568ca7a0cb268fd97fc8879b",
+        "report.txt": "3da319a199ef036940a6970a1decf098d8ea58ff701df178cd129ffabc2f4f8d",
+        "trace.json": "455efe0dac3326b143245411d5a761cc3fb726b26384ddabade6f2c3dab78318",
+        "log.jsonl": "ad6d81be0fce224f68f350a3690f3c005a133de4e047f810c2be0f10610ab184"
+      }
+    },
+    {
+      "id": "tools-talk-excerpt-sequential-comprehension",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 103.77,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 466742,
+        "cached_input_tokens": 434816,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 2434,
+        "reasoning_output_tokens": 24
+      },
+      "group": "run-slides",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "4fc1b24e300262d38704fcfc4a6a45df16065af82413308ab7a5d26aa12cf837",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-slides/runs/tools-talk-excerpt-sequential-comprehension",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "7525dc5d81c3081ae016ad6d1507e67fda1e085ea8b4d57fdfdb49105b4cf37d",
+        "inputs.json": "9176b74ed46e8d1cbd3968fb2b41b96497451b1dba86c47e72d5bb377a7b0ffe",
+        "before.json": "8d860ad61d0cd998251a45bc550eaae5c8e02d29568ca7a0cb268fd97fc8879b",
+        "after.json": "8d860ad61d0cd998251a45bc550eaae5c8e02d29568ca7a0cb268fd97fc8879b",
+        "report.txt": "e81f88f1d3be3c2e3b521e9dd9cbf0338da9cf4cbeac5f61b68883f87d79459a",
+        "trace.json": "01342c1d9b96b42f16a8e9f285d0be13508033a6ee8efd878cf6daa87d0e42a6",
+        "log.jsonl": "01985425c841667767f50c14c46279101a245ef25cc148f349cb87d06b951705"
+      }
+    },
+    {
+      "id": "tools-talk-leak",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 52.37,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 138736,
+        "cached_input_tokens": 126336,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 804,
+        "reasoning_output_tokens": 28
+      },
+      "group": "run-slides",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "4fc1b24e300262d38704fcfc4a6a45df16065af82413308ab7a5d26aa12cf837",
+      "plugin_snapshot_sha256": "436f53d7d52bde3104aedbe7c0879bb98f5a22ac26b7d4768261170d9738be62",
+      "evidence_directory": "/tmp/writing-real-documents/run-slides/runs/tools-talk-leak",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "8651d4269a59703dc5788cbc6807394f51f4b108569485ff8cc6bbfd5f10b188",
+        "inputs.json": "fb64858ed6b47a871e57266d4d9d0c78d14de701adcba68e5778bda11f7504e1",
+        "before.json": "4091ab976506cf6de6006c41781b2963d9ee3a9a00b16ea96e978199be233ff0",
+        "after.json": "4091ab976506cf6de6006c41781b2963d9ee3a9a00b16ea96e978199be233ff0",
+        "report.txt": "d96a04a725c1a1c8f9917928bf476359bd21a66d05c67c517c6f10447423c576",
+        "trace.json": "db4a551d7ed046a2f6eb061a05841d9eb18dfb88e37f79f4b088d36d65c62eb6",
+        "log.jsonl": "ef5fb20f29f27a95e0aab8fcdb4c2390d096a512546c8fd874b0d2aa368d73d9"
+      }
+    },
+    {
+      "id": "uv-pr-style-only-control",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 17.17,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 66687,
+        "cached_input_tokens": 48128,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 353,
+        "reasoning_output_tokens": 130
+      },
+      "group": "run-style-control-before",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "e47831a2e689082633771dee60c8855926b52ec38a289843a5ac20a3a0473b27",
+      "manifest_sha256": "86cc756715ab8e026673caebaebfa6727b7a6816161870c78b60a9fc617c797c",
+      "plugin_snapshot_sha256": "9fdc700336d6d9f69a45dd62fba78cd9e8554f1ca0e880694b1ae5b845eb3a44",
+      "evidence_directory": "/tmp/writing-real-documents/run-style-control-before/runs/uv-pr-style-only-control",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "3e6b49d40fabea18ff39ddb7fb803c1f9dd2311bf65f7c857b3e56d3036eedd2",
+        "inputs.json": "79cdad96f4f90e9fc0161086352452034bf52e53058b247f34757cb69cdea4a2",
+        "before.json": "f192869cfbb3cd03a87a2a14c7de8c516b2a756857b5e78358d9d4d876d02c10",
+        "after.json": "f192869cfbb3cd03a87a2a14c7de8c516b2a756857b5e78358d9d4d876d02c10",
+        "report.txt": "bd6ceac11ce9dab6cc03ab1898319dede5c99ee9a0a78d36af83dad827a72121",
+        "trace.json": "0100c9606354a65b88a98ad92704c90b85d28b1bed740aeea19f4335c3e338fa",
+        "log.jsonl": "336f0f92d836d683862a3827ec21a22e2c3ec95b03c6da8d58666238e3b2007e"
+      }
+    },
+    {
+      "id": "a05",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 15.16,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [
+        "a05.md"
+      ],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 63950,
+        "cached_input_tokens": 54528,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 377,
+        "reasoning_output_tokens": 35
+      },
+      "group": "run-style-regressions",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "d173676dacc8c1b16ab6944f5eaa3b1e8ad441205c8988b8ed0d02b192d55b31",
+      "manifest_sha256": "a78b6ea15c43bde850ad501d18659d0ba3696a3b36be076bc09e4c60bcde3aee",
+      "plugin_snapshot_sha256": "d3f7ab141b3579b041dc1e0333e65993ad93acc3c1441152a45862f485cd4f95",
+      "evidence_directory": "/tmp/writing-real-documents/run-style-regressions/runs/a05",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "332bd41bf5cc38936b3d4bd3d4fae598366fd59e6301d85e59e86d4ff3b9421b",
+        "inputs.json": "306f63d17569ace5467b2b4b40dd50067084ddd0c070fa526dfbc883b4e86b3e",
+        "before.json": "a4c37498235ea8b3912c3dc75522aac3e04c519638bff0aebb3160914dc2cf2b",
+        "after.json": "9c6fe857aa60988e474ac2de88082e961bab5f388d2c78fd33f557e35278434b",
+        "report.txt": "1e9a3f3be5b452f1369f9f7ae5310219d8ebbe9e6af538f8fe53486ba8f499b1",
+        "trace.json": "09949151fe40c5ab3a0be928eee566a5bdf719c3501f245158f122353f68025d",
+        "log.jsonl": "a7d1262109ccc2d70c6a84353494b76eb30b594f601ef77cb43dc49517bff5b9"
+      }
+    },
+    {
+      "id": "a06",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 15.76,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [
+        "a06.md"
+      ],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 63970,
+        "cached_input_tokens": 53632,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 364,
+        "reasoning_output_tokens": 0
+      },
+      "group": "run-style-regressions",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "d173676dacc8c1b16ab6944f5eaa3b1e8ad441205c8988b8ed0d02b192d55b31",
+      "manifest_sha256": "a78b6ea15c43bde850ad501d18659d0ba3696a3b36be076bc09e4c60bcde3aee",
+      "plugin_snapshot_sha256": "d3f7ab141b3579b041dc1e0333e65993ad93acc3c1441152a45862f485cd4f95",
+      "evidence_directory": "/tmp/writing-real-documents/run-style-regressions/runs/a06",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "994645f23d2a91f1aefb3555176f69e69ff13bcfd6f6e295e1ced61ff151eed6",
+        "inputs.json": "39647339e42f3a2d38677e9a50c0d074dd0a12c027b5327a5f998ca7002864aa",
+        "before.json": "5b428b16eead40804d5f1a1c63586a1170bb9a1a5770f804d6e8ed46e6dec256",
+        "after.json": "35766ec120cf0847ddc97f60bdd71b4c7624c3f8e7a418ebee0aa48e1ee08c7e",
+        "report.txt": "d2df1f548db1d4e6daebabecd4234074f1fcaf640fea42b7b38fa037d3aeb370",
+        "trace.json": "896c516cffebf50579809466c415114b03b803d152fc752e1c0abe551a5e9821",
+        "log.jsonl": "b183a42c8af71743192cc588f868e617245155dba0c4259401635b8a742dfdd5"
+      }
+    },
+    {
+      "id": "a10",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 16.81,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [
+        "a10.md"
+      ],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 81211,
+        "cached_input_tokens": 71296,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 489,
+        "reasoning_output_tokens": 0
+      },
+      "group": "run-style-regressions",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "d173676dacc8c1b16ab6944f5eaa3b1e8ad441205c8988b8ed0d02b192d55b31",
+      "manifest_sha256": "a78b6ea15c43bde850ad501d18659d0ba3696a3b36be076bc09e4c60bcde3aee",
+      "plugin_snapshot_sha256": "d3f7ab141b3579b041dc1e0333e65993ad93acc3c1441152a45862f485cd4f95",
+      "evidence_directory": "/tmp/writing-real-documents/run-style-regressions/runs/a10",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "6ba1cdb2be73d2101e39c2d128a136c649f870dac67a812cba13fbcdf2dee570",
+        "inputs.json": "706974b40be368f2a867b07fa0de2bfd00ca92fc416275cfed60a9be619eeb2a",
+        "before.json": "740f7f9abb642ba93f697f5952ac3b47e7468d92e47b12e7e8569f83e3fd2700",
+        "after.json": "395f68115020a9814be5ed1da7e514912bb0e5b958a95734ad60d091190c5a20",
+        "report.txt": "d03cd78a080098afe80e02d36b99207ebfd40b32007a4a8953962002aef0b3ad",
+        "trace.json": "2652ad0793361b94c16397c704870224bf8724c0d9b091b59e8dda1a92d35a95",
+        "log.jsonl": "b2d628881b9ba6d9bb881c7cd3519d4b4abdc63d23889abd110216faf7c2cee6"
+      }
+    },
+    {
+      "id": "a13",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 18.72,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [
+        "a13.md"
+      ],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 95836,
+        "cached_input_tokens": 80256,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 554,
+        "reasoning_output_tokens": 81
+      },
+      "group": "run-style-regressions",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "d173676dacc8c1b16ab6944f5eaa3b1e8ad441205c8988b8ed0d02b192d55b31",
+      "manifest_sha256": "a78b6ea15c43bde850ad501d18659d0ba3696a3b36be076bc09e4c60bcde3aee",
+      "plugin_snapshot_sha256": "d3f7ab141b3579b041dc1e0333e65993ad93acc3c1441152a45862f485cd4f95",
+      "evidence_directory": "/tmp/writing-real-documents/run-style-regressions/runs/a13",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "a04febda01f163d1f93ef62b28c188838022df825c343f4a9c316133446d73a8",
+        "inputs.json": "b597fc457237f74601bc5b897d14115fc4790a0ccb89bd40c542b10a5a2c25bc",
+        "before.json": "bf933ba8f9e336602c6975b02fb390f8bb9afe86bc486a1573f13000da371333",
+        "after.json": "12c6df9e898c4b0798c3ad682abe1be990603adc21b8782914266f16c17b5c05",
+        "report.txt": "4f9686c44785e3b16657a6f543e176e62b635dfcd65afba6606b8168c15ba32c",
+        "trace.json": "7c988127993fc2fc3f7ff356ac77fb1c9ebdce2a1895c90f7d3839ee7063cbc2",
+        "log.jsonl": "e1d00339f16edcc4728c4bdf254be66c7ab3cf88048829e517d1199c790d30b5"
+      }
+    },
+    {
+      "id": "a14",
+      "backend": "codex",
+      "model": null,
+      "model_note": "CLI default; the JSON event stream does not identify the model.",
+      "exit_code": 0,
+      "elapsed_seconds": 22.62,
+      "result_received": true,
+      "result_subtype": "completed",
+      "is_error": false,
+      "changed_files": [
+        "a14.md"
+      ],
+      "original_sources_changed": [],
+      "cost_usd": null,
+      "usage": {
+        "input_tokens": 64140,
+        "cached_input_tokens": 57088,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 616,
+        "reasoning_output_tokens": 259
+      },
+      "group": "run-style-regressions",
+      "cli_version": "codex-cli 0.165.0",
+      "baseline": false,
+      "runner_sha256": "d173676dacc8c1b16ab6944f5eaa3b1e8ad441205c8988b8ed0d02b192d55b31",
+      "manifest_sha256": "a78b6ea15c43bde850ad501d18659d0ba3696a3b36be076bc09e4c60bcde3aee",
+      "plugin_snapshot_sha256": "d3f7ab141b3579b041dc1e0333e65993ad93acc3c1441152a45862f485cd4f95",
+      "evidence_directory": "/tmp/writing-real-documents/run-style-regressions/runs/a14",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "9b88d391fe4634c47db3af26b6e48119ab8e1175a0824b38ab47931fddcc31d7",
+        "inputs.json": "b02cde6ecac1977f69440838bee583dccbe4948cbf57d21ef690b0db6650914c",
+        "before.json": "ea9547ae7a68b86500c916900789b787f94901c45c74b63f8f3743c867bf6188",
+        "after.json": "999fbe808c50b3ab1aa33e242940a5684744ecdb88d86245b06484b83b86b3cc",
+        "report.txt": "3feedb42485ff7d786d6dcda6dfa0231a6ff3717194b192ce77c6a5acf739ada",
+        "trace.json": "fc41345568528e59a166155959fb845316a7df3ebaf3efe70ec7a90913cfd8c4",
+        "log.jsonl": "18fb4aa18f2129bf17b653cb2a470fb4a5687b29bd2b907c377bffb8f960a905"
+      }
+    },
+    {
+      "id": "history-seeded-no-glossary",
+      "backend": "claude",
+      "model": "claude-opus-4-6",
+      "exit_code": 0,
+      "elapsed_seconds": 76.73,
+      "result_received": true,
+      "result_subtype": "success",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": 0.281374,
+      "usage": {
+        "input_tokens": 6,
+        "cache_creation_input_tokens": 9351,
+        "cache_read_input_tokens": 54100,
+        "output_tokens": 1941,
+        "output_tokens_details": {
+          "thinking_tokens": 552
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 9351,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 1,
+            "output_tokens": 490,
+            "cache_read_input_tokens": 16709,
+            "cache_creation_input_tokens": 1446,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1446
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "group": "run-leak-final3",
+      "cli_version": "2.1.317 (Claude Code)",
+      "baseline": false,
+      "runner_sha256": "d173676dacc8c1b16ab6944f5eaa3b1e8ad441205c8988b8ed0d02b192d55b31",
+      "manifest_sha256": "52b33af98bb977dbd9545088d06c75da5a969b7c3bb2d5d925eadc7894d0be41",
+      "plugin_snapshot_sha256": "75960e24475b9fa48759df86ee700c27c5f024dea49fc616f520a675051d2776",
+      "evidence_directory": "/tmp/writing-real-documents/run-leak-final3/runs/history-seeded-no-glossary",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "196d52f109f00afe6951ec3854fa74f7a6ea17713c714d009c3344c7c4c955dc",
+        "inputs.json": "8275a4041425d6fedccbebaa7ef42f28ea4240558bfc8dd1cc07adf2f279c3ec",
+        "before.json": "06d5d9e83f4175c94c936cfdfa309743d7bfb3b2316b5e958a87987d890225f1",
+        "after.json": "06d5d9e83f4175c94c936cfdfa309743d7bfb3b2316b5e958a87987d890225f1",
+        "report.txt": "de1a05b225621eb55a493d3c20bb733088678d7dcda48042271065a2848040cf",
+        "trace.json": "fd2473652af726f41f6dbb119a7d539b1e54017a4541312efb804d4fa0ac7477",
+        "log.jsonl": "c7995e0354814701a6326d9e3f9c710ce19737993787222ba70c2b78573691dd"
+      }
+    },
+    {
+      "id": "repeated-public-coordinate",
+      "backend": "claude",
+      "model": "claude-opus-4-6",
+      "exit_code": 0,
+      "elapsed_seconds": 44.11,
+      "result_received": true,
+      "result_subtype": "success",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": 0.21021024999999996,
+      "usage": {
+        "input_tokens": 5,
+        "cache_creation_input_tokens": 7438,
+        "cache_read_input_tokens": 37258,
+        "output_tokens": 1046,
+        "output_tokens_details": {
+          "thinking_tokens": 115
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 7438,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 1,
+            "output_tokens": 250,
+            "cache_read_input_tokens": 14915,
+            "cache_creation_input_tokens": 1327,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1327
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "group": "run-leak-final3",
+      "cli_version": "2.1.317 (Claude Code)",
+      "baseline": false,
+      "runner_sha256": "d173676dacc8c1b16ab6944f5eaa3b1e8ad441205c8988b8ed0d02b192d55b31",
+      "manifest_sha256": "52b33af98bb977dbd9545088d06c75da5a969b7c3bb2d5d925eadc7894d0be41",
+      "plugin_snapshot_sha256": "75960e24475b9fa48759df86ee700c27c5f024dea49fc616f520a675051d2776",
+      "evidence_directory": "/tmp/writing-real-documents/run-leak-final3/runs/repeated-public-coordinate",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "05c93cf444c2245cebb67469622cee17b1bf4fd8b79d20aa2e9ffe2035f01f5f",
+        "inputs.json": "cc9bc12658e5893e3aa2c11e43d05bcf1743b46ceea7a221d767e817cce0aa5d",
+        "before.json": "0fbb716556aada76af4fc004725a255b1e612000b237edfebb6a47a29dcc3c2a",
+        "after.json": "0fbb716556aada76af4fc004725a255b1e612000b237edfebb6a47a29dcc3c2a",
+        "report.txt": "24bc9eca80299c6f1af40a8e8152daf1c7340b11236f05f0f65a42b57037fc54",
+        "trace.json": "91ec57df74e1a91fafed893f20fb5a4d93a09345b2f1806eb7772604bf4a7948",
+        "log.jsonl": "eb04654b626d9d06e7864b7d6932d18e37e1a80922fd437139b2d2e6a2e04a7f"
+      }
+    },
+    {
+      "id": "retrospect-leak-final3",
+      "backend": "claude",
+      "model": "claude-opus-4-6",
+      "exit_code": 0,
+      "elapsed_seconds": 91.78,
+      "result_received": true,
+      "result_subtype": "success",
+      "is_error": false,
+      "changed_files": [],
+      "original_sources_changed": [],
+      "cost_usd": 0.29607625,
+      "usage": {
+        "input_tokens": 6,
+        "cache_creation_input_tokens": 9090,
+        "cache_read_input_tokens": 53691,
+        "output_tokens": 1345,
+        "output_tokens_details": {
+          "thinking_tokens": 324
+        },
+        "server_tool_use": {
+          "web_search_requests": 0,
+          "web_fetch_requests": 0
+        },
+        "service_tier": "standard",
+        "cache_creation": {
+          "ephemeral_1h_input_tokens": 9090,
+          "ephemeral_5m_input_tokens": 0
+        },
+        "inference_geo": "global",
+        "iterations": [
+          {
+            "input_tokens": 1,
+            "output_tokens": 295,
+            "cache_read_input_tokens": 16414,
+            "cache_creation_input_tokens": 1480,
+            "cache_creation": {
+              "ephemeral_5m_input_tokens": 0,
+              "ephemeral_1h_input_tokens": 1480
+            },
+            "type": "message"
+          }
+        ],
+        "speed": "standard",
+        "fallback_credit": null
+      },
+      "group": "run-leak-final3",
+      "cli_version": "2.1.317 (Claude Code)",
+      "baseline": false,
+      "runner_sha256": "d173676dacc8c1b16ab6944f5eaa3b1e8ad441205c8988b8ed0d02b192d55b31",
+      "manifest_sha256": "52b33af98bb977dbd9545088d06c75da5a969b7c3bb2d5d925eadc7894d0be41",
+      "plugin_snapshot_sha256": "75960e24475b9fa48759df86ee700c27c5f024dea49fc616f520a675051d2776",
+      "evidence_directory": "/tmp/writing-real-documents/run-leak-final3/runs/retrospect-leak-final3",
+      "quality_assessed_by_exit_code": false,
+      "classification": "behavior attempt; judgment separate from process result",
+      "artifact_sha256": {
+        "prompt.txt": "10a9b15a0088f4b6548dcf7c075e94c64959a34cfe1e95c33c2e8840ad7d724b",
+        "inputs.json": "0f2da240097ea141e16db7c367b63368328592f9c15196d3eef499510c1591c2",
+        "before.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "after.json": "48754acfb8cd39093a052ac9d939f961dc0d205decff5587193e69cd84f05603",
+        "report.txt": "19822af9e1674b766b84906b8f72fe01d5ca65b5d28a2b3c412462c37cdff859",
+        "trace.json": "584165bda2220bbbed67448ce5fade8c2ef044adddfbe8d58cd7d73af2451379",
+        "log.jsonl": "35bfded12af1470153621e1a2332ab0cd2a6a57737c49a0a2b570ffcc2b8126f"
+      }
+    }
+  ]
+}

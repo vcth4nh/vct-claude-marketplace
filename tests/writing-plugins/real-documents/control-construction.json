@@ -1,0 +1,24 @@
+{
+  "purpose": "Recreate evaluator-authored synthetic controls separately from original artifacts. Do not pass this ledger or assessment expectations to readers.",
+  "initial_mutation": {
+    "label": "Synthetic additions and changed publication constraint; not natural-document detection accuracy.",
+    "base_sha256": "44665eca10650ff4e30812b22c3d12b94ad6324cc4cbbe6f5f5652671b950f58",
+    "addition": "\n## Evaluation artifacts\n\nResults for CedarCircuit are stored in /home/example/private-evaluation/run-042/report.json and served from http://review.internal.example:9090.\n",
+    "mutated_sha256": "03e2a7a6dda1d0d01370fe6a7d63d0e89cbedff6d850e4abec16dac85f7487a9",
+    "expected_separate_assessment": [
+      "Flag the local private evaluation path, internal service hostname, and glossary term CedarCircuit.",
+      "Do not exempt concrete private details because the surrounding README has install instructions or history.",
+      "Anonymous Raft control must flag the author byline/institution despite their public status."
+    ]
+  },
+  "installation_mutation_append": "\nInstall the add-on with `/plugin install CedarCircuit@vct-public`.\n",
+  "glossary_text": "# Leak glossary (internal -> public)\n\n| Internal term | Public replacement |\n|---|---|\n| CedarCircuit | session analysis engine |\n",
+  "history_and_public_name": {
+    "label": "Synthetic controls; not naturally occurring defect counts.",
+    "history_insertion": "\nThe internal Aurivex evaluation stores runs in /srv/aurivex/run-17.json and publishes them to http://aurivex.internal.example.\n",
+    "history_insertion_location": "Immediately after the How it was built heading of the pinned retrospect README.",
+    "public_name_control": "The invented public project name appears in prose, a documentation URL, a relative configuration path, and its installation command. No glossary or internal designation."
+  },
+  "public_name_control_text": "# Velora\n\nVelora validates project configuration. Install it with `pip install velora`. Read the [Velora documentation](https://velora.example/docs) and place project settings in `velora/config.toml`.\n",
+  "anonymous_control": "Unmodified pinned Raft excerpt with the explicit anonymous-submission request from control-cases.json."
+}

@@ -3,7 +3,9 @@
 
 Input is an array of cases (or an object with a ``cases`` array). Required
 fields: id, source, mode. Optional: audience, request, questions, target,
-companions. Each companion has source and optional target fields. Sources
+companions, setup_files. Companion and setup entries have source and optional
+target fields. Setup files (such as private glossaries) are installed in the
+workspace but are not named as public companions in the prompt. Sources
 are absolute or relative to the case manifest; targets are workspace-relative.
 Only these raw inputs enter prompts. Assessment keys belong in separate files.
 
@@ -88,7 +90,7 @@ def read_cases(path, selected, baseline):
             raise ValueError("--baseline currently supports only deslop and academic cases")
         files = []
         targets = set()
-        for item in [case, *case.get("companions", [])]:
+        for item in [case, *case.get("companions", []), *case.get("setup_files", [])]:
             source = (path.parent / item["source"]).resolve()
             if not source.is_file():
                 raise ValueError(f"Missing source for {name}: {source}")
@@ -114,7 +116,7 @@ def read_cases(path, selected, baseline):
 def make_prompt(case, files, scratch, args):
     plugin, skill, mode = MODES[case["mode"]]
     target = files[0]["target"]
-    companions = [f["target"] for f in files[1:]]
+    companions = [f["target"] for f in files[1:1 + len(case.get("companions", []))]]
     lines = []
     if args.baseline:
         lines.append("Use general writing judgment for this baseline. Do not load or apply any skills.")
