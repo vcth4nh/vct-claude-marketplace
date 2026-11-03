@@ -81,12 +81,16 @@ tool calls and is intended for longer text, not every publication check.
    markup: choosing intact boundaries remains the parent's job. Temporary
    copies do not authorize editing the source. Manifest paths are relative
    to NEW_DIRECTORY; resolve them before each handoff.
-3. Keep the full manifest with the parent. For each stage, hand the reviewer
-   only `MODE: sequential`, the current chunk path and source location,
+3. Keep the full manifest with the parent. For every stage, include the
+   absolute path of the bundled reader instruction file from this plugin
+   snapshot, so the reviewer can resolve its relative rule links. Hand it
+   `MODE: sequential`, the current chunk path and source location,
    stage number, type, and the user's audience/venue words. Include only
    forward-reference excerpts mapped to this chunk. Never hand over the
    source path, future chunk paths, summaries, or terms to watch. The parent
    may have read the source; the initial reviewer must be fresh.
+   If the reader cannot locate the supplied instructions or their bundled
+   rules, stop as incomplete; do not search other checkouts or snapshots.
 4. Make only reachable companions available at each step. For a marked
    slide script, provide the script through that slide, not later notes.
    An unmarked script remains reachable as a whole under audience rule 2.

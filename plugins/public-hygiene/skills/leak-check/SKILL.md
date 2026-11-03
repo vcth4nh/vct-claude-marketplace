@@ -20,9 +20,11 @@ failed the audit.
      create the file from the template below. Do not block on the offer.
 3. Route by stakes:
    - **High-stakes** (paper prose, release notes, public PR descriptions,
-     blog posts): launch a fresh, read-only subagent reviewer using the
+     blog posts, whole READMEs and docs, slides and talk scripts): launch a
+     fresh, read-only subagent reviewer using the
      [reviewer instructions](../../agents/external-reviewer.md). Pass it
-     that instruction-file path, the draft or its file path, and the
+     the absolute instruction-file path (not just an agent type or a
+     paraphrase of its rules), the draft or its file path, and the
      user's own words about the venue, anonymity requirements, and names
      approved for release. Leave out your explanations and private
      background, and do not inherit the conversation. Relay its findings
@@ -61,9 +63,10 @@ else in the report.
 - Check the first line of the input against the meta category before
   auditing anything else — scaffolding like "Here is the..." sits there
   and is easy to read past.
-- An unfamiliar term that recurs in a URL, a path, and plain prose (such
-  as a subject line) is a project codename — give every plain-prose
-  occurrence its own jargon finding, glossary or not.
+- A term recurring in a URL, a path, and prose warrants checking for an
+  internal codename; repetition alone does not establish private status.
+  Apply the hygiene rules' installation-identifier exception and any
+  explicit glossary or publication constraints.
 - FIX text is assembled only from the glossary and from facts the
   source states — a characterization the source never makes ("default",
   "legacy", "temporary") is invention, even offered as an example.

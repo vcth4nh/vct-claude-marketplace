@@ -45,7 +45,8 @@ reader's experience in order.
    If a fresh reviewer cannot run, report the independent check as
    incomplete instead of issuing a PASS or silently substituting an inline
    review.
-5. Clean handoff. The dispatch carries the reader instruction-file path,
+5. Clean handoff. The dispatch carries the absolute reader instruction-file
+   path (not just an agent type or a paraphrase of its rules),
    the draft (path or pasted text), the companions (paths or quoted public
    text, including the diff), the detected
    type in one line (slide or doc), and the user's own words about the

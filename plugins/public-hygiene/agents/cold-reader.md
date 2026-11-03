@@ -17,7 +17,10 @@ resolve a span.
 ## Steps
 
 1. Read the [audience rules](../references/audience-rules.md), resolving
-   the link relative to this file. When the handoff requests comprehension
+   the link relative to this file. Use the absolute instruction-file location
+   supplied by the parent or harness. If none is available, return
+   `VERDICT: INCOMPLETE`; never search for rule files in other locations.
+   When the handoff requests comprehension
    or sequential reading, also read [reader modes](../references/reader-modes.md)
    and follow its reviewer procedure. Otherwise use the ordinary audit.
 2. Read `.agents/leak-glossary.md` in the working repo if it exists,
