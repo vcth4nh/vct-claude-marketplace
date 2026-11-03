@@ -3,7 +3,7 @@
 Two checks for public-facing text before it ships:
 
 - `leak-check` audits internal-context leaks: local paths, run/experiment
-  IDs, infra names, ticket IDs, private provenance, dev-log narrative,
+  IDs, infra names, ticket IDs, private provenance, private working notes,
   unexpanded jargon, AI scaffolding.
 - `cold-read` finds context the audience lacks. See [cold-read](#cold-read).
 
@@ -15,9 +15,14 @@ Two checks for public-facing text before it ships:
   fill a redaction.
 - **Fresh subagent reviewer** — a read-only reviewer for
   high-stakes text (papers, release notes, public PR descriptions, blog
-  posts). Its ignorance is the mechanism: what it cannot resolve, the
-  public cannot resolve. Returns quoted findings and a BLOCK/PASS verdict;
+  posts, whole READMEs and docs, slides and talk scripts). It uses the
+  audience's field knowledge without private project context.
+  Returns quoted findings and a BLOCK/PASS verdict;
   ambiguous terms come back as questions, never guesses.
+
+Deliberate public history and design rationale are reviewed for concrete
+disclosures. A genre label or prior publication does not exempt private
+paths, infrastructure, glossary terms, or anonymity constraints.
 
 ## Install
 
