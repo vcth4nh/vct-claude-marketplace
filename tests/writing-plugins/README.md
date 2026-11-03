@@ -10,6 +10,8 @@ their limits.
 artifact tests, controls, fixes, and remaining limitations for 0.3.1.
 [The held-out comparison](heldout/README.md) adds three unfamiliar artifacts
 and matched medium-effort model conditions.
+[Its results](heldout/results-0.4.0.md) retain failures and targeted retests
+for public-hygiene 0.4.0 and anti-slop 0.3.2.
 
 - [cold-read.json](cold-read.json) contains reader requests and drafts.
 - [anti-slop.json](anti-slop.json) contains style requests and drafts.

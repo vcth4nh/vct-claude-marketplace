@@ -1,0 +1,1349 @@
+{
+  "description": "Native CLI attempts, including setup-confounded smokes, initial matrix, installed invocations, and new-revision retests. Process completion is not a semantic pass. Raw evidence remains outside the repository; temporary paths are not durable hosting. Tiny model availability probes are separate.",
+  "attempt_count": 38,
+  "groups": [
+    {
+      "evidence_root": "/tmp/writing-next-smoke/run-haiku",
+      "git_head": "cf4e0948bce34957017cae2f1f815dfa7aee69d8",
+      "runner_sha256": "d7bff72d9ec74ad5e67a7c402aaf959323b05bcf50db8fe2a919f3ec49ecc824",
+      "manifest_sha256": "9e37fa1177dfb4cc6e7aa63fe10075d894c3fdbac354e0de93074b7912c458b6",
+      "invocation_route": "source-snapshot",
+      "plugin_files": {
+        "public-hygiene": {
+          ".claude-plugin/plugin.json": "acd2f7be0482c21953b7455a02cbb4788fec7bccfaa15eb947bb1d90753fcae6",
+          "README.md": "85f60d188c034333a48ea72276bc2bd5ca6e0585c78048e9e896d0e45c805483",
+          "agents/cold-reader.md": "2bc4861c287b45b3847ef20c52f88e61ce3db86c24c8c5c7a276090ff6ebc4ee",
+          "agents/external-reviewer.md": "d219fa49ef224e1a3927f91b7781ceb9f89e20a3f9b8ce26b46fdb2167a27110",
+          "references/audience-rules.md": "566bf5580376d84953c7b9bc69a93e2cb7df9da781956e9012fba073a19059f9",
+          "references/hygiene-rules.md": "3aeb2801fc8851270e4c1f76c0b3a319259e942f4d80db857084ad49583b1134",
+          "references/reader-modes.md": "d490fe6b0141d21e9ea94afe70b7f8b54d484d1124dc637ad04324749fb7d979",
+          "references/report-delivery.md": "e718ff30338bc66acfb0a1e4223ba18a3f4b3c625c5f9ff3284c39178719bfcb",
+          "scripts/assemble_reader_report.py": "a82f0b8154330fb2da7a3da5a9fd19290eab86655636520fe9d6459e657114c0",
+          "scripts/prepare_reader_chunks.py": "bad72d3cd62d8507d172bc146973a492b49dc92b8d94c10acb27cdae0d61acfb",
+          "skills/cold-read/SKILL.md": "415ac2598924f32baef55918ad96e1f475512b9fcd4125419566ad5361305053",
+          "skills/leak-check/SKILL.md": "d4db5d5c47953906280d8050e9018175c8938e92be352e1584376bc0fe991565"
+        }
+      },
+      "attempts": [
+        {
+          "id": "faultprofit-comprehension",
+          "backend": "claude",
+          "requested_model": "claude-haiku-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-haiku-5-5"
+          ],
+          "reported_child_models": [
+            "claude-haiku-5-5"
+          ],
+          "elapsed_seconds": 53.77,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": 0.01609878,
+          "changed_input_files": [],
+          "original_sources_changed": [],
+          "report_sha256": "ae4cd073100285ea49e816c59358ba4c0193c33a0f402328b7910d474c855f50",
+          "scratch_files": {
+            "cold-read-comprehension-report.md": "a2f50bb79553a46272def6ab39345b0476f0829df8596693259cb70973d57fdb"
+          }
+        }
+      ]
+    },
+    {
+      "evidence_root": "/tmp/writing-next-smoke/run-haiku-2",
+      "git_head": "cf4e0948bce34957017cae2f1f815dfa7aee69d8",
+      "runner_sha256": "9a7724e0e81bed3310b27ca93f1e66cfd76140d76c95e8a81fedb68c651f3b5f",
+      "manifest_sha256": "9e37fa1177dfb4cc6e7aa63fe10075d894c3fdbac354e0de93074b7912c458b6",
+      "invocation_route": "source-snapshot",
+      "plugin_files": {
+        "public-hygiene": {
+          ".claude-plugin/plugin.json": "acd2f7be0482c21953b7455a02cbb4788fec7bccfaa15eb947bb1d90753fcae6",
+          "README.md": "85f60d188c034333a48ea72276bc2bd5ca6e0585c78048e9e896d0e45c805483",
+          "agents/cold-reader.md": "2bc4861c287b45b3847ef20c52f88e61ce3db86c24c8c5c7a276090ff6ebc4ee",
+          "agents/external-reviewer.md": "d219fa49ef224e1a3927f91b7781ceb9f89e20a3f9b8ce26b46fdb2167a27110",
+          "references/audience-rules.md": "566bf5580376d84953c7b9bc69a93e2cb7df9da781956e9012fba073a19059f9",
+          "references/hygiene-rules.md": "3aeb2801fc8851270e4c1f76c0b3a319259e942f4d80db857084ad49583b1134",
+          "references/reader-modes.md": "3faa38e9f1d3b0bef3195b24744b03a76102364447acc6dfc1b193b91a5591a8",
+          "references/report-delivery.md": "e718ff30338bc66acfb0a1e4223ba18a3f4b3c625c5f9ff3284c39178719bfcb",
+          "scripts/assemble_reader_report.py": "a82f0b8154330fb2da7a3da5a9fd19290eab86655636520fe9d6459e657114c0",
+          "scripts/prepare_reader_chunks.py": "bad72d3cd62d8507d172bc146973a492b49dc92b8d94c10acb27cdae0d61acfb",
+          "skills/cold-read/SKILL.md": "415ac2598924f32baef55918ad96e1f475512b9fcd4125419566ad5361305053",
+          "skills/leak-check/SKILL.md": "d4db5d5c47953906280d8050e9018175c8938e92be352e1584376bc0fe991565"
+        }
+      },
+      "attempts": [
+        {
+          "id": "faultprofit-comprehension",
+          "backend": "claude",
+          "requested_model": "claude-haiku-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-haiku-5-5"
+          ],
+          "reported_child_models": [
+            "claude-haiku-5-5"
+          ],
+          "elapsed_seconds": 55.67,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": 0.01525659,
+          "changed_input_files": [],
+          "original_sources_changed": [],
+          "report_sha256": "a21fe4506470f0e46f860a4b36337cc7f6cd518482450236179ac51725984442",
+          "scratch_files": {
+            "faultprofit-comprehension-report.md": "518ad5a794b8f3dc16cb3085f73e079fe7beed9b5d5983d2fac623e07d177239"
+          }
+        }
+      ]
+    },
+    {
+      "evidence_root": "/tmp/writing-next-matrix/haiku",
+      "git_head": "d5934c6ad099767cf53c09bffd4ac3af5eb8b60a",
+      "runner_sha256": "f0e01632556c826e26bd38fbef4e7c790c3cdd7801f107653f6cce90028c7312",
+      "manifest_sha256": "6ded33bafc416c2bf82d36eedc01b148d4434cdf86e1c9184559d11d1a9bac93",
+      "invocation_route": "source-snapshot",
+      "plugin_files": {
+        "anti-slop": {
+          ".claude-plugin/plugin.json": "1f7deb554c209ee2db519a36425cc533600c0109a67a03b7fe926ece041a94fa",
+          ".local/notes@0.1.0": "407dd7b5504c025d0d1bce02f72ca96dbb07696370f0ce0e0894e6e23728af8d",
+          "README.md": "e3c9d49395fbe3c1d6cb2a273914cf83123a8f7e76b7100fafef5dc67c51bd28",
+          "output-styles/ASD-STE100.md": "e561d11a5610e8fc8bd8beae7b8c30116dcb890549677ca17d11fdf4de5a00f7",
+          "references/ban-list.md": "6c299c7ab98ad8dbb349a5526dd52f3652a03f263f694e522835e4eb9e88d3d8",
+          "references/writing-samples-template.md": "eb49dd97d854b683c209faa2788086cb7944551bfedd41436613c2c5f8e779ba",
+          "skills/academic-voice/SKILL.md": "64fd82a4b39655da9c5cd5455c6cdab049a6405031b0155857978146a0e55244",
+          "skills/deslop/SKILL.md": "db795d75b753dea32db2e3531cf711cb7fd843d80c288f640a4cc6ff88b3f852"
+        },
+        "public-hygiene": {
+          ".claude-plugin/plugin.json": "acd2f7be0482c21953b7455a02cbb4788fec7bccfaa15eb947bb1d90753fcae6",
+          "README.md": "85f60d188c034333a48ea72276bc2bd5ca6e0585c78048e9e896d0e45c805483",
+          "agents/cold-reader.md": "2bc4861c287b45b3847ef20c52f88e61ce3db86c24c8c5c7a276090ff6ebc4ee",
+          "agents/external-reviewer.md": "d219fa49ef224e1a3927f91b7781ceb9f89e20a3f9b8ce26b46fdb2167a27110",
+          "references/audience-rules.md": "566bf5580376d84953c7b9bc69a93e2cb7df9da781956e9012fba073a19059f9",
+          "references/hygiene-rules.md": "3aeb2801fc8851270e4c1f76c0b3a319259e942f4d80db857084ad49583b1134",
+          "references/reader-modes.md": "3faa38e9f1d3b0bef3195b24744b03a76102364447acc6dfc1b193b91a5591a8",
+          "references/report-delivery.md": "045a0e33fa74844e38038801dfecdf0085b773f029de855acf52487c0639a539",
+          "scripts/assemble_reader_report.py": "a82f0b8154330fb2da7a3da5a9fd19290eab86655636520fe9d6459e657114c0",
+          "scripts/prepare_reader_chunks.py": "bad72d3cd62d8507d172bc146973a492b49dc92b8d94c10acb27cdae0d61acfb",
+          "skills/cold-read/SKILL.md": "6401b11893f78874b26991b7c0083f328be25d71dbe072d83f9ba9e7d59d727f",
+          "skills/leak-check/SKILL.md": "d4db5d5c47953906280d8050e9018175c8938e92be352e1584376bc0fe991565"
+        }
+      },
+      "attempts": [
+        {
+          "id": "faultprofit-academic",
+          "backend": "claude",
+          "requested_model": "claude-haiku-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-haiku-5-5"
+          ],
+          "reported_child_models": [],
+          "elapsed_seconds": 23.02,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": 0.00547767,
+          "changed_input_files": [
+            "faultprofit-abstract.md"
+          ],
+          "original_sources_changed": [],
+          "report_sha256": "f57838017b329b630f5779eec8dc492be7496f002b5a97a58f60e0e26b759e7e",
+          "scratch_files": {}
+        },
+        {
+          "id": "sd-comprehension",
+          "backend": "claude",
+          "requested_model": "claude-haiku-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-haiku-5-5"
+          ],
+          "reported_child_models": [
+            "claude-haiku-5-5"
+          ],
+          "elapsed_seconds": 58.53,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": 0.014644615,
+          "changed_input_files": [],
+          "original_sources_changed": [],
+          "report_sha256": "de6f2b12656b46ed49ae3ecde8b875eecd27856fb20e690b303001504eecc2fb",
+          "scratch_files": {
+            "cold-read-comprehension-report.md": "4729fef6c9999727bd36e9970ab380cdc77fd5c711ee5df70ddcacc7d264ce29",
+            "input-hashes-before.txt": "1844abf79ee4a46a7efc4b2cfeedbca2b257f653522f5637b731563dd19410e3"
+          }
+        },
+        {
+          "id": "sd-deslop",
+          "backend": "claude",
+          "requested_model": "claude-haiku-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-haiku-5-5"
+          ],
+          "reported_child_models": [],
+          "elapsed_seconds": 51.6,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": 0.01240537,
+          "changed_input_files": [
+            "sd-readme.md"
+          ],
+          "original_sources_changed": [],
+          "report_sha256": "fd67d84631f2d275aa4909cacb4809ae46667c1cdab5f9039613f631d5055daf",
+          "scratch_files": {}
+        },
+        {
+          "id": "sd-sequential-comprehension",
+          "backend": "claude",
+          "requested_model": "claude-haiku-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-haiku-5-5"
+          ],
+          "reported_child_models": [
+            "claude-haiku-5-5"
+          ],
+          "elapsed_seconds": 250.8,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": 0.06335321,
+          "changed_input_files": [],
+          "original_sources_changed": [],
+          "report_sha256": "797587cdf34eb1750681843e9c4b6320291d8e8c50d68936f9868f778324d796",
+          "scratch_files": {
+            "sd-seq-chunks-1793735549/chunk-001.txt": "86ed30454cd1c1724a08e3508e786258975c81caac149490810e703ea84bc455",
+            "sd-seq-chunks-1793735549/chunk-002.txt": "ee01e05281cd6694e892d4d6912dfdb0fc70fc4739b8b1bcf251b995a46e3bfa",
+            "sd-seq-chunks-1793735549/chunk-003.txt": "6af6963918a81ecd50ebe9c3c90ba411b56111f381f29885db232710faddc2cd",
+            "sd-seq-chunks-1793735549/chunk-004.txt": "600ca5f03c8f485416b6b38102e54971b68e9331361e390c3ebe312a8ea7339c",
+            "sd-seq-chunks-1793735549/chunk-005.txt": "98d60d5faabbcff07c9cc91a71013c1078f95a5754e8b0b33d29433a331f3b3c",
+            "sd-seq-chunks-1793735549/chunk-006.txt": "da9425e30644fe2b27ded2f920f4a6329ab3bd4b292b0118be6a187debd2c3b1",
+            "sd-seq-chunks-1793735549/chunk-007.txt": "08d91c01d0fa324e652c41ad04c060f322f265e357223b55b2880790c2e5d537",
+            "sd-seq-chunks-1793735549/chunk-008.txt": "d79cb5cb523b3c51acdc53345d7e31e704870dee3130a0651b363403b2a0781b",
+            "sd-seq-chunks-1793735549/chunk-009.txt": "5546c870c18b880b4bbe24dd8dee4d6ec78b244b3c019948a80bf82dd663ccad",
+            "sd-seq-chunks-1793735549/manifest.json": "a80ea71795ca67094839844451c485a385e5af286b4f6aebcf24c4ad77a27d18",
+            "sd-seq-reports-1793735549/chunk-hashes-initial.txt": "aa81b86ef6c91b1f48f873ed96389c499ad456c9a2f5b41e7eecf43f292526b1",
+            "sd-seq-reports-1793735549/stage-1.txt": "70092d5d3c8f2e8381e92146ca4f6293e813abdaa5ff6739d7371b2e37b88839",
+            "sd-seq-reports-1793735549/stage-2.txt": "81422693a960b2dea17f6356566d594dc660bcf7f1502835f3cc0238f377cf05",
+            "sd-seq-reports-1793735549/stage-3.txt": "b0a41d46665b65e91ab02fa7afe46bf508f17095f436ca8f6380e9f8823407fc",
+            "sd-seq-reports-1793735549/stage-4.txt": "694c35db9a8d1b855633ff702775b8dd2facb1aa953a5eff2c9467be8f86e963",
+            "sd-seq-reports-1793735549/stage-5.txt": "586ece78c05f407e273bc10f5862f76b5b99581a58fac2dfe6c8439b8326cc74",
+            "sd-seq-reports-1793735549/stage-6.txt": "d1d41194b5fa879c4425e6c7bfa5f5c32ae77476e53705628b7341ad7e8e0fa8",
+            "sd-seq-reports-1793735549/stage-7.txt": "13ee52a22c47c7cefa36740150dda365e5ce73a0bf132ab3d5f7bfb0ca3a38bd",
+            "sd-seq-reports-1793735549/stage-8.txt": "8d628214a0f531d6caa2b145cf1b9365a5181b0c421fd26d310ad5da553bab00",
+            "sd-seq-reports-1793735549/stage-9.txt": "82b4ba5a7d992314125b190ce99e0bf6952581c89b8ffd95491476543d483b91"
+          }
+        },
+        {
+          "id": "spike-leak",
+          "backend": "claude",
+          "requested_model": "claude-haiku-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-haiku-5-5"
+          ],
+          "reported_child_models": [
+            "claude-haiku-5-5"
+          ],
+          "elapsed_seconds": 58.83,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": 0.012248215000000002,
+          "changed_input_files": [],
+          "original_sources_changed": [],
+          "report_sha256": "8e9b7e3721080cd2ed130142f70c50a860ede9659562a71bc66822fbac610034",
+          "scratch_files": {
+            "input-hashes-before.txt": "ed03ddd7005c3467dde7cfbcfea4957f96c415bf6234a83e738791759448dd61",
+            "leak-report-spike-postmortem.md": "d620ddba5536c4b9429e04138bf65a16b8f694568fe49d28c33c6944221c3ddf"
+          }
+        }
+      ]
+    },
+    {
+      "evidence_root": "/tmp/writing-next-matrix/haiku-baseline",
+      "git_head": "5112af0fadf8a25c013ee41492c4b5d4d70a6761",
+      "runner_sha256": "f0e01632556c826e26bd38fbef4e7c790c3cdd7801f107653f6cce90028c7312",
+      "manifest_sha256": "6ded33bafc416c2bf82d36eedc01b148d4434cdf86e1c9184559d11d1a9bac93",
+      "invocation_route": "baseline",
+      "plugin_files": {},
+      "attempts": [
+        {
+          "id": "sd-deslop",
+          "backend": "claude",
+          "requested_model": "claude-haiku-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-haiku-5-5"
+          ],
+          "reported_child_models": [],
+          "elapsed_seconds": 23.73,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": 0.00547535,
+          "changed_input_files": [
+            "sd-readme.md"
+          ],
+          "original_sources_changed": [],
+          "report_sha256": "60fc4afba467eee5b28660e52e89655db4e8b4da5a228c1bc43448933a06bcc7",
+          "scratch_files": {}
+        }
+      ]
+    },
+    {
+      "evidence_root": "/tmp/writing-next-matrix/luna",
+      "git_head": "d5934c6ad099767cf53c09bffd4ac3af5eb8b60a",
+      "runner_sha256": "f0e01632556c826e26bd38fbef4e7c790c3cdd7801f107653f6cce90028c7312",
+      "manifest_sha256": "6ded33bafc416c2bf82d36eedc01b148d4434cdf86e1c9184559d11d1a9bac93",
+      "invocation_route": "source-snapshot",
+      "plugin_files": {
+        "anti-slop": {
+          ".claude-plugin/plugin.json": "1f7deb554c209ee2db519a36425cc533600c0109a67a03b7fe926ece041a94fa",
+          ".local/notes@0.1.0": "407dd7b5504c025d0d1bce02f72ca96dbb07696370f0ce0e0894e6e23728af8d",
+          "README.md": "e3c9d49395fbe3c1d6cb2a273914cf83123a8f7e76b7100fafef5dc67c51bd28",
+          "output-styles/ASD-STE100.md": "e561d11a5610e8fc8bd8beae7b8c30116dcb890549677ca17d11fdf4de5a00f7",
+          "references/ban-list.md": "6c299c7ab98ad8dbb349a5526dd52f3652a03f263f694e522835e4eb9e88d3d8",
+          "references/writing-samples-template.md": "eb49dd97d854b683c209faa2788086cb7944551bfedd41436613c2c5f8e779ba",
+          "skills/academic-voice/SKILL.md": "64fd82a4b39655da9c5cd5455c6cdab049a6405031b0155857978146a0e55244",
+          "skills/deslop/SKILL.md": "db795d75b753dea32db2e3531cf711cb7fd843d80c288f640a4cc6ff88b3f852"
+        },
+        "public-hygiene": {
+          ".claude-plugin/plugin.json": "acd2f7be0482c21953b7455a02cbb4788fec7bccfaa15eb947bb1d90753fcae6",
+          "README.md": "85f60d188c034333a48ea72276bc2bd5ca6e0585c78048e9e896d0e45c805483",
+          "agents/cold-reader.md": "2bc4861c287b45b3847ef20c52f88e61ce3db86c24c8c5c7a276090ff6ebc4ee",
+          "agents/external-reviewer.md": "d219fa49ef224e1a3927f91b7781ceb9f89e20a3f9b8ce26b46fdb2167a27110",
+          "references/audience-rules.md": "566bf5580376d84953c7b9bc69a93e2cb7df9da781956e9012fba073a19059f9",
+          "references/hygiene-rules.md": "3aeb2801fc8851270e4c1f76c0b3a319259e942f4d80db857084ad49583b1134",
+          "references/reader-modes.md": "3faa38e9f1d3b0bef3195b24744b03a76102364447acc6dfc1b193b91a5591a8",
+          "references/report-delivery.md": "045a0e33fa74844e38038801dfecdf0085b773f029de855acf52487c0639a539",
+          "scripts/assemble_reader_report.py": "a82f0b8154330fb2da7a3da5a9fd19290eab86655636520fe9d6459e657114c0",
+          "scripts/prepare_reader_chunks.py": "bad72d3cd62d8507d172bc146973a492b49dc92b8d94c10acb27cdae0d61acfb",
+          "skills/cold-read/SKILL.md": "6401b11893f78874b26991b7c0083f328be25d71dbe072d83f9ba9e7d59d727f",
+          "skills/leak-check/SKILL.md": "d4db5d5c47953906280d8050e9018175c8938e92be352e1584376bc0fe991565"
+        }
+      },
+      "attempts": [
+        {
+          "id": "faultprofit-academic",
+          "backend": "codex",
+          "requested_model": "gpt-6-luna",
+          "requested_effort": "medium",
+          "reported_parent_models": [],
+          "reported_child_models": [],
+          "elapsed_seconds": 39.98,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": null,
+          "changed_input_files": [
+            "faultprofit-abstract.md"
+          ],
+          "original_sources_changed": [],
+          "report_sha256": "82684c0c4b00ba21c93c58a5523f0f675ba5e8647442fff5314834a7e33c5bfe",
+          "scratch_files": {}
+        },
+        {
+          "id": "sd-comprehension",
+          "backend": "codex",
+          "requested_model": "gpt-6-luna",
+          "requested_effort": "medium",
+          "reported_parent_models": [],
+          "reported_child_models": [],
+          "elapsed_seconds": 78.48,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": null,
+          "changed_input_files": [],
+          "original_sources_changed": [],
+          "report_sha256": "19b7fccf59630c64d4bf1736a6d244fa81ed7be8c309af45edf1151f4ee5661d",
+          "scratch_files": {
+            "cold-read-20261104-01/report.md": "e3de6438c85a468d508221ba05eb6e907dc8d0b46d4f57cd0569191b53bb5a44"
+          }
+        },
+        {
+          "id": "sd-deslop",
+          "backend": "codex",
+          "requested_model": "gpt-6-luna",
+          "requested_effort": "medium",
+          "reported_parent_models": [],
+          "reported_child_models": [],
+          "elapsed_seconds": 38.33,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": null,
+          "changed_input_files": [
+            "sd-readme.md"
+          ],
+          "original_sources_changed": [],
+          "report_sha256": "d366cded9c2b559142cd367e2d2adecc62200b539a39dca030b05d040b87f8d5",
+          "scratch_files": {}
+        },
+        {
+          "id": "sd-sequential-comprehension",
+          "backend": "codex",
+          "requested_model": "gpt-6-luna",
+          "requested_effort": "medium",
+          "reported_parent_models": [],
+          "reported_child_models": [],
+          "elapsed_seconds": 291.29,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": null,
+          "changed_input_files": [],
+          "original_sources_changed": [],
+          "report_sha256": "2877396754432f11f29d7ad621397ef11cb47e203e89a004bee54d77cd21a57c",
+          "scratch_files": {
+            "chunks/chunk-001.txt": "8e9204263a2a4950b972af2db8c306efcd7cfd5962563514f7a699ff4aff6b0e",
+            "chunks/chunk-002.txt": "6af6963918a81ecd50ebe9c3c90ba411b56111f381f29885db232710faddc2cd",
+            "chunks/chunk-003.txt": "600ca5f03c8f485416b6b38102e54971b68e9331361e390c3ebe312a8ea7339c",
+            "chunks/chunk-004.txt": "ab5b7c7b719abbe7c5ca317f1ac9209ff63b34e7ce7c9b48d5cad1631b01c817",
+            "chunks/chunk-005.txt": "08d91c01d0fa324e652c41ad04c060f322f265e357223b55b2880790c2e5d537",
+            "chunks/chunk-006.txt": "d79cb5cb523b3c51acdc53345d7e31e704870dee3130a0651b363403b2a0781b",
+            "chunks/chunk-007.txt": "5546c870c18b880b4bbe24dd8dee4d6ec78b244b3c019948a80bf82dd663ccad",
+            "chunks/manifest.json": "867112f7e13070505e68693c5b81f4e9e2af88a3579587a729e5029d8ffb0b27",
+            "reports/checkpoint-001.txt": "d1e914f5d0b2609dd01687637f1124e40cbebb2bf563868b35afef361428f944",
+            "reports/checkpoint-002.txt": "68ca922babc9161f96c030c881937f7ce00c8744e81320711dbdf269fbd090e2",
+            "reports/checkpoint-003.txt": "7f1a2ff874a27195e146223097db95d59a12c752766998fa6f0b67116cdcecf0",
+            "reports/checkpoint-004.txt": "253c045eb690106b4cc7eebd63df68cf2c150a067e6fc46ae8749b3e109ad2b9",
+            "reports/checkpoint-005.txt": "dfdeecda2ca1eb4bec1922194019255f0698a04c4b0b99ed76d7fc76ad65b3da",
+            "reports/checkpoint-006.txt": "348dc08c921121089cf7e53c8a41f07eff6f968ae67981618bd4402fcf5b0d87",
+            "reports/checkpoint-007.txt": "e7b19041bbd1158c3de361d86937dcc8ba8bdea8772acf49d57b7cb6e0756ccc",
+            "reports/final-report.txt": "3c93e3e157a819d9e3c40a48d318aba19a22480116019c1afb6265dea65df3ff",
+            "reports/summary.txt": "57666abcff7f3ea4376d7e012d6f4b1ad3b17505dd654d8f1054817afe459ff7"
+          }
+        },
+        {
+          "id": "spike-leak",
+          "backend": "codex",
+          "requested_model": "gpt-6-luna",
+          "requested_effort": "medium",
+          "reported_parent_models": [],
+          "reported_child_models": [],
+          "elapsed_seconds": 72.01,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": null,
+          "changed_input_files": [],
+          "original_sources_changed": [],
+          "report_sha256": "8b9c41e11a0fa9caa62125068c7ba46b3efc31c04c3a27e252d2ff1d45ffd63e",
+          "scratch_files": {
+            "review-20261104-spike/report.md": "77032cf306c4b02c72d7d35453682411440111d129d3663db4f98f0361617990"
+          }
+        }
+      ]
+    },
+    {
+      "evidence_root": "/tmp/writing-next-matrix/luna-baseline",
+      "git_head": "5112af0fadf8a25c013ee41492c4b5d4d70a6761",
+      "runner_sha256": "f0e01632556c826e26bd38fbef4e7c790c3cdd7801f107653f6cce90028c7312",
+      "manifest_sha256": "6ded33bafc416c2bf82d36eedc01b148d4434cdf86e1c9184559d11d1a9bac93",
+      "invocation_route": "baseline",
+      "plugin_files": {},
+      "attempts": [
+        {
+          "id": "sd-deslop",
+          "backend": "codex",
+          "requested_model": "gpt-6-luna",
+          "requested_effort": "medium",
+          "reported_parent_models": [],
+          "reported_child_models": [],
+          "elapsed_seconds": 37.96,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": null,
+          "changed_input_files": [
+            "sd-readme.md"
+          ],
+          "original_sources_changed": [],
+          "report_sha256": "4a70fa428929af0709dd9617bdc65d6bdab5ae51dd3107721a9724ad9d2e11dc",
+          "scratch_files": {}
+        }
+      ]
+    },
+    {
+      "evidence_root": "/tmp/writing-next-matrix/retest-academic-luna",
+      "git_head": "70a4f14e69b1eb8f65370a4c130f4a580aead8dd",
+      "runner_sha256": "f0e01632556c826e26bd38fbef4e7c790c3cdd7801f107653f6cce90028c7312",
+      "manifest_sha256": "5eb0ac445aecc84f97552d8192e0411c08c0ef16c5e6886fda10872115161a33",
+      "invocation_route": "source-snapshot",
+      "plugin_files": {
+        "anti-slop": {
+          ".claude-plugin/plugin.json": "1f7deb554c209ee2db519a36425cc533600c0109a67a03b7fe926ece041a94fa",
+          ".local/notes@0.1.0": "407dd7b5504c025d0d1bce02f72ca96dbb07696370f0ce0e0894e6e23728af8d",
+          "README.md": "e3c9d49395fbe3c1d6cb2a273914cf83123a8f7e76b7100fafef5dc67c51bd28",
+          "output-styles/ASD-STE100.md": "e561d11a5610e8fc8bd8beae7b8c30116dcb890549677ca17d11fdf4de5a00f7",
+          "references/ban-list.md": "6c299c7ab98ad8dbb349a5526dd52f3652a03f263f694e522835e4eb9e88d3d8",
+          "references/writing-samples-template.md": "eb49dd97d854b683c209faa2788086cb7944551bfedd41436613c2c5f8e779ba",
+          "skills/academic-voice/SKILL.md": "0db7b9c817b0847e750a6fa979c56a09ababaf12d7b70b95fe033b654c874d36",
+          "skills/deslop/SKILL.md": "db795d75b753dea32db2e3531cf711cb7fd843d80c288f640a4cc6ff88b3f852"
+        }
+      },
+      "attempts": [
+        {
+          "id": "a15-academic",
+          "backend": "codex",
+          "requested_model": "gpt-6-luna",
+          "requested_effort": "medium",
+          "reported_parent_models": [],
+          "reported_child_models": [],
+          "elapsed_seconds": 19.78,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": null,
+          "changed_input_files": [
+            "ABSTRACT.md"
+          ],
+          "original_sources_changed": [],
+          "report_sha256": "6dadb5c3cd16fd3280b7102699511fef53a9a01bb4734d1b87055fff0a16c1bb",
+          "scratch_files": {}
+        },
+        {
+          "id": "faultprofit-academic",
+          "backend": "codex",
+          "requested_model": "gpt-6-luna",
+          "requested_effort": "medium",
+          "reported_parent_models": [],
+          "reported_child_models": [],
+          "elapsed_seconds": 26.7,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": null,
+          "changed_input_files": [
+            "faultprofit-abstract.md"
+          ],
+          "original_sources_changed": [],
+          "report_sha256": "547fefb7fb83a420c5e7bc8bc09e0612ab7432d7b7951f437549ab3fdb3de5f2",
+          "scratch_files": {}
+        }
+      ]
+    },
+    {
+      "evidence_root": "/tmp/writing-next-matrix/retest-academic-sonnet",
+      "git_head": "70a4f14e69b1eb8f65370a4c130f4a580aead8dd",
+      "runner_sha256": "f0e01632556c826e26bd38fbef4e7c790c3cdd7801f107653f6cce90028c7312",
+      "manifest_sha256": "5eb0ac445aecc84f97552d8192e0411c08c0ef16c5e6886fda10872115161a33",
+      "invocation_route": "source-snapshot",
+      "plugin_files": {
+        "anti-slop": {
+          ".claude-plugin/plugin.json": "1f7deb554c209ee2db519a36425cc533600c0109a67a03b7fe926ece041a94fa",
+          ".local/notes@0.1.0": "407dd7b5504c025d0d1bce02f72ca96dbb07696370f0ce0e0894e6e23728af8d",
+          "README.md": "e3c9d49395fbe3c1d6cb2a273914cf83123a8f7e76b7100fafef5dc67c51bd28",
+          "output-styles/ASD-STE100.md": "e561d11a5610e8fc8bd8beae7b8c30116dcb890549677ca17d11fdf4de5a00f7",
+          "references/ban-list.md": "6c299c7ab98ad8dbb349a5526dd52f3652a03f263f694e522835e4eb9e88d3d8",
+          "references/writing-samples-template.md": "eb49dd97d854b683c209faa2788086cb7944551bfedd41436613c2c5f8e779ba",
+          "skills/academic-voice/SKILL.md": "0db7b9c817b0847e750a6fa979c56a09ababaf12d7b70b95fe033b654c874d36",
+          "skills/deslop/SKILL.md": "db795d75b753dea32db2e3531cf711cb7fd843d80c288f640a4cc6ff88b3f852"
+        }
+      },
+      "attempts": [
+        {
+          "id": "a15-academic",
+          "backend": "claude",
+          "requested_model": "claude-sonnet-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-sonnet-5-5"
+          ],
+          "reported_child_models": [],
+          "elapsed_seconds": 14.92,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": 0.041746500000000006,
+          "changed_input_files": [
+            "ABSTRACT.md"
+          ],
+          "original_sources_changed": [],
+          "report_sha256": "8a9325a14912d536ac510d36dda711fe78a76ff12fe6f99bc7ac2d601b1d0607",
+          "scratch_files": {}
+        },
+        {
+          "id": "faultprofit-academic",
+          "backend": "claude",
+          "requested_model": "claude-sonnet-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-sonnet-5-5"
+          ],
+          "reported_child_models": [],
+          "elapsed_seconds": 19.03,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": 0.0639373,
+          "changed_input_files": [
+            "faultprofit-abstract.md"
+          ],
+          "original_sources_changed": [],
+          "report_sha256": "7501a5c8dc800ae14750df4be3d636daf0a57917947f995cbd26e31c377f0fd7",
+          "scratch_files": {}
+        }
+      ]
+    },
+    {
+      "evidence_root": "/tmp/writing-next-matrix/retest-terra-sequential",
+      "git_head": "70a4f14e69b1eb8f65370a4c130f4a580aead8dd",
+      "runner_sha256": "f0e01632556c826e26bd38fbef4e7c790c3cdd7801f107653f6cce90028c7312",
+      "manifest_sha256": "6ded33bafc416c2bf82d36eedc01b148d4434cdf86e1c9184559d11d1a9bac93",
+      "invocation_route": "source-snapshot",
+      "plugin_files": {
+        "public-hygiene": {
+          ".claude-plugin/plugin.json": "2541a12685ec3f3bf863fd6e794f63acbd74d7555302f36bff2c9dfb73a8a3b3",
+          "README.md": "85f60d188c034333a48ea72276bc2bd5ca6e0585c78048e9e896d0e45c805483",
+          "agents/cold-reader.md": "a90d16027750f9fac2e78d6fcafce921e1a743562a502f95ca16233adfb89c6e",
+          "agents/external-reviewer.md": "d219fa49ef224e1a3927f91b7781ceb9f89e20a3f9b8ce26b46fdb2167a27110",
+          "references/audience-rules.md": "892a75a0da8b7ec179a0af19585958651873cf09e3e8261443e49dcc0f36f164",
+          "references/hygiene-rules.md": "3aeb2801fc8851270e4c1f76c0b3a319259e942f4d80db857084ad49583b1134",
+          "references/reader-modes.md": "df664513878a3ca6009e05aa18f90bef11bc85be4a16d2daab9d69bf95219505",
+          "references/report-delivery.md": "e66cfe60fa8b481eb5589cdde93dde61b1a04a98042c9fa829f17694cf34ad91",
+          "scripts/assemble_reader_report.py": "a82f0b8154330fb2da7a3da5a9fd19290eab86655636520fe9d6459e657114c0",
+          "scripts/prepare_reader_chunks.py": "bad72d3cd62d8507d172bc146973a492b49dc92b8d94c10acb27cdae0d61acfb",
+          "skills/cold-read/SKILL.md": "6401b11893f78874b26991b7c0083f328be25d71dbe072d83f9ba9e7d59d727f",
+          "skills/leak-check/SKILL.md": "d4db5d5c47953906280d8050e9018175c8938e92be352e1584376bc0fe991565"
+        }
+      },
+      "attempts": [
+        {
+          "id": "sd-sequential-comprehension",
+          "backend": "codex",
+          "requested_model": "gpt-6.1-terra",
+          "requested_effort": "medium",
+          "reported_parent_models": [],
+          "reported_child_models": [],
+          "elapsed_seconds": 209.24,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": null,
+          "changed_input_files": [],
+          "original_sources_changed": [],
+          "report_sha256": "e6831afc2e663383f637fc3af9d590f8295c0b70c6a695c351563bc4e638fe34",
+          "scratch_files": {
+            "chunks-a/chunk-001.txt": "86ed30454cd1c1724a08e3508e786258975c81caac149490810e703ea84bc455",
+            "chunks-a/chunk-002.txt": "ee01e05281cd6694e892d4d6912dfdb0fc70fc4739b8b1bcf251b995a46e3bfa",
+            "chunks-a/chunk-003.txt": "6af6963918a81ecd50ebe9c3c90ba411b56111f381f29885db232710faddc2cd",
+            "chunks-a/chunk-004.txt": "600ca5f03c8f485416b6b38102e54971b68e9331361e390c3ebe312a8ea7339c",
+            "chunks-a/chunk-005.txt": "98d60d5faabbcff07c9cc91a71013c1078f95a5754e8b0b33d29433a331f3b3c",
+            "chunks-a/chunk-006.txt": "da9425e30644fe2b27ded2f920f4a6329ab3bd4b292b0118be6a187debd2c3b1",
+            "chunks-a/chunk-007.txt": "08d91c01d0fa324e652c41ad04c060f322f265e357223b55b2880790c2e5d537",
+            "chunks-a/chunk-008.txt": "d79cb5cb523b3c51acdc53345d7e31e704870dee3130a0651b363403b2a0781b",
+            "chunks-a/chunk-009.txt": "5546c870c18b880b4bbe24dd8dee4d6ec78b244b3c019948a80bf82dd663ccad",
+            "chunks-a/manifest.json": "a80ea71795ca67094839844451c485a385e5af286b4f6aebcf24c4ad77a27d18",
+            "review-a/reading-assembled.txt": "4ab9f0d56205b98d5cf6cacdc2b333744a621fbe910c2870296e879e459e85e2",
+            "review-a/reading-final.txt": "8cbe065ceaaa8f9b49b3bf341096ba0eabe1eb14fe42f38a458d8f2cee06e68a",
+            "review-a/review-001.txt": "438913fd2d79a21875e9d272d13e857d2324ba494f2804694bc7b12bbbab5b34",
+            "review-a/review-002.txt": "501c675cb28b97fda3350b8ace4f2415a3e1b03ae43cc847f62616cfaea6b95c",
+            "review-a/review-003.txt": "217ee015fd866e194d7fa06106d634b9e2f27c8080d9d57217110996614214e8",
+            "review-a/review-004.txt": "f34a5911d854642f82d1f1218590635b83ad493de11e4e69faf7174ccc2afede",
+            "review-a/review-005.txt": "9de4213e41f39949a5e6ec097b1aa4de0e780a531c0754f70d083b0518bd853e",
+            "review-a/review-006.txt": "a7acb5833972dc0049b62962176c2b71ea353ef336d296d4374fb8d3318d2bad",
+            "review-a/review-007.txt": "36bea4fab0de43a198fc671f5d1cf4f3ee3a55951d4c86fff153ce3dd682991a",
+            "review-a/review-008.txt": "89d8eb81a49eedf2e9a402b21c3cb16e355056c8716bc34eed996b9dc9bb3f6f",
+            "review-a/review-009.txt": "1fb1bb308c11a197c99cdc15120cc8ad3a2e9a77b015b73c40f40a8a53180d07"
+          }
+        }
+      ]
+    },
+    {
+      "evidence_root": "/tmp/writing-next-matrix/sonnet",
+      "git_head": "d5934c6ad099767cf53c09bffd4ac3af5eb8b60a",
+      "runner_sha256": "f0e01632556c826e26bd38fbef4e7c790c3cdd7801f107653f6cce90028c7312",
+      "manifest_sha256": "6ded33bafc416c2bf82d36eedc01b148d4434cdf86e1c9184559d11d1a9bac93",
+      "invocation_route": "source-snapshot",
+      "plugin_files": {
+        "anti-slop": {
+          ".claude-plugin/plugin.json": "1f7deb554c209ee2db519a36425cc533600c0109a67a03b7fe926ece041a94fa",
+          ".local/notes@0.1.0": "407dd7b5504c025d0d1bce02f72ca96dbb07696370f0ce0e0894e6e23728af8d",
+          "README.md": "e3c9d49395fbe3c1d6cb2a273914cf83123a8f7e76b7100fafef5dc67c51bd28",
+          "output-styles/ASD-STE100.md": "e561d11a5610e8fc8bd8beae7b8c30116dcb890549677ca17d11fdf4de5a00f7",
+          "references/ban-list.md": "6c299c7ab98ad8dbb349a5526dd52f3652a03f263f694e522835e4eb9e88d3d8",
+          "references/writing-samples-template.md": "eb49dd97d854b683c209faa2788086cb7944551bfedd41436613c2c5f8e779ba",
+          "skills/academic-voice/SKILL.md": "64fd82a4b39655da9c5cd5455c6cdab049a6405031b0155857978146a0e55244",
+          "skills/deslop/SKILL.md": "db795d75b753dea32db2e3531cf711cb7fd843d80c288f640a4cc6ff88b3f852"
+        },
+        "public-hygiene": {
+          ".claude-plugin/plugin.json": "acd2f7be0482c21953b7455a02cbb4788fec7bccfaa15eb947bb1d90753fcae6",
+          "README.md": "85f60d188c034333a48ea72276bc2bd5ca6e0585c78048e9e896d0e45c805483",
+          "agents/cold-reader.md": "2bc4861c287b45b3847ef20c52f88e61ce3db86c24c8c5c7a276090ff6ebc4ee",
+          "agents/external-reviewer.md": "d219fa49ef224e1a3927f91b7781ceb9f89e20a3f9b8ce26b46fdb2167a27110",
+          "references/audience-rules.md": "566bf5580376d84953c7b9bc69a93e2cb7df9da781956e9012fba073a19059f9",
+          "references/hygiene-rules.md": "3aeb2801fc8851270e4c1f76c0b3a319259e942f4d80db857084ad49583b1134",
+          "references/reader-modes.md": "3faa38e9f1d3b0bef3195b24744b03a76102364447acc6dfc1b193b91a5591a8",
+          "references/report-delivery.md": "045a0e33fa74844e38038801dfecdf0085b773f029de855acf52487c0639a539",
+          "scripts/assemble_reader_report.py": "a82f0b8154330fb2da7a3da5a9fd19290eab86655636520fe9d6459e657114c0",
+          "scripts/prepare_reader_chunks.py": "bad72d3cd62d8507d172bc146973a492b49dc92b8d94c10acb27cdae0d61acfb",
+          "skills/cold-read/SKILL.md": "6401b11893f78874b26991b7c0083f328be25d71dbe072d83f9ba9e7d59d727f",
+          "skills/leak-check/SKILL.md": "d4db5d5c47953906280d8050e9018175c8938e92be352e1584376bc0fe991565"
+        }
+      },
+      "attempts": [
+        {
+          "id": "faultprofit-academic",
+          "backend": "claude",
+          "requested_model": "claude-sonnet-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-sonnet-5-5"
+          ],
+          "reported_child_models": [],
+          "elapsed_seconds": 25.43,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": 0.061911100000000004,
+          "changed_input_files": [
+            "faultprofit-abstract.md"
+          ],
+          "original_sources_changed": [],
+          "report_sha256": "7559f7a9d4bddbc1450385e0a73f6d5e0febcc27e8f2492922ef8fd2720e144a",
+          "scratch_files": {}
+        },
+        {
+          "id": "sd-comprehension",
+          "backend": "claude",
+          "requested_model": "claude-sonnet-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-sonnet-5-5"
+          ],
+          "reported_child_models": [
+            "claude-sonnet-5-5"
+          ],
+          "elapsed_seconds": 100.14,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": 0.3135354,
+          "changed_input_files": [],
+          "original_sources_changed": [],
+          "report_sha256": "270cef7b0af3d030f40a9bd4254bbda72a728927dc6e6a8c5d6c2114d2759bf1",
+          "scratch_files": {
+            "hashes-before.txt": "1844abf79ee4a46a7efc4b2cfeedbca2b257f653522f5637b731563dd19410e3"
+          }
+        },
+        {
+          "id": "sd-deslop",
+          "backend": "claude",
+          "requested_model": "claude-sonnet-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-sonnet-5-5"
+          ],
+          "reported_child_models": [],
+          "elapsed_seconds": 27.98,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": 0.09698100000000001,
+          "changed_input_files": [
+            "sd-readme.md"
+          ],
+          "original_sources_changed": [],
+          "report_sha256": "6557cee77227dd36452f93a10c06bad5b7fd922aeaa74d253af34caa22ef119c",
+          "scratch_files": {}
+        },
+        {
+          "id": "sd-sequential-comprehension",
+          "backend": "claude",
+          "requested_model": "claude-sonnet-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-sonnet-5-5"
+          ],
+          "reported_child_models": [
+            "claude-sonnet-5-5"
+          ],
+          "elapsed_seconds": 179.02,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": 0.6980782,
+          "changed_input_files": [],
+          "original_sources_changed": [],
+          "report_sha256": "4c1af7af3a8e90be16f8e2cc935d6ee6a739e4c044cc420c4fc6fc5f5cc41c68",
+          "scratch_files": {
+            "chunks/chunk-001.txt": "8e9204263a2a4950b972af2db8c306efcd7cfd5962563514f7a699ff4aff6b0e",
+            "chunks/chunk-002.txt": "6af6963918a81ecd50ebe9c3c90ba411b56111f381f29885db232710faddc2cd",
+            "chunks/chunk-003.txt": "f092fb9a6a75fa491ade812936beb538a59938b9f6b8ce5697f2fd3e2ad9a443",
+            "chunks/chunk-004.txt": "605a311e2a135f467e81f34668bc88a5352af505753362c8ceff45e614373d2d",
+            "chunks/manifest.json": "5ae2c73e2fa082422df61af344c4e272c3e8fa98773b23c458c107eef36abefe",
+            "reports/checkpoint-1.txt": "70db2f9d492134a2355be2cfc0a2b039e284efce136596a10d2f8c12f0b4cd61",
+            "reports/checkpoint-2.txt": "f7703ba8274ad5de94f15f5fa0b4f7e9b87b16bc7a602c9d47b13e326e0821d9",
+            "reports/checkpoint-3.txt": "70f9f2cf1d6b388e939547981a6f597cc1b33452f27459bd0ca7159242b5fe51",
+            "reports/checkpoint-4.txt": "7c0f26b4a74a6bb262f34cbf902003a4d9b1118c74fa202f555a1261bef9322f",
+            "reports/final-report.txt": "e77e2e1b01e9ba27b41f3df339c8b7dd49e2f68d820d185f1a7bab89f0bdfe3d",
+            "reports/summary.txt": "423085ed69748cc5bbe9178d37ce73adfd4b8f250d83456fcc3375232e31d3bf"
+          }
+        },
+        {
+          "id": "spike-leak",
+          "backend": "claude",
+          "requested_model": "claude-sonnet-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-sonnet-5-5"
+          ],
+          "reported_child_models": [
+            "claude-sonnet-5-5"
+          ],
+          "elapsed_seconds": 62.69,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": 0.16995670000000002,
+          "changed_input_files": [],
+          "original_sources_changed": [],
+          "report_sha256": "eeae90ffc34c28c3e8f4ac45743560b06f42afae4b5b4ca714efba99fcfb4434",
+          "scratch_files": {
+            ".hashes-before": "ed03ddd7005c3467dde7cfbcfea4957f96c415bf6234a83e738791759448dd61"
+          }
+        }
+      ]
+    },
+    {
+      "evidence_root": "/tmp/writing-next-matrix/sonnet-baseline",
+      "git_head": "5112af0fadf8a25c013ee41492c4b5d4d70a6761",
+      "runner_sha256": "f0e01632556c826e26bd38fbef4e7c790c3cdd7801f107653f6cce90028c7312",
+      "manifest_sha256": "6ded33bafc416c2bf82d36eedc01b148d4434cdf86e1c9184559d11d1a9bac93",
+      "invocation_route": "baseline",
+      "plugin_files": {},
+      "attempts": [
+        {
+          "id": "sd-deslop",
+          "backend": "claude",
+          "requested_model": "claude-sonnet-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-sonnet-5-5"
+          ],
+          "reported_child_models": [],
+          "elapsed_seconds": 28.54,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": 0.0840041,
+          "changed_input_files": [
+            "sd-readme.md"
+          ],
+          "original_sources_changed": [],
+          "report_sha256": "34ac83925c317b22f58553deb6c86ad2700afd26fa7af0c00abca34c664e4221",
+          "scratch_files": {}
+        }
+      ]
+    },
+    {
+      "evidence_root": "/tmp/writing-next-matrix/terra",
+      "git_head": "d5934c6ad099767cf53c09bffd4ac3af5eb8b60a",
+      "runner_sha256": "f0e01632556c826e26bd38fbef4e7c790c3cdd7801f107653f6cce90028c7312",
+      "manifest_sha256": "6ded33bafc416c2bf82d36eedc01b148d4434cdf86e1c9184559d11d1a9bac93",
+      "invocation_route": "source-snapshot",
+      "plugin_files": {
+        "anti-slop": {
+          ".claude-plugin/plugin.json": "1f7deb554c209ee2db519a36425cc533600c0109a67a03b7fe926ece041a94fa",
+          ".local/notes@0.1.0": "407dd7b5504c025d0d1bce02f72ca96dbb07696370f0ce0e0894e6e23728af8d",
+          "README.md": "e3c9d49395fbe3c1d6cb2a273914cf83123a8f7e76b7100fafef5dc67c51bd28",
+          "output-styles/ASD-STE100.md": "e561d11a5610e8fc8bd8beae7b8c30116dcb890549677ca17d11fdf4de5a00f7",
+          "references/ban-list.md": "6c299c7ab98ad8dbb349a5526dd52f3652a03f263f694e522835e4eb9e88d3d8",
+          "references/writing-samples-template.md": "eb49dd97d854b683c209faa2788086cb7944551bfedd41436613c2c5f8e779ba",
+          "skills/academic-voice/SKILL.md": "64fd82a4b39655da9c5cd5455c6cdab049a6405031b0155857978146a0e55244",
+          "skills/deslop/SKILL.md": "db795d75b753dea32db2e3531cf711cb7fd843d80c288f640a4cc6ff88b3f852"
+        },
+        "public-hygiene": {
+          ".claude-plugin/plugin.json": "acd2f7be0482c21953b7455a02cbb4788fec7bccfaa15eb947bb1d90753fcae6",
+          "README.md": "85f60d188c034333a48ea72276bc2bd5ca6e0585c78048e9e896d0e45c805483",
+          "agents/cold-reader.md": "2bc4861c287b45b3847ef20c52f88e61ce3db86c24c8c5c7a276090ff6ebc4ee",
+          "agents/external-reviewer.md": "d219fa49ef224e1a3927f91b7781ceb9f89e20a3f9b8ce26b46fdb2167a27110",
+          "references/audience-rules.md": "566bf5580376d84953c7b9bc69a93e2cb7df9da781956e9012fba073a19059f9",
+          "references/hygiene-rules.md": "3aeb2801fc8851270e4c1f76c0b3a319259e942f4d80db857084ad49583b1134",
+          "references/reader-modes.md": "3faa38e9f1d3b0bef3195b24744b03a76102364447acc6dfc1b193b91a5591a8",
+          "references/report-delivery.md": "045a0e33fa74844e38038801dfecdf0085b773f029de855acf52487c0639a539",
+          "scripts/assemble_reader_report.py": "a82f0b8154330fb2da7a3da5a9fd19290eab86655636520fe9d6459e657114c0",
+          "scripts/prepare_reader_chunks.py": "bad72d3cd62d8507d172bc146973a492b49dc92b8d94c10acb27cdae0d61acfb",
+          "skills/cold-read/SKILL.md": "6401b11893f78874b26991b7c0083f328be25d71dbe072d83f9ba9e7d59d727f",
+          "skills/leak-check/SKILL.md": "d4db5d5c47953906280d8050e9018175c8938e92be352e1584376bc0fe991565"
+        }
+      },
+      "attempts": [
+        {
+          "id": "faultprofit-academic",
+          "backend": "codex",
+          "requested_model": "gpt-6.1-terra",
+          "requested_effort": "medium",
+          "reported_parent_models": [],
+          "reported_child_models": [],
+          "elapsed_seconds": 18.51,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": null,
+          "changed_input_files": [
+            "faultprofit-abstract.md"
+          ],
+          "original_sources_changed": [],
+          "report_sha256": "d68c991e4753d4c5b70b82b0e6f4e928fc7e8b243a7d164c1f62276cc11f0022",
+          "scratch_files": {}
+        },
+        {
+          "id": "sd-comprehension",
+          "backend": "codex",
+          "requested_model": "gpt-6.1-terra",
+          "requested_effort": "medium",
+          "reported_parent_models": [],
+          "reported_child_models": [],
+          "elapsed_seconds": 54.41,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": null,
+          "changed_input_files": [],
+          "original_sources_changed": [],
+          "report_sha256": "0a88a083ba0628badb7d85ad74a64354c71efcf1bb3c5f63b987ce08253cef00",
+          "scratch_files": {
+            "cold-read-7241/report.md": "0ad1d5eec241da6e80fcffdb71001e54fe594ce23078df3379b4315a8c05e6be"
+          }
+        },
+        {
+          "id": "sd-deslop",
+          "backend": "codex",
+          "requested_model": "gpt-6.1-terra",
+          "requested_effort": "medium",
+          "reported_parent_models": [],
+          "reported_child_models": [],
+          "elapsed_seconds": 25.38,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": null,
+          "changed_input_files": [
+            "sd-readme.md"
+          ],
+          "original_sources_changed": [],
+          "report_sha256": "ab84c133c6abffbc7e1660573f96d0df4e6ec5feb4d2b01d54b4b124baa446f0",
+          "scratch_files": {}
+        },
+        {
+          "id": "sd-sequential-comprehension",
+          "backend": "codex",
+          "requested_model": "gpt-6.1-terra",
+          "requested_effort": "medium",
+          "reported_parent_models": [],
+          "reported_child_models": [],
+          "elapsed_seconds": 170.23,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": null,
+          "changed_input_files": [],
+          "original_sources_changed": [],
+          "report_sha256": "c7b3df9e4345350cf771127d7a77e8e8d325a724d13c3ab7d0c64a8e215d2bda",
+          "scratch_files": {
+            "cold-read-chunks/chunk-001.txt": "8e9204263a2a4950b972af2db8c306efcd7cfd5962563514f7a699ff4aff6b0e",
+            "cold-read-chunks/chunk-002.txt": "6af6963918a81ecd50ebe9c3c90ba411b56111f381f29885db232710faddc2cd",
+            "cold-read-chunks/chunk-003.txt": "9f056ec351c05b296a0295d78ed53d153e31c2ad818b244a946a58a06aa11a27",
+            "cold-read-chunks/chunk-004.txt": "23bdf4dd9363ae13a0e7a52a32cfc9feec089f80fc02230939e40a786e03995f",
+            "cold-read-chunks/chunk-005.txt": "98cb24ab06bb34c990c3be14f7a1782019f553ed02132b4048808941b77e864e",
+            "cold-read-chunks/manifest.json": "03d77f78b1d487d15f9661aa9f093190db374e233b964f8b93918c1fd14e8ab6",
+            "cold-read-reports/checkpoint-1.txt": "91649fe642316cb12571d1290352c20080dfc07e40c78f0037737b93359c3ae9",
+            "cold-read-reports/checkpoint-2.txt": "0347a37bea8b25fce8d004d79818c88cd7678e2c570c10005633ddad2d0b4e8a",
+            "cold-read-reports/checkpoint-3.txt": "9eb1e52b2983e2e356bfc2a8160dd175cbdc79c45bfdecd7205b86fc9f953d90",
+            "cold-read-reports/checkpoint-4.txt": "fa373ba21c2df696a69efb8fd5bbcd3ede8af5ac3a7c98263b716b27af71f17a",
+            "cold-read-reports/checkpoint-5.txt": "c6e6f08ea9496e10db42ce2b9842427ea412a017266c4c2148270d2a83bdb327",
+            "cold-read-reports/report.txt": "fec75b88be73be23a2c0a50dca856659f9c4d76d8c5f7fe4c011f3ac230a150b",
+            "cold-read-reports/summary.txt": "68c04df29bbe5741bd4a570019d47a53ee687c7d1571f9091bdfede633da5bbd"
+          }
+        },
+        {
+          "id": "spike-leak",
+          "backend": "codex",
+          "requested_model": "gpt-6.1-terra",
+          "requested_effort": "medium",
+          "reported_parent_models": [],
+          "reported_child_models": [],
+          "elapsed_seconds": 52.97,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": null,
+          "changed_input_files": [],
+          "original_sources_changed": [],
+          "report_sha256": "8e2cfc657d27bcff69725d9c8768a80fa33c2072d6260a762111d2686b377735",
+          "scratch_files": {
+            "leak-review-vDQ4xrj2/report.md": "4acf13cf5c5cc58cbc32a96af58f01cd3eb3838ae29b62625aa235df2b9fcbbe"
+          }
+        }
+      ]
+    },
+    {
+      "evidence_root": "/tmp/writing-next-matrix/terra-baseline",
+      "git_head": "5112af0fadf8a25c013ee41492c4b5d4d70a6761",
+      "runner_sha256": "f0e01632556c826e26bd38fbef4e7c790c3cdd7801f107653f6cce90028c7312",
+      "manifest_sha256": "6ded33bafc416c2bf82d36eedc01b148d4434cdf86e1c9184559d11d1a9bac93",
+      "invocation_route": "baseline",
+      "plugin_files": {},
+      "attempts": [
+        {
+          "id": "sd-deslop",
+          "backend": "codex",
+          "requested_model": "gpt-6.1-terra",
+          "requested_effort": "medium",
+          "reported_parent_models": [],
+          "reported_child_models": [],
+          "elapsed_seconds": 33.16,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": null,
+          "changed_input_files": [
+            "sd-readme.md"
+          ],
+          "original_sources_changed": [],
+          "report_sha256": "b15216352f3b0ed7a04e4fa9b8480bc47ac1a385d5458f0e9e905f0517e0fa98",
+          "scratch_files": {}
+        }
+      ]
+    },
+    {
+      "evidence_root": "/tmp/writing-next-install/candidate-02/invocations/claude-haiku-medium",
+      "git_head": "5112af0fadf8a25c013ee41492c4b5d4d70a6761",
+      "runner_sha256": "f0e01632556c826e26bd38fbef4e7c790c3cdd7801f107653f6cce90028c7312",
+      "manifest_sha256": "6ded33bafc416c2bf82d36eedc01b148d4434cdf86e1c9184559d11d1a9bac93",
+      "invocation_route": "installed-claude-slash-command",
+      "plugin_files": {
+        "anti-slop": {
+          ".claude-plugin/plugin.json": "1f7deb554c209ee2db519a36425cc533600c0109a67a03b7fe926ece041a94fa",
+          "README.md": "e3c9d49395fbe3c1d6cb2a273914cf83123a8f7e76b7100fafef5dc67c51bd28",
+          "output-styles/ASD-STE100.md": "e561d11a5610e8fc8bd8beae7b8c30116dcb890549677ca17d11fdf4de5a00f7",
+          "references/ban-list.md": "6c299c7ab98ad8dbb349a5526dd52f3652a03f263f694e522835e4eb9e88d3d8",
+          "references/writing-samples-template.md": "eb49dd97d854b683c209faa2788086cb7944551bfedd41436613c2c5f8e779ba",
+          "skills/academic-voice/SKILL.md": "64fd82a4b39655da9c5cd5455c6cdab049a6405031b0155857978146a0e55244",
+          "skills/deslop/SKILL.md": "db795d75b753dea32db2e3531cf711cb7fd843d80c288f640a4cc6ff88b3f852"
+        },
+        "public-hygiene": {
+          ".claude-plugin/plugin.json": "acd2f7be0482c21953b7455a02cbb4788fec7bccfaa15eb947bb1d90753fcae6",
+          "README.md": "85f60d188c034333a48ea72276bc2bd5ca6e0585c78048e9e896d0e45c805483",
+          "agents/cold-reader.md": "2bc4861c287b45b3847ef20c52f88e61ce3db86c24c8c5c7a276090ff6ebc4ee",
+          "agents/external-reviewer.md": "d219fa49ef224e1a3927f91b7781ceb9f89e20a3f9b8ce26b46fdb2167a27110",
+          "references/audience-rules.md": "566bf5580376d84953c7b9bc69a93e2cb7df9da781956e9012fba073a19059f9",
+          "references/hygiene-rules.md": "3aeb2801fc8851270e4c1f76c0b3a319259e942f4d80db857084ad49583b1134",
+          "references/reader-modes.md": "3faa38e9f1d3b0bef3195b24744b03a76102364447acc6dfc1b193b91a5591a8",
+          "references/report-delivery.md": "045a0e33fa74844e38038801dfecdf0085b773f029de855acf52487c0639a539",
+          "scripts/assemble_reader_report.py": "a82f0b8154330fb2da7a3da5a9fd19290eab86655636520fe9d6459e657114c0",
+          "scripts/prepare_reader_chunks.py": "bad72d3cd62d8507d172bc146973a492b49dc92b8d94c10acb27cdae0d61acfb",
+          "skills/cold-read/SKILL.md": "6401b11893f78874b26991b7c0083f328be25d71dbe072d83f9ba9e7d59d727f",
+          "skills/leak-check/SKILL.md": "d4db5d5c47953906280d8050e9018175c8938e92be352e1584376bc0fe991565"
+        }
+      },
+      "attempts": [
+        {
+          "id": "faultprofit-academic",
+          "backend": "claude",
+          "requested_model": "claude-haiku-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-haiku-5-5"
+          ],
+          "reported_child_models": [],
+          "elapsed_seconds": 22.38,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": 0.006342520000000001,
+          "changed_input_files": [
+            "faultprofit-abstract.md"
+          ],
+          "original_sources_changed": [],
+          "report_sha256": "29dc3477d7e045f725bca165d30b2f620527613be7eca7d59a9b492195e4faaf",
+          "scratch_files": {}
+        },
+        {
+          "id": "sd-comprehension",
+          "backend": "claude",
+          "requested_model": "claude-haiku-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-haiku-5-5"
+          ],
+          "reported_child_models": [
+            "claude-haiku-5-5"
+          ],
+          "elapsed_seconds": 62.44,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": 0.014850810000000002,
+          "changed_input_files": [],
+          "original_sources_changed": [],
+          "report_sha256": "d383bef2d4254c0f56592ee6c75725cb01195f5e019a8fcab56c53cd36e94f98",
+          "scratch_files": {
+            "sd-comprehension-report.md": "2b088540f1af328725daaef93c6e00e54598b05335b33fa787e6e0b71a886e20"
+          }
+        }
+      ]
+    },
+    {
+      "evidence_root": "/tmp/writing-next-install/candidate-02/invocations/codex-terra-medium",
+      "git_head": "5112af0fadf8a25c013ee41492c4b5d4d70a6761",
+      "runner_sha256": "f0e01632556c826e26bd38fbef4e7c790c3cdd7801f107653f6cce90028c7312",
+      "manifest_sha256": "6ded33bafc416c2bf82d36eedc01b148d4434cdf86e1c9184559d11d1a9bac93",
+      "invocation_route": "installed-codex-explicit-skill-path",
+      "plugin_files": {
+        "anti-slop": {
+          ".claude-plugin/plugin.json": "1f7deb554c209ee2db519a36425cc533600c0109a67a03b7fe926ece041a94fa",
+          "README.md": "e3c9d49395fbe3c1d6cb2a273914cf83123a8f7e76b7100fafef5dc67c51bd28",
+          "output-styles/ASD-STE100.md": "e561d11a5610e8fc8bd8beae7b8c30116dcb890549677ca17d11fdf4de5a00f7",
+          "references/ban-list.md": "6c299c7ab98ad8dbb349a5526dd52f3652a03f263f694e522835e4eb9e88d3d8",
+          "references/writing-samples-template.md": "eb49dd97d854b683c209faa2788086cb7944551bfedd41436613c2c5f8e779ba",
+          "skills/academic-voice/SKILL.md": "64fd82a4b39655da9c5cd5455c6cdab049a6405031b0155857978146a0e55244",
+          "skills/deslop/SKILL.md": "db795d75b753dea32db2e3531cf711cb7fd843d80c288f640a4cc6ff88b3f852"
+        },
+        "public-hygiene": {
+          ".claude-plugin/plugin.json": "acd2f7be0482c21953b7455a02cbb4788fec7bccfaa15eb947bb1d90753fcae6",
+          "README.md": "85f60d188c034333a48ea72276bc2bd5ca6e0585c78048e9e896d0e45c805483",
+          "agents/cold-reader.md": "2bc4861c287b45b3847ef20c52f88e61ce3db86c24c8c5c7a276090ff6ebc4ee",
+          "agents/external-reviewer.md": "d219fa49ef224e1a3927f91b7781ceb9f89e20a3f9b8ce26b46fdb2167a27110",
+          "references/audience-rules.md": "566bf5580376d84953c7b9bc69a93e2cb7df9da781956e9012fba073a19059f9",
+          "references/hygiene-rules.md": "3aeb2801fc8851270e4c1f76c0b3a319259e942f4d80db857084ad49583b1134",
+          "references/reader-modes.md": "3faa38e9f1d3b0bef3195b24744b03a76102364447acc6dfc1b193b91a5591a8",
+          "references/report-delivery.md": "045a0e33fa74844e38038801dfecdf0085b773f029de855acf52487c0639a539",
+          "scripts/assemble_reader_report.py": "a82f0b8154330fb2da7a3da5a9fd19290eab86655636520fe9d6459e657114c0",
+          "scripts/prepare_reader_chunks.py": "bad72d3cd62d8507d172bc146973a492b49dc92b8d94c10acb27cdae0d61acfb",
+          "skills/cold-read/SKILL.md": "6401b11893f78874b26991b7c0083f328be25d71dbe072d83f9ba9e7d59d727f",
+          "skills/leak-check/SKILL.md": "d4db5d5c47953906280d8050e9018175c8938e92be352e1584376bc0fe991565"
+        }
+      },
+      "attempts": [
+        {
+          "id": "faultprofit-academic",
+          "backend": "codex",
+          "requested_model": "gpt-6.1-terra",
+          "requested_effort": "medium",
+          "reported_parent_models": [],
+          "reported_child_models": [],
+          "elapsed_seconds": 20.82,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": null,
+          "changed_input_files": [
+            "faultprofit-abstract.md"
+          ],
+          "original_sources_changed": [],
+          "report_sha256": "81ea5d291c7e0206dbd4349c6a15aed6a773f7163f70676fe340044cb2c163af",
+          "scratch_files": {}
+        },
+        {
+          "id": "sd-comprehension",
+          "backend": "codex",
+          "requested_model": "gpt-6.1-terra",
+          "requested_effort": "medium",
+          "reported_parent_models": [],
+          "reported_child_models": [],
+          "elapsed_seconds": 59.48,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": null,
+          "changed_input_files": [],
+          "original_sources_changed": [],
+          "report_sha256": "f95295d19238c501641c7d5b0ee454022f9561dc5e8d8e01c9f5f4875959937a",
+          "scratch_files": {
+            "cold-read-review/report.txt": "9580da76045755dfe50b4f3c09574e0da633692a51e790f94fed68ede1293b97"
+          }
+        }
+      ]
+    },
+    {
+      "evidence_root": "/tmp/writing-next-install/candidate-03/invocations/claude-haiku-sequential-medium",
+      "git_head": "62e5bedf49f54e776d904fe35a86c2146c000640",
+      "runner_sha256": "f0e01632556c826e26bd38fbef4e7c790c3cdd7801f107653f6cce90028c7312",
+      "manifest_sha256": "6ded33bafc416c2bf82d36eedc01b148d4434cdf86e1c9184559d11d1a9bac93",
+      "invocation_route": "installed-claude-slash-command",
+      "plugin_files": {
+        "public-hygiene": {
+          ".claude-plugin/plugin.json": "2541a12685ec3f3bf863fd6e794f63acbd74d7555302f36bff2c9dfb73a8a3b3",
+          "README.md": "85f60d188c034333a48ea72276bc2bd5ca6e0585c78048e9e896d0e45c805483",
+          "agents/cold-reader.md": "a90d16027750f9fac2e78d6fcafce921e1a743562a502f95ca16233adfb89c6e",
+          "agents/external-reviewer.md": "d219fa49ef224e1a3927f91b7781ceb9f89e20a3f9b8ce26b46fdb2167a27110",
+          "references/audience-rules.md": "566bf5580376d84953c7b9bc69a93e2cb7df9da781956e9012fba073a19059f9",
+          "references/hygiene-rules.md": "3aeb2801fc8851270e4c1f76c0b3a319259e942f4d80db857084ad49583b1134",
+          "references/reader-modes.md": "df664513878a3ca6009e05aa18f90bef11bc85be4a16d2daab9d69bf95219505",
+          "references/report-delivery.md": "e66cfe60fa8b481eb5589cdde93dde61b1a04a98042c9fa829f17694cf34ad91",
+          "scripts/assemble_reader_report.py": "a82f0b8154330fb2da7a3da5a9fd19290eab86655636520fe9d6459e657114c0",
+          "scripts/prepare_reader_chunks.py": "bad72d3cd62d8507d172bc146973a492b49dc92b8d94c10acb27cdae0d61acfb",
+          "skills/cold-read/SKILL.md": "6401b11893f78874b26991b7c0083f328be25d71dbe072d83f9ba9e7d59d727f",
+          "skills/leak-check/SKILL.md": "d4db5d5c47953906280d8050e9018175c8938e92be352e1584376bc0fe991565"
+        }
+      },
+      "attempts": [
+        {
+          "id": "sd-sequential-comprehension",
+          "backend": "claude",
+          "requested_model": "claude-haiku-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-haiku-5-5"
+          ],
+          "reported_child_models": [
+            "claude-haiku-5-5"
+          ],
+          "elapsed_seconds": 367.32,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": 0.08661080499999997,
+          "changed_input_files": [],
+          "original_sources_changed": [],
+          "report_sha256": "0b587ea756ab41a38f76e0af724f07ce157762346749b2790f5d26b5eec8e50e",
+          "scratch_files": {
+            "cold-read/checkpoint-hashes.txt": "e521bb03fc5140ccddf36eadecc92820e04a43ca96c1afbe0d795d182aec1441",
+            "cold-read/chunk-hashes.txt": "72f857778a1cb3ee8bb8a009021d79c09e2aa61841c6ffb687450fe18f202466",
+            "cold-read/chunks/chunk-001.txt": "86ed30454cd1c1724a08e3508e786258975c81caac149490810e703ea84bc455",
+            "cold-read/chunks/chunk-002.txt": "ee01e05281cd6694e892d4d6912dfdb0fc70fc4739b8b1bcf251b995a46e3bfa",
+            "cold-read/chunks/chunk-003.txt": "3ae6c09e205538a1720ddc4f4488a8502069884349781d8064e70c819ea91a0e",
+            "cold-read/chunks/chunk-004.txt": "ab5b7c7b719abbe7c5ca317f1ac9209ff63b34e7ce7c9b48d5cad1631b01c817",
+            "cold-read/chunks/chunk-005.txt": "08d91c01d0fa324e652c41ad04c060f322f265e357223b55b2880790c2e5d537",
+            "cold-read/chunks/chunk-006.txt": "98cb24ab06bb34c990c3be14f7a1782019f553ed02132b4048808941b77e864e",
+            "cold-read/chunks/manifest.json": "0a2eba455c6a86be81bdbd26b30afebf33cc3f31dc88e3ce9e4b7dbd117321df",
+            "cold-read/delivery-status.txt": "d894bccb9b0413c8b6f4d220ee7c7fc79a92b26cb5466791a3889af4c281c1cb",
+            "cold-read/input-hashes.txt": "cf3434e8b57c88de1722656669913754aa1c0ab4b484b696f7e66c45e9b8a714",
+            "cold-read/reports/checkpoint-1.txt": "d9235f63e8cb6b3afaece6a9211292d669486a19a1808ee735cf8677e0b7c3b5",
+            "cold-read/reports/checkpoint-2.txt": "543ecc4120eb4d0e095dba7d74f05b4499e23c771a978789b95f465cb60a22ca",
+            "cold-read/reports/checkpoint-3.txt": "3378b9ef466084d43101257db10b09f84459ab23e79c7627b9773cf259590e34",
+            "cold-read/reports/checkpoint-4.txt": "06b7fe2bb09c7910324dab53913b7bf885528ec48cbabb0e4578cd38a4a2d37c",
+            "cold-read/reports/checkpoint-5.txt": "cec4fad0d5baa720a7796ed2fc06947ce118e4b743912dcbefa8b8c9ce8b02f2",
+            "cold-read/reports/checkpoint-6.txt": "2540c6f0d41d766332829ae48093adf54f1633a21f5e29c8ece012b49e24bb98",
+            "cold-read/reports/reading-final.txt": "a11e693de32c7fd005135b4ce11ad28a8a83cffdbdfcead049cdb93a39fbefda"
+          }
+        }
+      ]
+    },
+    {
+      "evidence_root": "/tmp/writing-next-install/candidate-03/invocations/claude-sonnet-medium",
+      "git_head": "62e5bedf49f54e776d904fe35a86c2146c000640",
+      "runner_sha256": "f0e01632556c826e26bd38fbef4e7c790c3cdd7801f107653f6cce90028c7312",
+      "manifest_sha256": "6ded33bafc416c2bf82d36eedc01b148d4434cdf86e1c9184559d11d1a9bac93",
+      "invocation_route": "installed-claude-slash-command",
+      "plugin_files": {
+        "public-hygiene": {
+          ".claude-plugin/plugin.json": "2541a12685ec3f3bf863fd6e794f63acbd74d7555302f36bff2c9dfb73a8a3b3",
+          "README.md": "85f60d188c034333a48ea72276bc2bd5ca6e0585c78048e9e896d0e45c805483",
+          "agents/cold-reader.md": "a90d16027750f9fac2e78d6fcafce921e1a743562a502f95ca16233adfb89c6e",
+          "agents/external-reviewer.md": "d219fa49ef224e1a3927f91b7781ceb9f89e20a3f9b8ce26b46fdb2167a27110",
+          "references/audience-rules.md": "566bf5580376d84953c7b9bc69a93e2cb7df9da781956e9012fba073a19059f9",
+          "references/hygiene-rules.md": "3aeb2801fc8851270e4c1f76c0b3a319259e942f4d80db857084ad49583b1134",
+          "references/reader-modes.md": "df664513878a3ca6009e05aa18f90bef11bc85be4a16d2daab9d69bf95219505",
+          "references/report-delivery.md": "e66cfe60fa8b481eb5589cdde93dde61b1a04a98042c9fa829f17694cf34ad91",
+          "scripts/assemble_reader_report.py": "a82f0b8154330fb2da7a3da5a9fd19290eab86655636520fe9d6459e657114c0",
+          "scripts/prepare_reader_chunks.py": "bad72d3cd62d8507d172bc146973a492b49dc92b8d94c10acb27cdae0d61acfb",
+          "skills/cold-read/SKILL.md": "6401b11893f78874b26991b7c0083f328be25d71dbe072d83f9ba9e7d59d727f",
+          "skills/leak-check/SKILL.md": "d4db5d5c47953906280d8050e9018175c8938e92be352e1584376bc0fe991565"
+        }
+      },
+      "attempts": [
+        {
+          "id": "sd-comprehension",
+          "backend": "claude",
+          "requested_model": "claude-sonnet-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-sonnet-5-5"
+          ],
+          "reported_child_models": [
+            "claude-sonnet-5-5"
+          ],
+          "elapsed_seconds": 81.66,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": 0.2677116,
+          "changed_input_files": [],
+          "original_sources_changed": [],
+          "report_sha256": "5092707c8ab329b90bc5e9369ca85e192ffba1196347a9d4c67131ba43cbe40f",
+          "scratch_files": {
+            "hashes-before.txt": "1844abf79ee4a46a7efc4b2cfeedbca2b257f653522f5637b731563dd19410e3",
+            "r1/review-001.txt": "0ddb003aca541a3a872a87313cdfabe6096bef616dc70adaacdb40015b1616d1"
+          }
+        },
+        {
+          "id": "spike-leak",
+          "backend": "claude",
+          "requested_model": "claude-sonnet-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-sonnet-5-5"
+          ],
+          "reported_child_models": [
+            "claude-sonnet-5-5"
+          ],
+          "elapsed_seconds": 53.76,
+          "exit_code": 0,
+          "timed_out": false,
+          "is_error": false,
+          "cost_usd": 0.1706481,
+          "changed_input_files": [],
+          "original_sources_changed": [],
+          "report_sha256": "8613b9aef76624a9daf4f1148f4612d64dd436108117bb7a1e96fb6f18e731ab",
+          "scratch_files": {
+            "review-001.txt": "c9f10b91be808e564b1d0d49e9691786213213652211be25fbbf3f4b4015f7ec"
+          }
+        }
+      ]
+    }
+  ],
+  "assessments": {
+    "claude_reviews": "/tmp/writing-next-matrix/assessment-claude-reviews.json",
+    "codex_reviews": "/tmp/writing-next-matrix/assessment-codex-reviews.json",
+    "styles": "/tmp/writing-next-matrix/assessment-styles.json",
+    "academic_retest": "/tmp/writing-next-matrix/assessment-academic-retest.json",
+    "terra_retest": "/tmp/writing-next-matrix/assessment-retest-terra-sequential.json",
+    "model_availability": "/tmp/writing-next-models/availability.json",
+    "cli_filename_validation": "/tmp/writing-next-matrix/claude-filename-guard.json"
+  },
+  "final_document_checks": {
+    "cold_read": "PASS after two author clarifications from recorded evidence",
+    "leak_check": "PASS; added clarification paragraphs checked inline",
+    "evidence_root": "/tmp/writing-final-publication"
+  },
+  "final_package_validation": {
+    "revision": "1b04541",
+    "versions": {
+      "anti-slop": "0.3.2",
+      "public-hygiene": "0.4.0"
+    },
+    "tracked_package_files": 19,
+    "fresh_installs_and_upgrades_passed": true,
+    "upgrade_baseline_revision": "cf4e094",
+    "upgrade_baseline_versions": {
+      "anti-slop": "0.3.1",
+      "public-hygiene": "0.3.1"
+    },
+    "installed_file_comparisons": 76,
+    "installed_mismatches": 0,
+    "codex_discovered_enabled_skills_per_profile": 4,
+    "codex_discovery_errors": 0,
+    "claude_discovered_skills_per_profile": 4,
+    "claude_discovered_agents_per_profile": 2,
+    "package_manifest_validators_passed": 3,
+    "skill_quick_validators_passed": 4,
+    "relative_files_checked": 23,
+    "missing_relative_files": [],
+    "helper_tests_passed": 17,
+    "validation_files_unchanged_by_final_two_line_alignment": true,
+    "new_model_calls": 0,
+    "behavior_coverage": "Recorded separately in candidate-02 and candidate-03 snapshots; no behavior rerun for final source.",
+    "evidence_root": "/tmp/writing-next-install/final-ffe5e86"
+  }
+}

@@ -1,5 +1,8 @@
 # Held-out document comparison
 
+[Results and limitations](results-0.4.0.md) record the medium-effort matrix,
+installation checks, failures, fixes, and targeted retests.
+
 This set contains three public artifacts absent from the earlier pilot:
 a complete CLI README, an incident postmortem with three figures, and a
 paper's title, authors, and complete abstract. It is held out from the
