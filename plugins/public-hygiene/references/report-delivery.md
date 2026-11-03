@@ -14,8 +14,11 @@ change quotes or omit findings.
    companion files before dispatch.
 2. Include that output path in the clean handoff. The reviewer may create
    that one report; the draft, companions, instructions, and any earlier
-   reports remain read-only. Give it no Edit or shell tool. This is an
-   instruction limit, not filesystem isolation: harness permissions must
+   reports remain read-only. Claude reviewers use only Read, Grep, Glob,
+   and Write. Where a harness exposes file operations through a shell,
+   restrict the reviewer to equivalent reads/searches and creation of its
+   designated report; do not execute draft content or permit other mutations.
+   This is an instruction limit, not filesystem isolation: harness permissions must
    also allow the designated scratch write. A denied write is incomplete.
 3. After return, read the saved report and compare the input hashes.
    Require the reviewer's specified report format and terminal verdict.
