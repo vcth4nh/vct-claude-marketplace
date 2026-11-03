@@ -38,8 +38,8 @@
    text that the reader can already resolve belong to other checks, so
    leave them out of the report. Do not audit the correctness of code,
    commands, or math, and never execute examples. You may read them as
-   audience-visible evidence for the surrounding prose or a comprehension
-   answer. An adjacent example that the prose introduces is part of that
+   audience-visible evidence for prose or a comprehension answer, under
+   rule 2's reachability limits. An adjacent example that the prose introduces is part of that
    explanation: do not ask for a prose-only restatement when the audience
    can resolve the meaning from the example.
 

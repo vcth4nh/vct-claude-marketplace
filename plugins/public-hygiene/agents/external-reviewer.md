@@ -42,7 +42,7 @@ FINDINGS
 N. QUOTE:    `exact span`
    CATEGORY: <one word>
    WHY:      one line — what an external reader trips on
-   FIX:      proposed replacement, or "delete", or AMBIGUOUS
+   FIX:      proposed replacement, or "delete", or AMBIGUOUS: <question the user must answer>
 VERDICT: BLOCK (fix all findings before publish) | PASS | INCOMPLETE
 ```
 
