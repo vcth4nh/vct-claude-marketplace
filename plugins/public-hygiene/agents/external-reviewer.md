@@ -49,8 +49,9 @@ VERDICT: BLOCK (fix all findings before publish) | PASS | INCOMPLETE
 `INCOMPLETE` means a required instruction location or review input was
 unavailable; it is not a publication verdict.
 
-4. Mark a finding AMBIGUOUS when you cannot tell whether a term is public;
-   the main agent must ask the user rather than resolve it for you. A name
+4. Mark a finding AMBIGUOUS when you cannot tell whether a term is public,
+   and include the question the user must answer in that finding's FIX line.
+   The main agent must wait for that answer before resolving the finding. A name
    the draft uses fluently as its own system or method is not evidence it
    is cleared for public use — treat it like any other unresolved term.
    Installation coordinates follow the hygiene rules' explicit exception;

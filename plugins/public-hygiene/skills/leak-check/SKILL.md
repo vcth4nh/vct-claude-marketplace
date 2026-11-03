@@ -49,7 +49,10 @@ failed the audit.
    emit the corrected text, changing only flagged
    spans. Replacements come from the glossary or by generalizing — never
    invent facts, names, numbers, or citations to fill a redaction.
-6. A term whose public status is unclear → ask the user. Never guess.
+6. A term whose public status is unclear needs the user's answer. For an
+   inline audit, ask the user. In a delegated review, the question belongs
+   in the saved report; do not repeat it in the delivery message. Before
+   applying a requested fix, ask for any answers still missing. Never guess.
 
 ## Report format
 
