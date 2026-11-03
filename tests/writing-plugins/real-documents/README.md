@@ -61,11 +61,27 @@ Use `--dry-run` to prepare and inspect prompts without a model call.
 Outputs require a new directory and include plugin snapshots, source
 copies, prompts, full native logs, extracted traces, usage, timings, and
 before/after hashes. `--baseline` runs style cases with the same editing
-request but without applying skills. No backend overrides the selected
-model. Claude has a configurable dollar cap; Codex has only a timeout.
+request but without applying skills. `--model` and `--effort` set explicit
+parent and child settings; omitted options retain backend defaults. For
+example, use `--model claude-haiku-5-5 --effort medium` with Claude or
+`--model gpt-6.1-terra --effort medium` with Codex. Claude child overrides
+are forced per process; Codex child defaults can be overridden by an explicit
+spawn configuration. Requested settings and observed response identities
+are recorded separately. The JSON streams do not verify effective effort;
+Codex's stream also does not identify the actual model. Claude has a
+configurable dollar cap; Codex has only a timeout.
+
+`--installed-config-root PATH` uses an existing isolated installation. Claude
+invokes its registered slash command without `--plugin-dir`; Codex reads the
+explicit installed skill path, which does not test automatic selection.
+The runner neither installs plugins nor copies authentication. Use a profile
+with one installed version of each tested plugin. Local-folder Claude
+installations may read the registered marketplace folder instead of their
+cache, so inspect the trace and hash that source too. This route loads the
+profile's user settings; keep the profile dedicated to the test.
 
 Codex is selected with `--backend codex`. Its default per-case sandbox is
-read-only or workspace-write. This environment could not start nested
+workspace-write, permitting scratch reports. This environment could not start nested
 sandboxing, so the recorded pilot explicitly used
 `--codex-sandbox danger-full-access` with instruction boundaries and hash
 checks. It did not establish filesystem isolation. Codex's exported logs
@@ -74,6 +90,10 @@ child-access findings in this report.
 
 An exit code or completed response is not a quality result. Inspect the
 actual rewrite and report, including preservation, supported questions,
-child context, checkpoint order, and verbatim relay. Preserve failures and
+child context, checkpoint order, and report delivery. For saved reviews,
+verify that the final link exists, the chat verdict equals the saved verdict,
+and the parent has not restated findings. For sequential reports, compare
+each assembled checkpoint with its original bytes and inspect stage timing
+and reviewer accesses separately. Preserve failures and
 retests as separate attempts. A model-selected comprehension question is
 not evidence that every important question was answered.

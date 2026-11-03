@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "prepared_at_utc": "2026-11-03T19:12:50+00:00",
+  "purpose": "Three public artifacts held out from the earlier writing-plugin corpus. Selection does not imply these publications are clean or unknown to a model.",
+  "storage_root": "/tmp/writing-next-heldout",
+  "audience_note": "Audiences are evaluator-selected from the publication context and must be held constant across compared conditions.",
+  "rubric_policy": "Expected answers and grading notes are deliberately absent from this manifest and preparation script.",
+  "documents": [
+    {
+      "id": "sd-readme",
+      "title": "sd - search & displace",
+      "format": "markdown",
+      "source_url": "https://github.com/chmln/sd",
+      "pinned_url": "https://raw.githubusercontent.com/chmln/sd/44febdf86343c653255ae4f20f5e1882dad6be17/README.md",
+      "revision": "44febdf86343c653255ae4f20f5e1882dad6be17",
+      "revision_date": "2026-02-25T19:25:13Z",
+      "license": "MIT (repository license)",
+      "license_url": "https://github.com/chmln/sd/blob/44febdf86343c653255ae4f20f5e1882dad6be17/LICENSE",
+      "audience": "Command-line users who know shell pipelines and basic regular expressions and are evaluating or learning sd.",
+      "scope": "Complete README.md at the pinned commit, including benchmark tables and code examples.",
+      "transforms": [],
+      "snapshot": {
+        "path": "sd-readme.md",
+        "sha256": "9908fcf52655578892c3f56c80406fa63d59dfb2fdacd86c9e9ed0815b649590",
+        "bytes": 7010
+      },
+      "input": {
+        "path": "sd-readme.md",
+        "sha256": "9908fcf52655578892c3f56c80406fa63d59dfb2fdacd86c9e9ed0815b649590",
+        "bytes": 7010,
+        "word_count": 1062
+      },
+      "assets": [
+        {
+          "url": "https://repology.org/badge/vertical-allrepos/sd-find-replace.svg?exclude_unsupported=1",
+          "path": "assets/sd-packaging-status.svg",
+          "sha256": "6e2c0ab7bf4eb4b8e1ad5869353f31e5a87b58b625b29141bd831f20de73376a",
+          "bytes": 36786,
+          "retrieved_at_utc": "2026-11-03T19:40:23+00:00",
+          "revision": null,
+          "pinning_note": "Separate capture of the live external packaging badge linked by the README. It is not versioned with the pinned README commit. This hash pins the captured badge; reproduction fails if the live asset changes. The original README URL is retained."
+        }
+      ],
+      "retrieved_at_utc": "2026-11-03T19:12:50+00:00",
+      "sequential_scope": "Four contiguous chunks at existing section boundaries; concatenation is byte-identical to the complete README. Use the same audience for each chunk.",
+      "sequential_chunks": [
+        {
+          "path": "chunks/sd-1.md",
+          "start_line": 1,
+          "end_line": 46,
+          "sha256": "8e9204263a2a4950b972af2db8c306efcd7cfd5962563514f7a699ff4aff6b0e",
+          "word_count": 282
+        },
+        {
+          "path": "chunks/sd-2.md",
+          "start_line": 47,
+          "end_line": 111,
+          "sha256": "3ae6c09e205538a1720ddc4f4488a8502069884349781d8064e70c819ea91a0e",
+          "word_count": 347
+        },
+        {
+          "path": "chunks/sd-3.md",
+          "start_line": 112,
+          "end_line": 183,
+          "sha256": "ab5b7c7b719abbe7c5ca317f1ac9209ff63b34e7ce7c9b48d5cad1631b01c817",
+          "word_count": 237
+        },
+        {
+          "path": "chunks/sd-4.md",
+          "start_line": 184,
+          "end_line": 223,
+          "sha256": "605a311e2a135f467e81f34668bc88a5352af505753362c8ceff45e614373d2d",
+          "word_count": 196
+        }
+      ]
+    },
+    {
+      "id": "spike-postmortem",
+      "title": "Postmortem on Incorrect Incident Grouping",
+      "format": "spike_article",
+      "source_url": "https://spike.sh/blog/postmortem-incident-grouping/",
+      "pinned_url": "https://spike.sh/blog/postmortem-incident-grouping/",
+      "revision": null,
+      "published_at": "2024-03-21",
+      "page_date_modified": "2026-11-02T12:14:36+00:00",
+      "pinning_note": "Publisher provides no immutable revision; prepared article and figure hashes pin the retrieved snapshot. The page metadata modification time does not establish which article wording changed.",
+      "license": "No reuse license identified on the article; source retained only in temporary evaluation directory.",
+      "audience": "Spike customers and engineers who operate incident alerting; they know what incidents, dashboards, and Slack alerts are but do not know Spike internal components.",
+      "scope": "Complete article prose, title, byline, date, all three in-body figures and their captions. Site navigation, related posts, author avatar, and decorative cover image are excluded.",
+      "transforms": [
+        "Decode HTML character references and normalize layout whitespace.",
+        "Convert paragraph, heading, emphasis, list, and inline-code markup to Markdown without editing wording.",
+        "Replace in-body image URLs with relative local asset paths; retain original URLs in assets metadata.",
+        "Join displayed author and publication date with an em dash."
+      ],
+      "snapshot": {
+        "path": "spike.html",
+        "sha256": "966fda4a2d152d37e563503abc531a24ce3f1b9661e47a3b07c75e8727cb7e3f",
+        "bytes": 129398
+      },
+      "input": {
+        "path": "spike-postmortem.md",
+        "sha256": "3d90bc1fc4e5006980c10e60ff88dd78f57ee9448d4292d7e5a561067088403d",
+        "bytes": 4998,
+        "word_count": 762
+      },
+      "assets": [
+        {
+          "url": "https://spike.sh/blog/wp-content/uploads/2024/03/Incident-latest-true-1-.png",
+          "path": "assets/spike-figure-1.png",
+          "sha256": "f4062f49624ec5a9c0f6146ba41cd76f4d479c4b2a969b193734db11ae76cef5",
+          "bytes": 46707
+        },
+        {
+          "url": "https://spike.sh/blog/wp-content/uploads/2024/03/image-1024x472.png",
+          "path": "assets/spike-figure-2.png",
+          "sha256": "58c576262feaca5676898bd31cd4decc7bce5b2773354bf92b0d15889d3e928b",
+          "bytes": 91664
+        },
+        {
+          "url": "https://spike.sh/blog/wp-content/uploads/2024/03/Incident-clean-up-and-history-added-1-.png",
+          "path": "assets/spike-figure-3.png",
+          "sha256": "5b293995707e75a2bc3a24bb53102492922d73a07faf29943edc32dae37dac96",
+          "bytes": 32504
+        }
+      ],
+      "retrieved_at_utc": "2026-11-03T19:12:50+00:00"
+    },
+    {
+      "id": "faultprofit-abstract",
+      "title": "FaultProfIT: Hierarchical Fault Profiling of Incident Tickets in Large-scale Cloud Systems",
+      "format": "arxiv_abstract",
+      "source_url": "https://arxiv.org/abs/2402.17583",
+      "pinned_url": "https://arxiv.org/abs/2402.17583v1",
+      "revision": "arXiv:2402.17583v1",
+      "revision_date": "2024-02-27T15:14:19Z",
+      "license": "CC BY-NC-ND 4.0; derivative test outputs stay outside the repository.",
+      "license_url": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+      "audience": "Software engineering research readers familiar with production incidents and machine learning terminology, reading an identified published abstract.",
+      "scope": "Title, author list, and complete abstract from arXiv v1. No full-paper body, bibliography, or venue metadata is included. This is an abstract-scoped evaluation, not a whole-paper review.",
+      "transforms": [
+        "Decode HTML character references and normalize layout whitespace.",
+        "Convert title and abstract labels to Markdown headings; retain author names and links.",
+        "Add one display space after the Authors label."
+      ],
+      "snapshot": {
+        "path": "faultprofit.html",
+        "sha256": "dbada2acdd0d9a9d8a6166f06964625c6e059743b06a78de61a4a5f69e52d9b7",
+        "bytes": 45208
+      },
+      "input": {
+        "path": "faultprofit-abstract.md",
+        "sha256": "9b258c478e498e25599d29396b6f0ccd3bf9217100a752f6175bb501f02abad5",
+        "bytes": 2505,
+        "word_count": 256
+      },
+      "assets": [],
+      "retrieved_at_utc": "2026-11-03T19:12:50+00:00"
+    }
+  ]
+}

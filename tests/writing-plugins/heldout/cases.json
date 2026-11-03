@@ -1,0 +1,126 @@
+{
+  "description": "Held-out real-document cases for real-documents/run_native.py. Prepare the source files outside the repository first. Only raw document context and reader questions are supplied; no grading expectations are included.",
+  "baseline_run": {
+    "case": "sd-deslop",
+    "runner_flags": [
+      "--case",
+      "sd-deslop",
+      "--baseline"
+    ],
+    "description": "Run this selected case separately in a new output directory. The runner's global --baseline flag omits the skill while preserving the same source, companions, audience, and edit request; there is no per-case baseline mode."
+  },
+  "sequential_setup": "The sequential case supplies the complete README only. The parent reviewer must select its own boundaries with the installed plugin helper; precomputed chunks and boundary metadata are not supplied.",
+  "companion_discovery": {
+    "sd-readme": {
+      "relative_file_links": [],
+      "external_image": {
+        "url": "https://repology.org/badge/vertical-allrepos/sd-find-replace.svg?exclude_unsupported=1",
+        "source": "/tmp/writing-next-heldout/assets/sd-packaging-status.svg",
+        "target": "assets/sd-packaging-status.svg",
+        "sha256": "6e2c0ab7bf4eb4b8e1ad5869353f31e5a87b58b625b29141bd831f20de73376a",
+        "retrieved_at_utc": "2026-11-03T19:40:23+00:00"
+      },
+      "other_links": [
+        "https://doc.rust-lang.org/cargo/getting-started/installation.html",
+        "https://repology.org/project/sd-find-replace/versions",
+        "https://github.com/sharkdp/fd"
+      ]
+    },
+    "spike-postmortem": {
+      "relative_image_paths": [
+        "assets/spike-figure-1.png",
+        "assets/spike-figure-2.png",
+        "assets/spike-figure-3.png"
+      ]
+    },
+    "faultprofit-abstract": {
+      "relative_file_links": [],
+      "note": "Author-search URLs remain in the original prepared author list; no paper body is a supplied companion."
+    }
+  },
+  "cases": [
+    {
+      "id": "sd-comprehension",
+      "source": "/tmp/writing-next-heldout/sd-readme.md",
+      "target": "sd-readme.md",
+      "mode": "comprehension",
+      "audience": "Command-line users who know shell pipelines and basic regular expressions and are evaluating or learning sd.",
+      "request": "Publication context: this is the complete README of the identified public GitHub project chmln/sd at revision 44febdf86343c653255ae4f20f5e1882dad6be17. The externally linked packaging-status badge is supplied as assets/sd-packaging-status.svg; it is a separate snapshot of the live badge and is not versioned with the README. The Cargo and fd hyperlinks are external references, not additional supplied documents.",
+      "companions": [
+        {
+          "source": "/tmp/writing-next-heldout/assets/sd-packaging-status.svg",
+          "target": "assets/sd-packaging-status.svg"
+        }
+      ],
+      "questions": [
+        "What would a user do to replace text in a file and inspect the change before modifying that file?",
+        "How does a user choose between regular-expression matching and literal matching?",
+        "How does a user choose a processing mode, and what tradeoffs does the README describe?"
+      ]
+    },
+    {
+      "id": "sd-sequential-comprehension",
+      "source": "/tmp/writing-next-heldout/sd-readme.md",
+      "target": "sd-readme.md",
+      "mode": "sequential-comprehension",
+      "audience": "Command-line users who know shell pipelines and basic regular expressions and are evaluating or learning sd.",
+      "request": "Publication context: this is the complete README of the identified public GitHub project chmln/sd at revision 44febdf86343c653255ae4f20f5e1882dad6be17. The externally linked packaging-status badge is supplied as assets/sd-packaging-status.svg; it is a separate snapshot of the live badge and is not versioned with the README. The Cargo and fd hyperlinks are external references, not additional supplied documents. For sequential reading, select the chunk boundaries yourself and prepare the inputs with the plugin's helper.",
+      "companions": [
+        {
+          "source": "/tmp/writing-next-heldout/assets/sd-packaging-status.svg",
+          "target": "assets/sd-packaging-status.svg"
+        }
+      ],
+      "questions": [
+        "What would a user do to replace text in a file and inspect the change before modifying that file?",
+        "How does a user choose between regular-expression matching and literal matching?",
+        "How does a user choose a processing mode, and what tradeoffs does the README describe?"
+      ]
+    },
+    {
+      "id": "sd-deslop",
+      "source": "/tmp/writing-next-heldout/sd-readme.md",
+      "target": "sd-readme.md",
+      "mode": "deslop",
+      "audience": "Command-line users who know shell pipelines and basic regular expressions and are evaluating or learning sd.",
+      "request": "Publication context: this is the complete README of the identified public GitHub project chmln/sd at revision 44febdf86343c653255ae4f20f5e1882dad6be17. The externally linked packaging-status badge is supplied as assets/sd-packaging-status.svg; it is a separate snapshot of the live badge and is not versioned with the README. The Cargo and fd hyperlinks are external references, not additional supplied documents. Edit the README prose in place for the stated audience.",
+      "companions": [
+        {
+          "source": "/tmp/writing-next-heldout/assets/sd-packaging-status.svg",
+          "target": "assets/sd-packaging-status.svg"
+        }
+      ]
+    },
+    {
+      "id": "spike-leak",
+      "source": "/tmp/writing-next-heldout/spike-postmortem.md",
+      "target": "spike-postmortem.md",
+      "mode": "leak",
+      "audience": "Spike customers and engineers who operate incident alerting; they know what incidents, dashboards, and Slack alerts are but do not know Spike internal components.",
+      "request": "Publication context: this is Spike's identified public blog post, \"Postmortem on Incorrect Incident Grouping\", published on 21 March 2024, with its published byline and incident narrative. Review it for continued public publication in that context; no anonymous-submission requirement applies. Scope: the complete article prose, title, byline, date, all three in-body figures, and their captions. Site navigation, related posts, author avatar, and decorative cover image are excluded.",
+      "companions": [
+        {
+          "source": "/tmp/writing-next-heldout/assets/spike-figure-1.png",
+          "target": "assets/spike-figure-1.png"
+        },
+        {
+          "source": "/tmp/writing-next-heldout/assets/spike-figure-2.png",
+          "target": "assets/spike-figure-2.png"
+        },
+        {
+          "source": "/tmp/writing-next-heldout/assets/spike-figure-3.png",
+          "target": "assets/spike-figure-3.png"
+        }
+      ]
+    },
+    {
+      "id": "faultprofit-academic",
+      "source": "/tmp/writing-next-heldout/faultprofit-abstract.md",
+      "target": "faultprofit-abstract.md",
+      "mode": "academic",
+      "audience": "Software engineering research readers familiar with production incidents and machine learning terminology, reading an identified published abstract.",
+      "request": "Publication context: this is the identified published abstract of FaultProfIT, arXiv:2402.17583v1, with its published title and author list. No anonymous-submission requirement applies. Scope: the title, author list, and complete abstract only; the full-paper body, bibliography, and venue metadata are not supplied. Edit the abstract prose in place for the stated audience; retain the title and author list.",
+      "companions": []
+    }
+  ]
+}
