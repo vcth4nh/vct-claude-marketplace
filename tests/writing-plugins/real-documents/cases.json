@@ -1,0 +1,1198 @@
+{
+  "description": "Pilot case locations from the recorded run. Recreate pinned inputs using the source manifests or update source paths before rerunning; no expected answers are included.",
+  "cases": [
+    {
+      "id": "retrospect-comprehension",
+      "source": "/tmp/writing-real-documents/local-pr/retrospect.md",
+      "audience": "Claude Code users considering this plugin for retrospectives over their own sessions.",
+      "mode": "comprehension",
+      "companions": []
+    },
+    {
+      "id": "retrospect-deslop",
+      "source": "/tmp/writing-real-documents/local-pr/retrospect.md",
+      "audience": "Claude Code users considering this plugin for retrospectives over their own sessions.",
+      "mode": "deslop",
+      "companions": []
+    },
+    {
+      "id": "retrospect-leak",
+      "source": "/tmp/writing-real-documents/local-pr/retrospect.md",
+      "audience": "Claude Code users considering this plugin for retrospectives over their own sessions.",
+      "mode": "leak",
+      "companions": []
+    },
+    {
+      "id": "uv-pr-comprehension",
+      "source": "/tmp/writing-real-documents/local-pr/pr.md",
+      "audience": "Python developers and uv contributors reading the archived merged PR to understand the change.",
+      "mode": "comprehension",
+      "companions": [
+        {
+          "source": "/tmp/writing-real-documents/local-pr/pr.diff"
+        },
+        {
+          "source": "/tmp/writing-real-documents/local-pr/publication.json"
+        }
+      ],
+      "request": "This is an archived merged pull request. Review the meaning of its current public description with the supplied diff and publication metadata."
+    },
+    {
+      "id": "uv-pr-deslop",
+      "source": "/tmp/writing-real-documents/local-pr/pr.md",
+      "audience": "Python developers and uv contributors reading the archived merged PR to understand the change.",
+      "mode": "deslop",
+      "companions": [
+        {
+          "source": "/tmp/writing-real-documents/local-pr/pr.diff"
+        },
+        {
+          "source": "/tmp/writing-real-documents/local-pr/publication.json"
+        }
+      ],
+      "request": "This is an archived merged pull request. Review the meaning of its current public description with the supplied diff and publication metadata."
+    },
+    {
+      "id": "uv-pr-leak",
+      "source": "/tmp/writing-real-documents/local-pr/pr.md",
+      "audience": "Python developers and uv contributors reading the archived merged PR to understand the change.",
+      "mode": "leak",
+      "companions": [
+        {
+          "source": "/tmp/writing-real-documents/local-pr/pr.diff"
+        },
+        {
+          "source": "/tmp/writing-real-documents/local-pr/publication.json"
+        }
+      ],
+      "request": "This is an archived merged pull request. Review the meaning of its current public description with the supplied diff and publication metadata."
+    },
+    {
+      "id": "uv-projects-comprehension",
+      "source": "/tmp/writing-real-documents/documents/uv-source/docs/guides/projects.md",
+      "audience": "Python developers familiar with Python packages and a command-line shell, learning uv project management.",
+      "mode": "comprehension",
+      "companions": [
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/configuration-files.md",
+          "target": "docs/concepts/configuration-files.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/build.md",
+          "target": "docs/concepts/projects/build.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/dependencies.md",
+          "target": "docs/concepts/projects/dependencies.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/export.md",
+          "target": "docs/concepts/projects/export.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/index.md",
+          "target": "docs/concepts/projects/index.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/layout.md",
+          "target": "docs/concepts/projects/layout.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/run.md",
+          "target": "docs/concepts/projects/run.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/sync.md",
+          "target": "docs/concepts/projects/sync.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/guides/package.md",
+          "target": "docs/guides/package.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/reference/cli.md",
+          "target": "docs/reference/cli.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/reference/settings.md",
+          "target": "docs/reference/settings.md"
+        }
+      ],
+      "target": "docs/guides/projects.md"
+    },
+    {
+      "id": "uv-projects-deslop",
+      "source": "/tmp/writing-real-documents/documents/uv-source/docs/guides/projects.md",
+      "audience": "Python developers familiar with Python packages and a command-line shell, learning uv project management.",
+      "mode": "deslop",
+      "companions": [
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/configuration-files.md",
+          "target": "docs/concepts/configuration-files.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/build.md",
+          "target": "docs/concepts/projects/build.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/dependencies.md",
+          "target": "docs/concepts/projects/dependencies.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/export.md",
+          "target": "docs/concepts/projects/export.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/index.md",
+          "target": "docs/concepts/projects/index.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/layout.md",
+          "target": "docs/concepts/projects/layout.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/run.md",
+          "target": "docs/concepts/projects/run.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/sync.md",
+          "target": "docs/concepts/projects/sync.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/guides/package.md",
+          "target": "docs/guides/package.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/reference/cli.md",
+          "target": "docs/reference/cli.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/reference/settings.md",
+          "target": "docs/reference/settings.md"
+        }
+      ],
+      "target": "docs/guides/projects.md"
+    },
+    {
+      "id": "uv-projects-leak",
+      "source": "/tmp/writing-real-documents/documents/uv-source/docs/guides/projects.md",
+      "audience": "Python developers familiar with Python packages and a command-line shell, learning uv project management.",
+      "mode": "leak",
+      "companions": [
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/configuration-files.md",
+          "target": "docs/concepts/configuration-files.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/build.md",
+          "target": "docs/concepts/projects/build.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/dependencies.md",
+          "target": "docs/concepts/projects/dependencies.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/export.md",
+          "target": "docs/concepts/projects/export.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/index.md",
+          "target": "docs/concepts/projects/index.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/layout.md",
+          "target": "docs/concepts/projects/layout.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/run.md",
+          "target": "docs/concepts/projects/run.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/sync.md",
+          "target": "docs/concepts/projects/sync.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/guides/package.md",
+          "target": "docs/guides/package.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/reference/cli.md",
+          "target": "docs/reference/cli.md"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/uv-source/docs/reference/settings.md",
+          "target": "docs/reference/settings.md"
+        }
+      ],
+      "target": "docs/guides/projects.md"
+    },
+    {
+      "id": "pep703-comprehension",
+      "source": "/tmp/writing-real-documents/documents/pep703.rst",
+      "audience": "Python implementation and C-extension developers familiar with threading, reference counting, and CPython terminology.",
+      "mode": "comprehension",
+      "companions": []
+    },
+    {
+      "id": "pep703-deslop",
+      "source": "/tmp/writing-real-documents/documents/pep703-policy-performance.rst",
+      "audience": "Python implementation and C-extension developers familiar with threading, reference counting, and CPython terminology.",
+      "mode": "deslop",
+      "companions": [
+        {
+          "source": "/tmp/writing-real-documents/documents/pep703.rst",
+          "target": "pep703.rst"
+        }
+      ]
+    },
+    {
+      "id": "pep703-leak",
+      "source": "/tmp/writing-real-documents/documents/pep703.rst",
+      "audience": "Python implementation and C-extension developers familiar with threading, reference counting, and CPython terminology.",
+      "mode": "leak",
+      "companions": []
+    },
+    {
+      "id": "cloudflare-outage-comprehension",
+      "source": "/tmp/writing-real-documents/documents/cloudflare.md",
+      "audience": "Technical Cloudflare customers and web engineers who understand HTTP errors and basic network operations.",
+      "mode": "comprehension",
+      "companions": [
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-01.png",
+          "target": "cloudflare-images/image-01.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-02.png",
+          "target": "cloudflare-images/image-02.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-03.png",
+          "target": "cloudflare-images/image-03.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-04.jpg",
+          "target": "cloudflare-images/image-04.jpg"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-05.jpg",
+          "target": "cloudflare-images/image-05.jpg"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-06.png",
+          "target": "cloudflare-images/image-06.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-07.png",
+          "target": "cloudflare-images/image-07.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-08.png",
+          "target": "cloudflare-images/image-08.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-09.png",
+          "target": "cloudflare-images/image-09.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-10.png",
+          "target": "cloudflare-images/image-10.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-11.png",
+          "target": "cloudflare-images/image-11.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-12.png",
+          "target": "cloudflare-images/image-12.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-13.png",
+          "target": "cloudflare-images/image-13.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-14.png",
+          "target": "cloudflare-images/image-14.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-15.gif",
+          "target": "cloudflare-images/image-15.gif"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-16.png",
+          "target": "cloudflare-images/image-16.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-17.gif",
+          "target": "cloudflare-images/image-17.gif"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-18.png",
+          "target": "cloudflare-images/image-18.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-19.gif",
+          "target": "cloudflare-images/image-19.gif"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-20.png",
+          "target": "cloudflare-images/image-20.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-21.png",
+          "target": "cloudflare-images/image-21.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-22.png",
+          "target": "cloudflare-images/image-22.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-23.png",
+          "target": "cloudflare-images/image-23.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-24.png",
+          "target": "cloudflare-images/image-24.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-25.png",
+          "target": "cloudflare-images/image-25.png"
+        }
+      ]
+    },
+    {
+      "id": "cloudflare-outage-deslop",
+      "source": "/tmp/writing-real-documents/documents/cloudflare.md",
+      "audience": "Technical Cloudflare customers and web engineers who understand HTTP errors and basic network operations.",
+      "mode": "deslop",
+      "companions": [
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-01.png",
+          "target": "cloudflare-images/image-01.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-02.png",
+          "target": "cloudflare-images/image-02.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-03.png",
+          "target": "cloudflare-images/image-03.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-04.jpg",
+          "target": "cloudflare-images/image-04.jpg"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-05.jpg",
+          "target": "cloudflare-images/image-05.jpg"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-06.png",
+          "target": "cloudflare-images/image-06.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-07.png",
+          "target": "cloudflare-images/image-07.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-08.png",
+          "target": "cloudflare-images/image-08.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-09.png",
+          "target": "cloudflare-images/image-09.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-10.png",
+          "target": "cloudflare-images/image-10.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-11.png",
+          "target": "cloudflare-images/image-11.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-12.png",
+          "target": "cloudflare-images/image-12.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-13.png",
+          "target": "cloudflare-images/image-13.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-14.png",
+          "target": "cloudflare-images/image-14.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-15.gif",
+          "target": "cloudflare-images/image-15.gif"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-16.png",
+          "target": "cloudflare-images/image-16.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-17.gif",
+          "target": "cloudflare-images/image-17.gif"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-18.png",
+          "target": "cloudflare-images/image-18.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-19.gif",
+          "target": "cloudflare-images/image-19.gif"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-20.png",
+          "target": "cloudflare-images/image-20.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-21.png",
+          "target": "cloudflare-images/image-21.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-22.png",
+          "target": "cloudflare-images/image-22.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-23.png",
+          "target": "cloudflare-images/image-23.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-24.png",
+          "target": "cloudflare-images/image-24.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-25.png",
+          "target": "cloudflare-images/image-25.png"
+        }
+      ]
+    },
+    {
+      "id": "cloudflare-outage-leak",
+      "source": "/tmp/writing-real-documents/documents/cloudflare.md",
+      "audience": "Technical Cloudflare customers and web engineers who understand HTTP errors and basic network operations.",
+      "mode": "leak",
+      "companions": [
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-01.png",
+          "target": "cloudflare-images/image-01.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-02.png",
+          "target": "cloudflare-images/image-02.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-03.png",
+          "target": "cloudflare-images/image-03.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-04.jpg",
+          "target": "cloudflare-images/image-04.jpg"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-05.jpg",
+          "target": "cloudflare-images/image-05.jpg"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-06.png",
+          "target": "cloudflare-images/image-06.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-07.png",
+          "target": "cloudflare-images/image-07.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-08.png",
+          "target": "cloudflare-images/image-08.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-09.png",
+          "target": "cloudflare-images/image-09.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-10.png",
+          "target": "cloudflare-images/image-10.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-11.png",
+          "target": "cloudflare-images/image-11.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-12.png",
+          "target": "cloudflare-images/image-12.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-13.png",
+          "target": "cloudflare-images/image-13.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-14.png",
+          "target": "cloudflare-images/image-14.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-15.gif",
+          "target": "cloudflare-images/image-15.gif"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-16.png",
+          "target": "cloudflare-images/image-16.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-17.gif",
+          "target": "cloudflare-images/image-17.gif"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-18.png",
+          "target": "cloudflare-images/image-18.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-19.gif",
+          "target": "cloudflare-images/image-19.gif"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-20.png",
+          "target": "cloudflare-images/image-20.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-21.png",
+          "target": "cloudflare-images/image-21.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-22.png",
+          "target": "cloudflare-images/image-22.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-23.png",
+          "target": "cloudflare-images/image-23.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-24.png",
+          "target": "cloudflare-images/image-24.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/cloudflare-images/image-25.png",
+          "target": "cloudflare-images/image-25.png"
+        }
+      ]
+    },
+    {
+      "id": "raft-paper-comprehension",
+      "source": "/tmp/writing-real-documents/documents/raft-excerpt.md",
+      "audience": "Graduate-level distributed-systems readers familiar with replication, fault tolerance and consensus terminology.",
+      "mode": "comprehension",
+      "companions": [
+        {
+          "source": "/tmp/writing-real-documents/documents/raft.pdf",
+          "target": "raft.pdf"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/raft-page-1.png",
+          "target": "raft-page-1.png"
+        }
+      ],
+      "request": "Review only the abstract and introduction in the Markdown excerpt. The original PDF and page image are public companions for source and explicit references; this request does not cover the rest of the paper."
+    },
+    {
+      "id": "raft-paper-deslop",
+      "source": "/tmp/writing-real-documents/documents/raft-excerpt.md",
+      "audience": "Graduate-level distributed-systems readers familiar with replication, fault tolerance and consensus terminology.",
+      "mode": "academic",
+      "companions": [
+        {
+          "source": "/tmp/writing-real-documents/documents/raft.pdf",
+          "target": "raft.pdf"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/raft-page-1.png",
+          "target": "raft-page-1.png"
+        }
+      ],
+      "request": "Review only the abstract and introduction in the Markdown excerpt. The original PDF and page image are public companions for source and explicit references; this request does not cover the rest of the paper."
+    },
+    {
+      "id": "raft-paper-leak",
+      "source": "/tmp/writing-real-documents/documents/raft-excerpt.md",
+      "audience": "Graduate-level distributed-systems readers familiar with replication, fault tolerance and consensus terminology.",
+      "mode": "leak",
+      "companions": [
+        {
+          "source": "/tmp/writing-real-documents/documents/raft.pdf",
+          "target": "raft.pdf"
+        },
+        {
+          "source": "/tmp/writing-real-documents/documents/raft-page-1.png",
+          "target": "raft-page-1.png"
+        }
+      ],
+      "request": "Review only the abstract and introduction in the Markdown excerpt. The original PDF and page image are public companions for source and explicit references; this request does not cover the rest of the paper."
+    },
+    {
+      "id": "eslint-talk-comprehension",
+      "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered-notes.md",
+      "mode": "comprehension",
+      "audience": "JavaScript developers attending a conference talk about ESLint and tooling.",
+      "companions": [
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-01.png",
+          "target": "rendered/slide-01.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-02.png",
+          "target": "rendered/slide-02.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-03.png",
+          "target": "rendered/slide-03.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-04.png",
+          "target": "rendered/slide-04.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-05.png",
+          "target": "rendered/slide-05.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-06.png",
+          "target": "rendered/slide-06.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-07.png",
+          "target": "rendered/slide-07.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-08.png",
+          "target": "rendered/slide-08.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-09.png",
+          "target": "rendered/slide-09.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-10.png",
+          "target": "rendered/slide-10.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-11.png",
+          "target": "rendered/slide-11.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-12.png",
+          "target": "rendered/slide-12.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-13.png",
+          "target": "rendered/slide-13.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-14.png",
+          "target": "rendered/slide-14.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-15.png",
+          "target": "rendered/slide-15.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-16.png",
+          "target": "rendered/slide-16.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-17.png",
+          "target": "rendered/slide-17.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-18.png",
+          "target": "rendered/slide-18.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-19.png",
+          "target": "rendered/slide-19.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-20.png",
+          "target": "rendered/slide-20.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-21.png",
+          "target": "rendered/slide-21.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-22.png",
+          "target": "rendered/slide-22.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-23.png",
+          "target": "rendered/slide-23.png"
+        }
+      ],
+      "request": "This is a slide deck with embedded speaker notes. Review the visible text and notes; live demo behavior, animation timing, and clipped code visibility are outside this text review."
+    },
+    {
+      "id": "eslint-talk-deslop",
+      "source": "/tmp/writing-real-documents/slides/eslint-talk/source.md",
+      "mode": "deslop",
+      "audience": "JavaScript developers attending a conference talk about ESLint and tooling.",
+      "companions": [],
+      "request": "This is a slide deck with embedded speaker notes. Review the visible text and notes; live demo behavior, animation timing, and clipped code visibility are outside this text review."
+    },
+    {
+      "id": "eslint-talk-leak",
+      "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered-notes.md",
+      "mode": "leak",
+      "audience": "JavaScript developers attending a conference talk about ESLint and tooling.",
+      "companions": [
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-01.png",
+          "target": "rendered/slide-01.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-02.png",
+          "target": "rendered/slide-02.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-03.png",
+          "target": "rendered/slide-03.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-04.png",
+          "target": "rendered/slide-04.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-05.png",
+          "target": "rendered/slide-05.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-06.png",
+          "target": "rendered/slide-06.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-07.png",
+          "target": "rendered/slide-07.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-08.png",
+          "target": "rendered/slide-08.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-09.png",
+          "target": "rendered/slide-09.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-10.png",
+          "target": "rendered/slide-10.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-11.png",
+          "target": "rendered/slide-11.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-12.png",
+          "target": "rendered/slide-12.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-13.png",
+          "target": "rendered/slide-13.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-14.png",
+          "target": "rendered/slide-14.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-15.png",
+          "target": "rendered/slide-15.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-16.png",
+          "target": "rendered/slide-16.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-17.png",
+          "target": "rendered/slide-17.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-18.png",
+          "target": "rendered/slide-18.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-19.png",
+          "target": "rendered/slide-19.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-20.png",
+          "target": "rendered/slide-20.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-21.png",
+          "target": "rendered/slide-21.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-22.png",
+          "target": "rendered/slide-22.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-23.png",
+          "target": "rendered/slide-23.png"
+        }
+      ],
+      "request": "This is a slide deck with embedded speaker notes. Review the visible text and notes; live demo behavior, animation timing, and clipped code visibility are outside this text review."
+    },
+    {
+      "id": "eslint-talk-excerpt-comprehension",
+      "source": "/tmp/writing-real-documents/slides/eslint-talk/sequential-excerpt.md",
+      "mode": "comprehension",
+      "audience": "JavaScript developers attending a conference talk about ESLint and tooling.",
+      "companions": [
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-03.png",
+          "target": "rendered/slide-03.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-04.png",
+          "target": "rendered/slide-04.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-05.png",
+          "target": "rendered/slide-05.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-06.png",
+          "target": "rendered/slide-06.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-07.png",
+          "target": "rendered/slide-07.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-08.png",
+          "target": "rendered/slide-08.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-09.png",
+          "target": "rendered/slide-09.png"
+        }
+      ],
+      "request": "This is a seven-slide excerpt, visible slides 3 through 9, with complete embedded notes and matching rendered images. Review this excerpt as a slide deck. Live demo behavior, animation timing, and clipped code visibility are outside this text review."
+    },
+    {
+      "id": "eslint-talk-excerpt-sequential-comprehension",
+      "source": "/tmp/writing-real-documents/slides/eslint-talk/sequential-excerpt.md",
+      "mode": "sequential-comprehension",
+      "audience": "JavaScript developers attending a conference talk about ESLint and tooling.",
+      "companions": [
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-03.png",
+          "target": "rendered/slide-03.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-04.png",
+          "target": "rendered/slide-04.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-05.png",
+          "target": "rendered/slide-05.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-06.png",
+          "target": "rendered/slide-06.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-07.png",
+          "target": "rendered/slide-07.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-08.png",
+          "target": "rendered/slide-08.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-09.png",
+          "target": "rendered/slide-09.png"
+        }
+      ],
+      "request": "This is a seven-slide excerpt, visible slides 3 through 9, with complete embedded notes and matching rendered images. Review this excerpt as a slide deck. Live demo behavior, animation timing, and clipped code visibility are outside this text review."
+    },
+    {
+      "id": "tools-talk-comprehension",
+      "source": "/tmp/writing-real-documents/slides/tools-talk/rendered-notes.md",
+      "mode": "comprehension",
+      "audience": "Software developers and open-source maintainers attending a conference talk about building useful tools.",
+      "companions": [
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-01.png",
+          "target": "rendered/slide-01.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-02.png",
+          "target": "rendered/slide-02.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-03.png",
+          "target": "rendered/slide-03.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-04.png",
+          "target": "rendered/slide-04.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-05.png",
+          "target": "rendered/slide-05.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-06.png",
+          "target": "rendered/slide-06.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-07.png",
+          "target": "rendered/slide-07.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-08.png",
+          "target": "rendered/slide-08.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-09.png",
+          "target": "rendered/slide-09.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-10.png",
+          "target": "rendered/slide-10.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-11.png",
+          "target": "rendered/slide-11.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-12.png",
+          "target": "rendered/slide-12.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-13.png",
+          "target": "rendered/slide-13.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-14.png",
+          "target": "rendered/slide-14.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-15.png",
+          "target": "rendered/slide-15.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-16.png",
+          "target": "rendered/slide-16.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-17.png",
+          "target": "rendered/slide-17.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-18.png",
+          "target": "rendered/slide-18.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-19.png",
+          "target": "rendered/slide-19.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-20.png",
+          "target": "rendered/slide-20.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-21.png",
+          "target": "rendered/slide-21.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-22.png",
+          "target": "rendered/slide-22.png"
+        }
+      ],
+      "request": "This is a slide deck with embedded speaker notes. Review the visible text and notes; live demo behavior, animation timing, and clipped code visibility are outside this text review."
+    },
+    {
+      "id": "tools-talk-deslop",
+      "source": "/tmp/writing-real-documents/slides/tools-talk/source.md",
+      "mode": "deslop",
+      "audience": "Software developers and open-source maintainers attending a conference talk about building useful tools.",
+      "companions": [],
+      "request": "This is a slide deck with embedded speaker notes. Review the visible text and notes; live demo behavior, animation timing, and clipped code visibility are outside this text review."
+    },
+    {
+      "id": "tools-talk-leak",
+      "source": "/tmp/writing-real-documents/slides/tools-talk/rendered-notes.md",
+      "mode": "leak",
+      "audience": "Software developers and open-source maintainers attending a conference talk about building useful tools.",
+      "companions": [
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-01.png",
+          "target": "rendered/slide-01.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-02.png",
+          "target": "rendered/slide-02.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-03.png",
+          "target": "rendered/slide-03.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-04.png",
+          "target": "rendered/slide-04.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-05.png",
+          "target": "rendered/slide-05.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-06.png",
+          "target": "rendered/slide-06.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-07.png",
+          "target": "rendered/slide-07.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-08.png",
+          "target": "rendered/slide-08.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-09.png",
+          "target": "rendered/slide-09.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-10.png",
+          "target": "rendered/slide-10.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-11.png",
+          "target": "rendered/slide-11.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-12.png",
+          "target": "rendered/slide-12.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-13.png",
+          "target": "rendered/slide-13.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-14.png",
+          "target": "rendered/slide-14.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-15.png",
+          "target": "rendered/slide-15.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-16.png",
+          "target": "rendered/slide-16.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-17.png",
+          "target": "rendered/slide-17.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-18.png",
+          "target": "rendered/slide-18.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-19.png",
+          "target": "rendered/slide-19.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-20.png",
+          "target": "rendered/slide-20.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-21.png",
+          "target": "rendered/slide-21.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-22.png",
+          "target": "rendered/slide-22.png"
+        }
+      ],
+      "request": "This is a slide deck with embedded speaker notes. Review the visible text and notes; live demo behavior, animation timing, and clipped code visibility are outside this text review."
+    },
+    {
+      "id": "tools-talk-excerpt-comprehension",
+      "source": "/tmp/writing-real-documents/slides/tools-talk/sequential-excerpt.md",
+      "mode": "comprehension",
+      "audience": "Software developers and open-source maintainers attending a conference talk about building useful tools.",
+      "companions": [
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-04.png",
+          "target": "rendered/slide-04.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-05.png",
+          "target": "rendered/slide-05.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-06.png",
+          "target": "rendered/slide-06.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-07.png",
+          "target": "rendered/slide-07.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-08.png",
+          "target": "rendered/slide-08.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-09.png",
+          "target": "rendered/slide-09.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-10.png",
+          "target": "rendered/slide-10.png"
+        }
+      ],
+      "request": "This is a seven-slide excerpt, visible slides 4 through 10, with complete embedded notes and matching rendered images. Review this excerpt as a slide deck. Live demo behavior, animation timing, and clipped code visibility are outside this text review."
+    },
+    {
+      "id": "tools-talk-excerpt-sequential-comprehension",
+      "source": "/tmp/writing-real-documents/slides/tools-talk/sequential-excerpt.md",
+      "mode": "sequential-comprehension",
+      "audience": "Software developers and open-source maintainers attending a conference talk about building useful tools.",
+      "companions": [
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-04.png",
+          "target": "rendered/slide-04.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-05.png",
+          "target": "rendered/slide-05.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-06.png",
+          "target": "rendered/slide-06.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-07.png",
+          "target": "rendered/slide-07.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-08.png",
+          "target": "rendered/slide-08.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-09.png",
+          "target": "rendered/slide-09.png"
+        },
+        {
+          "source": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-10.png",
+          "target": "rendered/slide-10.png"
+        }
+      ],
+      "request": "This is a seven-slide excerpt, visible slides 4 through 10, with complete embedded notes and matching rendered images. Review this excerpt as a slide deck. Live demo behavior, animation timing, and clipped code visibility are outside this text review."
+    },
+    {
+      "id": "retrospect-sequential-comprehension",
+      "source": "/tmp/writing-real-documents/local-pr/retrospect.md",
+      "audience": "Claude Code users considering this plugin for retrospectives over their own sessions.",
+      "mode": "sequential-comprehension",
+      "companions": []
+    }
+  ]
+}

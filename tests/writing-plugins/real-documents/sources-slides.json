@@ -1,0 +1,479 @@
+{
+  "schema_version": 1,
+  "prepared_at_utc": "2026-11-03T18:27:07.519366+00:00",
+  "preparation_script": {
+    "path": "/tmp/writing-real-documents/slides/browser/export.mjs",
+    "sha256": "944256993b42d1c2c094dae60f0af575e0404005770c292e8f9c51364aae035f",
+    "bytes": 3124
+  },
+  "dependencies": {
+    "@slidev/parser": "53.0.0",
+    "playwright": "1.64.1",
+    "chromium": "ms-playwright chromium-1228"
+  },
+  "documents": [
+    {
+      "id": "eslint-talk",
+      "title": "ESLint One for All Made Easy",
+      "source_url": "https://github.com/antfu/talks/blob/main/2024-06-13/src/slides.md",
+      "pinned_url": "https://raw.githubusercontent.com/antfu/talks/d7595590904ef6b36a4439411fa30f179df494d1/2024-06-13/src/slides.md",
+      "revision": "d7595590904ef6b36a4439411fa30f179df494d1",
+      "retrieved_at_utc": "2026-11-03T18:24:14.586Z",
+      "license": {
+        "description": "AGPL-3.0 repository license; external images and live embedded applications may have separate rights. Third-party text/assets remain in temporary evaluation files.",
+        "source": "https://github.com/antfu/talks/blob/d7595590904ef6b36a4439411fa30f179df494d1/LICENSE",
+        "file": {
+          "path": "/tmp/writing-real-documents/slides/source/LICENSE",
+          "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef",
+          "bytes": 34523
+        }
+      },
+      "audience": "JavaScript developers attending JSNation 2024, familiar with JavaScript modules and npm but not necessarily ESLint flat configuration.",
+      "audience_basis": "Evaluator-selected conference audience; identical words supplied to compared runs.",
+      "input": {
+        "path": "/tmp/writing-real-documents/slides/eslint-talk/rendered-notes.md",
+        "sha256": "75720ddaf1a8516d4e58ce979a59ed7f581c162905ef080844b347dfc682babc",
+        "bytes": 25196
+      },
+      "style_input": {
+        "path": "/tmp/writing-real-documents/slides/eslint-talk/source.md",
+        "sha256": "8b45b9132c70dd323f0c97a882a8515eee8b3d1fdce45a300484fa7f2416e87c",
+        "bytes": 31291
+      },
+      "scope": "All 23 active slides as rendered text plus original source notes, with same-slide PNGs. This is a snapshot of the currently published source/render, not a reconstruction of the delivered talk.",
+      "sequential": {
+        "input": {
+          "path": "/tmp/writing-real-documents/slides/eslint-talk/sequential-excerpt.md",
+          "sha256": "1c0f4bdf8698f8de784206984f93cc399402af84ede612a4bee5d53170d9e6cf",
+          "bytes": 8241
+        },
+        "source_prose_input": {
+          "path": "/tmp/writing-real-documents/slides/eslint-talk/source-excerpt.md",
+          "sha256": "17153bad038d292b0c74fdf22414cbf37c77038788b2fc8c5912f25b0dfe7b6e",
+          "bytes": 9424
+        },
+        "visible_slides": [
+          3,
+          9
+        ],
+        "chunk_start_lines": [
+          1,
+          16,
+          27,
+          38,
+          52,
+          117,
+          161
+        ],
+        "scope": "Seven complete slides; first slide is the talk title and notes. Use this exact same excerpt for ordinary-versus-sequential comparison, preserving original slide numbers. No claim about remaining slides or intermediate click timing."
+      },
+      "companions_root": "/tmp/writing-real-documents/slides/eslint-talk",
+      "companions": [
+        {
+          "path": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-01.png",
+          "sha256": "8df407798ad11ce4111a7508ded968e77e4437c3c03c8485cbdafa4a37cc3209",
+          "bytes": 121230
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-02.png",
+          "sha256": "c51ba423e2478ddf108f4ce42b735a2bf1ebb170921aa04445fbf2014423fd79",
+          "bytes": 227383
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-03.png",
+          "sha256": "e0ca2255ff2ecb5352ad5dc1a7898ff9dc540d0ffcb8e26a5676fda6f6e303c3",
+          "bytes": 162546
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-04.png",
+          "sha256": "d312f43356320033b20120dbed39df2cf3eeaab80e06261770162953588916af",
+          "bytes": 103956
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-05.png",
+          "sha256": "4219a6efa672ba1be44b78172f5de568701d863a2c1150ebbb25c94962249270",
+          "bytes": 124519
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-06.png",
+          "sha256": "063c15a1d7d9fcaf5c5c09aa4f2f4fda0d89129dce87784bdd71085d45f883ce",
+          "bytes": 136863
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-07.png",
+          "sha256": "b6282de90eb619ff2c0cacbc385fac2574661619cfe473ed470530cf5f48c421",
+          "bytes": 264927
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-08.png",
+          "sha256": "7b16f267ddb8dfa8baab1b0c4d364a6ef4ba5c2f99a146d6dffce5b4e9772b9d",
+          "bytes": 179889
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-09.png",
+          "sha256": "ec50aebc46fb5ca334c6f3da5c742d411d01fc6ada2a812d64ac2ceb75649145",
+          "bytes": 204251
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-10.png",
+          "sha256": "5ea1f13a22a293287f831c42d7aba632cbd2206c1bb3312fdd5e07b0a62a3746",
+          "bytes": 138133
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-11.png",
+          "sha256": "0f38ea3557005f9ebcf0a85ee237b35566b2585d95ca6b809c26050f6e6b2201",
+          "bytes": 194738
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-12.png",
+          "sha256": "1d2cf9d457bdbc39b827db8b7d65454a266274ec2eef3e4782b5480c934cf45f",
+          "bytes": 174908
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-13.png",
+          "sha256": "51c572a6350eefdffa38ee7c5aa0d0ddca669ccb6f46499d23a0f97951c20441",
+          "bytes": 221894
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-14.png",
+          "sha256": "34a9767f1ff6c1ba8e58070dfad448e8d04790977815ce347c8bddec9e32155d",
+          "bytes": 128588
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-15.png",
+          "sha256": "53afb94987a6ff708983b7d25618553e1ea053dc02608d6aa8e1012c79345d14",
+          "bytes": 220684
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-16.png",
+          "sha256": "4c94ff07844afa2187cc311dfa168b5b7e9b2362c89e560992fe6c0e54fda0c8",
+          "bytes": 198034
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-17.png",
+          "sha256": "71ab57fd24e5b39d80c35949583955cc299a5051e7b596067b216be45fa9afc6",
+          "bytes": 126677
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-18.png",
+          "sha256": "e509c81b5a6822c0e62cef767a4c080ba1f00ed5ef74c37e7ec5a58d42e5d9ee",
+          "bytes": 166803
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-19.png",
+          "sha256": "691605dc744ffb6f16f6cf80b200edf2ece0ee045a148d1f52fe5ad15e410b9d",
+          "bytes": 201712
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-20.png",
+          "sha256": "1d1e534ef7ca9eed3a1603ddc86d324f9a02422a37f6805bf04c051fbbab0efd",
+          "bytes": 217938
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-21.png",
+          "sha256": "b78d5ae01285619a8916be2368e4cea03f446b68237aa5665f859e91a99feabe",
+          "bytes": 185543
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-22.png",
+          "sha256": "627a0089ba861d9e3701acc993b7147659c90f244142c6f4dd7f1d30889bae08",
+          "bytes": 178382
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/eslint-talk/rendered/slide-23.png",
+          "sha256": "86e92dd98e23630ceb83e8e0461331212d17a20750ac60df5987ee35c3bac062",
+          "bytes": 105485
+        }
+      ],
+      "source_artifacts": [
+        {
+          "path": "/tmp/writing-real-documents/slides/source/2024-06-13/src/slides.md",
+          "sha256": "8b45b9132c70dd323f0c97a882a8515eee8b3d1fdce45a300484fa7f2416e87c",
+          "bytes": 31291
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/source/2024-06-13/2024-06-13-jsnation-en.pdf",
+          "sha256": "d4a0e9c73d60c4f85ff1726bb485d29c25ad7519ca84a3d227e0195b3d3a5778",
+          "bytes": 10819198
+        }
+      ],
+      "archived_pdf_url": "https://raw.githubusercontent.com/antfu/talks/d7595590904ef6b36a4439411fa30f179df494d1/2024-06-13/2024-06-13-jsnation-en.pdf",
+      "slide_map": {
+        "path": "/tmp/writing-real-documents/slides/eslint-talk/slide-map.json",
+        "sha256": "c635cbb23105c51853c54c67e91efd05d8fe8da8642e6b7bcb85b4aa0ee93f22",
+        "bytes": 58963
+      },
+      "render_provenance": {
+        "path": "/tmp/writing-real-documents/slides/eslint-talk/render-provenance.json",
+        "sha256": "bbba155481007f0da5a3f6ccda5eac9578327aabf346dd754fbb7ab7d7f5402d",
+        "bytes": 7581
+      },
+      "transformations": [
+        "Parse pinned Markdown with @slidev/parser 53.0.0; omit disabled records and retain each active slide’s trailing speaker-note comment, trimming only surrounding whitespace as the parser does.",
+        "Read the published Slidev page for each active slide at clicks=999. Freeze the browser clock to the conference date at 12:00 UTC. Extract only that slide element’s innerText, excluding navigation UI.",
+        "Store a same-slide screenshot at 1280x720 and reference it adjacent to its text. The export preserves DOM order; it does not encode spatial relationships or per-click ordering.",
+        "Append public link targets from that source slide’s static href/Markdown links and Repo component names; include the timeline component’s public data-source link on its own slide.",
+        "Combine visible slide text, linked screenshot, and that same slide’s original note text in an HTML comment. Sequential excerpt is an exact contiguous selection of these complete exported slide blocks."
+      ],
+      "verification": {
+        "active_slide_count": 23,
+        "pdf_page_count": 23,
+        "disabled_source_slides": [
+          21
+        ],
+        "checked_against_rendered_sources": [
+          "ESLint PDF pages7–9 and browser slides4,8,11; Tools PDF page8 and browser slides3,8,10 inspected visually.",
+          "Per-slide DOM/source/notes mapping saved; titles and active record counts match the PDFs.",
+          "Speaker notes are original source comments, not inferred from the rendered slide."
+        ],
+        "protected_checks": [
+          "Use raw source for style-edit checks: fenced code and inline code, HTML/Vue attributes, YAML front matter, commands, href/image targets, and click markers must survive.",
+          "Compare numbers, versions, project names, conditions and attribution to the original before judging improved wording."
+        ],
+        "semantic_checks": [
+          "Retain the distinction between configuration-format changes, helper tools, formatting, codemods, and non-JavaScript linting.",
+          "Keep conditions, version numbers, and the distinction between experiments, stable support, and defaults.",
+          "Author enthusiasm and first-person experience may remain; shorter output alone is not an improvement."
+        ]
+      },
+      "limits": [
+        "Live render assets are separately snapshot-hashed; their build cannot be proven to correspond exactly to the pinned Git revision. The archived PDF is a visual cross-check, not the tested rendered snapshot.",
+        "DOM text includes off-viewport and reveal-controlled content. Do not score pixel visibility, intermediate reveals, clipped code, canvas semantics, or demo interaction as writing defects.",
+        "Screenshots contain image/canvas/iframe content that innerText omits. A text-only reader that does not inspect those images has only a partial visual review; missing visual information is not an author-context gap.",
+        "Date labels reflect the frozen conference-date clock. Archived PDF labels can differ due to export time.",
+        "ESLint slide11 embeds the currently hosted Config Inspector app, and slide19 includes a video demo. Exclude their dynamic app/version/timing details. The seven-slide comparative excerpt avoids these demos."
+      ]
+    },
+    {
+      "id": "tools-talk",
+      "title": "Make Tools That People Love",
+      "source_url": "https://github.com/antfu/talks/blob/main/2025-09-18/src/slides.md",
+      "pinned_url": "https://raw.githubusercontent.com/antfu/talks/d7595590904ef6b36a4439411fa30f179df494d1/2025-09-18/src/slides.md",
+      "revision": "d7595590904ef6b36a4439411fa30f179df494d1",
+      "retrieved_at_utc": "2026-11-03T18:25:09.333Z",
+      "license": {
+        "description": "AGPL-3.0 repository license; external images and live embedded applications may have separate rights. Third-party text/assets remain in temporary evaluation files.",
+        "source": "https://github.com/antfu/talks/blob/d7595590904ef6b36a4439411fa30f179df494d1/LICENSE",
+        "file": {
+          "path": "/tmp/writing-real-documents/slides/source/LICENSE",
+          "sha256": "8486a10c4393cee1c25392769ddd3b2d6c242d6ec7928e1414efff7dfb2f07ef",
+          "bytes": 34523
+        }
+      },
+      "audience": "Developers and open-source tool maintainers attending SquiggleConf 2025, familiar with software tools and plugin systems.",
+      "audience_basis": "Evaluator-selected conference audience; identical words supplied to compared runs.",
+      "input": {
+        "path": "/tmp/writing-real-documents/slides/tools-talk/rendered-notes.md",
+        "sha256": "3e5eb7b59f1a93026d5f2022ef632f04bbb33ebf8b8537db092899f07e40d69c",
+        "bytes": 17509
+      },
+      "style_input": {
+        "path": "/tmp/writing-real-documents/slides/tools-talk/source.md",
+        "sha256": "3e2597366ee26b6ff742ba07ee93ae818d26c2146fa120e90809167274478547",
+        "bytes": 25948
+      },
+      "scope": "All 22 active slides as rendered text plus original source notes, with same-slide PNGs. This is a snapshot of the currently published source/render, not a reconstruction of the delivered talk.",
+      "sequential": {
+        "input": {
+          "path": "/tmp/writing-real-documents/slides/tools-talk/sequential-excerpt.md",
+          "sha256": "14d3e0bd7ceca7944f4d5802b308ec28c80d565189240484612c5d71e1f84162",
+          "bytes": 6457
+        },
+        "source_prose_input": {
+          "path": "/tmp/writing-real-documents/slides/tools-talk/source-excerpt.md",
+          "sha256": "5262a6be1b578f5b557b47b8d7eb619e762db3fda7e84a50cb2858027b3a4e5c",
+          "bytes": 9628
+        },
+        "visible_slides": [
+          4,
+          10
+        ],
+        "chunk_start_lines": [
+          1,
+          15,
+          33,
+          55,
+          69,
+          111,
+          127
+        ],
+        "scope": "Seven complete slides; first slide is the talk title and notes. Use this exact same excerpt for ordinary-versus-sequential comparison, preserving original slide numbers. No claim about remaining slides or intermediate click timing."
+      },
+      "companions_root": "/tmp/writing-real-documents/slides/tools-talk",
+      "companions": [
+        {
+          "path": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-01.png",
+          "sha256": "fd460afd7f9c4695dbe07798b30603668435348275689edb3103e3768d39516e",
+          "bytes": 156553
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-02.png",
+          "sha256": "133a7b0c856c6701fd064be8b75c6a9322f034350d9ec27372e24fcab3e3a802",
+          "bytes": 254575
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-03.png",
+          "sha256": "75da901ca7d886dc3c26532a1c8590d6dcee3a3db236cee208c3f740de2350d2",
+          "bytes": 228821
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-04.png",
+          "sha256": "2bf3e277e90166b470ce4dcc0e0d7b0433ad0b9707773c53edfeba4a1da4c1ba",
+          "bytes": 147120
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-05.png",
+          "sha256": "10c98481ead41dcbcdf6a5bab29b0310c020fc4f36101edc002e5072f42538f6",
+          "bytes": 149079
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-06.png",
+          "sha256": "68126624154bde3eaf3e45fbe3b8c783aecee7dbda51f9c8f6362abf8bc7f9cc",
+          "bytes": 167857
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-07.png",
+          "sha256": "116419d8a9b65430658e957ffaca492634ccf1fa0ec889b1a0c314139b743de6",
+          "bytes": 213253
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-08.png",
+          "sha256": "71640c4e62cbd582b89bb4193d68dc78186d46452370fb758a2d257ce947ac13",
+          "bytes": 307450
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-09.png",
+          "sha256": "5f818ff08078fdb75977641f53b50044657d666c8970e2b5d44d8967fbbc1106",
+          "bytes": 156704
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-10.png",
+          "sha256": "75e300bb400013ed05dcae8a4bc75bfdfd6c37976d93b39b4883f1bf99885b2e",
+          "bytes": 242835
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-11.png",
+          "sha256": "45a9309bea7f4318f29049284d98b7785e19b459c96ba9f539e1b129d1ed45b2",
+          "bytes": 215537
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-12.png",
+          "sha256": "4628664739b3a85f59cf5e16835f7c7becdac58654fa99eb6c3811fe5722440f",
+          "bytes": 109865
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-13.png",
+          "sha256": "e0027ea307779bdbf80737dc53bbd2569d926384f748674a9f1a8d3c4f0324bf",
+          "bytes": 203874
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-14.png",
+          "sha256": "787d2f94201d6ed3000bf6fba79b7f4b376534ac9d7f6ef88041353a44f291d1",
+          "bytes": 176147
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-15.png",
+          "sha256": "64400e7183e3976da6281cf8b4ad062c36e30a2226fdce810ae093e43815a13e",
+          "bytes": 200454
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-16.png",
+          "sha256": "647a32b9485ba5731eb5349184d4c359b91d3a8ee12237dbb5b9863fb35f2d1d",
+          "bytes": 209756
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-17.png",
+          "sha256": "bbe7ab4fac381b139059d920d9381a72efa6bff2d2098d9deb90c7fc549ede5c",
+          "bytes": 170855
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-18.png",
+          "sha256": "10a590cda04b54df8e03f7732a41a69bb3cef561e27fed066d854cdf48fd1a26",
+          "bytes": 217621
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-19.png",
+          "sha256": "03bb11aa638fd5460468b3250e061e5d6e1685aa484e4dbc1c8e0f1534c45439",
+          "bytes": 232790
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-20.png",
+          "sha256": "ab65f93916e89739a6060d5f4b581a1f43cc412d67fb0a2c967abe327d8d76a5",
+          "bytes": 254392
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-21.png",
+          "sha256": "161c57e8b05e2209fe257dbf03979b6c69346a3b31b3e7d374e87800faf1e502",
+          "bytes": 230872
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/tools-talk/rendered/slide-22.png",
+          "sha256": "f39b6f909aff45861db938504620c82b8b15f637326e6c219adff9da7655c8ae",
+          "bytes": 165437
+        }
+      ],
+      "source_artifacts": [
+        {
+          "path": "/tmp/writing-real-documents/slides/source/2025-09-18/src/slides.md",
+          "sha256": "3e2597366ee26b6ff742ba07ee93ae818d26c2146fa120e90809167274478547",
+          "bytes": 25948
+        },
+        {
+          "path": "/tmp/writing-real-documents/slides/source/2025-09-18/2025-09-18-squiggleconf-en.pdf",
+          "sha256": "bca991e0bf76aa7547f41aa9992f8ae8eec9f8e1a4af0c28ddb65e04b25df751",
+          "bytes": 2475708
+        }
+      ],
+      "archived_pdf_url": "https://raw.githubusercontent.com/antfu/talks/d7595590904ef6b36a4439411fa30f179df494d1/2025-09-18/2025-09-18-squiggleconf-en.pdf",
+      "slide_map": {
+        "path": "/tmp/writing-real-documents/slides/tools-talk/slide-map.json",
+        "sha256": "070bb3d1e0a4094727bdf07bd198d0c341533e0fd7d1c81e8ec581216a19afcf",
+        "bytes": 42463
+      },
+      "render_provenance": {
+        "path": "/tmp/writing-real-documents/slides/tools-talk/render-provenance.json",
+        "sha256": "ac421cade6f2a018aeb9bbc4acca72af695f1d93d04082edc54d15e870d2af24",
+        "bytes": 5032
+      },
+      "transformations": [
+        "Parse pinned Markdown with @slidev/parser 53.0.0; omit disabled records and retain each active slide’s trailing speaker-note comment, trimming only surrounding whitespace as the parser does.",
+        "Read the published Slidev page for each active slide at clicks=999. Freeze the browser clock to the conference date at 12:00 UTC. Extract only that slide element’s innerText, excluding navigation UI.",
+        "Store a same-slide screenshot at 1280x720 and reference it adjacent to its text. The export preserves DOM order; it does not encode spatial relationships or per-click ordering.",
+        "Append public link targets from that source slide’s static href/Markdown links and Repo component names; include the timeline component’s public data-source link on its own slide.",
+        "Combine visible slide text, linked screenshot, and that same slide’s original note text in an HTML comment. Sequential excerpt is an exact contiguous selection of these complete exported slide blocks."
+      ],
+      "verification": {
+        "active_slide_count": 22,
+        "pdf_page_count": 22,
+        "disabled_source_slides": [],
+        "checked_against_rendered_sources": [
+          "ESLint PDF pages7–9 and browser slides4,8,11; Tools PDF page8 and browser slides3,8,10 inspected visually.",
+          "Per-slide DOM/source/notes mapping saved; titles and active record counts match the PDFs.",
+          "Speaker notes are original source comments, not inferred from the rendered slide."
+        ],
+        "protected_checks": [
+          "Use raw source for style-edit checks: fenced code and inline code, HTML/Vue attributes, YAML front matter, commands, href/image targets, and click markers must survive.",
+          "Compare numbers, versions, project names, conditions and attribution to the original before judging improved wording."
+        ],
+        "semantic_checks": [
+          "Retain uncertainty about success, advice to test with the community, and first-person experience.",
+          "Preserve the difference between starting from personal needs and validating demand with others.",
+          "Do not convert opinion/advice about extensibility into externally established universal facts.",
+          "Keep deliberate spoken repetition and pauses when they support the speaker’s cadence."
+        ]
+      },
+      "limits": [
+        "Live render assets are separately snapshot-hashed; their build cannot be proven to correspond exactly to the pinned Git revision. The archived PDF is a visual cross-check, not the tested rendered snapshot.",
+        "DOM text includes off-viewport and reveal-controlled content. Do not score pixel visibility, intermediate reveals, clipped code, canvas semantics, or demo interaction as writing defects.",
+        "Screenshots contain image/canvas/iframe content that innerText omits. A text-only reader that does not inspect those images has only a partial visual review; missing visual information is not an author-context gap.",
+        "Date labels reflect the frozen conference-date clock. Archived PDF labels can differ due to export time.",
+        "Tools slide3 includes a rendered canvas Yak Map. Its graph relationships require image inspection; the comparative excerpt begins at slide4 and does not test that graph."
+      ]
+    }
+  ],
+  "postprocessing_script": {
+    "path": "/tmp/writing-real-documents/slides/finish-export.py",
+    "sha256": "5bde15238fcdf82dcab92b5fd61c597607b9b362685ac52862ce15bea80ddb45",
+    "bytes": 1688
+  }
+}

@@ -1,0 +1,43 @@
+[
+  {
+    "id": "retrospect",
+    "source_url": "local git repository: plugins/retrospect/README.md",
+    "revision": "04af4ea3c46814a11f9901b2474a84ae13e45ff9",
+    "retrieved_at": "2026-11-03T18:19:01.916045+00:00",
+    "input_path": "/tmp/writing-real-documents/local-pr/retrospect.md",
+    "sha256": "44665eca10650ff4e30812b22c3d12b94ad6324cc4cbbe6f5f5652671b950f58",
+    "bytes": 4493,
+    "scope": "Complete README.",
+    "audience": "Claude Code users considering this plugin for retrospectives over their own sessions.",
+    "audience_basis": "Evaluation assumption, supplied identically to all compared runs.",
+    "companions": [],
+    "transformation": "git show exact bytes",
+    "license": "Repository license; third-party text retained only in temporary evaluation workspace."
+  },
+  {
+    "id": "uv-pr",
+    "source_url": "https://github.com/astral-sh/uv/pull/12946",
+    "revision": "181be9308b943aa315fe67e50560a92372cebbbc",
+    "retrieved_at": "2026-11-03T18:19:01.916318+00:00",
+    "input_path": "/tmp/writing-real-documents/local-pr/pr.md",
+    "sha256": "f53de5ba70cbd949e71fc2c2868d331d6778d2ce16bc4151b12e3fa9e3cdc517",
+    "bytes": 3538,
+    "scope": "Current retrieved PR title and body; exact PR diff and current public metadata supplied. This is an archival comprehension review, not a request for a new merge.",
+    "audience": "Python developers and uv contributors reading the archived merged PR to understand the change.",
+    "audience_basis": "Evaluation assumption, supplied identically to all compared runs.",
+    "companions": [
+      {
+        "path": "/tmp/writing-real-documents/local-pr/pr.diff",
+        "sha256": "48daf7644336af3a60c67c723e6f0c82efe00fef39350aeaed2a714609ca21d1",
+        "bytes": 46670
+      },
+      {
+        "path": "/tmp/writing-real-documents/local-pr/publication.json",
+        "sha256": "f0bec1868f9adae00598d4e246fa992ac721767b393ad67cf6dcac48c9356927",
+        "bytes": 626
+      }
+    ],
+    "transformation": "GitHub API title prefixed as Markdown heading; original body unchanged; terminal newline appended. Full API JSON retained outside repository.",
+    "license": "Repository license; third-party text retained only in temporary evaluation workspace."
+  }
+]

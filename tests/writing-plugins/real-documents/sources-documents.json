@@ -1,0 +1,465 @@
+{
+  "schema_version": 1,
+  "prepared_at_utc": "2026-11-03T18:22:15.623210+00:00",
+  "preparation_script": {
+    "path": "/tmp/writing-real-documents/documents/prepare.py",
+    "sha256": "5c8089a8cdc43796fa8d7326de11536a63b35a7edd826b2c4655842c4bec3ff8",
+    "bytes": 5221
+  },
+  "dependencies": {
+    "beautifulsoup4": "4.15.0",
+    "markdownify": "1.2.3",
+    "pdftotext": "pdftotext version 24.02.0"
+  },
+  "documents": [
+    {
+      "id": "uv-projects",
+      "title": "Working on projects",
+      "source_url": "https://github.com/astral-sh/uv/blob/main/docs/guides/projects.md",
+      "pinned_url": "https://raw.githubusercontent.com/astral-sh/uv/316c827e058c16b71d5c507a20729c2995a7bcce/docs/guides/projects.md",
+      "revision": "316c827e058c16b71d5c507a20729c2995a7bcce",
+      "retrieved_at_utc": "2026-11-03T18:18:14.053079+00:00",
+      "license": {
+        "description": "MIT OR Apache-2.0 (repository source license)",
+        "sources": [
+          "https://github.com/astral-sh/uv/blob/316c827e058c16b71d5c507a20729c2995a7bcce/LICENSE-MIT",
+          "https://github.com/astral-sh/uv/blob/316c827e058c16b71d5c507a20729c2995a7bcce/LICENSE-APACHE"
+        ]
+      },
+      "audience": "Python developers familiar with Python packages and a command-line shell, learning uv project management.",
+      "audience_basis": "Evaluator-selected audience inferred from the guide; supplied identically to every compared run.",
+      "input": {
+        "path": "/tmp/writing-real-documents/documents/uv-source/docs/guides/projects.md",
+        "sha256": "70c7648a1dcd1463ec8df2567e9045177f26abc80f755df0bda471625243505d",
+        "bytes": 8114
+      },
+      "scope": "Complete original Markdown guide, including YAML, all examples, admonitions, and links.",
+      "transforms": [],
+      "companions_root": "/tmp/writing-real-documents/documents/uv-source",
+      "companions": [
+        {
+          "path": "/tmp/writing-real-documents/documents/uv-source/LICENSE-APACHE",
+          "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+          "bytes": 11357
+        },
+        {
+          "path": "/tmp/writing-real-documents/documents/uv-source/LICENSE-MIT",
+          "sha256": "860e3d7a86b84e6a7012c7a635fc64df475cebc6cce34dfeb73a5982ec58176c",
+          "bytes": 1077
+        },
+        {
+          "path": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/configuration-files.md",
+          "sha256": "1838a7360ad4a83d56b2eb13648041667dda582d8736f38cf4b73a08535a7b0b",
+          "bytes": 5779
+        },
+        {
+          "path": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/build.md",
+          "sha256": "6e75090c45d3f5b11bfb0b42ecaf74618e4903eb91e20c57f20851b21ae157f6",
+          "bytes": 4635
+        },
+        {
+          "path": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/dependencies.md",
+          "sha256": "c97457891ea4f9dd5bdcc8a9fcab630c303baa10018292f2e3b21980f2535e46",
+          "bytes": 29234
+        },
+        {
+          "path": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/export.md",
+          "sha256": "2d74c77651d396576a51db568417c220b7c18dc260b37771347b5c35535c542e",
+          "bytes": 4143
+        },
+        {
+          "path": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/index.md",
+          "sha256": "1f479134613d6051b7ef7cf9b6f56e6a49d201e3d676d9a7b505a71e44a2686c",
+          "bytes": 815
+        },
+        {
+          "path": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/layout.md",
+          "sha256": "39a4e523e58410f02fd0a6e0cb31d59bf17dd08097f5457aded8b6b7c7ec5b08",
+          "bytes": 5649
+        },
+        {
+          "path": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/run.md",
+          "sha256": "e8b7e0b76a4aedeaf5cd0e19d115da7fe3ddf14161e14386a1d8c925fc39bf72",
+          "bytes": 3440
+        },
+        {
+          "path": "/tmp/writing-real-documents/documents/uv-source/docs/concepts/projects/sync.md",
+          "sha256": "b5cb70256ca739e0a7c17fd1d317d537c8e325dbd8f61e2c49102f305b70ea99",
+          "bytes": 8388
+        },
+        {
+          "path": "/tmp/writing-real-documents/documents/uv-source/docs/guides/package.md",
+          "sha256": "f463f0232e1af6fc2b98c466d010e2eb504d45184932f4d65b035b8fdca7fd65",
+          "bytes": 8044
+        },
+        {
+          "path": "/tmp/writing-real-documents/documents/uv-source/docs/guides/projects.md",
+          "sha256": "70c7648a1dcd1463ec8df2567e9045177f26abc80f755df0bda471625243505d",
+          "bytes": 8114
+        },
+        {
+          "path": "/tmp/writing-real-documents/documents/uv-source/docs/reference/cli.html",
+          "sha256": "c18d3e271a3da505477ffb6c1c8c20efb45c9679ce8ccebb488308193d0a09ca",
+          "bytes": 1183167
+        },
+        {
+          "path": "/tmp/writing-real-documents/documents/uv-source/docs/reference/cli.md",
+          "sha256": "004d1e5c4377bdec26bb2733807455d785aacfe690426b630dba507b7447a365",
+          "bytes": 818934
+        },
+        {
+          "path": "/tmp/writing-real-documents/documents/uv-source/docs/reference/settings.html",
+          "sha256": "8b8921808a9f48f1f09a2ec2f94846698fea4caff7ac644e0b14ad820397defa",
+          "bytes": 432015
+        },
+        {
+          "path": "/tmp/writing-real-documents/documents/uv-source/docs/reference/settings.md",
+          "sha256": "7dd3fafa1be726f8718d57aa6299e72e09e94c882fe9705f75b8e92b0d257fa6",
+          "bytes": 98479
+        }
+      ],
+      "companion_limitations": [
+        "Only direct relative Markdown links are mirrored. External links remain public URLs.",
+        "Generated reference/settings.md and reference/cli.md do not exist in the pinned repository. They are Markdown conversions of separately saved published HTML retrieved at evaluation time, not files from the pinned commit."
+      ],
+      "preparation_checks": {
+        "input_identical_to_pinned_raw": true,
+        "generated_companion_snapshots": [
+          "https://docs.astral.sh/uv/reference/settings/",
+          "https://docs.astral.sh/uv/reference/cli/"
+        ]
+      }
+    },
+    {
+      "id": "pep703",
+      "title": "PEP 703 – Making the Global Interpreter Lock Optional in CPython",
+      "source_url": "https://peps.python.org/pep-0703/",
+      "pinned_url": "https://raw.githubusercontent.com/python/peps/f866e77409305866038471574f075cd8d83eee9e/peps/pep-0703.rst",
+      "revision": "f866e77409305866038471574f075cd8d83eee9e",
+      "retrieved_at_utc": "2026-11-03T18:18:14.432686+00:00",
+      "license": {
+        "description": "Public domain or CC0-1.0-Universal, whichever is more permissive",
+        "source": "https://raw.githubusercontent.com/python/peps/f866e77409305866038471574f075cd8d83eee9e/peps/pep-0703.rst"
+      },
+      "audience": "Python implementation and C-extension developers familiar with threading, reference counting, and CPython terminology.",
+      "audience_basis": "Evaluator-selected audience inferred from this Standards Track PEP; supplied identically to every compared run.",
+      "input": {
+        "path": "/tmp/writing-real-documents/documents/pep703.rst",
+        "sha256": "8dfe19b2ab3b0ee783f922b533fed7b8018d6d90f3cec5534fd7baaa283a3470",
+        "bytes": 86335
+      },
+      "scope": "Complete original reStructuredText PEP, including public metadata, rollout proviso, code, tables, footnotes, and bibliography.",
+      "transforms": [],
+      "style_excerpt": {
+        "path": "/tmp/writing-real-documents/documents/pep703-policy-performance.rst",
+        "sha256": "98e691a8214e8a98bb1e40bd35e2e0dec40c0bafabb0d7c69ccddb73d678c42e",
+        "bytes": 5360
+      },
+      "style_excerpt_scope": "Original source lines 1–13 plus 1413–1521: metadata, Backwards Compatibility, Distribution, Performance and its baseline link. One blank separator inserted between ranges; all original range bytes preserved.",
+      "companions": [
+        {
+          "path": "/tmp/writing-real-documents/documents/pep703.rst",
+          "sha256": "8dfe19b2ab3b0ee783f922b533fed7b8018d6d90f3cec5534fd7baaa283a3470",
+          "bytes": 86335
+        }
+      ],
+      "preparation_checks": {
+        "rendered_web_page_checked": "https://peps.python.org/pep-0703/",
+        "style_ranges_1based_inclusive": [
+          [
+            1,
+            13
+          ],
+          [
+            1413,
+            1521
+          ]
+        ]
+      }
+    },
+    {
+      "id": "cloudflare-outage",
+      "title": "Details of the Cloudflare outage on July 2, 2019",
+      "source_url": "https://blog.cloudflare.com/details-of-the-cloudflare-outage-on-july-2-2019/",
+      "revision": null,
+      "retrieved_at_utc": "2026-11-03T18:18:12.952283+00:00",
+      "source_file": {
+        "path": "/tmp/writing-real-documents/documents/cloudflare_original.html",
+        "sha256": "b5c9d9c8af4dabd9855e9bacab71fe96f4b045d1648a25b8e47d29aa1d6433ea",
+        "bytes": 373334
+      },
+      "published_at": "2019-07-12T15:45:21.000Z",
+      "source_reported_modified_at": "2026-07-15T13:14:20.873Z",
+      "license": {
+        "description": "No reuse license verified; article and media retained only in temporary evaluation storage.",
+        "source": "https://blog.cloudflare.com/details-of-the-cloudflare-outage-on-july-2-2019/"
+      },
+      "audience": "Technical Cloudflare customers and web engineers who understand HTTP errors and basic network operations.",
+      "audience_basis": "Evaluator-selected audience inferred from the public incident report; supplied identically to every compared run.",
+      "input": {
+        "path": "/tmp/writing-real-documents/documents/cloudflare.md",
+        "sha256": "9f3827f5c0183e967b1916cb116d4b307d64c0e0b03cd88df5f589c1d3570756",
+        "bytes": 32099
+      },
+      "scope": "Complete article body including appendix and 25 linked media assets; site navigation, tags, author profile and related-post UI omitted.",
+      "transforms": [
+        "Select .article-content from the saved HTML.",
+        "Remove only empty/data-URL lazy-loading image placeholders; keep all 25 actual article media elements.",
+        "Resolve article hyperlinks to absolute public URLs.",
+        "Convert HTML to Markdown with markdownify (ATX headings; no underscore or asterisk escaping).",
+        "Use original article title, author and publication date as header.",
+        "Download original images behind the site image optimizer, preserve image bytes, and replace image targets with local relative paths."
+      ],
+      "companions_root": "/tmp/writing-real-documents/documents/cloudflare-images",
+      "companions": [
+        {
+          "url": "https://blog.cloudflare.com/_emdash/api/media/file/01KW44G5FHMGT7B6C2NGNFWVW7.png",
+          "local_path": "/tmp/writing-real-documents/documents/cloudflare-images/image-01.png",
+          "alt": "Details of the Cloudflare outage on July 2, 2019 Embedded Image - 0Mnog6",
+          "sha256": "f5b5a8930c4337b6fc4e90211c9601e7eca449e56d213a4c76981c3f7bc7c5a1",
+          "bytes": 100809
+        },
+        {
+          "url": "https://blog.cloudflare.com/_emdash/api/media/file/01KW44QRMVDWJSHVW37S4RMMH1.png",
+          "local_path": "/tmp/writing-real-documents/documents/cloudflare-images/image-02.png",
+          "alt": "Details of the Cloudflare outage on July 2, 2019 Embedded Image - wl62kh",
+          "sha256": "e991846aab31f503df1835f1a79d492739352efa6e7f1ef1fe885578784b6a22",
+          "bytes": 29406
+        },
+        {
+          "url": "https://blog.cloudflare.com/_emdash/api/media/file/01KW47T9F65SZC0YXDJQ8VE6E8.png",
+          "local_path": "/tmp/writing-real-documents/documents/cloudflare-images/image-03.png",
+          "alt": "Details of the Cloudflare outage on July 2, 2019 Embedded Image - uz3Tac",
+          "sha256": "cdb1ca58d2023db50ca51ac7cb8c32d34587b4d2db4a0e85af5b251aabe61d90",
+          "bytes": 38538
+        },
+        {
+          "url": "https://blog.cloudflare.com/_emdash/api/media/file/01KW455EM434QMN4RMBQV9N64E.jpg",
+          "local_path": "/tmp/writing-real-documents/documents/cloudflare-images/image-04.jpg",
+          "alt": "Details of the Cloudflare outage on July 2, 2019 Embedded Image - XVRnfi",
+          "sha256": "ba7da3131bec8c4011aa50d0b117b66a06e9743cdbb28513e2e74f5e81797fca",
+          "bytes": 17262
+        },
+        {
+          "url": "https://blog.cloudflare.com/_emdash/api/media/file/01KW494DXXTSFJPK8AEG86F0FQ.jpg",
+          "local_path": "/tmp/writing-real-documents/documents/cloudflare-images/image-05.jpg",
+          "alt": "Details of the Cloudflare outage on July 2, 2019 Embedded Image - 9HttsT",
+          "sha256": "b8833110642fc8ff3a2f70363f3af23a9e542c58712e81132661eccdab9b1f03",
+          "bytes": 15898
+        },
+        {
+          "url": "https://blog.cloudflare.com/_emdash/api/media/file/01KW44A36MB7DXYNVZ0P5MAN0T.png",
+          "local_path": "/tmp/writing-real-documents/documents/cloudflare-images/image-06.png",
+          "alt": "Details of the Cloudflare outage on July 2, 2019 Embedded Image - 2d7NXD",
+          "sha256": "de4ed63700420f23c02a3269093ad08e9e294edbc9bb0c1775848d79f625403a",
+          "bytes": 120864
+        },
+        {
+          "url": "https://blog.cloudflare.com/_emdash/api/media/file/01KW49M1VATVES6NEVR9EJJYTG.png",
+          "local_path": "/tmp/writing-real-documents/documents/cloudflare-images/image-07.png",
+          "alt": "Details of the Cloudflare outage on July 2, 2019 Embedded Image - VV5gtc",
+          "sha256": "9d4389cc27bf3d6dc8f8ee857303f49e7f4911b6c8be6f445947b315588e4eea",
+          "bytes": 101127
+        },
+        {
+          "url": "https://blog.cloudflare.com/_emdash/api/media/file/01KW47QK17ZR3VN5Y0W82H2WBG.png",
+          "local_path": "/tmp/writing-real-documents/documents/cloudflare-images/image-08.png",
+          "alt": "Details of the Cloudflare outage on July 2, 2019 Embedded Image - LihmvN",
+          "sha256": "fe111ed4bf12d27fb2d88c1aac50fb860d39b6ab37f05a121b3ff86328558874",
+          "bytes": 10172
+        },
+        {
+          "url": "https://blog.cloudflare.com/_emdash/api/media/file/01KW45R7WMQ1NF81Z20RBSF9PC.png",
+          "local_path": "/tmp/writing-real-documents/documents/cloudflare-images/image-09.png",
+          "alt": "Details of the Cloudflare outage on July 2, 2019 Embedded Image - 92ofFN",
+          "sha256": "25e8c4607e29054740654435f71995d646c172d60756888b5f93ce24dcc638e4",
+          "bytes": 11402
+        },
+        {
+          "url": "https://blog.cloudflare.com/_emdash/api/media/file/01KW47G1RS38E6Z6EDGXVNGG20.png",
+          "local_path": "/tmp/writing-real-documents/documents/cloudflare-images/image-10.png",
+          "alt": "Details of the Cloudflare outage on July 2, 2019 Embedded Image - qHxgOc",
+          "sha256": "50665ece2a8148cb8b55f93f1b8cd6aa4019be08c380df6b3cc955ff60ea579b",
+          "bytes": 46709
+        },
+        {
+          "url": "https://blog.cloudflare.com/_emdash/api/media/file/01KW46KG0YRPQQTJBMH27RP976.png",
+          "local_path": "/tmp/writing-real-documents/documents/cloudflare-images/image-11.png",
+          "alt": "Details of the Cloudflare outage on July 2, 2019 Embedded Image - eBhbZk",
+          "sha256": "6b2abb0e985e19fb43c79b2f180bd0b08e1566acd57e74fd440829faf3b629b0",
+          "bytes": 133578
+        },
+        {
+          "url": "https://blog.cloudflare.com/_emdash/api/media/file/01KW49H9Y2J1QDAY3YEN8BJ2PN.png",
+          "local_path": "/tmp/writing-real-documents/documents/cloudflare-images/image-12.png",
+          "alt": "Details of the Cloudflare outage on July 2, 2019 Embedded Image - 12JhHG",
+          "sha256": "66c888ff9e72e24ef352bef8adc297bfaec4562b45236ce8d399f218ae64393d",
+          "bytes": 50385
+        },
+        {
+          "url": "https://blog.cloudflare.com/_emdash/api/media/file/01KW47GZC0C0Y19EEH28NYG3JZ.png",
+          "local_path": "/tmp/writing-real-documents/documents/cloudflare-images/image-13.png",
+          "alt": "Details of the Cloudflare outage on July 2, 2019 Embedded Image - N4fyEd",
+          "sha256": "2b3ba7752bb6ddf68def72710969ccfd0ef6a121827338690d1453d7b9f42c80",
+          "bytes": 90379
+        },
+        {
+          "url": "https://blog.cloudflare.com/_emdash/api/media/file/01KW46Z70EC0QW8441N44FHBDP.png",
+          "local_path": "/tmp/writing-real-documents/documents/cloudflare-images/image-14.png",
+          "alt": "Details of the Cloudflare outage on July 2, 2019 Embedded Image - gvQNAm",
+          "sha256": "a1a418ae8b52f30632f38903754c894a2fcc57e7b5c5d58f07b9c0aa183c3ddb",
+          "bytes": 7269
+        },
+        {
+          "url": "https://blog.cloudflare.com/_emdash/api/media/file/01KW44SAQ8SWAWV05CD2ZRPVD5.gif",
+          "local_path": "/tmp/writing-real-documents/documents/cloudflare-images/image-15.gif",
+          "alt": "Details of the Cloudflare outage on July 2, 2019 Embedded Image - VcGlzX",
+          "sha256": "0a5caed43bc04a815cfb7ea02ac699f216b4b7151c85a225fb03869788e4b8e0",
+          "bytes": 150039
+        },
+        {
+          "url": "https://blog.cloudflare.com/_emdash/api/media/file/01KW46H4RQT167K8EF7GGW5XST.png",
+          "local_path": "/tmp/writing-real-documents/documents/cloudflare-images/image-16.png",
+          "alt": "Details of the Cloudflare outage on July 2, 2019 Embedded Image - DnQXxb",
+          "sha256": "df92534249af027a6e7494360b5b483766e1d2e4c2b8e86f9483ff6c58b02bae",
+          "bytes": 16269
+        },
+        {
+          "url": "https://blog.cloudflare.com/_emdash/api/media/file/01KW44RTNXHTV2P9A5TC5FHX5N.gif",
+          "local_path": "/tmp/writing-real-documents/documents/cloudflare-images/image-17.gif",
+          "alt": "Details of the Cloudflare outage on July 2, 2019 Embedded Image - BiCJRv",
+          "sha256": "59929d938e50d92c51c0a3e471e4c2c3051f9ee77433e3f3dfefad95e84e11d1",
+          "bytes": 541400
+        },
+        {
+          "url": "https://blog.cloudflare.com/_emdash/api/media/file/01KW46B7YEH2MNP4P83RPBP5CW.png",
+          "local_path": "/tmp/writing-real-documents/documents/cloudflare-images/image-18.png",
+          "alt": "Details of the Cloudflare outage on July 2, 2019 Embedded Image - t1doPB",
+          "sha256": "68f83ac0706866cddc4d2fa4544b06661c2a17d79f6e1979f73ccd210966c607",
+          "bytes": 16321
+        },
+        {
+          "url": "https://blog.cloudflare.com/_emdash/api/media/file/01KW490P7ZBZD4X95SC0MTHE6N.gif",
+          "local_path": "/tmp/writing-real-documents/documents/cloudflare-images/image-19.gif",
+          "alt": "Details of the Cloudflare outage on July 2, 2019 Embedded Image - gcPYfe",
+          "sha256": "c6612efc19ee05e1e4cefe777f721f9c34c9e58a5320ec875ec23c762b1ad4b5",
+          "bytes": 1009335
+        },
+        {
+          "url": "https://blog.cloudflare.com/_emdash/api/media/file/01KW46ZRWH417FBV5V45MAWST5.png",
+          "local_path": "/tmp/writing-real-documents/documents/cloudflare-images/image-20.png",
+          "alt": "Details of the Cloudflare outage on July 2, 2019 Embedded Image - ARfKDB",
+          "sha256": "acab5631d38198ab3613965e6e2c6afbdbd2e477399943c0bcfcc5c1d07dcf05",
+          "bytes": 910538
+        },
+        {
+          "url": "https://blog.cloudflare.com/_emdash/api/media/file/01KW49JQG1EQ9AR8QS72VGXS3F.png",
+          "local_path": "/tmp/writing-real-documents/documents/cloudflare-images/image-21.png",
+          "alt": "Details of the Cloudflare outage on July 2, 2019 Embedded Image - PyknJ6",
+          "sha256": "088f57bc6591d692df6857efd14e9fd8a34c9cd9b35f646e80c663c1d62676df",
+          "bytes": 134368
+        },
+        {
+          "url": "https://blog.cloudflare.com/_emdash/api/media/file/01KW45MQSZ9FRZBNP2BRVABAHH.png",
+          "local_path": "/tmp/writing-real-documents/documents/cloudflare-images/image-22.png",
+          "alt": "Details of the Cloudflare outage on July 2, 2019 Embedded Image - njSQVZ",
+          "sha256": "48d9061436926cf28111df133b33c474220a79fcb6322789f3126b9b72753416",
+          "bytes": 151364
+        },
+        {
+          "url": "https://blog.cloudflare.com/_emdash/api/media/file/01KW44QVMFQDS0JNRCG40V6NPB.png",
+          "local_path": "/tmp/writing-real-documents/documents/cloudflare-images/image-23.png",
+          "alt": "Details of the Cloudflare outage on July 2, 2019 Embedded Image - lrR3ob",
+          "sha256": "ce4d2c572457cdadda174621af6f1fe6fa8f82f0fd5d4a78fcf2c27d09a33397",
+          "bytes": 152039
+        },
+        {
+          "url": "https://blog.cloudflare.com/_emdash/api/media/file/01KW48TQJXGSTWA0ZRJ77E99P8.png",
+          "local_path": "/tmp/writing-real-documents/documents/cloudflare-images/image-24.png",
+          "alt": "Details of the Cloudflare outage on July 2, 2019 Embedded Image - FgQd4n",
+          "sha256": "ade486ce9aea4ab7fa907ce119346588f67266f9bbe023dac8470d7d66a90fda",
+          "bytes": 153735
+        },
+        {
+          "url": "https://blog.cloudflare.com/_emdash/api/media/file/01KW47NPK1T5CH8GBM20YHQGQS.png",
+          "local_path": "/tmp/writing-real-documents/documents/cloudflare-images/image-25.png",
+          "alt": "Details of the Cloudflare outage on July 2, 2019 Embedded Image - mu24Mh",
+          "sha256": "861c2c65c841f64901442719f8a33b21909f6a8fe4740953d488e1034d71b133",
+          "bytes": 156742
+        }
+      ],
+      "preparation_checks": {
+        "all_heading_text_present": true,
+        "preformatted_blocks_exact": true,
+        "code_elements_exact_text": true,
+        "code_element_count": 115,
+        "preformatted_block_count": 2,
+        "image_count": 25,
+        "sample_images_visually_checked": [
+          1,
+          3,
+          6
+        ]
+      },
+      "limitations": [
+        "Image accessibility is required for any finding that relies on graphs or screenshots. Three representative static images were visually checked; GIF motion was not exhaustively inspected.",
+        "The article is a retrieved snapshot, not an immutable publisher revision. Content hashes identify the exact tested bytes."
+      ]
+    },
+    {
+      "id": "raft-paper",
+      "title": "In Search of an Understandable Consensus Algorithm (Extended Version)",
+      "source_url": "https://raft.github.io/raft.pdf",
+      "revision": "Published May 20, 2014 (identified by PDF SHA-256)",
+      "retrieved_at_utc": "2026-11-03T18:18:13.570877+00:00",
+      "source_file": {
+        "path": "/tmp/writing-real-documents/documents/raft.pdf",
+        "sha256": "5a5c679b6a7c88007faeff8c3eef19a77e9e5caa8bd7390922584fe8ecf0ce1f",
+        "bytes": 567533
+      },
+      "license": {
+        "description": "No reuse license verified for this PDF; retained only in temporary evaluation storage.",
+        "source": "https://raft.github.io/raft.pdf"
+      },
+      "audience": "Graduate-level distributed-systems readers familiar with replication, fault tolerance and consensus terminology.",
+      "audience_basis": "Evaluator-selected audience inferred from the research paper; supplied identically to every compared run.",
+      "input": {
+        "path": "/tmp/writing-real-documents/documents/raft-excerpt.md",
+        "sha256": "3b06e0c1fcdc282467d1e245fad73e467b248479546cd8b9731a8fc3284b0df3",
+        "bytes": 4605
+      },
+      "scope": "Title, authors, Abstract and complete §1 Introduction on PDF page 1 only. This is an excerpt evaluation, not a whole-paper result.",
+      "companions": [
+        {
+          "path": "/tmp/writing-real-documents/documents/raft.pdf",
+          "sha256": "5a5c679b6a7c88007faeff8c3eef19a77e9e5caa8bd7390922584fe8ecf0ce1f",
+          "bytes": 567533
+        },
+        {
+          "path": "/tmp/writing-real-documents/documents/raft-page-1.png",
+          "sha256": "deee891eadde33060b3fe5be90167c2d58869ad857fab0aac2b98236c5bc7e89",
+          "bytes": 446313
+        }
+      ],
+      "transforms": [
+        "Render PDF page 1 at 1400-pixel maximum dimension and inspect visually.",
+        "Extract page-1 columns separately using pdftotext -layout at 72 dpi: left x=65,y=150,W=240,H=550; right x=315,y=150,W=240,H=510.",
+        "Read left column before right; cut before §2.",
+        "Rejoin visually verified line-wrap hyphenation and whitespace; preserve paragraph order, bullets, punctuation, citations and all claim wording.",
+        "Represent title and section labels as Markdown headings; authors and affiliation on one line."
+      ],
+      "preparation_checks": {
+        "page1_visually_checked": true,
+        "columns_in_published_order": true,
+        "excerpt_complete_through_section1": true,
+        "no_math_or_figures_in_selected_scope": true,
+        "source_metadata_date": "May 20, 2014"
+      },
+      "limitations": [
+        "Default full-paper pdftotext reading order is incorrect (right column precedes Abstract on page 1), so those raw extraction files are excluded from evaluation inputs.",
+        "The selected excerpt contains no mathematical expressions or tables. It cannot establish mathematical-layout preservation.",
+        "Full original PDF is available as a companion for explicit section and citation references."
+      ]
+    }
+  ]
+}
