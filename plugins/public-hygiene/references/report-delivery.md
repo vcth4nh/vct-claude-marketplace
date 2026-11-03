@@ -8,7 +8,12 @@ change quotes or omit findings.
 
 1. Create a uniquely named temporary directory outside the reviewed source
    tree, in a location the harness permits writing. Reserve a new absolute
-   report path there; do not create the report itself. Use neutral filenames:
+   report path there; do not create the report itself. Use neutral `.txt`
+   filenames such as `review-001.txt` and `reading-final.txt`. Claude Code
+   rejects subagent Write calls for Markdown basenames beginning with
+   REPORT, SUMMARY, FINDINGS, or ANALYSIS (case-insensitive); avoid those
+   prefixes and the `.md` extension for reviewer outputs. Use this naming
+   convention before dispatch, not a retry through another tool after denial.
    leak reports contain the exact private spans they find and must not be
    copied into the repository. Record hashes of the supplied draft and
    companion files before dispatch.
@@ -28,6 +33,9 @@ change quotes or omit findings.
    mutation. Retain the evidence and report which check failed.
    If a required read or hash check cannot run, the check is also incomplete;
    an unsupported claim that inputs stayed unchanged does not replace it.
+   An incomplete delivery contains the reason, `VERDICT: INCOMPLETE`, and
+   links to any saved records. Do not restate findings or readback from chat,
+   or treat an unsaved report as a partial publication verdict.
 4. Deliver a clickable link to the report and copy its terminal `VERDICT`
    line exactly. Do not repeat or summarize its findings, readback, or
    checkpoints. A brief offer to apply fixes is allowed; the cold-read
@@ -48,7 +56,8 @@ the sequence incomplete. Keep report files separate from the chunk directory.
 The handoff must provide a new absolute output path outside the source
 tree. Read only the permitted review inputs. As your last file operation,
 write the complete report once to that path, without wrapping it in a code
-fence or adding a preface. Never overwrite an existing
+fence or adding a preface. The verdict (or checkpoint's stage status) must
+be the last line, with no commentary or blank lines after it. Never overwrite an existing
 file or change a draft, companion, instruction, or previous checkpoint.
 Then return only the path and the report's terminal verdict (or terminal
 stage status for a sequential checkpoint). If the path is missing, already

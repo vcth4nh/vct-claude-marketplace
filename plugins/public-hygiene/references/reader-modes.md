@@ -99,6 +99,9 @@ tool calls and is intended for longer text, not every publication check.
    Other linked/named companions become reachable when the reader encounters
    their reference. Preserve relative-link resolution using the source
    directory without giving the reviewer the original draft path.
+   An explicit user-supplied mapping from a linked URL to a local snapshot
+   makes that snapshot the reachable companion; its local filename need
+   not appear in the draft. Pass the mapping when that link becomes reachable.
    Do not map a future definition merely because the parent thinks it will
    help: the current text must explicitly point to it.
 
@@ -141,12 +144,16 @@ For each chunk stage, the reviewer:
   The file is a reading outcome, not internal reasoning or a
   promise to emit a record later. Return only its path and stage status.
   A checkpoint has no publication verdict and never includes consolidation.
+  `STAGE: COMPLETE` means the required reading finished, even when gaps
+  were found. Use `STAGE: INCOMPLETE` only when a required step or input
+  is unavailable, not because the document needs context.
 
 Stop on an incomplete, missing, malformed, or changed checkpoint. Link the
 available record and state `VERDICT: INCOMPLETE`; do not advance or label
 a partial prefix as passed. Once all stages are complete, make a separate
 consolidation call with the public prefix and checkpoint files, plus a new
-summary output path. Resume the reader, or use the same fresh-prefix fallback.
+summary output path such as `reading-final.txt`, following report delivery's
+filename convention. Resume the reader, or use the same fresh-prefix fallback.
 The reviewer writes `AUDIENCE`, any requested `READBACK`, the normal
 consolidated findings, and the publication verdict. Use plain `AUDIENCE:`
 and terminal `VERDICT:` lines, with exactly one verdict and no FIRST READ or

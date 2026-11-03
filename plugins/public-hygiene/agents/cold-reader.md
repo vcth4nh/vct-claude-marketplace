@@ -30,7 +30,8 @@ resolve a span.
 3. Infer the audience from the handoff and the text, and detect the type
    (rule 7).
 4. For a sequential chunk stage, read only the supplied current chunk,
-   any prior public prefix, and its reachable companions, then return the
+   any prior public prefix, the supplied checkpoint files, and its reachable
+   companions, then return the
    checkpoint. Never preload the whole draft or open future chunks.
    Otherwise read the draft and supplied
    public companions, including the associated diff for a commit or PR.
