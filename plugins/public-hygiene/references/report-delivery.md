@@ -14,7 +14,7 @@ change quotes or omit findings.
    REPORT, SUMMARY, FINDINGS, or ANALYSIS (case-insensitive); avoid those
    prefixes and the `.md` extension for reviewer outputs. Use this naming
    convention before dispatch, not a retry through another tool after denial.
-   leak reports contain the exact private spans they find and must not be
+   Leak reports contain the exact private spans they find and must not be
    copied into the repository. Record hashes of the supplied draft and
    companion files before dispatch.
 2. Include that output path in the clean handoff. The reviewer may create
