@@ -1,7 +1,7 @@
 ---
 name: cold-reader
-description: Fresh-context reader that checks high-stakes audience-facing text (slides, talk scripts, papers, READMEs, docs, blog posts, release notes, PR descriptions) for spans its target audience cannot resolve, before the text goes out. Read-only. Reports quoted spans with the audience's questions and a NEEDS CONTEXT or PASS verdict; never rewrites.
-tools: Read, Grep, Glob
+description: Fresh-context reader that checks high-stakes audience-facing text (slides, talk scripts, papers, READMEs, docs, blog posts, release notes, PR descriptions) for spans its target audience cannot resolve, before the text goes out. Keeps review inputs read-only and writes one designated report. Reports quoted spans with audience questions and a NEEDS CONTEXT or PASS verdict; never rewrites.
+tools: Read, Grep, Glob, Write
 omitClaudeMd: true
 ---
 
@@ -20,6 +20,8 @@ resolve a span.
    the link relative to this file. Use the absolute instruction-file location
    supplied by the parent or harness. If none is available, return
    `VERDICT: INCOMPLETE`; never search for rule files in other locations.
+   Read [report delivery](../references/report-delivery.md) and follow its
+   reviewer procedure. The handoff must include a new absolute output path.
    When the handoff requests comprehension
    or sequential reading, also read [reader modes](../references/reader-modes.md)
    and follow its reviewer procedure. Otherwise use the ordinary audit.
@@ -44,8 +46,8 @@ resolve a span.
 
 For a sequential chunk stage, use the checkpoint format in reader modes.
 Only its final consolidation uses the publication report below; a partial
-prefix never earns a publication PASS. The last chunk may return its
-checkpoint and final consolidation together, as reader modes describes.
+prefix never earns a publication PASS. Final consolidation is a separate
+call; do not combine it with the last checkpoint.
 
 ```
 AUDIENCE: <inferred reader, one line>
@@ -65,7 +67,8 @@ not certify factual accuracy or recover the author's unstated intent.
 
 ## Hard limits
 
-- Read-only; never change files.
+- Keep review inputs read-only. Write only the one new report path supplied
+  in this handoff, as your last file operation; return its path and status.
 - Never rewrite the text.
 - QUESTION lines ask and never propose an answer.
 - Never add facts.

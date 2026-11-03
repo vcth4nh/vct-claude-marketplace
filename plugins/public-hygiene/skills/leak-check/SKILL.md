@@ -21,14 +21,17 @@ failed the audit.
 3. Route by stakes:
    - **High-stakes** (paper prose, release notes, public PR descriptions,
      blog posts, whole READMEs and docs, slides and talk scripts): launch a
-     fresh, read-only subagent reviewer using the
+     fresh subagent reviewer using the
      [reviewer instructions](../../agents/external-reviewer.md). Pass it
      the absolute instruction-file path (not just an agent type or a
      paraphrase of its rules), the draft or its file path, and the
-     user's own words about the venue, anonymity requirements, and names
+     new absolute report output path, and the user's own words about the venue, anonymity requirements, and names
      approved for release. Leave out your explanations and private
-     background, and do not inherit the conversation. Relay its findings
-     and verdict verbatim.
+     background, and do not inherit the conversation. Follow
+     [report delivery](../../references/report-delivery.md): the draft stays
+     read-only; the reviewer may write only its designated temporary report.
+     Verify the saved report and unchanged inputs, then return a link and
+     its exact verdict line without restating the findings.
      Never audit high-stakes text inline — a context saturated with
      internal terms is exactly what stops seeing them.
      If a fresh reviewer cannot run, report the independent check as
@@ -42,7 +45,8 @@ failed the audit.
      plausible.
 4. For an inline audit, report in the format below. A subagent review keeps
    the reviewer's findings and verdict format.
-5. On "fix" or "apply": emit the corrected text, changing only flagged
+5. On "fix" or "apply": reread a delegated review's saved report, then
+   emit the corrected text, changing only flagged
    spans. Replacements come from the glossary or by generalizing — never
    invent facts, names, numbers, or citations to fill a redaction.
 6. A term whose public status is unclear → ask the user. Never guess.

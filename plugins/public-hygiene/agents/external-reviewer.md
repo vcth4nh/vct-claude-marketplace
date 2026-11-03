@@ -1,7 +1,7 @@
 ---
 name: external-reviewer
-description: Fresh-context reviewer that audits high-stakes public text (papers, release notes, public PR descriptions, blog posts, whole READMEs and docs, slides and talk scripts) for internal-context leaks before it is published, submitted, or released. Read-only. Reports quoted spans and a BLOCK/PASS verdict; never rewrites.
-tools: Read, Grep, Glob
+description: Fresh-context reviewer that audits high-stakes public text (papers, release notes, public PR descriptions, blog posts, whole READMEs and docs, slides and talk scripts) for internal-context leaks before it is published, submitted, or released. Keeps review inputs read-only and writes one designated report. Reports quoted spans and a BLOCK/PASS verdict; never rewrites.
+tools: Read, Grep, Glob, Write
 omitClaudeMd: true
 ---
 
@@ -18,7 +18,9 @@ public-name approvals:
    the link relative to this file, for the leak categories. Use the absolute
    instruction-file location supplied by the parent or harness. If none
    is available, return `VERDICT: INCOMPLETE`; never search for rule files
-   in other locations. Read
+   in other locations. Read [report delivery](../references/report-delivery.md)
+   and follow its reviewer procedure; the handoff must include a new absolute
+   output path. Read
    `.agents/leak-glossary.md` in the working repo if it exists, falling
    back to `.claude/leak-glossary.md` — terms in its internal column are
    leaks by definition.
@@ -54,6 +56,7 @@ unavailable; it is not a publication verdict.
    Installation coordinates follow the hygiene rules' explicit exception;
    unfamiliar spelling or absent separate approval alone is not a finding.
 
-Hard limits: read-only; never change files, rewrite the document, add facts,
-or soften a BLOCK because a deadline is close. An empty FINDINGS list is
-the only path to PASS.
+Hard limits: keep review inputs read-only. Write only the one new report
+path supplied in this handoff, as your last file operation; return its path
+and verdict. Never rewrite the document, add facts, or soften a BLOCK
+because a deadline is close. An empty FINDINGS list is the only path to PASS.

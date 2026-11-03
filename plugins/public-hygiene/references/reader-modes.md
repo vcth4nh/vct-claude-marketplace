@@ -3,7 +3,8 @@
 Load this reference only when the user requests comprehension testing,
 sequential reading, or both. Ordinary `cold-read` keeps its existing scope
 and report. These modes use the same audience, reachable-text rules,
-read-only reviewer, and author-only corrections.
+reviewer, read-only inputs, and author-only corrections. Both use
+[report delivery](report-delivery.md) for saved reports and input checks.
 
 ## Comprehension
 
@@ -42,7 +43,7 @@ purpose may be marked outside scope without failing the audit; a missing
 answer needed to interpret its claim or request is a gap.
 
 The normal verdict covers unresolved context, including the readback.
-After relaying the report, the author can correct a mistaken readback or
+After delivering the report, the author can correct a mistaken readback or
 supply missing facts. Do not use private expected answers to silently
 rewrite the reader's report or declare its reading correct. Apply only
 author-provided corrections under the skill's existing apply workflow.
@@ -58,8 +59,8 @@ tool calls and is intended for longer text, not every publication check.
 
 1. Read the plain-text or Markdown source and choose section or paragraph
    boundaries; for a Markdown deck, use one complete slide with its notes.
-   Keep code fences, tables, quotations, front matter, and note blocks
-   intact. For other formats, use a supplied text export with its reading
+   Keep headings with their following content, and keep code fences, tables,
+   quotations, front matter, and note blocks intact. For other formats, use a supplied text export with its reading
    order intact or report this mode as incomplete. With only one meaningful
    chunk, say that the mode adds no sequential test and run the ordinary
    fresh-reviewer audit (plus comprehension if requested).
@@ -85,7 +86,8 @@ tool calls and is intended for longer text, not every publication check.
    absolute path of the bundled reader instruction file from this plugin
    snapshot, so the reviewer can resolve its relative rule links. Hand it
    `MODE: sequential`, the current chunk path and source location,
-   stage number, type, and the user's audience/venue words. Include only
+   stage number and total, type, the user's audience/venue words, and one new
+   absolute checkpoint output path in a separate report directory. Include only
    forward-reference excerpts mapped to this chunk. Never hand over the
    source path, future chunk paths, summaries, or terms to watch. The parent
    may have read the source; the initial reviewer must be fresh.
@@ -109,10 +111,15 @@ required forward lookup cannot be performed, retaining findings already made.
 
 ### Parent-controlled stages
 
-Dispatch one chunk stage, wait for its returned checkpoint, and only then
-send the next chunk. Resume the same reviewer without adding private
+Dispatch one chunk stage, wait for its saved checkpoint, read and validate
+that file, and only then send the next chunk. Require exactly one `FIRST READ`
+line with the correct stage number and total, exactly one terminal
+`STAGE: COMPLETE` line, and no `VERDICT` line. A chat
+promise or status alone does not complete a stage. Record its hash and
+recheck earlier checkpoint hashes and review-input hashes after each return,
+as report delivery requires. Resume the same reviewer without adding private
 context. If the harness cannot resume it, use a fresh reviewer with the
-prior public chunks and the returned checkpoints verbatim, plus the new
+prior public chunks and the saved checkpoint paths, plus the new
 chunk. Never substitute the parent's interpretation for a checkpoint.
 
 For each chunk stage, the reviewer:
@@ -126,26 +133,46 @@ For each chunk stage, the reviewer:
   erase a prior first-use gap.
 - Applies the ordinary slide rules: same-slide notes may fill an information
   gap, future notes cannot, and a misleading slide remains a finding.
-- Returns `FIRST READ <chunk/location>` with quoted gaps and their context
-  questions, or no gaps, followed by `STAGE: COMPLETE` or `STAGE: INCOMPLETE`.
-  This is a returned reading outcome, not internal reasoning or a promise
-  to emit a record later. An incomplete stage also ends with
-  `VERDICT: INCOMPLETE`; a complete stage has no publication verdict unless
-  it also performs the final consolidation below.
+- Writes one new checkpoint beginning `FIRST READ i/n: <chunk/location>`
+  (for example, `FIRST READ 1/4: lines 1-20`), with quoted gaps and their
+  context questions, or no gaps, and ending `STAGE: COMPLETE` or
+  `STAGE: INCOMPLETE`. Use plain marker lines, not Markdown headings or
+  code fences, with exactly one FIRST READ and one STAGE line and no VERDICT.
+  The file is a reading outcome, not internal reasoning or a
+  promise to emit a record later. Return only its path and stage status.
+  A checkpoint has no publication verdict and never includes consolidation.
 
-Stop on an incomplete stage and relay its report verbatim; do not advance
-or label a partial prefix as passed. Once all stages return, ask
-the reviewer to consolidate the public prefix and immutable checkpoints.
-The last chunk's call may return its checkpoint and then consolidate in
-the same response, since no unread chunk remains. It must complete that
-stage before any readback or publication verdict.
-It returns `AUDIENCE`, the first-read records verbatim, any requested
-`READBACK`, then the normal consolidated findings and publication verdict.
+Stop on an incomplete, missing, malformed, or changed checkpoint. Link the
+available record and state `VERDICT: INCOMPLETE`; do not advance or label
+a partial prefix as passed. Once all stages are complete, make a separate
+consolidation call with the public prefix and checkpoint files, plus a new
+summary output path. Resume the reader, or use the same fresh-prefix fallback.
+The reviewer writes `AUDIENCE`, any requested `READBACK`, the normal
+consolidated findings, and the publication verdict. Use plain `AUDIENCE:`
+and terminal `VERDICT:` lines, with exactly one verdict and no FIRST READ or
+STAGE sections. Do not copy first-read records into this file:
+the parent assembles them mechanically after the reviewer returns.
 Consolidation may only merge checkpoint findings and add gaps established
 by a requested readback; it must not run another whole-document context
 audit. Merge duplicate findings but retain their first locations and records;
 later definitions do not erase unannounced first-use gaps. When combined
 with comprehension, do the readback only in this final consolidation.
+
+Recheck input and checkpoint hashes, then run the
+[assembly script](../scripts/assemble_reader_report.py):
+
+```text
+python3 SCRIPT NEW_REPORT --summary SUMMARY --checkpoints CHECKPOINT_1 CHECKPOINT_2 ...
+```
+
+Resolve SCRIPT relative to this reference and supply every checkpoint in
+stage order. The helper validates a complete ordered sequence and terminal
+markers, rejects aliases and overwrites, and inserts the raw checkpoint
+bytes exactly once after the summary's AUDIENCE line. It prints the output
+path and input/output hashes. It does not verify semantic consolidation,
+first-read timing, or file authorship. A failed check means incomplete;
+do not hand-copy, paraphrase, or repair records to make assembly pass.
+Deliver the assembled report link and its exact verdict under report delivery.
 
 Sequential exposure is an instruction boundary, not a filesystem sandbox.
 When evaluating this mode, inspect the returned stage results and subsequent

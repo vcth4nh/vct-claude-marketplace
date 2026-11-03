@@ -13,12 +13,20 @@ Two checks for public-facing text before it ships:
   README fragments). Quotes every offending span, names the category,
   proposes a fix. Applies fixes only on request; never invents facts to
   fill a redaction.
-- **Fresh subagent reviewer** — a read-only reviewer for
+- **Fresh subagent reviewer** — a reviewer that keeps the draft read-only for
   high-stakes text (papers, release notes, public PR descriptions, blog
   posts, whole READMEs and docs, slides and talk scripts). It uses the
   audience's field knowledge without private project context.
   Returns quoted findings and a BLOCK/PASS verdict;
   ambiguous terms come back as questions, never guesses.
+
+Independent reviews are saved to temporary report files outside the source
+tree. The response links the report and shows its verdict, preserving the
+reviewer's quotes and findings. Reviewers may write only their designated
+report; supplied drafts and companions are checked for changes. The harness
+must permit that temporary write, which may require its normal permission
+prompt or a writable scratch directory. A denied write leaves the check
+incomplete. Reports can contain private spans: keep them out of source control.
 
 Deliberate public history and design rationale are reviewed for concrete
 disclosures. A genre label or prior publication does not exempt private
@@ -149,7 +157,8 @@ Two additional modes run only when requested:
   cannot erase a first-use gap unless the text explicitly pointed to it.
   Slides retain their same-slide notes and script timing. Preparation uses
   a Python 3 helper to create temporary verbatim copies and leaves the
-  source untouched. A missing
+  source untouched. Each stage saves a checkpoint before the next is supplied;
+  a second helper assembles those records without rewriting them. A missing
   chunk or unavailable independent reader leaves the check incomplete.
 
 Both modes require a fresh reviewer, including for short inputs. They may

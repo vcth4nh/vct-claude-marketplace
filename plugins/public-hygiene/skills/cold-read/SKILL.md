@@ -33,7 +33,7 @@ reader's experience in order.
 4. For a requested mode, follow its fresh-reviewer procedure. Otherwise
    route by stakes. For slides and talk scripts, papers, READMEs and docs,
    blog posts, release notes, and PR descriptions, send the whole document
-   at any length to a fresh, read-only subagent reviewer using the
+   at any length to a fresh subagent reviewer using the
    [reader instructions](../../agents/cold-reader.md), without inherited
    conversation. A commit message, or a fragment of any class (a paragraph
    or less, not a whole document), gets an inline pass unless an optional
@@ -45,11 +45,15 @@ reader's experience in order.
    If a fresh reviewer cannot run, report the independent check as
    incomplete instead of issuing a PASS or silently substituting an inline
    review.
+   For delegated reviews, read [report delivery](../../references/report-delivery.md):
+   the draft stays read-only and the reviewer may write only its designated
+   temporary report.
 5. Clean handoff. The dispatch carries the absolute reader instruction-file
    path (not just an agent type or a paraphrase of its rules),
    the draft (path or pasted text), the companions (paths or quoted public
    text, including the diff), the detected
-   type in one line (slide or doc), and the user's own words about the
+   type in one line (slide or doc), the new absolute report output path,
+   and the user's own words about the
    audience or venue. Leave out
    the author's notes and their paths, glossary meanings, your
    explanations, and any audience profile that the user did not give,
@@ -59,13 +63,14 @@ reader's experience in order.
    its path, or the complete chunk manifest to the reviewer.
    Include the requested mode and, for comprehension, the user's questions
    verbatim when supplied; never include an expected-answer key.
-6. Relay the agent's report verbatim, with its VERDICT line and any
-   requested mode's readback or first-read record. Add no
-   answers, guesses, or context questions of your own, even about code
-   blocks.
-7. Apply. Send the report, then wait: before the author answers, change
-   no file and write no corrected draft. On "apply" after the answers,
-   insert only the facts that the answers state, at the flagged span or
+6. For a delegated review, follow report delivery: verify the saved report and unchanged inputs,
+   then return a link and its exact VERDICT line. Sequential reports first
+   require deterministic assembly under reader modes. Add no findings,
+   answers, guesses, or context questions of your own.
+7. Apply. Send the report, then wait: before the author answers, do not
+   edit the draft or its companions or write a corrected draft. On "apply" after the answers,
+   reread a delegated review's saved report, then insert only the facts
+   that the answers state, at the flagged span or
    at the place RESOLVE names (the slide text, or the script at or before
    slide N), and change nothing else. An answer can also be "cut it".
    Leave unanswered gaps unchanged and list them as open. If the author

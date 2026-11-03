@@ -55,8 +55,9 @@ extra sequence finds additional gaps; equal findings demonstrate parity,
 not improved recall. An unavailable reviewer or failed sequence is
 incomplete, never a passing test.
 
-The preparation helper has deterministic tests for byte preservation,
-forward excerpts, line endings, and invalid input:
+The preparation and report-assembly helpers have deterministic tests for
+byte preservation, forward excerpts, line endings, invalid input, ordered
+checkpoints, and refusal to overwrite existing files:
 
 ```sh
 python3 -m unittest discover -s tests/writing-plugins -p 'test_*.py' -v
