@@ -12,6 +12,8 @@ Only these raw inputs enter prompts. Assessment keys belong in separate files.
 Example:
   python3 run_native.py cases.json --output /tmp/writing-eval-001 --jobs 2
   python3 run_native.py cases.json --output /tmp/writing-plan --dry-run
+  python3 run_native.py cases.json --output /tmp/writing-terra --backend codex \
+    --model gpt-6.1-terra --effort medium
 
 This records behavior, not pass/fail judgments. Inspect the reports, edits,
 and reviewer handoffs before assessing quality or sequential isolation.
@@ -115,15 +117,18 @@ def read_cases(path, selected, baseline):
 
 def make_prompt(case, files, scratch, args):
     plugin, skill, mode = MODES[case["mode"]]
-    target = files[0]["target"]
-    companions = [f["target"] for f in files[1:1 + len(case.get("companions", []))]]
+    work = scratch.parent / "work"
+    target = str(work / files[0]["target"])
+    companions = [str(work / f["target"]) for f in files[1:1 + len(case.get("companions", []))]]
     lines = []
     if args.baseline:
         lines.append("Use general writing judgment for this baseline. Do not load or apply any skills.")
     elif args.backend == "codex":
-        skill_path = args.output / "plugins" / plugin / "skills" / skill / "SKILL.md"
+        plugin_path = args.installed_plugin_paths.get(plugin, args.output / "plugins" / plugin)
+        skill_path = plugin_path / "skills" / skill / "SKILL.md"
         lines.append(f"Use the {plugin}:{skill} skill at {skill_path} and its bundled references.")
-        lines.append("Use that exact snapshot, not a cached or installed version of the skill.")
+        lines.append("Use that exact installed skill path." if args.installed_config_root
+                     else "Use that exact snapshot, not a cached or installed version of the skill.")
         lines.append("Invocation: " + skill + " " + (mode + " " if mode else "")
                      + " ".join([target, *companions]))
     else:
@@ -135,8 +140,7 @@ def make_prompt(case, files, scratch, args):
         lines.append(f"Only {target} may be changed. Companion files are read-only.")
     else:
         lines.append(f"Review {target}. Keep all source and companion files unchanged.")
-        if case["mode"].startswith("sequential"):
-            lines.append(f"Temporary preparation files may be written only under {scratch}/.")
+        lines.append(f"You may write review artifacts only under {scratch}/; the draft and supplied companions are read-only.")
     if case.get("audience"):
         lines.append("Audience: " + case["audience"])
     if companions:
@@ -159,7 +163,8 @@ def prepare_case(prepared, args):
             target = directory / item["target"]
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(item["source"], target)
-        # Review tools do not include writes. File mode is a second accidental-write guard.
+        # Source file modes provide an accidental-write guard; review artifacts
+        # are allowed only in the separate scratch directory.
         if case["mode"] not in STYLE_MODES or item is not files[0]:
             (work / item["target"]).chmod(0o444)
     prompt = make_prompt(case, files, scratch, args)
@@ -174,43 +179,76 @@ def prepare_case(prepared, args):
         tools += ["Edit", "Write"]
         allowed += ["Edit(/" + str(work / files[0]["target"]) + ")"]
     else:
-        tools += ["Agent"]
-        allowed += ["Agent"]
-    if case["mode"].startswith("sequential"):
+        tools += ["Agent", "Write", "Bash"]
         # Claude's Edit path rules cover Write too. These trusted-fixture runs are
         # instruction-isolated, not OS-sandboxed; inspect actual Bash/reader accesses.
-        tools += ["Bash", "Write"]
-        allowed += ["Bash(python3 *)", "Bash(mkdir *)", "Edit(/" + str(scratch) + "/**)"]
+        # Parent shell access supports report setup and hashing without permission
+        # confounds. Reviewer frontmatter still excludes Bash and Edit. Prefix
+        # rules for Python would not provide a meaningful security boundary.
+        allowed += ["Agent", "Edit(/" + str(scratch) + "/**)", "Bash"]
+    environment = {}
+    if args.installed_config_root:
+        environment["CODEX_HOME" if args.backend == "codex" else "CLAUDE_CONFIG_DIR"] = str(args.installed_config_root)
     if args.backend == "codex":
-        sandbox = "workspace-write" if case["mode"] in STYLE_MODES or case["mode"].startswith("sequential") else "read-only"
+        # Reviews also write scratch reports. Drafts retain their read-only file
+        # modes and the prompt restricts all review artifacts to scratch.
+        sandbox = "workspace-write"
         if args.codex_sandbox != "auto":
             sandbox = args.codex_sandbox
-        command = [args.codex, "exec", "--ignore-user-config", "--ignore-rules",
+        command = [args.codex, "exec", "--ignore-rules",
                    "--skip-git-repo-check", "--ephemeral", "--json", "--sandbox", sandbox,
                    "-c", 'approval_policy="never"',
                    "-C", str(work), "--add-dir", str(scratch),
                    "-o", str(run / "report.txt"), prompt]
+        if not args.installed_config_root:
+            command += ["--ignore-user-config"]
+        if args.model:
+            command += ["--model", args.model,
+                        "-c", "agents.default_subagent_model=" + json.dumps(args.model)]
+        if args.effort:
+            command += ["-c", "model_reasoning_effort=" + json.dumps(args.effort),
+                        "-c", "agents.default_subagent_reasoning_effort=" + json.dumps(args.effort)]
     else:
-        command = [args.claude, "-p", prompt, "--setting-sources", "",
+        command = [args.claude, "-p", prompt, "--setting-sources", "user" if args.installed_config_root else "",
                    "--settings", '{"autoMemoryEnabled":false}', "--strict-mcp-config",
                    "--tools", ",".join(tools), "--allowedTools", *allowed,
                    "--add-dir", str(scratch), "--permission-mode", "dontAsk",
                    "--no-session-persistence", "--max-budget-usd", str(args.max_budget_usd),
                    "--output-format", "stream-json", "--verbose", "--forward-subagent-text"]
-        if not args.baseline:
+        if not args.baseline and not args.installed_config_root:
             command += ["--plugin-dir", str(args.output / "plugins" / MODES[case["mode"]][0])]
+        if args.model:
+            command += ["--model", args.model]
+            # Per-process overrides keep child reviewers on the tested model,
+            # including when an Agent call requests a different family alias.
+            environment.update({"CLAUDE_CODE_SUBAGENT_MODEL": args.model,
+                                "CLAUDE_CODE_SUBAGENT_MODEL_FORCE": "1"})
+        if args.effort:
+            command += ["--effort", args.effort]
+            environment["CLAUDE_CODE_EFFORT_LEVEL"] = args.effort
     save_json(run / "invocation.json", {"command": command, "cwd": str(work),
-                                       "baseline": args.baseline, "backend": args.backend})
+                                       "baseline": args.baseline, "backend": args.backend,
+                                       "requested_model": args.model, "requested_effort": args.effort,
+                                       "invocation_route": args.invocation_route,
+                                       "claude_parent_shell": "unrestricted for trusted review fixtures" if args.backend == "claude" and case["mode"] not in STYLE_MODES else None,
+                                       "environment_overrides": environment,
+                                       "subagent_settings": ("backend defaults" if not (args.model or args.effort)
+                                       else "forced process overrides" if args.backend == "claude"
+                                       else "defaults; explicit spawn/custom-agent settings can override")})
     return run
 
 
 def collect_result(run, code, elapsed, timed_out, backend):
+    invocation = json.loads((run / "invocation.json").read_text(encoding="utf-8"))
     before = json.loads((run / "before.json").read_text(encoding="utf-8"))
     after = hashes(run / "work")
     save_json(run / "after.json", after)
     changed = [p for p in sorted(set(before) | set(after)) if before.get(p) != after.get(p)]
     result = {"id": run.name, "backend": backend, "exit_code": code, "elapsed_seconds": round(elapsed, 2),
               "quality_assessed": False,
+              "requested_model": invocation.get("requested_model"),
+              "requested_effort": invocation.get("requested_effort"),
+              "invocation_route": invocation.get("invocation_route", "source-snapshot"),
               "timed_out": timed_out, "changed_files": changed,
               "changed_input_files": [p for p in changed if p in before],
               "created_files": [p for p in changed if p not in before],
@@ -222,6 +260,7 @@ def collect_result(run, code, elapsed, timed_out, backend):
             original_changes.append(str(source))
     result["original_sources_changed"] = original_changes
     final, trace, parse_errors, codex_errors = None, [], [], []
+    identity_evidence, delegation_requests = [], []
     with (run / "log.jsonl").open(encoding="utf-8") as stream:
         for number, line in enumerate(stream, 1):
             try:
@@ -230,7 +269,7 @@ def collect_result(run, code, elapsed, timed_out, backend):
                 parse_errors.append(number)
                 continue
             if event.get("type") == "system" and event.get("subtype") == "init":
-                result["model"] = event.get("model")
+                result["configured_model"] = event.get("model")
             if event.get("type") == "result":
                 final = event
             if backend == "codex":
@@ -240,18 +279,40 @@ def collect_result(run, code, elapsed, timed_out, backend):
                     codex_errors.append(event)
                 if "item" in event:
                     trace.append({"log_line": number, **event})
+                    item = event["item"]
+                    if isinstance(item, dict) and item.get("type") == "collab_tool_call" and item.get("prompt"):
+                        delegation_requests.append({"log_line": number, **item})
                 continue
             message = event.get("message", {})
             if not isinstance(message, dict):
                 continue
+            if message.get("model") and message["model"] != "<synthetic>":
+                identity = {"model": message["model"],
+                            "parent_tool_use_id": event.get("parent_tool_use_id"),
+                            "source": "message.model"}
+                if identity not in identity_evidence:
+                    identity_evidence.append(identity)
             for block in message.get("content", []):
                 if isinstance(block, dict) and block.get("type") in ("tool_use", "tool_result", "text"):
                     trace.append({"log_line": number, "parent_tool_use_id": event.get("parent_tool_use_id"),
                                   "role": event.get("type"), **block})
+                    if block.get("type") == "tool_use" and block.get("name") in ("Agent", "Task"):
+                        delegation_requests.append({"log_line": number, "tool_use_id": block.get("id"),
+                                                    "parent_tool_use_id": event.get("parent_tool_use_id"),
+                                                    "input": block.get("input")})
     result["log_parse_error_lines"] = parse_errors
     result["result_received"] = final is not None
+    result["model_identity_evidence"] = identity_evidence
+    result["reported_effort"] = None
+    result["effort_note"] = ("Requested via CLI/config; this event stream does not verify the effective effort."
+                             if result["requested_effort"] else "Backend default; effective effort is not reported.")
+    parent_models = sorted({item["model"] for item in identity_evidence if not item["parent_tool_use_id"]})
+    result["reported_parent_models"] = parent_models
+    result["reported_child_models"] = sorted({item["model"] for item in identity_evidence if item["parent_tool_use_id"]})
+    result["model"] = parent_models[0] if len(parent_models) == 1 else None
+    result["model_note"] = "Response message identity; configured/requested names are recorded separately."
     if backend == "codex":
-        result.update({"model": None, "model_note": "CLI default; the JSON event stream does not identify the model.",
+        result.update({"model": None, "model_note": "The JSON event stream does not identify the actual model; requested settings are not identity evidence.",
                        "cost_usd": None, "budget_note": "Codex CLI has no per-run USD cap; only timeout is enforced.",
                        "is_error": bool(code or codex_errors), "errors": codex_errors,
                        "result_subtype": "completed" if final else "incomplete"})
@@ -264,6 +325,20 @@ def collect_result(run, code, elapsed, timed_out, backend):
                        "model_usage": final.get("modelUsage")})
         (run / "report.txt").write_text(final.get("result", "") + "\n", encoding="utf-8")
         save_json(run / "result.json", final)
+    save_json(run / "delegation-requests.json", delegation_requests)
+    # Keep authorized context adjacent to raw handoffs for a human audit of
+    # parent-added venues, audiences, or approval claims. This is not a verdict.
+    case = json.loads((run / "case.json").read_text(encoding="utf-8"))
+    save_json(run / "handoff-context.json", {
+        "quality_assessed": False,
+        "source": "case manifest and generated parent prompt",
+        "audience": case.get("audience"), "request": case.get("request"),
+        "questions": case.get("questions", []),
+        "public_companions": case.get("companions", []),
+        "parent_prompt": (run / "prompt.txt").read_text(encoding="utf-8"),
+        "delegation_requests": delegation_requests,
+        "note": "Compare handoff assertions with the supplied context and documents; missing trace data is not proof of no delegation.",
+    })
     save_json(run / "trace.json", trace)
     save_json(run / "completion.json", result)
     return result
@@ -276,7 +351,8 @@ def execute(run, timeout):
     started, timed_out = time.monotonic(), False
     with (run / "log.jsonl").open("x", encoding="utf-8") as out, (run / "stderr.txt").open("x") as err:
         process = subprocess.Popen(invocation["command"], cwd=invocation["cwd"],
-                                   stdout=out, stderr=err, start_new_session=True)
+                                   env={**os.environ, **invocation.get("environment_overrides", {})},
+                                   stdin=subprocess.DEVNULL, stdout=out, stderr=err, start_new_session=True)
         (run / "pid").write_text(str(process.pid) + "\n")
         try:
             code = process.wait(timeout=timeout)
@@ -300,6 +376,8 @@ def main():
     parser.add_argument("manifest", type=Path)
     parser.add_argument("--output", required=True, type=Path, help="New output directory; never overwritten")
     parser.add_argument("--plugin-root", type=Path, default=REPO / "plugins")
+    parser.add_argument("--installed-config-root", type=Path,
+                        help="Use registered plugins from this existing isolated config root; credentials are not copied")
     parser.add_argument("--case", action="append", default=[], help="Select an id; repeat to select several")
     parser.add_argument("--jobs", type=int, default=2)
     parser.add_argument("--max-budget-usd", type=float, default=6)
@@ -307,24 +385,52 @@ def main():
     parser.add_argument("--claude", default="claude")
     parser.add_argument("--codex", default="codex")
     parser.add_argument("--backend", choices=("claude", "codex"), default="claude")
+    parser.add_argument("--model", help="Explicit parent model and child model default (forced for Claude); no fallback added")
+    parser.add_argument("--effort", choices=("low", "medium", "high", "xhigh", "max", "ultra"),
+                        help="Explicit parent and child effort; defaults remain unchanged when omitted")
     parser.add_argument("--codex-sandbox", choices=("auto", "read-only", "workspace-write", "danger-full-access"),
-                        default="auto", help="Default: read-only reviews, workspace-write edits/sequence; override only when needed")
+                        default="auto", help="Default: workspace-write for edits and review artifacts; override only when needed")
     parser.add_argument("--dry-run", action="store_true", help="Prepare inputs/commands without invoking a model")
     parser.add_argument("--baseline", action="store_true", help="Style cases only: same editing request without plugin")
     args = parser.parse_args()
     if args.jobs < 1 or args.max_budget_usd <= 0 or args.timeout <= 0:
         parser.error("jobs, max-budget-usd, and timeout must be positive")
+    if args.backend == "claude" and args.effort == "ultra":
+        parser.error("Claude does not support --effort ultra")
+    if args.model is not None and not args.model.strip():
+        parser.error("model must be nonempty")
+    if args.installed_config_root and args.baseline:
+        parser.error("--installed-config-root is a plugin invocation route and cannot be combined with --baseline")
     args.manifest, args.output, args.plugin_root = (
         p.resolve() for p in (args.manifest, args.output, args.plugin_root))
+    args.installed_plugin_paths = {}
+    args.invocation_route = "baseline" if args.baseline else "source-snapshot"
     try:
         cases = read_cases(args.manifest, args.case, args.baseline)
+        if args.installed_config_root:
+            args.installed_config_root = args.installed_config_root.resolve()
+            if not args.installed_config_root.is_dir():
+                raise ValueError("Installed config root must already exist")
+            for name in {MODES[c["raw"]["mode"]][0] for c in cases}:
+                candidates = sorted((args.installed_config_root / "plugins" / "cache").glob(
+                    f"*/{name}/*/.claude-plugin/plugin.json"))
+                if len(candidates) != 1:
+                    raise ValueError(f"Expected one installed cache version of {name}; found {len(candidates)}. Use a fresh isolated install.")
+                args.installed_plugin_paths[name] = candidates[0].parent.parent
+            for case in cases:
+                name, skill, _ = MODES[case["raw"]["mode"]]
+                if not (args.installed_plugin_paths[name] / "skills" / skill / "SKILL.md").is_file():
+                    raise ValueError(f"Installed skill is missing: {name}:{skill}")
+            args.invocation_route = ("installed-claude-slash-command" if args.backend == "claude"
+                                     else "installed-codex-explicit-skill-path")
         args.output.mkdir(parents=True, exist_ok=False)
         plugins = {}
         if not args.baseline:
             for name in sorted({MODES[c["raw"]["mode"]][0] for c in cases}):
-                destination = args.output / "plugins" / name
-                shutil.copytree(args.plugin_root / name, destination,
-                                ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
+                destination = args.installed_plugin_paths.get(name, args.output / "plugins" / name)
+                if not args.installed_config_root:
+                    shutil.copytree(args.plugin_root / name, destination,
+                                    ignore=shutil.ignore_patterns("__pycache__", "*.pyc"))
                 plugins[name] = hashes(destination)
         try:
             revision = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=REPO, text=True).strip()
@@ -333,6 +439,12 @@ def main():
         metadata = {"created_at": now(), "git_head": revision, "plugin_files": plugins,
                     "runner_sha256": sha256(Path(__file__)), "manifest_sha256": sha256(args.manifest),
                     "baseline": args.baseline, "dry_run": args.dry_run, "backend": args.backend,
+                    "requested_model": args.model, "requested_effort": args.effort,
+                    "invocation_route": args.invocation_route,
+                    "installed_config_root": str(args.installed_config_root) if args.installed_config_root else None,
+                    "installed_plugin_paths": {name: str(path) for name, path in args.installed_plugin_paths.items()},
+                    "installed_note": "Cache files are hashed; Claude local-folder installs may read the registered marketplace folder." if args.installed_config_root else None,
+                    "claude_review_shell": "unrestricted parent Bash; instruction boundaries and source-integrity audit, not an OS sandbox" if args.backend == "claude" else None,
                     "codex_sandbox": args.codex_sandbox if args.backend == "codex" else None}
         if not args.dry_run:
             executable = args.codex if args.backend == "codex" else args.claude
