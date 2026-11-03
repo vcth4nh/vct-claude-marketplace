@@ -275,5 +275,21 @@
       "Preserve the purpose of parallel readers (scale) and early filtering (cost) in grammatical prose, rather than dropping those claims.",
       "Preserve one reader per project and the filtered-message input."
     ]
+  },
+  {
+    "id": "a15",
+    "required": [
+      "Edit ABSTRACT.md to improve its prose and replace rhetorical utilize.",
+      "Preserve both detection sensitivity and robustness to illumination changes as distinct technical properties.",
+      "Preserve the verification claim about background subtraction without silently strengthening or weakening it.",
+      "Preserve the seven-week operating duration and the cumulative archive counts, including the at-least and at-most bounds.",
+      "Preserve damage patterns as the entities being classified; the source does not establish one defect category per scan.",
+      "Keep the file free of review commentary; summarize changes in the response."
+    ],
+    "must_not_invent": [
+      "A seven-week collection window for the archived scans inferred from the inspection station operating duration.",
+      "Exactly 2,400 scans or exactly 18 production lines.",
+      "One category for each scan, or a fixed number of damage patterns per scan."
+    ]
   }
 ]

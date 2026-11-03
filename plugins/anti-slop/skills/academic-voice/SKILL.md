@@ -26,6 +26,12 @@ Resolve bundled links relative to this file's directory.
      block on the offer or include it in a requested artifact.
 3. Rewrite the prose. Compare it with the source for lost claims,
    negations, conditions, and citations as well as unsupported additions.
+   Preserve numerical bounds and units, measurement periods, claim
+   strength, and the number and type of entities and categories involved.
+   Do not infer a counting window from a nearby deployment duration or
+   resolve ambiguous classification into one category per item. Preserve
+   distinct technical properties even when their terms also occur on the
+   ban list.
    Check for excessive editing as described in the replacement principle.
 4. Return the result according to the mode below.
 

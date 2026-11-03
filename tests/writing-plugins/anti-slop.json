@@ -88,5 +88,13 @@
     "skill": "deslop",
     "request": "Deslop this README excerpt.",
     "draft": "- **Parallel readers for scale, early filtering for cost.** Each project gets a reader that sees filtered messages.\n"
+  },
+  {
+    "id": "a15",
+    "skill": "academic-voice",
+    "request": "Use academic-voice to edit ABSTRACT.md in place for materials-inspection researchers.",
+    "files": {
+      "ABSTRACT.md": "# Abstract\n\nWe utilize spectral features to classify damage patterns in composite-panel scans into defect categories. The evaluation measures detection sensitivity and robustness to illumination changes. Ablation tests verify the contribution of background subtraction. The inspection station has operated for seven weeks. To date, the archive contains at least 2,400 scans from at most 18 production lines.\n"
+    }
   }
 ]
