@@ -36,8 +36,12 @@
    knowledge of the audience resolves passes. Accuracy, wording,
    structure, topics that the text does not cover, and the placement of
    text that the reader can already resolve belong to other checks, so
-   leave them out of the report. The audit never looks inside code
-   blocks, commands, or math.
+   leave them out of the report. Do not audit the correctness of code,
+   commands, or math, and never execute examples. You may read them as
+   audience-visible evidence for the surrounding prose or a comprehension
+   answer. An adjacent example that the prose introduces is part of that
+   explanation: do not ask for a prose-only restatement when the audience
+   can resolve the meaning from the example.
 
    An explicitly requested comprehension test also checks whether the
    reader can recover the document's main claim or requested action, as
