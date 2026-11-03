@@ -259,5 +259,21 @@
       "Leave paper.tex byte-identical because the path-only invocation does not request an in-place edit.",
       "Replace rhetorical utilize; preserve robust regression, the uncertainty and its scope, math, and the reference key."
     ]
+  },
+  {
+    "id": "a13",
+    "required": [
+      "Preserve the explicit lack of a recommendation to adopt the author’s configuration and its role as a reference.",
+      "Preserve both talk scopes: shared configuration and one tool for checks and modifications.",
+      "Rhetorical staging may change; the author’s intent and scope must not disappear."
+    ]
+  },
+  {
+    "id": "a14",
+    "required": [
+      "Treat the bold list lead-in as a heading label.",
+      "Preserve the purpose of parallel readers (scale) and early filtering (cost) in grammatical prose, rather than dropping those claims.",
+      "Preserve one reader per project and the filtered-message input."
+    ]
   }
 ]

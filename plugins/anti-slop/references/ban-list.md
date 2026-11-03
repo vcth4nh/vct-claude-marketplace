@@ -12,6 +12,8 @@ such as "robust method" is still subject to the ban.
   about X — it's about Y", "not just a cache").
   Remove rhetorical staging while retaining substantive distinctions;
   a factual denial or limitation is not disposable emphasis.
+  Preserve the author's stated intent and what they do or do not recommend;
+  these can limit the claim even in conversational prose.
 - Colon reveals: "The best part: ...", "The result: ..."
 - Punchy lines, at any position: a short sentence or a verbless fragment that
   adds emphasis and no fact ("No guesswork.", "The future is already
@@ -47,6 +49,7 @@ underscores, game-changer, game-changing, cutting-edge, elevate,
 A heading names its topic and stops: "Enumeration methodology", "How we
 enumerated". A short status tag may follow, such as "(optional)". Claims,
 reasons, and previews go in the body.
+Apply these rules to bold lead-in labels in list items too.
 - A tail after the topic (in parentheses, after a dash or a colon) that adds
   only a slogan, decorative contrast, or preview: cut it. "How we enumerated
   (method, not guesswork)" → "How we enumerated". "How we found the bugs — the reasoning,

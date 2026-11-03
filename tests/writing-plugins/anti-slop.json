@@ -76,5 +76,17 @@
     "files": {
       "paper.tex": "We utilize robust regression to estimate the slope. The estimate may be unstable outside the observed range. We minimize $L(\\theta)$; Figure~\\ref{fig:loss} shows the objective.\n"
     }
+  },
+  {
+    "id": "a13",
+    "skill": "deslop",
+    "request": "Deslop these speaker notes.",
+    "draft": "This is not a recommendation to adopt my configuration; it is a reference for building your own. The talk covers both shared configuration and using one tool for code checks and modifications.\n"
+  },
+  {
+    "id": "a14",
+    "skill": "deslop",
+    "request": "Deslop this README excerpt.",
+    "draft": "- **Parallel readers for scale, early filtering for cost.** Each project gets a reader that sees filtered messages.\n"
   }
 ]
