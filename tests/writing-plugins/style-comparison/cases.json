@@ -1,0 +1,21 @@
+{
+  "description": "Two public excerpts for a matched style comparison. No expected answers or scoring criteria enter model prompts.",
+  "cases": [
+    {
+      "id": "guide",
+      "source": "/tmp/writing-style-blind/inputs/guide.md",
+      "target": "guide.md",
+      "mode": "deslop",
+      "audience": "Command-line users who know shell pipelines and basic regular expressions and are evaluating or learning sd.",
+      "request": "Publication context: this is the complete Quick Guide section (items 1\u20135) of the public sd search-and-replace CLI README at revision 44febdf86343c653255ae4f20f5e1882dad6be17. The excerpt contains its original examples and its external fd link. Edit the prose for the stated audience."
+    },
+    {
+      "id": "abstract",
+      "source": "/tmp/writing-style-blind/inputs/abstract.md",
+      "target": "abstract.md",
+      "mode": "academic",
+      "audience": "Software engineering research readers familiar with production incidents and machine learning terminology, reading an identified published abstract.",
+      "request": "Publication context: this is the identified published title, author list, and complete abstract of FaultProfIT, arXiv:2402.17583v1. Edit the abstract prose for the stated audience; retain the title and author list. No full-paper body or bibliography is supplied."
+    }
+  ]
+}

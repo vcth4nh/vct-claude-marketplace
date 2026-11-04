@@ -1,0 +1,26 @@
+{
+  "registered_at_utc": "2026-11-04T02:53:06.428406+00:00",
+  "model": "claude-sonnet-5-5",
+  "requested_effort": "medium",
+  "cases": [
+    "guide",
+    "abstract"
+  ],
+  "conditions": [
+    "current",
+    "candidate",
+    "baseline"
+  ],
+  "attempts": 6,
+  "repetitions": 1,
+  "candidate": "Replace the absolute no-growth constraint in both repeated locations with a concise-writing preference that permits clarification of existing meaning while respecting user length limits. No other instruction changes.",
+  "criteria": [
+    "Meaning and intent: preserve all source facts, quantitative bounds, time bases, conditions, uncertainty, causal/evidential strength, author recommendations, and entity/category scope. Do not infer missing facts or resolve source ambiguity by guessing.",
+    "Useful clarity: compare with the source for easier comprehension, clearer relationships, grammatical fluency, and explanation of existing meaning. Mere shortening, more editing, or closer conformity to a taste rule is not inherently better.",
+    "Protected content: preserve fenced and inline code, commands, sample output, math, link targets, author list, and title when requested. Record mechanical differences separately from subjective quality.",
+    "Unwanted changes: identify altered scope, added recommendations, fabricated details, generic formalization, needless rewrites, or task-external commentary in the artifact."
+  ],
+  "grading": "Each independent grader sees source, exact neutral editing request/audience, and three randomly labeled artifacts per source, without model, condition, candidate hypothesis, prompts naming skills, summaries, or mapping key. Record source/output evidence; permit tied rankings.",
+  "acceptance": "Protected spans and meaning preservation must not worsen in either source; require a useful clarity improvement over current on at least one source, with a tie allowed on the other. Baseline comparison stays descriptive if baseline wins.",
+  "limits": "One run per condition and two reused public sources can reveal failures, not isolate a robust causal effect or establish general quality gains."
+}

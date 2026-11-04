@@ -1,0 +1,29 @@
+--- a/plugins/anti-slop/references/ban-list.md
++++ b/plugins/anti-slop/references/ban-list.md
+@@ -67,9 +67,10 @@
+   join two full sentences or make a list unclear, use a spaced hyphen ( - ).
+ 
+ ## Replacement principle
+-Cut, or replace with a concrete, checkable statement. The rewrite must not
+-grow, except for words needed to move factual heading content into a
+-grammatical body sentence. Never pad or remove a fact to meet the limit.
++Use concise, concrete prose. Extra words may clarify existing meaning or
++move factual heading content into grammatical body sentences. Respect any
++length limit the user supplies. Never pad, invent, or remove a fact to meet
++a length target.
+ 
+ Before finishing, compare the source and rewrite for excessive editing.
+ Keep meaningful uncertainty, the author's clear cadence, and explanations
+--- a/plugins/anti-slop/skills/deslop/SKILL.md
++++ b/plugins/anti-slop/skills/deslop/SKILL.md
+@@ -44,8 +44,8 @@
+   quoted material, paths, YAML metadata, data, and link targets stay
+   byte-identical. Check these protected spans against the source before
+   returning or saving an edit.
+-- The rewrite must not be longer than the original, except for words
+-  needed to move factual heading content into a grammatical body sentence.
++- Prefer concise prose. Extra words are allowed when needed to make existing
++  meaning clear; respect any length limit the user supplies.
+ - Keep the author's technical terms. Replace slop, not vocabulary you would
+   merely phrase differently.
+ - When removing rhetorical contrast, keep the concrete behavior and any

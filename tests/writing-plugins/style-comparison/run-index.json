@@ -1,0 +1,377 @@
+{
+  "decision": "reject_candidate",
+  "decision_at_utc": "2026-11-04T02:59:30.875799+00:00",
+  "protocol_sha256": "9dfde29c86dd8cd3f5edfcc59d3fc82d89922b36c7f333d29e0bd5db363b1d8a",
+  "acceptance_rule": "Protected spans and meaning preservation must not worsen in either source; require a useful clarity improvement over current on at least one source, with a tie allowed on the other. Baseline comparison stays descriptive if baseline wins.",
+  "reason": "Both graders rated the candidate guide meaning/intent as a minor concern while rating the current guide as preserved. The candidate clarity gain does not establish the no-worse-meaning condition. Abstract results do not compensate for this required gate.",
+  "candidate_adopted": false,
+  "model_runs": {
+    "requested_model": "claude-sonnet-5-5",
+    "requested_effort": "medium",
+    "effective_effort_note": "CLI requested medium; JSON stream does not independently verify effective effort.",
+    "attempt_count": 6,
+    "cases": [
+      {
+        "condition": "candidate",
+        "case": "guide",
+        "run": "/tmp/writing-style-blind/run-b6f929d7/runs/guide",
+        "exit_code": 0,
+        "reported_parent_models": [
+          "claude-sonnet-5-5"
+        ],
+        "elapsed_seconds": 14.16,
+        "cost_usd": 0.0598558,
+        "changed_input_files": [
+          "guide.md"
+        ],
+        "original_sources_changed": [],
+        "mechanical_checks": {
+          "source_sha256": "ab5b7c7b719abbe7c5ca317f1ac9209ff63b34e7ce7c9b48d5cad1631b01c817",
+          "output_sha256": "8631766a229f3b183558fb03ba21410f9ee76732f30e9c6ca9e47ba7f024f5ca",
+          "source_words": 237,
+          "output_words": 254,
+          "fenced_blocks_byte_identical": true,
+          "existing_inline_code_counts_preserved": true,
+          "existing_link_targets_preserved": true
+        }
+      },
+      {
+        "condition": "baseline",
+        "case": "guide",
+        "run": "/tmp/writing-style-blind/run-1663ef4a/runs/guide",
+        "exit_code": 0,
+        "reported_parent_models": [
+          "claude-sonnet-5-5"
+        ],
+        "elapsed_seconds": 13.86,
+        "cost_usd": 0.0441341,
+        "changed_input_files": [
+          "guide.md"
+        ],
+        "original_sources_changed": [],
+        "mechanical_checks": {
+          "source_sha256": "ab5b7c7b719abbe7c5ca317f1ac9209ff63b34e7ce7c9b48d5cad1631b01c817",
+          "output_sha256": "5409e305c8b7f4097223bf270863a42185c75bd559ad3555bd8c2a68c9435b91",
+          "source_words": 237,
+          "output_words": 303,
+          "fenced_blocks_byte_identical": true,
+          "existing_inline_code_counts_preserved": true,
+          "existing_link_targets_preserved": true
+        }
+      },
+      {
+        "condition": "current",
+        "case": "guide",
+        "run": "/tmp/writing-style-blind/run-1628bc29/runs/guide",
+        "exit_code": 0,
+        "reported_parent_models": [
+          "claude-sonnet-5-5"
+        ],
+        "elapsed_seconds": 13.61,
+        "cost_usd": 0.05912150000000001,
+        "changed_input_files": [
+          "guide.md"
+        ],
+        "original_sources_changed": [],
+        "mechanical_checks": {
+          "source_sha256": "ab5b7c7b719abbe7c5ca317f1ac9209ff63b34e7ce7c9b48d5cad1631b01c817",
+          "output_sha256": "0479f8c018c6a6aed7921830c2d77157b05e4cf6c47bae3767545952f2618749",
+          "source_words": 237,
+          "output_words": 220,
+          "fenced_blocks_byte_identical": true,
+          "existing_inline_code_counts_preserved": true,
+          "existing_link_targets_preserved": true
+        }
+      },
+      {
+        "condition": "baseline",
+        "case": "abstract",
+        "run": "/tmp/writing-style-blind/run-1663ef4a/runs/abstract",
+        "exit_code": 0,
+        "reported_parent_models": [
+          "claude-sonnet-5-5"
+        ],
+        "elapsed_seconds": 11.45,
+        "cost_usd": 0.040024199999999996,
+        "changed_input_files": [
+          "abstract.md"
+        ],
+        "original_sources_changed": [],
+        "mechanical_checks": {
+          "source_sha256": "9b258c478e498e25599d29396b6f0ccd3bf9217100a752f6175bb501f02abad5",
+          "output_sha256": "df2e695120494f9b4302251c48ed15f163893490fbae785a4e273ad4817f327d",
+          "source_words": 256,
+          "output_words": 236,
+          "fenced_blocks_byte_identical": true,
+          "existing_inline_code_counts_preserved": true,
+          "existing_link_targets_preserved": true,
+          "title_and_authors_byte_identical": true
+        }
+      },
+      {
+        "condition": "candidate",
+        "case": "abstract",
+        "run": "/tmp/writing-style-blind/run-b6f929d7/runs/abstract",
+        "exit_code": 0,
+        "reported_parent_models": [
+          "claude-sonnet-5-5"
+        ],
+        "elapsed_seconds": 13.31,
+        "cost_usd": 0.0583505,
+        "changed_input_files": [
+          "abstract.md"
+        ],
+        "original_sources_changed": [],
+        "mechanical_checks": {
+          "source_sha256": "9b258c478e498e25599d29396b6f0ccd3bf9217100a752f6175bb501f02abad5",
+          "output_sha256": "8458565832d485704b7f744cfca42b052767f3382c49933c328cf2be7271c70b",
+          "source_words": 256,
+          "output_words": 245,
+          "fenced_blocks_byte_identical": true,
+          "existing_inline_code_counts_preserved": true,
+          "existing_link_targets_preserved": true,
+          "title_and_authors_byte_identical": true
+        }
+      },
+      {
+        "condition": "current",
+        "case": "abstract",
+        "run": "/tmp/writing-style-blind/run-1628bc29/runs/abstract",
+        "exit_code": 0,
+        "reported_parent_models": [
+          "claude-sonnet-5-5"
+        ],
+        "elapsed_seconds": 13.31,
+        "cost_usd": 0.058589600000000006,
+        "changed_input_files": [
+          "abstract.md"
+        ],
+        "original_sources_changed": [],
+        "mechanical_checks": {
+          "source_sha256": "9b258c478e498e25599d29396b6f0ccd3bf9217100a752f6175bb501f02abad5",
+          "output_sha256": "622b9dd0e5a6f2309f167d63e2f64438a5b9b8d606bf736b585bd4ef72ddee90",
+          "source_words": 256,
+          "output_words": 242,
+          "fenced_blocks_byte_identical": true,
+          "existing_inline_code_counts_preserved": true,
+          "existing_link_targets_preserved": true,
+          "title_and_authors_byte_identical": true
+        }
+      }
+    ],
+    "total_cost_usd": 0.3200757000000001
+  },
+  "blind_grader_evidence": [
+    {
+      "grader": "A",
+      "requested_model": "gpt-6.1-terra",
+      "requested_effort": "medium",
+      "path": "/tmp/writing-style-grade-a.json",
+      "sha256": "2fff2ce94d401e72df2c1f3f3b8fb6d489283d112e7f711067646558be113894",
+      "context": "Only source, raw neutral request, anonymous variants, neutral criteria, and mechanical checks; condition key withheld until both graders completed."
+    },
+    {
+      "grader": "B",
+      "requested_model": "gpt-6-luna",
+      "requested_effort": "medium",
+      "path": "/tmp/writing-style-grade-b.json",
+      "sha256": "2592d358b34b545a22af0b672596737d459f8c3c1a8cdb9a0fdf7ba1510b666b",
+      "context": "Only source, raw neutral request, anonymous variants, neutral criteria, and mechanical checks; condition key withheld until both graders completed."
+    }
+  ],
+  "mapped_cases": [
+    {
+      "blind_case_id": "case-592e3f",
+      "source_case": "guide",
+      "versions": [
+        {
+          "blind_version_id": "text-02faef",
+          "condition": "candidate",
+          "output_path": "/tmp/writing-style-blind/run-b6f929d7/runs/guide/work/guide.md",
+          "output_sha256": "8631766a229f3b183558fb03ba21410f9ee76732f30e9c6ca9e47ba7f024f5ca",
+          "grades": {
+            "A": {
+              "meaning_intent": "minor concern",
+              "clarity_vs_source": "improved"
+            },
+            "B": {
+              "meaning_intent": "minor concern",
+              "clarity_vs_source": "improved"
+            }
+          }
+        },
+        {
+          "blind_version_id": "text-34ed72",
+          "condition": "baseline",
+          "output_path": "/tmp/writing-style-blind/run-1663ef4a/runs/guide/work/guide.md",
+          "output_sha256": "5409e305c8b7f4097223bf270863a42185c75bd559ad3555bd8c2a68c9435b91",
+          "grades": {
+            "A": {
+              "meaning_intent": "material drift",
+              "clarity_vs_source": "improved"
+            },
+            "B": {
+              "meaning_intent": "minor concern",
+              "clarity_vs_source": "improved"
+            }
+          }
+        },
+        {
+          "blind_version_id": "text-e19cc3",
+          "condition": "current",
+          "output_path": "/tmp/writing-style-blind/run-1628bc29/runs/guide/work/guide.md",
+          "output_sha256": "0479f8c018c6a6aed7921830c2d77157b05e4cf6c47bae3767545952f2618749",
+          "grades": {
+            "A": {
+              "meaning_intent": "preserved",
+              "clarity_vs_source": "improved"
+            },
+            "B": {
+              "meaning_intent": "preserved",
+              "clarity_vs_source": "tied"
+            }
+          }
+        }
+      ],
+      "ranking_A": [
+        [
+          "text-02faef"
+        ],
+        [
+          "text-e19cc3"
+        ],
+        [
+          "text-34ed72"
+        ]
+      ],
+      "ranking_B": [
+        "text-02faef",
+        "text-34ed72",
+        "text-e19cc3"
+      ]
+    },
+    {
+      "blind_case_id": "case-9b78dc",
+      "source_case": "abstract",
+      "versions": [
+        {
+          "blind_version_id": "text-273f04",
+          "condition": "baseline",
+          "output_path": "/tmp/writing-style-blind/run-1663ef4a/runs/abstract/work/abstract.md",
+          "output_sha256": "df2e695120494f9b4302251c48ed15f163893490fbae785a4e273ad4817f327d",
+          "grades": {
+            "A": {
+              "meaning_intent": "minor concern",
+              "clarity_vs_source": "improved"
+            },
+            "B": {
+              "meaning_intent": "minor concern",
+              "clarity_vs_source": "improved"
+            }
+          }
+        },
+        {
+          "blind_version_id": "text-1888b9",
+          "condition": "candidate",
+          "output_path": "/tmp/writing-style-blind/run-b6f929d7/runs/abstract/work/abstract.md",
+          "output_sha256": "8458565832d485704b7f744cfca42b052767f3382c49933c328cf2be7271c70b",
+          "grades": {
+            "A": {
+              "meaning_intent": "minor concern",
+              "clarity_vs_source": "improved"
+            },
+            "B": {
+              "meaning_intent": "preserved",
+              "clarity_vs_source": "improved"
+            }
+          }
+        },
+        {
+          "blind_version_id": "text-2c5223",
+          "condition": "current",
+          "output_path": "/tmp/writing-style-blind/run-1628bc29/runs/abstract/work/abstract.md",
+          "output_sha256": "622b9dd0e5a6f2309f167d63e2f64438a5b9b8d606bf736b585bd4ef72ddee90",
+          "grades": {
+            "A": {
+              "meaning_intent": "minor concern",
+              "clarity_vs_source": "improved"
+            },
+            "B": {
+              "meaning_intent": "preserved",
+              "clarity_vs_source": "improved"
+            }
+          }
+        }
+      ],
+      "ranking_A": [
+        [
+          "text-1888b9",
+          "text-2c5223"
+        ],
+        [
+          "text-273f04"
+        ]
+      ],
+      "ranking_B": [
+        "text-1888b9",
+        "text-2c5223",
+        "text-273f04"
+      ]
+    }
+  ],
+  "limits": "One run per condition and two reused public sources can reveal failures, not isolate a robust causal effect or establish general quality gains.",
+  "grader_disagreements_and_checks": [
+    "Guide baseline severity differs: grader A calls it material drift; grader B calls it minor concern. Both identify added general behavior and a changed recommendation.",
+    "Abstract candidate/current wording receives minor concern from grader A but preserved from grader B; A ties them and B slightly prefers candidate.",
+    "Grader B credits the guide candidate with an explicit preview-without-modification explanation absent from the actual artifact. The original grade is retained; that example is excluded from the report summary. Both graders separately identify the actual added parsing and file-discovery explanations."
+  ],
+  "snapshots": [
+    {
+      "condition": "current",
+      "path": "/tmp/writing-style-blind/run-1628bc29/snapshot.json",
+      "sha256": "0cc6bfc2109b0ed8679b54c82b405c8c4e7126df3fee19c1a8c695b5221a3697",
+      "git_head": "26258f816760152e29e3a1e4d5fdcc3d757e0e1c",
+      "runner_sha256": "f0e01632556c826e26bd38fbef4e7c790c3cdd7801f107653f6cce90028c7312",
+      "manifest_sha256": "478b32e5894d0ba53fb58828e1a4ec81977d96f4b59767ca9740d25d779b51cf",
+      "plugin_files": {
+        "anti-slop": {
+          ".claude-plugin/plugin.json": "108821e91e78164a827729585c794433166b8f046ac84d2ab0362acff798b908",
+          "README.md": "e3c9d49395fbe3c1d6cb2a273914cf83123a8f7e76b7100fafef5dc67c51bd28",
+          "output-styles/ASD-STE100.md": "e561d11a5610e8fc8bd8beae7b8c30116dcb890549677ca17d11fdf4de5a00f7",
+          "references/ban-list.md": "6c299c7ab98ad8dbb349a5526dd52f3652a03f263f694e522835e4eb9e88d3d8",
+          "references/writing-samples-template.md": "eb49dd97d854b683c209faa2788086cb7944551bfedd41436613c2c5f8e779ba",
+          "skills/academic-voice/SKILL.md": "0db7b9c817b0847e750a6fa979c56a09ababaf12d7b70b95fe033b654c874d36",
+          "skills/deslop/SKILL.md": "db795d75b753dea32db2e3531cf711cb7fd843d80c288f640a4cc6ff88b3f852"
+        }
+      }
+    },
+    {
+      "condition": "candidate",
+      "path": "/tmp/writing-style-blind/run-b6f929d7/snapshot.json",
+      "sha256": "4bd07c60674a57068f5917841cc5e0755b93f305a466a2e9689f84950a7570aa",
+      "git_head": "26258f816760152e29e3a1e4d5fdcc3d757e0e1c",
+      "runner_sha256": "f0e01632556c826e26bd38fbef4e7c790c3cdd7801f107653f6cce90028c7312",
+      "manifest_sha256": "478b32e5894d0ba53fb58828e1a4ec81977d96f4b59767ca9740d25d779b51cf",
+      "plugin_files": {
+        "anti-slop": {
+          ".claude-plugin/plugin.json": "108821e91e78164a827729585c794433166b8f046ac84d2ab0362acff798b908",
+          "README.md": "e3c9d49395fbe3c1d6cb2a273914cf83123a8f7e76b7100fafef5dc67c51bd28",
+          "output-styles/ASD-STE100.md": "e561d11a5610e8fc8bd8beae7b8c30116dcb890549677ca17d11fdf4de5a00f7",
+          "references/ban-list.md": "55b1d76180debaea8caf32f3c316add8d983993a41e7ef9dc99f0871b585650f",
+          "references/writing-samples-template.md": "eb49dd97d854b683c209faa2788086cb7944551bfedd41436613c2c5f8e779ba",
+          "skills/academic-voice/SKILL.md": "0db7b9c817b0847e750a6fa979c56a09ababaf12d7b70b95fe033b654c874d36",
+          "skills/deslop/SKILL.md": "7a6a7a263af34416739f4e8956feb79b9fbc30c657066abdd2dd447a0be8db0c"
+        }
+      }
+    },
+    {
+      "condition": "baseline",
+      "path": "/tmp/writing-style-blind/run-1663ef4a/snapshot.json",
+      "sha256": "7ebe2b11f8cd41b601f3d8d049762f5d37e0382a9dafb20621c3460e8d21c780",
+      "git_head": "26258f816760152e29e3a1e4d5fdcc3d757e0e1c",
+      "runner_sha256": "f0e01632556c826e26bd38fbef4e7c790c3cdd7801f107653f6cce90028c7312",
+      "manifest_sha256": "478b32e5894d0ba53fb58828e1a4ec81977d96f4b59767ca9740d25d779b51cf",
+      "plugin_files": {}
+    }
+  ]
+}
