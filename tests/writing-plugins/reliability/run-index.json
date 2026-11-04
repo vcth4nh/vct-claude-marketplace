@@ -1,0 +1,1105 @@
+{
+  "schema_version": 1,
+  "scope": "Focused reliability checks after the 0.4.0 held-out comparison; all 15 CLI attempts retained, plus two separate blind style graders. No repeated conditions.",
+  "versions": {
+    "public-hygiene": "0.4.1",
+    "anti-slop": "0.3.2",
+    "marketplace": "0.1.6"
+  },
+  "frozen_plugin_commit": "821054b",
+  "native_attempts": {
+    "sequential_skill": 1,
+    "leak_skill": 5,
+    "direct_leak_reviewer": 3,
+    "style_edits": 6,
+    "total": 15
+  },
+  "reported_cli_cost_usd": 0.4525123750000001,
+  "cost_scope": "Reported CLI costs only; excludes separate collaboration graders and publication reviewers.",
+  "effort": "Medium requested. Native result streams identify models but do not independently verify effective effort.",
+  "sequential": {
+    "runs": [
+      {
+        "id": "sd-sequential-comprehension",
+        "backend": "claude",
+        "requested_model": "claude-haiku-5-5",
+        "requested_effort": "medium",
+        "invocation_route": "source-snapshot",
+        "exit_code": 0,
+        "timed_out": false,
+        "elapsed_seconds": 337.84,
+        "reported_parent_models": [
+          "claude-haiku-5-5"
+        ],
+        "reported_child_models": [
+          "claude-haiku-5-5"
+        ],
+        "model": "claude-haiku-5-5",
+        "reported_effort": null,
+        "effort_note": "Requested via CLI/config; this event stream does not verify the effective effort.",
+        "cost_usd": 0.07968208999999998,
+        "changed_files": [],
+        "changed_input_files": [],
+        "original_sources_changed": [],
+        "scratch_files": {
+          "sd-chunks/chunk-001.txt": "8e9204263a2a4950b972af2db8c306efcd7cfd5962563514f7a699ff4aff6b0e",
+          "sd-chunks/chunk-002.txt": "3ae6c09e205538a1720ddc4f4488a8502069884349781d8064e70c819ea91a0e",
+          "sd-chunks/chunk-003.txt": "294f9f0d9714d18803645490795d507699a8783d8a8c02eef194f8a36c345531",
+          "sd-chunks/chunk-004.txt": "98cb24ab06bb34c990c3be14f7a1782019f553ed02132b4048808941b77e864e",
+          "sd-chunks/manifest.json": "322c5ede0ef2ead4611c4b13aeec66b1198dd2a05287ceb503f489cf256ec259",
+          "sd-reports/assembled-001.txt": "6fe2381df7d56c8e397c357a578a0e10c01d479ae7fddb0522e721c65bb5fe5b",
+          "sd-reports/checkpoint-1.txt": "483a471e75b688cb96c494ba5c6c65d949749f6db6ba3057cfd03ebdb99f11f3",
+          "sd-reports/checkpoint-2.txt": "9459532d268724316b6788d0e4e3f9e965f9cb4ab0e9baa1f118e3906fa3e7a6",
+          "sd-reports/checkpoint-3.txt": "6990aed237ac9d774a5fbbd37d8a67e790add891e225e583579b0f19b766d439",
+          "sd-reports/checkpoint-4.txt": "bfeea0ccafd66c12d4411891afff5decf7b4b73999000985f22b6fbab1d93176",
+          "sd-reports/checkpoint-hashes.txt": "c9e6982bcbee54c9d5247766eb82f3e762642880644fd1b0efdae01ce75d45c4",
+          "sd-reports/input-hashes-initial.txt": "4615027bde6303c801d0e438e54b57400fc7c616ef9cd6e87e06b1f89c5b2752",
+          "sd-reports/reading-final.txt": "f3a5475dcd7f6628fdcaf7f4dfd32d499b7b2acbd0362028e1350005ddfca79e"
+        }
+      }
+    ],
+    "snapshot": {
+      "created_at": "2026-11-04T02:53:23.552076+00:00",
+      "git_head": "26258f816760152e29e3a1e4d5fdcc3d757e0e1c",
+      "plugin_files": {
+        "public-hygiene": {
+          ".claude-plugin/plugin.json": "2541a12685ec3f3bf863fd6e794f63acbd74d7555302f36bff2c9dfb73a8a3b3",
+          "README.md": "85f60d188c034333a48ea72276bc2bd5ca6e0585c78048e9e896d0e45c805483",
+          "agents/cold-reader.md": "a90d16027750f9fac2e78d6fcafce921e1a743562a502f95ca16233adfb89c6e",
+          "agents/external-reviewer.md": "df032bac025014032a39f1bf539a4c9515855dbc065cd1d38ec5235af4c45206",
+          "references/audience-rules.md": "b0f0e0f384d7d43593eea2b641cb15cbc2c0a5afcfe857b1d9bdb4d13d56917b",
+          "references/hygiene-rules.md": "070794c8130938c6178813a04a6a5528b7e8a1c06e07374febbd8b01ec44b15e",
+          "references/reader-modes.md": "a5ea91a4f3fcde191d1c04bd18ec9c288d9af7730277516ff4868f9ffab1e5ed",
+          "references/report-delivery.md": "e66cfe60fa8b481eb5589cdde93dde61b1a04a98042c9fa829f17694cf34ad91",
+          "scripts/assemble_reader_report.py": "cf4051803a58125d93144913ba80377dd6adfcb5d3dfd710ce424aefcaf7cfdb",
+          "scripts/prepare_reader_chunks.py": "bad72d3cd62d8507d172bc146973a492b49dc92b8d94c10acb27cdae0d61acfb",
+          "skills/cold-read/SKILL.md": "6401b11893f78874b26991b7c0083f328be25d71dbe072d83f9ba9e7d59d727f",
+          "skills/leak-check/SKILL.md": "94b770f5b9dbf7dbcbd1a0726bed0414b1656f0079f4b5b0b335de4ac1356752"
+        }
+      },
+      "runner_sha256": "f0e01632556c826e26bd38fbef4e7c790c3cdd7801f107653f6cce90028c7312",
+      "manifest_sha256": "6ded33bafc416c2bf82d36eedc01b148d4434cdf86e1c9184559d11d1a9bac93",
+      "baseline": false,
+      "dry_run": false,
+      "backend": "claude",
+      "requested_model": "claude-haiku-5-5",
+      "requested_effort": "medium",
+      "invocation_route": "source-snapshot",
+      "installed_config_root": null,
+      "installed_plugin_paths": {},
+      "installed_note": null,
+      "claude_review_shell": "unrestricted parent Bash; instruction boundaries and source-integrity audit, not an OS sandbox",
+      "codex_sandbox": null,
+      "cli_version": "2.1.318 (Claude Code)"
+    },
+    "assessment": {
+      "snapshot_git_head": "26258f816760152e29e3a1e4d5fdcc3d757e0e1c",
+      "requested_model": "claude-haiku-5-5",
+      "requested_effort": "medium",
+      "reported_parent_models": [
+        "claude-haiku-5-5"
+      ],
+      "reported_child_models": [
+        "claude-haiku-5-5"
+      ],
+      "effective_effort_verified_in_stream": false,
+      "exit_code": 0,
+      "elapsed_seconds": 337.84,
+      "cost_usd": 0.07968208999999998,
+      "stages": [
+        {
+          "stage": 1,
+          "validator_call_line": 93,
+          "validator_result_line": 94,
+          "next_dispatch_line": 100,
+          "validated_before_next_handoff": true,
+          "status": "COMPLETE",
+          "hash_matches_saved_record": true
+        },
+        {
+          "stage": 2,
+          "validator_call_line": 137,
+          "validator_result_line": 138,
+          "next_dispatch_line": 145,
+          "validated_before_next_handoff": true,
+          "status": "COMPLETE",
+          "hash_matches_saved_record": true
+        },
+        {
+          "stage": 3,
+          "validator_call_line": 190,
+          "validator_result_line": 191,
+          "next_dispatch_line": 196,
+          "validated_before_next_handoff": true,
+          "status": "COMPLETE",
+          "hash_matches_saved_record": true
+        },
+        {
+          "stage": 4,
+          "validator_call_line": 245,
+          "validator_result_line": 246,
+          "next_dispatch_line": 253,
+          "validated_before_next_handoff": true,
+          "status": "COMPLETE",
+          "hash_matches_saved_record": true
+        }
+      ],
+      "source_chunks_byte_exact": true,
+      "checkpoint_exact_occurrences": {
+        "checkpoint-1.txt": 1,
+        "checkpoint-2.txt": 1,
+        "checkpoint-3.txt": 1,
+        "checkpoint-4.txt": 1
+      },
+      "repeated_checkpoint_hashes_match_final": true,
+      "child_write_payloads_preserved": true,
+      "source_changes": [],
+      "working_input_changes": [],
+      "delivery": {
+        "saved_report_exists": true,
+        "saved_verdict": "VERDICT: NEEDS CONTEXT (6 gaps)",
+        "chat_verdict_matches": true,
+        "clickable_report_link": false,
+        "finding_paraphrase": false,
+        "extra_workflow_narration": true
+      },
+      "manual_trace_assessment": {
+        "original_source_manifest_or_unprovided_future_reads": false,
+        "checkpoint_before_next_dispatch": true,
+        "all_prior_public_prefixes_and_checkpoints_read": true,
+        "badge_first_read_after_link_became_reachable": true,
+        "reserved_output_paths_validated": true,
+        "no_reviewer_shell_or_edit_calls": true,
+        "supplied_input_hashes_rechecked_after_each_stage": false,
+        "supplied_input_hashes_rechecked_before_assembly": true
+      },
+      "limitations": [
+        "This successful run contains no malformed generated stage, so it does not test a native parent stopping on failed validation. The preserved malformed Haiku checkpoint and deterministic chained-parent tests cover that rejection separately.",
+        "The validator only gates progress when invoked and its result honored. Native shell commands printed validator exit status before later successful shell commands, so the outer Bash exit alone would not prove validator success; the four returned JSON records and explicit exit=0 establish it here.",
+        "Final reply used a backticked path rather than a clickable link and added workflow narration. Not a full delivery-contract pass.",
+        "Finding correctness was not independently scored in this protocol audit."
+      ],
+      "final_source_followups_after_native_run": [
+        "Explicit STAGE: INCOMPLETE has a distinct failure diagnostic.",
+        "Instructions require validating the path reserved in the handoff, rather than a different child-returned path.",
+        "Advancement test uses a standard-library Python parent stub."
+      ],
+      "final_validator_sha256": "3b89a97b7136b2338b61891ac29db637e6735beeba3e2baa34a85da171861504",
+      "snapshot_files_differing_from_git_head": [
+        "public-hygiene/agents/external-reviewer.md",
+        "public-hygiene/references/hygiene-rules.md",
+        "public-hygiene/skills/leak-check/SKILL.md"
+      ]
+    },
+    "evidence": [
+      {
+        "path": "EVIDENCE_ROOT/reliability/stage-haiku/results.json",
+        "sha256": "12d4167b84b8f2a9dd1cdd88d8b5e180350b4bc345010ca44f677bcf4b667f8c"
+      },
+      {
+        "path": "EVIDENCE_ROOT/reliability/stage-haiku-audit.json",
+        "sha256": "12d11940bab39789978a1b866a18d102374401193f2b326a60a878a5174217d4"
+      },
+      {
+        "path": "EVIDENCE_ROOT/reliability/stage-rejection-replay.json",
+        "sha256": "f58417e2c55626de2ab6f5c86c8aa232e01d3f6f6ec6f7ab113d83c293fdbd9b"
+      }
+    ]
+  },
+  "leak_skill": {
+    "runs": [
+      {
+        "id": "le01",
+        "backend": "claude",
+        "requested_model": "claude-haiku-5-5",
+        "requested_effort": "medium",
+        "invocation_route": "source-snapshot",
+        "exit_code": 0,
+        "timed_out": false,
+        "elapsed_seconds": 30.51,
+        "reported_parent_models": [
+          "claude-haiku-5-5"
+        ],
+        "reported_child_models": [
+          "claude-haiku-5-5"
+        ],
+        "model": "claude-haiku-5-5",
+        "reported_effort": null,
+        "effort_note": "Requested via CLI/config; this event stream does not verify the effective effort.",
+        "cost_usd": 0.007531885,
+        "changed_files": [],
+        "changed_input_files": [],
+        "original_sources_changed": [],
+        "scratch_files": {
+          "review-001.txt": "a482893687c23efa79cff55ad89789fcd3c52eea7c7240a2be43d3e48df18912"
+        }
+      },
+      {
+        "id": "le02",
+        "backend": "claude",
+        "requested_model": "claude-haiku-5-5",
+        "requested_effort": "medium",
+        "invocation_route": "source-snapshot",
+        "exit_code": 0,
+        "timed_out": false,
+        "elapsed_seconds": 36.38,
+        "reported_parent_models": [
+          "claude-haiku-5-5"
+        ],
+        "reported_child_models": [
+          "claude-haiku-5-5"
+        ],
+        "model": "claude-haiku-5-5",
+        "reported_effort": null,
+        "effort_note": "Requested via CLI/config; this event stream does not verify the effective effort.",
+        "cost_usd": 0.007579600000000001,
+        "changed_files": [],
+        "changed_input_files": [],
+        "original_sources_changed": [],
+        "scratch_files": {}
+      },
+      {
+        "id": "spike-leak",
+        "backend": "claude",
+        "requested_model": "claude-haiku-5-5",
+        "requested_effort": "medium",
+        "invocation_route": "source-snapshot",
+        "exit_code": 0,
+        "timed_out": false,
+        "elapsed_seconds": 31.97,
+        "reported_parent_models": [
+          "claude-haiku-5-5"
+        ],
+        "reported_child_models": [
+          "claude-haiku-5-5"
+        ],
+        "model": "claude-haiku-5-5",
+        "reported_effort": null,
+        "effort_note": "Requested via CLI/config; this event stream does not verify the effective effort.",
+        "cost_usd": 0.00804303,
+        "changed_files": [],
+        "changed_input_files": [],
+        "original_sources_changed": [],
+        "scratch_files": {
+          "leak-report.md": "6df9cb491c714b149b07d2e65f5b00a7070a62b8a0ea46c933215a9d0c2f72a6"
+        }
+      },
+      {
+        "id": "raft-anonymous-leak",
+        "backend": "claude",
+        "requested_model": "claude-haiku-5-5",
+        "requested_effort": "medium",
+        "invocation_route": "source-snapshot",
+        "exit_code": 0,
+        "timed_out": false,
+        "elapsed_seconds": 35.89,
+        "reported_parent_models": [
+          "claude-haiku-5-5"
+        ],
+        "reported_child_models": [
+          "claude-haiku-5-5"
+        ],
+        "model": "claude-haiku-5-5",
+        "reported_effort": null,
+        "effort_note": "Requested via CLI/config; this event stream does not verify the effective effort.",
+        "cost_usd": 0.007641455,
+        "changed_files": [],
+        "changed_input_files": [],
+        "original_sources_changed": [],
+        "scratch_files": {
+          "input-hashes.txt": "11cb6659132acc048f7bd69afc8ac89ada639769dd6d0714e5bec952b50ce568",
+          "review-001.txt": "3b41050c277639de992175966a21e9fa97cf21dbb540f8d84f19572adbeab423"
+        }
+      },
+      {
+        "id": "raft-submission-leak",
+        "backend": "claude",
+        "requested_model": "claude-haiku-5-5",
+        "requested_effort": "medium",
+        "invocation_route": "source-snapshot",
+        "exit_code": 0,
+        "timed_out": false,
+        "elapsed_seconds": 23.9,
+        "reported_parent_models": [
+          "claude-haiku-5-5"
+        ],
+        "reported_child_models": [
+          "claude-haiku-5-5"
+        ],
+        "model": "claude-haiku-5-5",
+        "reported_effort": null,
+        "effort_note": "Requested via CLI/config; this event stream does not verify the effective effort.",
+        "cost_usd": 0.006949395000000001,
+        "changed_files": [],
+        "changed_input_files": [],
+        "original_sources_changed": [],
+        "scratch_files": {
+          "leak-report.md": "ec54ef45c1c7c4205e4bdd0dc5957111dfb37ed85cbde79b8842fff8f05986d9"
+        }
+      }
+    ],
+    "assessment": {
+      "evaluator_note": "Source/rubric and full trace review after all model runs; the evaluator authored the paired control and is not blind. No expected answers or assessment notes entered native prompts.",
+      "snapshot": {
+        "created_at": "2026-11-04T03:00:06.183939+00:00",
+        "git_head": "b191d7667a5bdc42dad7eff0db11ca0718b60194",
+        "plugin_files": {
+          "public-hygiene": {
+            ".claude-plugin/plugin.json": "2541a12685ec3f3bf863fd6e794f63acbd74d7555302f36bff2c9dfb73a8a3b3",
+            "README.md": "85f60d188c034333a48ea72276bc2bd5ca6e0585c78048e9e896d0e45c805483",
+            "agents/cold-reader.md": "a90d16027750f9fac2e78d6fcafce921e1a743562a502f95ca16233adfb89c6e",
+            "agents/external-reviewer.md": "9c3a17debd215b9a350e4bcf2c6fed4dcc2ad9b3fd86e17f44aa7fd5fa5fbe35",
+            "references/audience-rules.md": "b0f0e0f384d7d43593eea2b641cb15cbc2c0a5afcfe857b1d9bdb4d13d56917b",
+            "references/hygiene-rules.md": "7c247cd4614705be2b944516409f7c7fc808bd7191a2ec304d9e51b50fb73f92",
+            "references/reader-modes.md": "2bbc1a48634c3f784e5a67ec29d31480708692cfca1cdef5ec9d8b064de4e745",
+            "references/report-delivery.md": "e66cfe60fa8b481eb5589cdde93dde61b1a04a98042c9fa829f17694cf34ad91",
+            "scripts/assemble_reader_report.py": "3b89a97b7136b2338b61891ac29db637e6735beeba3e2baa34a85da171861504",
+            "scripts/prepare_reader_chunks.py": "bad72d3cd62d8507d172bc146973a492b49dc92b8d94c10acb27cdae0d61acfb",
+            "skills/cold-read/SKILL.md": "6401b11893f78874b26991b7c0083f328be25d71dbe072d83f9ba9e7d59d727f",
+            "skills/leak-check/SKILL.md": "94b770f5b9dbf7dbcbd1a0726bed0414b1656f0079f4b5b0b335de4ac1356752"
+          }
+        },
+        "runner_sha256": "f0e01632556c826e26bd38fbef4e7c790c3cdd7801f107653f6cce90028c7312",
+        "manifest_sha256": "0cf7b2c6e4f1bd3d14a00f4a01e23e61e4a1b1b1fcb517ba7219eb429a303e78",
+        "baseline": false,
+        "dry_run": false,
+        "backend": "claude",
+        "requested_model": "claude-haiku-5-5",
+        "requested_effort": "medium",
+        "invocation_route": "source-snapshot",
+        "installed_config_root": null,
+        "installed_plugin_paths": {},
+        "installed_note": null,
+        "claude_review_shell": "unrestricted parent Bash; instruction boundaries and source-integrity audit, not an OS sandbox",
+        "codex_sandbox": null,
+        "cli_version": "2.1.318 (Claude Code)"
+      },
+      "known_detection_limit": "An explained, unmarked name such as Beacon supplies no evidence of private status. The negative-case PASS is not proof of release clearance and does not measure detection of undisclosed private names.",
+      "cases": [
+        {
+          "id": "le01",
+          "reported_outcome": "PASS",
+          "content_assessment": "No unsupported disclosure findings for the supplied scope. The input cannot establish real clearance of unmarked names.",
+          "handoff_assessment": "Parent added interpretive approval commentary (none stated beyond the draft) and an instruction about unapproved internal names rather than preserving only the supplied context. No private term was pre-identified for the child.",
+          "supported_findings": 0,
+          "unsupported_findings": 0,
+          "elapsed_seconds": 30.51,
+          "exit_code": 0,
+          "timed_out": false,
+          "cost_usd": 0.007531885,
+          "requested_model": "claude-haiku-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-haiku-5-5"
+          ],
+          "reported_child_models": [
+            "claude-haiku-5-5"
+          ],
+          "changed_input_files": [],
+          "original_sources_changed": [],
+          "created_work_files": [],
+          "reports": [
+            {
+              "path": "EVIDENCE_ROOT/reliability/leak-haiku/runs/le01/scratch/review-001.txt",
+              "sha256": "a482893687c23efa79cff55ad89789fcd3c52eea7c7240a2be43d3e48df18912",
+              "matches_child_write": true,
+              "verdict": "VERDICT: PASS"
+            }
+          ],
+          "working_clickable_link_and_matching_verdict": true,
+          "tool_errors": [],
+          "trace_sha256": "4f104d193e4ceb6e943e8f7d35e9d238cfb5c7996685aed45678176f0296e1ef"
+        },
+        {
+          "id": "le02",
+          "reported_outcome": "Child text BLOCK; parent calls delivery incomplete but reproduces findings and still presents BLOCK",
+          "content_assessment": "All five planted disclosure groups were correctly covered in the child text, including the glossary term. This is observed text coverage, not a completed saved-report audit. No unsupported extra finding.",
+          "handoff_assessment": "Parent chose leak-report.md contrary to the naming convention. Child made no Write attempt and claimed a system prohibition; there was no native tool rejection. Parent then relayed unsaved findings in violation of incomplete-delivery rules.",
+          "required_disclosure_groups": 5,
+          "observed_in_child_text": 5,
+          "observed_in_saved_report": 0,
+          "unsupported_findings": 0,
+          "elapsed_seconds": 36.38,
+          "exit_code": 0,
+          "timed_out": false,
+          "cost_usd": 0.007579600000000001,
+          "requested_model": "claude-haiku-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-haiku-5-5"
+          ],
+          "reported_child_models": [
+            "claude-haiku-5-5"
+          ],
+          "changed_input_files": [],
+          "original_sources_changed": [],
+          "created_work_files": [],
+          "reports": [],
+          "working_clickable_link_and_matching_verdict": false,
+          "tool_errors": [],
+          "trace_sha256": "719e77e2772eadb0fa7eaa777db6c52865147053aecabbabc5c9a4f239881a46"
+        },
+        {
+          "id": "raft-anonymous-leak",
+          "reported_outcome": "BLOCK",
+          "content_assessment": "One supported finding quotes both author names and the affiliation prohibited by the supplied anonymous-submission request. No speculative study-population or other extra finding.",
+          "handoff_assessment": "The explicit anonymity constraint was accurately passed.",
+          "required_identity_groups": 1,
+          "observed_in_saved_report": 1,
+          "unsupported_findings": 0,
+          "elapsed_seconds": 35.89,
+          "exit_code": 0,
+          "timed_out": false,
+          "cost_usd": 0.007641455,
+          "requested_model": "claude-haiku-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-haiku-5-5"
+          ],
+          "reported_child_models": [
+            "claude-haiku-5-5"
+          ],
+          "changed_input_files": [],
+          "original_sources_changed": [],
+          "created_work_files": [],
+          "reports": [
+            {
+              "path": "EVIDENCE_ROOT/reliability/leak-haiku/runs/raft-anonymous-leak/scratch/review-001.txt",
+              "sha256": "3b41050c277639de992175966a21e9fa97cf21dbb540f8d84f19572adbeab423",
+              "matches_child_write": true,
+              "verdict": "VERDICT: BLOCK (fix all findings before publish)"
+            }
+          ],
+          "working_clickable_link_and_matching_verdict": true,
+          "tool_errors": [],
+          "trace_sha256": "19fc1d7d471ecf97d21ce68394e9321d8039f090d6dfe28ad06317183ad1b9c7"
+        },
+        {
+          "id": "raft-submission-leak",
+          "reported_outcome": "BLOCK with two AMBIGUOUS findings",
+          "content_assessment": "The required policy question appears, but it is duplicated and expanded into a concern about the extended-version title. The second finding quotes the byline while discussing the title, so its quotation does not support its explanation. It fails the one-question control.",
+          "handoff_assessment": "Parent invented \"anonymity expectations for a submission apply\" despite the raw request supplying no anonymity requirement. The first finding falsely attributes that expectation to the user. Therefore this is not a clean test of the unspecified-policy rule.",
+          "required_policy_questions": 1,
+          "observed_policy_findings": 2,
+          "extra_or_unsupported_findings": 1,
+          "elapsed_seconds": 23.9,
+          "exit_code": 0,
+          "timed_out": false,
+          "cost_usd": 0.006949395000000001,
+          "requested_model": "claude-haiku-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-haiku-5-5"
+          ],
+          "reported_child_models": [
+            "claude-haiku-5-5"
+          ],
+          "changed_input_files": [],
+          "original_sources_changed": [],
+          "created_work_files": [],
+          "reports": [
+            {
+              "path": "EVIDENCE_ROOT/reliability/leak-haiku/runs/raft-submission-leak/scratch/leak-report.md",
+              "sha256": "ec54ef45c1c7c4205e4bdd0dc5957111dfb37ed85cbde79b8842fff8f05986d9",
+              "matches_child_write": true,
+              "verdict": "VERDICT: BLOCK (fix all findings before publish)"
+            }
+          ],
+          "working_clickable_link_and_matching_verdict": false,
+          "tool_errors": [
+            {
+              "log_line": 9,
+              "parent_tool_use_id": null,
+              "content": "Exit code 2\nEVIDENCE_ROOT/reliability/leak-haiku/plugins/public-hygiene/agents/:\ntotal 16\ndrwxrwxr-x 2 ubuntu ubuntu 4096 Oct 26 10:51 .\ndrwxrwxr-x 7 ubuntu ubuntu 4096 Oct 29 12:49 ..\n-rw-rw-r-- 1 ubuntu ubuntu 3976 Nov  4 02:58 cold-reader.md\n-rw-rw"
+            }
+          ],
+          "trace_sha256": "5aaf03531b35817037442577dc014fc9f91717eee792f9a147027faeaa750db2"
+        },
+        {
+          "id": "spike-leak",
+          "reported_outcome": "Saved PASS",
+          "content_assessment": "No findings. Old over-flagged explained terms and informal prose were not flagged, but the outcome is confounded: the parent invented blanket approval for the published incident narrative. The screenshot identifier remains an intended-disclosure uncertainty; this PASS does not establish its clearance.",
+          "handoff_assessment": "Parent added \"Names approved for release: the author byline and the published incident narrative as written.\" The raw user context states publication history and intended venue, not that approval. Child and parent treated the screenshot identifier as approved on that basis. Do not attribute the clean report solely to changed rules.",
+          "supported_findings": 0,
+          "unsupported_findings": 0,
+          "uncertainty_not_resolved": "Whether the visible operational incident identifier was intended for disclosure",
+          "elapsed_seconds": 31.97,
+          "exit_code": 0,
+          "timed_out": false,
+          "cost_usd": 0.00804303,
+          "requested_model": "claude-haiku-5-5",
+          "requested_effort": "medium",
+          "reported_parent_models": [
+            "claude-haiku-5-5"
+          ],
+          "reported_child_models": [
+            "claude-haiku-5-5"
+          ],
+          "changed_input_files": [],
+          "original_sources_changed": [],
+          "created_work_files": [],
+          "reports": [
+            {
+              "path": "EVIDENCE_ROOT/reliability/leak-haiku/runs/spike-leak/scratch/leak-report.md",
+              "sha256": "6df9cb491c714b149b07d2e65f5b00a7070a62b8a0ea46c933215a9d0c2f72a6",
+              "matches_child_write": true,
+              "verdict": "VERDICT: PASS"
+            }
+          ],
+          "working_clickable_link_and_matching_verdict": false,
+          "tool_errors": [],
+          "trace_sha256": "282df7d9ce5d45bc4b0e9b578cf0bcfc6498377aedbb974aee25b436cc02bd26"
+        }
+      ],
+      "summary": {
+        "native_attempts": 5,
+        "reruns": 0,
+        "reported_cost_usd": 0.037745365,
+        "source_mutation_cases": 0,
+        "saved_reports": 4,
+        "usable_artifact_links": 2,
+        "all_saved_bytes_match_child_write": true,
+        "effort_verification": "Medium was requested through CLI/process settings; effective effort is not independently reported by the stream.",
+        "conclusion": "Child text identified all planted disclosure groups and left the supplied public-narrative control alone. This five-case batch does not establish reliable end-to-end leak review: one report was not saved, two handoffs invented publication constraints/approval, and only two finals contain working artifact links with matching verdicts."
+      }
+    },
+    "evidence": [
+      {
+        "path": "EVIDENCE_ROOT/reliability/leak-haiku/results.json",
+        "sha256": "43735f03415a4cf58920db594c92cd952affbbea8348db52839027685fb1b323"
+      },
+      {
+        "path": "EVIDENCE_ROOT/reliability/assessment-leak-haiku.json",
+        "sha256": "b040956888632206b41bebf927167590b137ecf56db6ff60d3e7cd63b155e694"
+      }
+    ]
+  },
+  "direct_leak": {
+    "runs": [
+      {
+        "id": "le02",
+        "backend": "claude",
+        "requested_model": "claude-haiku-5-5",
+        "requested_effort": "medium",
+        "invocation_route": "direct-native-plugin-agent",
+        "exit_code": 0,
+        "timed_out": false,
+        "elapsed_seconds": 20.87,
+        "reported_parent_models": [
+          "claude-haiku-5-5"
+        ],
+        "reported_child_models": [],
+        "model": "claude-haiku-5-5",
+        "reported_effort": null,
+        "effort_note": "Requested via CLI/config; this event stream does not verify the effective effort.",
+        "cost_usd": 0.00460976,
+        "changed_files": [],
+        "changed_input_files": [],
+        "original_sources_changed": [],
+        "scratch_files": {
+          "review-001.txt": "2a983ffabd64f3708f26fe778b405e39f6464a1045ade7fc34e43b22d07ef93b"
+        }
+      },
+      {
+        "id": "spike-leak",
+        "backend": "claude",
+        "requested_model": "claude-haiku-5-5",
+        "requested_effort": "medium",
+        "invocation_route": "direct-native-plugin-agent",
+        "exit_code": 0,
+        "timed_out": false,
+        "elapsed_seconds": 29.0,
+        "reported_parent_models": [
+          "claude-haiku-5-5"
+        ],
+        "reported_child_models": [],
+        "model": "claude-haiku-5-5",
+        "reported_effort": null,
+        "effort_note": "Requested via CLI/config; this event stream does not verify the effective effort.",
+        "cost_usd": 0.0072187300000000005,
+        "changed_files": [],
+        "changed_input_files": [],
+        "original_sources_changed": [],
+        "scratch_files": {
+          "review-001.txt": "a047542a3303fa17698e8576b17bb35dd19c4eba171fcced764c05e818625172"
+        }
+      },
+      {
+        "id": "raft-submission-leak",
+        "backend": "claude",
+        "requested_model": "claude-haiku-5-5",
+        "requested_effort": "medium",
+        "invocation_route": "direct-native-plugin-agent",
+        "exit_code": 0,
+        "timed_out": false,
+        "elapsed_seconds": 12.9,
+        "reported_parent_models": [
+          "claude-haiku-5-5"
+        ],
+        "reported_child_models": [],
+        "model": "claude-haiku-5-5",
+        "reported_effort": null,
+        "effort_note": "Requested via CLI/config; this event stream does not verify the effective effort.",
+        "cost_usd": 0.0031807300000000005,
+        "changed_files": [],
+        "changed_input_files": [],
+        "original_sources_changed": [],
+        "scratch_files": {
+          "review-001.txt": "1418105d5a5a5ab2d2c9d50e05af498804a9790dab93dfe0b7e692b82cff52a4"
+        }
+      }
+    ],
+    "snapshot": {
+      "git_head": "610e3a461855cabdee7d836105baa62ce863c166",
+      "git_status": "",
+      "plugin_source_sha256": {
+        "plugins/public-hygiene/.claude-plugin/plugin.json": "04c2b81eb386822233114f93dc637293985127edfebe39a1b2dde9c78ce9709f",
+        "plugins/public-hygiene/README.md": "91202a5b4ad17761f80ce618b220acdfa6aa6f0a0489be3d6f6d5b8ef2e0af30",
+        "plugins/public-hygiene/agents/cold-reader.md": "a90d16027750f9fac2e78d6fcafce921e1a743562a502f95ca16233adfb89c6e",
+        "plugins/public-hygiene/agents/external-reviewer.md": "9c3a17debd215b9a350e4bcf2c6fed4dcc2ad9b3fd86e17f44aa7fd5fa5fbe35",
+        "plugins/public-hygiene/references/audience-rules.md": "b0f0e0f384d7d43593eea2b641cb15cbc2c0a5afcfe857b1d9bdb4d13d56917b",
+        "plugins/public-hygiene/references/hygiene-rules.md": "b7348dae2f2f7c6dbb320a0d48a612ccb32df8363ee2b34229f5e79d299174a8",
+        "plugins/public-hygiene/references/reader-modes.md": "2bbc1a48634c3f784e5a67ec29d31480708692cfca1cdef5ec9d8b064de4e745",
+        "plugins/public-hygiene/references/report-delivery.md": "e66cfe60fa8b481eb5589cdde93dde61b1a04a98042c9fa829f17694cf34ad91",
+        "plugins/public-hygiene/scripts/assemble_reader_report.py": "3b89a97b7136b2338b61891ac29db637e6735beeba3e2baa34a85da171861504",
+        "plugins/public-hygiene/scripts/prepare_reader_chunks.py": "bad72d3cd62d8507d172bc146973a492b49dc92b8d94c10acb27cdae0d61acfb",
+        "plugins/public-hygiene/skills/cold-read/SKILL.md": "6401b11893f78874b26991b7c0083f328be25d71dbe072d83f9ba9e7d59d727f",
+        "plugins/public-hygiene/skills/leak-check/SKILL.md": "94b770f5b9dbf7dbcbd1a0726bed0414b1656f0079f4b5b0b335de4ac1356752"
+      },
+      "claude_version": "2.1.318 (Claude Code)",
+      "scope": "Frozen public-hygiene source only; copied tracked and nonignored source files from current tree."
+    },
+    "execution_plan": {
+      "scope": "Direct public-hygiene:external-reviewer; not full leak-check skill integration",
+      "model": "claude-haiku-5-5",
+      "effort": "medium",
+      "jobs": 2,
+      "timeout_seconds": 600,
+      "attempts_per_case": 1,
+      "case_ids": [
+        "le02",
+        "spike-leak",
+        "raft-submission-leak"
+      ],
+      "orchestrator_sha256": "fd44efbbb3bcb01094fc8ee2f743797e89030ab29b61fb23a7017642e352310c",
+      "collection_helper_sha256": "f0e01632556c826e26bd38fbef4e7c790c3cdd7801f107653f6cce90028c7312",
+      "original_manifest_sha256": "0cf7b2c6e4f1bd3d14a00f4a01e23e61e4a1b1b1fcb517ba7219eb429a303e78",
+      "rubric_exposed": false,
+      "permission_bypass": false,
+      "isolation_note": "Fresh cwd, empty setting sources, auto-memory off, strict MCP, native file tools only. Instruction isolation and scoped write permissions, not an OS sandbox."
+    },
+    "evidence": [
+      {
+        "path": "EVIDENCE_ROOT/reliability/direct-leak-haiku/results.json",
+        "sha256": "e47dff485a171e92810711d6188f6b970b991f8c99e499cb05981182039fa522"
+      },
+      {
+        "path": "EVIDENCE_ROOT/reliability/direct-leak-haiku/run_direct.py",
+        "sha256": "fd44efbbb3bcb01094fc8ee2f743797e89030ab29b61fb23a7017642e352310c"
+      },
+      {
+        "path": "EVIDENCE_ROOT/reliability/direct-leak-assessment.json",
+        "sha256": "76836a79c803b32641c546132e41c5d809d0d1192e9fc142fec1dbe95e31d70f"
+      }
+    ],
+    "assessment": {
+      "scope": "Agent/rule behavior under a script-constructed faithful handoff; this is not full leak-check skill integration.",
+      "snapshot_current_source_matches": true,
+      "snapshot_files_unchanged": true,
+      "evaluator_note": "The evaluator helped author the synthetic pair, reviewed the real sources and all figures, and assessed after execution. This assessment is not blind. All native prompts contained only raw input/context and operating paths.",
+      "summary": {
+        "attempts": 3,
+        "attempts_per_case": 1,
+        "retries": 0,
+        "timeouts": 0,
+        "actual_response_models": [
+          "claude-haiku-5-5"
+        ],
+        "requested_effort": "medium",
+        "effective_effort_independently_verified": false,
+        "cost_usd": 0.01500922,
+        "previous_five_full_skill_cost_usd": 0.037745365,
+        "combined_eight_attempt_cost_usd": 0.052754585,
+        "saved_reports": 3,
+        "saved_reports_matching_write_payload": 3,
+        "valid_report_formats": 3,
+        "unchanged_original_and_work_inputs": true,
+        "reviewer_finals_limited_to_path_and_verdict": 1,
+        "known_positive_saved_report_recall": {
+          "case": "le02",
+          "detected_groups": 5,
+          "total_groups": 5
+        },
+        "single_policy_question_control": {
+          "case": "raft-submission-leak",
+          "passed": true
+        },
+        "spike_assessment": "Mixed: plausible operational-identifier ambiguity plus unsupported private-status assertions and label bundling.",
+        "claimed_passes": 0,
+        "claimed_blocks": 3,
+        "no_general_safety_or_recall_claim": true
+      },
+      "limits": [
+        "No full-skill parent ran; these results do not fix or validate the earlier invented approvals/anonymity, wrong report naming, or final-link failures.",
+        "Current snapshot is 610e3a4; the earlier full-skill snapshot was b191d76. Both batches used Claude CLI 2.1.318, confirmed by their session initialization records. The snapshot and invocation route differ, so this is not a controlled causal comparison of one variable.",
+        "The explicit-anonymous Raft and clean le01 controls were not rerun. Their earlier retained results remain separate.",
+        "An explained unmarked name such as Beacon cannot reveal private status or release clearance from this input alone.",
+        "A public screenshot is not proof of clearance; its actual privacy status requires context. Conversely, unfamiliar service labels and missing separate approval are not sufficient evidence that they are private.",
+        "These are disclosure-context checks, not credential scanning, a security certification, or authorization to publish.",
+        "Tool restriction and fresh workspaces provide instruction isolation; this was not an OS-sandbox security test."
+      ],
+      "cases": [
+        {
+          "id": "le02",
+          "measurement_scope": "selected agent is the main native session; no parent skill or child delegation was run",
+          "actual_response_identity": [
+            {
+              "model": "claude-haiku-5-5",
+              "parent_tool_use_id": null,
+              "source": "message.model"
+            }
+          ],
+          "raw_request_verbatim_in_prompt": true,
+          "raw_audience_verbatim_in_prompt": true,
+          "prompt_sha256": "9fbe1835dacd8502c53c369b06a9e3adcaf22c9582d0a6eb3abd75ddd69101c9",
+          "rubric_or_expected_findings_in_prompt": false,
+          "parent_invented_approval_or_anonymity_claim": false,
+          "input_integrity": [
+            {
+              "source": "EVIDENCE_ROOT/reliability/leak-inputs/le02/POSTMORTEM.md",
+              "target": "POSTMORTEM.md",
+              "sha256": "7106a0abee9ddb05838f1bd63635a911071df89ddff1e8a617e6ebc1a9dc02cd",
+              "source_sha256_after": "7106a0abee9ddb05838f1bd63635a911071df89ddff1e8a617e6ebc1a9dc02cd",
+              "work_sha256_after": "7106a0abee9ddb05838f1bd63635a911071df89ddff1e8a617e6ebc1a9dc02cd",
+              "source_unchanged": true,
+              "working_copy_unchanged": true
+            },
+            {
+              "source": "EVIDENCE_ROOT/reliability/leak-inputs/le02/.agents/leak-glossary.md",
+              "target": ".agents/leak-glossary.md",
+              "sha256": "4dc04ca887767ab80364a702ca1ed7aff6b381eef66c0353c06fbbce4ef877aa",
+              "source_sha256_after": "4dc04ca887767ab80364a702ca1ed7aff6b381eef66c0353c06fbbce4ef877aa",
+              "work_sha256_after": "4dc04ca887767ab80364a702ca1ed7aff6b381eef66c0353c06fbbce4ef877aa",
+              "source_unchanged": true,
+              "working_copy_unchanged": true
+            }
+          ],
+          "tool_trace_sha256": "2cf1e83d7b6a5d34484310aaf9b22bcf0f1b66bbfeb052b08a926ab9f0ddd9e0",
+          "tool_use_names": [
+            "Read",
+            "Read",
+            "Read",
+            "Read",
+            "Read",
+            "Glob",
+            "Write"
+          ],
+          "tool_errors": [
+            {
+              "log_line": 16,
+              "parent_tool_use_id": null,
+              "role": "user",
+              "type": "tool_result",
+              "content": "File does not exist. Note: your current working directory is EVIDENCE_ROOT/reliability/direct-leak-haiku/runs/le02/work.",
+              "is_error": true,
+              "tool_use_id": "toolu_01MEnwLhLZR8dQTgKApkgc6m"
+            }
+          ],
+          "tool_error_note": "Optional fallback glossary file was probed after the primary glossary was read; it does not exist. No required input was missing.",
+          "all_supplied_public_files_read": true,
+          "report_path": "EVIDENCE_ROOT/reliability/direct-leak-haiku/runs/le02/scratch/review-001.txt",
+          "report_sha256": "2a983ffabd64f3708f26fe778b405e39f6464a1045ade7fc34e43b22d07ef93b",
+          "report_write_count": 1,
+          "write_last_file_operation": true,
+          "write_path_matches_reserved": true,
+          "saved_report_matches_write_payload": true,
+          "required_report_format_valid": true,
+          "claimed_verdict": "VERDICT: BLOCK (fix all findings before publish)",
+          "final_contains_exact_verdict": true,
+          "final_contains_clickable_link": false,
+          "clickable_link_note": "Direct reviewer was asked to return a path and verdict. A full-skill parent delivery was not exercised; native finals use backticks, not clickable links.",
+          "evaluation": {
+            "finding_count": 5,
+            "required_disclosure_groups_detected": 5,
+            "required_disclosure_groups_total": 5,
+            "required_disclosure_groups": [
+              "internal bridge URL and ticket",
+              "local triage path",
+              "private host",
+              "operational run ID",
+              "glossary term Oriole"
+            ],
+            "unsupported_finding_groups": 0,
+            "content_assessment": "All five planted disclosure groups appear in the saved report. Public names, explained implementation terms, byline/participant attribution, example ID, and informal prose are left alone. The Oriole replacement matches the private glossary.",
+            "minor_reasoning_issue": "The hostname finding calls the machine production. The source establishes a private host in an incident export, but does not explicitly establish production status. This embellishment is unnecessary; it does not undermine the supported host finding.",
+            "final_path_and_verdict_only": true,
+            "known_detection_limit": "Beacon remains an explained, unmarked name. Its lack of a finding does not establish actual release approval or detection of an undisclosed private name."
+          }
+        },
+        {
+          "id": "spike-leak",
+          "measurement_scope": "selected agent is the main native session; no parent skill or child delegation was run",
+          "actual_response_identity": [
+            {
+              "model": "claude-haiku-5-5",
+              "parent_tool_use_id": null,
+              "source": "message.model"
+            }
+          ],
+          "raw_request_verbatim_in_prompt": true,
+          "raw_audience_verbatim_in_prompt": true,
+          "prompt_sha256": "a27edfc9737dfde407ec2ef6ae3944a3ecadc8518514f5b588eb30b818f6e9b3",
+          "rubric_or_expected_findings_in_prompt": false,
+          "parent_invented_approval_or_anonymity_claim": false,
+          "input_integrity": [
+            {
+              "source": "EVIDENCE_ROOT/heldout/spike-postmortem.md",
+              "target": "spike-postmortem.md",
+              "sha256": "3d90bc1fc4e5006980c10e60ff88dd78f57ee9448d4292d7e5a561067088403d",
+              "source_sha256_after": "3d90bc1fc4e5006980c10e60ff88dd78f57ee9448d4292d7e5a561067088403d",
+              "work_sha256_after": "3d90bc1fc4e5006980c10e60ff88dd78f57ee9448d4292d7e5a561067088403d",
+              "source_unchanged": true,
+              "working_copy_unchanged": true
+            },
+            {
+              "source": "EVIDENCE_ROOT/heldout/assets/spike-figure-1.png",
+              "target": "assets/spike-figure-1.png",
+              "sha256": "f4062f49624ec5a9c0f6146ba41cd76f4d479c4b2a969b193734db11ae76cef5",
+              "source_sha256_after": "f4062f49624ec5a9c0f6146ba41cd76f4d479c4b2a969b193734db11ae76cef5",
+              "work_sha256_after": "f4062f49624ec5a9c0f6146ba41cd76f4d479c4b2a969b193734db11ae76cef5",
+              "source_unchanged": true,
+              "working_copy_unchanged": true
+            },
+            {
+              "source": "EVIDENCE_ROOT/heldout/assets/spike-figure-2.png",
+              "target": "assets/spike-figure-2.png",
+              "sha256": "58c576262feaca5676898bd31cd4decc7bce5b2773354bf92b0d15889d3e928b",
+              "source_sha256_after": "58c576262feaca5676898bd31cd4decc7bce5b2773354bf92b0d15889d3e928b",
+              "work_sha256_after": "58c576262feaca5676898bd31cd4decc7bce5b2773354bf92b0d15889d3e928b",
+              "source_unchanged": true,
+              "working_copy_unchanged": true
+            },
+            {
+              "source": "EVIDENCE_ROOT/heldout/assets/spike-figure-3.png",
+              "target": "assets/spike-figure-3.png",
+              "sha256": "5b293995707e75a2bc3a24bb53102492922d73a07faf29943edc32dae37dac96",
+              "source_sha256_after": "5b293995707e75a2bc3a24bb53102492922d73a07faf29943edc32dae37dac96",
+              "work_sha256_after": "5b293995707e75a2bc3a24bb53102492922d73a07faf29943edc32dae37dac96",
+              "source_unchanged": true,
+              "working_copy_unchanged": true
+            }
+          ],
+          "tool_trace_sha256": "ce9e756f0457a0ba3162d15e49c1da80671a98d91421411bd9a27bfb2d7794f7",
+          "tool_use_names": [
+            "Read",
+            "Read",
+            "Read",
+            "Read",
+            "Glob",
+            "Glob",
+            "Read",
+            "Read",
+            "Read",
+            "Glob",
+            "Write"
+          ],
+          "tool_errors": [],
+          "tool_error_note": null,
+          "all_supplied_public_files_read": true,
+          "report_path": "EVIDENCE_ROOT/reliability/direct-leak-haiku/runs/spike-leak/scratch/review-001.txt",
+          "report_sha256": "a047542a3303fa17698e8576b17bb35dd19c4eba171fcced764c05e818625172",
+          "report_write_count": 1,
+          "write_last_file_operation": true,
+          "write_path_matches_reserved": true,
+          "saved_report_matches_write_payload": true,
+          "required_report_format_valid": true,
+          "claimed_verdict": "VERDICT: BLOCK (fix all findings before publish)",
+          "final_contains_exact_verdict": true,
+          "final_contains_clickable_link": false,
+          "clickable_link_note": "Direct reviewer was asked to return a path and verdict. A full-skill parent delivery was not exercised; native finals use backticks, not clickable links.",
+          "evaluation": {
+            "finding_count": 1,
+            "required_disclosure_groups_detected": null,
+            "required_disclosure_groups_total": null,
+            "supported_component": "A question about intended publication of the actual incident record identifier visible in the Slack screenshot is a plausible operational-disclosure ambiguity. This is not a verified private leak and is not scored as known-positive recall.",
+            "unsupported_components": [
+              "The report labels the incident ID internal, although the article describes counterIds as public-facing; the screenshot does not independently establish confidentiality.",
+              "The report labels Warden - data inspector and Sev2 alerts internal and uses lack of explanation/clear approval as evidence. Warden and severity are explained in the article; the extra integration and escalation labels have no independent private designation in these inputs."
+            ],
+            "content_assessment": "Mixed finding. It preserves a legitimate intended-disclosure question about an actual record, but overstates private status and bundles ordinary labels into that concern. No speculative findings on the byline, named responder, History, counterIds, example-123, informal prose, or chronology. The QUOTE gives the source image reference; the actual visible strings are transcribed in WHY/FIX.",
+            "final_path_and_verdict_only": false,
+            "final_delivery_issue": "Final response repeats the finding, asks the user a question, and adds hashing commentary instead of returning only path and verdict. The orchestrator independently verified unchanged inputs.",
+            "claim_of_publication_safety": false
+          }
+        },
+        {
+          "id": "raft-submission-leak",
+          "measurement_scope": "selected agent is the main native session; no parent skill or child delegation was run",
+          "actual_response_identity": [
+            {
+              "model": "claude-haiku-5-5",
+              "parent_tool_use_id": null,
+              "source": "message.model"
+            }
+          ],
+          "raw_request_verbatim_in_prompt": true,
+          "raw_audience_verbatim_in_prompt": true,
+          "prompt_sha256": "3f0873202850d6fa2018beafc909b877a0999bdd144291ce884ab32394406483",
+          "rubric_or_expected_findings_in_prompt": false,
+          "parent_invented_approval_or_anonymity_claim": false,
+          "input_integrity": [
+            {
+              "source": "EVIDENCE_ROOT/real-documents/documents/raft-excerpt.md",
+              "target": "raft-excerpt.md",
+              "sha256": "3b06e0c1fcdc282467d1e245fad73e467b248479546cd8b9731a8fc3284b0df3",
+              "source_sha256_after": "3b06e0c1fcdc282467d1e245fad73e467b248479546cd8b9731a8fc3284b0df3",
+              "work_sha256_after": "3b06e0c1fcdc282467d1e245fad73e467b248479546cd8b9731a8fc3284b0df3",
+              "source_unchanged": true,
+              "working_copy_unchanged": true
+            }
+          ],
+          "tool_trace_sha256": "6e740e67bcc1c649195eb32a7ed2bfd1481a514952a60105c87be46953a90a95",
+          "tool_use_names": [
+            "Read",
+            "Read",
+            "Read",
+            "Read",
+            "Glob",
+            "Write"
+          ],
+          "tool_errors": [],
+          "tool_error_note": null,
+          "all_supplied_public_files_read": true,
+          "report_path": "EVIDENCE_ROOT/reliability/direct-leak-haiku/runs/raft-submission-leak/scratch/review-001.txt",
+          "report_sha256": "1418105d5a5a5ab2d2c9d50e05af498804a9790dab93dfe0b7e692b82cff52a4",
+          "report_write_count": 1,
+          "write_last_file_operation": true,
+          "write_path_matches_reserved": true,
+          "saved_report_matches_write_payload": true,
+          "required_report_format_valid": true,
+          "claimed_verdict": "VERDICT: BLOCK (fix all findings before publish)",
+          "final_contains_exact_verdict": true,
+          "final_contains_clickable_link": false,
+          "clickable_link_note": "Direct reviewer was asked to return a path and verdict. A full-skill parent delivery was not exercised; native finals use backticks, not clickable links.",
+          "evaluation": {
+            "finding_count": 1,
+            "required_policy_questions_detected": 1,
+            "required_policy_questions_total": 1,
+            "unsupported_finding_groups": 0,
+            "content_assessment": "Exactly one AMBIGUOUS question quotes the actual byline and asks whether identifying author details are allowed. It does not assert an anonymous-review requirement or add the earlier extended-version speculation. The BLOCK is pending a policy answer, not a claim that the byline is necessarily prohibited.",
+            "final_path_and_verdict_only": false,
+            "final_delivery_issue": "Final response paraphrases the policy finding and adds a no-other-findings summary, beyond the reviewer path/verdict-only return contract."
+          }
+        }
+      ]
+    }
+  },
+  "style": {
+    "ledger": "../style-comparison/run-index.json",
+    "sha256": "f27e35f0e75b3d59784c4560651e029a4b3507f8e82d1240ba73b35151f9f5d4",
+    "candidate_adopted": false,
+    "attempts": 6,
+    "blind_graders": 2
+  },
+  "installation": {
+    "summary": {
+      "revision": "821054b",
+      "versions": {
+        "anti-slop": "0.3.2",
+        "public-hygiene": "0.4.1"
+      },
+      "marketplace_version": "0.1.6",
+      "prior_versions": {
+        "anti-slop": "0.3.2",
+        "public-hygiene": "0.4.0"
+      },
+      "profiles": 4,
+      "tracked_package_files": 19,
+      "installed_file_comparisons": 76,
+      "installed_mismatches": 0,
+      "discovery": [
+        {
+          "profile": "fresh-codex",
+          "skills": 4,
+          "errors": [],
+          "paths": [
+            "EVIDENCE_ROOT/reliability/install-041/fresh-codex/plugins/cache/vct-public/anti-slop/0.3.2/skills/academic-voice/SKILL.md",
+            "EVIDENCE_ROOT/reliability/install-041/fresh-codex/plugins/cache/vct-public/anti-slop/0.3.2/skills/deslop/SKILL.md",
+            "EVIDENCE_ROOT/reliability/install-041/fresh-codex/plugins/cache/vct-public/public-hygiene/0.4.1/skills/cold-read/SKILL.md",
+            "EVIDENCE_ROOT/reliability/install-041/fresh-codex/plugins/cache/vct-public/public-hygiene/0.4.1/skills/leak-check/SKILL.md"
+          ]
+        },
+        {
+          "profile": "fresh-claude",
+          "skills": 4,
+          "agents": 2
+        },
+        {
+          "profile": "upgrade-codex",
+          "skills": 4,
+          "errors": [],
+          "paths": [
+            "EVIDENCE_ROOT/reliability/install-041/upgrade-codex/plugins/cache/vct-public/anti-slop/0.3.2/skills/academic-voice/SKILL.md",
+            "EVIDENCE_ROOT/reliability/install-041/upgrade-codex/plugins/cache/vct-public/anti-slop/0.3.2/skills/deslop/SKILL.md",
+            "EVIDENCE_ROOT/reliability/install-041/upgrade-codex/plugins/cache/vct-public/public-hygiene/0.4.1/skills/cold-read/SKILL.md",
+            "EVIDENCE_ROOT/reliability/install-041/upgrade-codex/plugins/cache/vct-public/public-hygiene/0.4.1/skills/leak-check/SKILL.md"
+          ]
+        },
+        {
+          "profile": "upgrade-claude",
+          "skills": 4,
+          "agents": 2
+        }
+      ],
+      "manifest_validators_passed": 3,
+      "helper_tests_passed": 21,
+      "skill_quick_validators_passed": 4,
+      "source_changes": [],
+      "user_config_changes": [],
+      "new_model_calls": 0,
+      "auth_files_or_references_created": 0,
+      "cli_versions": {
+        "codex": "0.165.0",
+        "claude": "2.1.318"
+      },
+      "scoped_git_diff_check": "passed"
+    },
+    "source_hashes": {
+      "plugins/anti-slop/.claude-plugin/plugin.json": "108821e91e78164a827729585c794433166b8f046ac84d2ab0362acff798b908",
+      "plugins/anti-slop/README.md": "e3c9d49395fbe3c1d6cb2a273914cf83123a8f7e76b7100fafef5dc67c51bd28",
+      "plugins/anti-slop/output-styles/ASD-STE100.md": "e561d11a5610e8fc8bd8beae7b8c30116dcb890549677ca17d11fdf4de5a00f7",
+      "plugins/anti-slop/references/ban-list.md": "6c299c7ab98ad8dbb349a5526dd52f3652a03f263f694e522835e4eb9e88d3d8",
+      "plugins/anti-slop/references/writing-samples-template.md": "eb49dd97d854b683c209faa2788086cb7944551bfedd41436613c2c5f8e779ba",
+      "plugins/anti-slop/skills/academic-voice/SKILL.md": "0db7b9c817b0847e750a6fa979c56a09ababaf12d7b70b95fe033b654c874d36",
+      "plugins/anti-slop/skills/deslop/SKILL.md": "db795d75b753dea32db2e3531cf711cb7fd843d80c288f640a4cc6ff88b3f852",
+      "plugins/public-hygiene/.claude-plugin/plugin.json": "04c2b81eb386822233114f93dc637293985127edfebe39a1b2dde9c78ce9709f",
+      "plugins/public-hygiene/README.md": "91202a5b4ad17761f80ce618b220acdfa6aa6f0a0489be3d6f6d5b8ef2e0af30",
+      "plugins/public-hygiene/agents/cold-reader.md": "a90d16027750f9fac2e78d6fcafce921e1a743562a502f95ca16233adfb89c6e",
+      "plugins/public-hygiene/agents/external-reviewer.md": "9c3a17debd215b9a350e4bcf2c6fed4dcc2ad9b3fd86e17f44aa7fd5fa5fbe35",
+      "plugins/public-hygiene/references/audience-rules.md": "b0f0e0f384d7d43593eea2b641cb15cbc2c0a5afcfe857b1d9bdb4d13d56917b",
+      "plugins/public-hygiene/references/hygiene-rules.md": "b7348dae2f2f7c6dbb320a0d48a612ccb32df8363ee2b34229f5e79d299174a8",
+      "plugins/public-hygiene/references/reader-modes.md": "2bbc1a48634c3f784e5a67ec29d31480708692cfca1cdef5ec9d8b064de4e745",
+      "plugins/public-hygiene/references/report-delivery.md": "e66cfe60fa8b481eb5589cdde93dde61b1a04a98042c9fa829f17694cf34ad91",
+      "plugins/public-hygiene/scripts/assemble_reader_report.py": "3b89a97b7136b2338b61891ac29db637e6735beeba3e2baa34a85da171861504",
+      "plugins/public-hygiene/scripts/prepare_reader_chunks.py": "bad72d3cd62d8507d172bc146973a492b49dc92b8d94c10acb27cdae0d61acfb",
+      "plugins/public-hygiene/skills/cold-read/SKILL.md": "6401b11893f78874b26991b7c0083f328be25d71dbe072d83f9ba9e7d59d727f",
+      "plugins/public-hygiene/skills/leak-check/SKILL.md": "94b770f5b9dbf7dbcbd1a0726bed0414b1656f0079f4b5b0b335de4ac1356752"
+    },
+    "evidence": [
+      {
+        "path": "EVIDENCE_ROOT/reliability/install-041/summary.json",
+        "sha256": "350e502cea11f3c8db3d7e8260ded4deb92e0747608a942fe3cbd9afc799a020"
+      },
+      {
+        "path": "EVIDENCE_ROOT/reliability/install-041/native-results.json",
+        "sha256": "6add92947caf6a77357a272d14cdae4108f0eb82d4c31d0a875c2bbd392c2c56"
+      },
+      {
+        "path": "EVIDENCE_ROOT/reliability/install-041/installed-comparison.json",
+        "sha256": "0581a0dd32d8a7371ba5e62a14e8b6eab43eb69ba0d807c093bba715099e5f00"
+      }
+    ]
+  },
+  "evidence_availability": "EVIDENCE_ROOT paths are logical locations for retained local evidence, not hosted downloads or included repository files. Published source manifests and cases provide reproduction inputs. Third-party full texts and edited outputs are not committed. The operational screenshot record identifier is omitted from the public assessment; source and report hashes still refer to unmodified artifacts.",
+  "publication_normalization": "EVIDENCE_ROOT is a portable logical evidence root, not an included directory. Actual local prefixes and style run directories are mapped outside the repository. Original artifact hashes, source bytes, raw prompts, and registered protocol are unchanged. Historical manifest hashes refer to the original runtime manifests before path normalization."
+}

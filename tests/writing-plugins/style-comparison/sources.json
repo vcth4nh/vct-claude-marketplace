@@ -9,7 +9,7 @@
       "license_url": "https://github.com/chmln/sd/blob/44febdf86343c653255ae4f20f5e1882dad6be17/LICENSE",
       "scope": "Exact contiguous README lines112\u2013183: the complete Quick Guide section, items1\u20135.",
       "transforms": [],
-      "input_path": "/tmp/writing-style-blind/inputs/guide.md",
+      "input_path": "inputs/guide.md",
       "bytes": 1729,
       "words": 237,
       "sha256": "ab5b7c7b719abbe7c5ca317f1ac9209ff63b34e7ce7c9b48d5cad1631b01c817",
@@ -28,7 +28,7 @@
         "Convert title and abstract labels to Markdown headings; retain author names and links.",
         "Add one display space after the Authors label."
       ],
-      "input_path": "/tmp/writing-style-blind/inputs/abstract.md",
+      "input_path": "inputs/abstract.md",
       "bytes": 2505,
       "words": 256,
       "sha256": "9b258c478e498e25599d29396b6f0ccd3bf9217100a752f6175bb501f02abad5",

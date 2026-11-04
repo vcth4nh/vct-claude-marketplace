@@ -78,14 +78,19 @@ under the acceptance condition chosen before looking at outputs.
 
 [run-index.json](run-index.json) records the now-unblinded mapping, snapshot
 hashes, six execution results, mechanical checks, two grader assessments,
-and decision. Raw generation evidence and the anonymous bundle remain under
-`/tmp/writing-style-blind`; grader responses are referenced by path and
-hash. These are temporary evidence locations, not hosted artifacts.
+and decision. Paths under `EVIDENCE_ROOT/style` identify logical locations
+for retained local evidence, not hosted or included artifacts. Current,
+candidate, and baseline directories replace the original local run names;
+the local mapping is kept outside the repository. Artifact hashes and the
+registered protocol are unchanged. Historical manifest hashes refer to
+the runtime manifests before this path normalization.
 
 The sources can be prepared with the retained held-out corpus procedure.
 For the guide, copy exactly README lines 112–183 without changing bytes;
-for the abstract, use the complete prepared file. Verify the hashes in
-sources.json. Use the native runner with the same cases, model, and effort
+for the abstract, use the complete prepared file. Copy cases.json into a
+workspace outside the repository and put these files in its `inputs`
+directory as guide.md and abstract.md. Verify the hashes in sources.json.
+Use the native runner with the same cases, model, and effort
 for each condition, selecting the corresponding isolated plugin snapshot
 or `--baseline`. Never supply the protocol, grading notes, or outputs from
 another condition to the editor. A fresh blind grading round needs new

@@ -14,7 +14,7 @@
       {
         "condition": "candidate",
         "case": "guide",
-        "run": "/tmp/writing-style-blind/run-b6f929d7/runs/guide",
+        "run": "EVIDENCE_ROOT/style/candidate/runs/guide",
         "exit_code": 0,
         "reported_parent_models": [
           "claude-sonnet-5-5"
@@ -38,7 +38,7 @@
       {
         "condition": "baseline",
         "case": "guide",
-        "run": "/tmp/writing-style-blind/run-1663ef4a/runs/guide",
+        "run": "EVIDENCE_ROOT/style/baseline/runs/guide",
         "exit_code": 0,
         "reported_parent_models": [
           "claude-sonnet-5-5"
@@ -62,7 +62,7 @@
       {
         "condition": "current",
         "case": "guide",
-        "run": "/tmp/writing-style-blind/run-1628bc29/runs/guide",
+        "run": "EVIDENCE_ROOT/style/current/runs/guide",
         "exit_code": 0,
         "reported_parent_models": [
           "claude-sonnet-5-5"
@@ -86,7 +86,7 @@
       {
         "condition": "baseline",
         "case": "abstract",
-        "run": "/tmp/writing-style-blind/run-1663ef4a/runs/abstract",
+        "run": "EVIDENCE_ROOT/style/baseline/runs/abstract",
         "exit_code": 0,
         "reported_parent_models": [
           "claude-sonnet-5-5"
@@ -111,7 +111,7 @@
       {
         "condition": "candidate",
         "case": "abstract",
-        "run": "/tmp/writing-style-blind/run-b6f929d7/runs/abstract",
+        "run": "EVIDENCE_ROOT/style/candidate/runs/abstract",
         "exit_code": 0,
         "reported_parent_models": [
           "claude-sonnet-5-5"
@@ -136,7 +136,7 @@
       {
         "condition": "current",
         "case": "abstract",
-        "run": "/tmp/writing-style-blind/run-1628bc29/runs/abstract",
+        "run": "EVIDENCE_ROOT/style/current/runs/abstract",
         "exit_code": 0,
         "reported_parent_models": [
           "claude-sonnet-5-5"
@@ -166,7 +166,7 @@
       "grader": "A",
       "requested_model": "gpt-6.1-terra",
       "requested_effort": "medium",
-      "path": "/tmp/writing-style-grade-a.json",
+      "path": "EVIDENCE_ROOT/style/grader-a.json",
       "sha256": "2fff2ce94d401e72df2c1f3f3b8fb6d489283d112e7f711067646558be113894",
       "context": "Only source, raw neutral request, anonymous variants, neutral criteria, and mechanical checks; condition key withheld until both graders completed."
     },
@@ -174,7 +174,7 @@
       "grader": "B",
       "requested_model": "gpt-6-luna",
       "requested_effort": "medium",
-      "path": "/tmp/writing-style-grade-b.json",
+      "path": "EVIDENCE_ROOT/style/grader-b.json",
       "sha256": "2592d358b34b545a22af0b672596737d459f8c3c1a8cdb9a0fdf7ba1510b666b",
       "context": "Only source, raw neutral request, anonymous variants, neutral criteria, and mechanical checks; condition key withheld until both graders completed."
     }
@@ -187,7 +187,7 @@
         {
           "blind_version_id": "text-02faef",
           "condition": "candidate",
-          "output_path": "/tmp/writing-style-blind/run-b6f929d7/runs/guide/work/guide.md",
+          "output_path": "EVIDENCE_ROOT/style/candidate/runs/guide/work/guide.md",
           "output_sha256": "8631766a229f3b183558fb03ba21410f9ee76732f30e9c6ca9e47ba7f024f5ca",
           "grades": {
             "A": {
@@ -203,7 +203,7 @@
         {
           "blind_version_id": "text-34ed72",
           "condition": "baseline",
-          "output_path": "/tmp/writing-style-blind/run-1663ef4a/runs/guide/work/guide.md",
+          "output_path": "EVIDENCE_ROOT/style/baseline/runs/guide/work/guide.md",
           "output_sha256": "5409e305c8b7f4097223bf270863a42185c75bd559ad3555bd8c2a68c9435b91",
           "grades": {
             "A": {
@@ -219,7 +219,7 @@
         {
           "blind_version_id": "text-e19cc3",
           "condition": "current",
-          "output_path": "/tmp/writing-style-blind/run-1628bc29/runs/guide/work/guide.md",
+          "output_path": "EVIDENCE_ROOT/style/current/runs/guide/work/guide.md",
           "output_sha256": "0479f8c018c6a6aed7921830c2d77157b05e4cf6c47bae3767545952f2618749",
           "grades": {
             "A": {
@@ -257,7 +257,7 @@
         {
           "blind_version_id": "text-273f04",
           "condition": "baseline",
-          "output_path": "/tmp/writing-style-blind/run-1663ef4a/runs/abstract/work/abstract.md",
+          "output_path": "EVIDENCE_ROOT/style/baseline/runs/abstract/work/abstract.md",
           "output_sha256": "df2e695120494f9b4302251c48ed15f163893490fbae785a4e273ad4817f327d",
           "grades": {
             "A": {
@@ -273,7 +273,7 @@
         {
           "blind_version_id": "text-1888b9",
           "condition": "candidate",
-          "output_path": "/tmp/writing-style-blind/run-b6f929d7/runs/abstract/work/abstract.md",
+          "output_path": "EVIDENCE_ROOT/style/candidate/runs/abstract/work/abstract.md",
           "output_sha256": "8458565832d485704b7f744cfca42b052767f3382c49933c328cf2be7271c70b",
           "grades": {
             "A": {
@@ -289,7 +289,7 @@
         {
           "blind_version_id": "text-2c5223",
           "condition": "current",
-          "output_path": "/tmp/writing-style-blind/run-1628bc29/runs/abstract/work/abstract.md",
+          "output_path": "EVIDENCE_ROOT/style/current/runs/abstract/work/abstract.md",
           "output_sha256": "622b9dd0e5a6f2309f167d63e2f64438a5b9b8d606bf736b585bd4ef72ddee90",
           "grades": {
             "A": {
@@ -328,7 +328,7 @@
   "snapshots": [
     {
       "condition": "current",
-      "path": "/tmp/writing-style-blind/run-1628bc29/snapshot.json",
+      "path": "EVIDENCE_ROOT/style/current/snapshot.json",
       "sha256": "0cc6bfc2109b0ed8679b54c82b405c8c4e7126df3fee19c1a8c695b5221a3697",
       "git_head": "26258f816760152e29e3a1e4d5fdcc3d757e0e1c",
       "runner_sha256": "f0e01632556c826e26bd38fbef4e7c790c3cdd7801f107653f6cce90028c7312",
@@ -347,7 +347,7 @@
     },
     {
       "condition": "candidate",
-      "path": "/tmp/writing-style-blind/run-b6f929d7/snapshot.json",
+      "path": "EVIDENCE_ROOT/style/candidate/snapshot.json",
       "sha256": "4bd07c60674a57068f5917841cc5e0755b93f305a466a2e9689f84950a7570aa",
       "git_head": "26258f816760152e29e3a1e4d5fdcc3d757e0e1c",
       "runner_sha256": "f0e01632556c826e26bd38fbef4e7c790c3cdd7801f107653f6cce90028c7312",
@@ -366,12 +366,13 @@
     },
     {
       "condition": "baseline",
-      "path": "/tmp/writing-style-blind/run-1663ef4a/snapshot.json",
+      "path": "EVIDENCE_ROOT/style/baseline/snapshot.json",
       "sha256": "7ebe2b11f8cd41b601f3d8d049762f5d37e0382a9dafb20621c3460e8d21c780",
       "git_head": "26258f816760152e29e3a1e4d5fdcc3d757e0e1c",
       "runner_sha256": "f0e01632556c826e26bd38fbef4e7c790c3cdd7801f107653f6cce90028c7312",
       "manifest_sha256": "478b32e5894d0ba53fb58828e1a4ec81977d96f4b59767ca9740d25d779b51cf",
       "plugin_files": {}
     }
-  ]
+  ],
+  "publication_normalization": "EVIDENCE_ROOT is a portable logical evidence root, not an included directory. Actual local prefixes and style run directories are mapped outside the repository. Original artifact hashes, source bytes, raw prompts, and registered protocol are unchanged. Historical manifest hashes refer to the original runtime manifests before path normalization."
 }

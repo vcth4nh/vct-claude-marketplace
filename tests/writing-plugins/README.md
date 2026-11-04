@@ -12,6 +12,10 @@ artifact tests, controls, fixes, and remaining limitations for 0.3.1.
 and matched medium-effort model conditions.
 [Its results](heldout/results-0.4.0.md) retain failures and targeted retests
 for public-hygiene 0.4.0 and anti-slop 0.3.2.
+[Focused reliability checks](reliability/results-0.4.1.md) cover checkpoint
+validation and leak evidence for public-hygiene 0.4.1.
+[The blind style trial](style-comparison/README.md) records the rejected
+length-rule candidate; anti-slop remains at 0.3.2.
 
 - [cold-read.json](cold-read.json) contains reader requests and drafts.
 - [anti-slop.json](anti-slop.json) contains style requests and drafts.
@@ -20,6 +24,9 @@ for public-hygiene 0.4.0 and anti-slop 0.3.2.
   and sequential requests, including an apply request after a readback.
 - [reader-modes-rubrics.json](reader-modes-rubrics.json) contains their
   separate expectations and sequential tool-trace checks.
+- [leak-evidence.json](leak-evidence.json) contains the paired public narrative
+  and private additions; [leak-evidence-rubrics.json](leak-evidence-rubrics.json)
+  keeps expectations separate from reviewer input.
 
 Run each case in a fresh context with the relevant skill or reviewer and
 its bundled references. Give the reader only that case's request and draft,
