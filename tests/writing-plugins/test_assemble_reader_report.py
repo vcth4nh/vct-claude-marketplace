@@ -3,7 +3,6 @@ import importlib.util
 import json
 import os
 from pathlib import Path
-import shlex
 import subprocess
 import sys
 import tempfile
@@ -71,20 +70,18 @@ class AssembleReaderReportTests(unittest.TestCase):
         data = b"AUDIENCE: Readers\nFIRST READ 1/2: intro\nNo gaps.\nSTAGE: COMPLETE\n"
         path.write_bytes(data)
         advanced = self.root / "next-stage-dispatched"
-        next_stage = [sys.executable, "-c",
-                      "from pathlib import Path; import sys; Path(sys.argv[1]).write_text('sent')",
-                      str(advanced)]
-        command = shlex.join(self.stage_command()) + " && " + shlex.join(next_stage)
-        rejected = subprocess.run(["sh", "-c", command], capture_output=True,
-                                  text=True, timeout=10)
-        self.assertEqual(rejected.returncode, 2, rejected.stderr)
+        parent = ("import subprocess, sys\nfrom pathlib import Path\n"
+                  "subprocess.run(sys.argv[2:], check=True)\n"
+                  "Path(sys.argv[1]).write_text('sent')\n")
+        command = [sys.executable, "-c", parent, str(advanced), *self.stage_command()]
+        rejected = subprocess.run(command, capture_output=True, text=True, timeout=10)
+        self.assertNotEqual(rejected.returncode, 0, rejected.stderr)
         self.assertEqual(rejected.stdout, "")
         self.assertFalse(advanced.exists())
         self.assertEqual(path.read_bytes(), data)
 
         path.write_bytes(data.split(b"\n", 1)[1])
-        accepted = subprocess.run(["sh", "-c", command], capture_output=True,
-                                  text=True, timeout=10)
+        accepted = subprocess.run(command, capture_output=True, text=True, timeout=10)
         self.assertEqual(accepted.returncode, 0, accepted.stderr)
         self.assertTrue(advanced.exists())
 
@@ -105,6 +102,8 @@ class AssembleReaderReportTests(unittest.TestCase):
                                         capture_output=True, text=True, timeout=10)
                 self.assertEqual(result.returncode, 2, result.stderr)
                 self.assertEqual(result.stdout, "")
+                if data.endswith(b"STAGE: INCOMPLETE"):
+                    self.assertIn("reports STAGE: INCOMPLETE", result.stderr)
                 self.assertEqual(path.read_bytes(), data)
                 self.assertFalse(self.output.exists())
 

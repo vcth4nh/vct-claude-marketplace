@@ -122,7 +122,9 @@ another chunk or requesting consolidation:
 python3 SCRIPT --validate-checkpoint CHECKPOINT --stage I --total N
 ```
 
-Resolve SCRIPT relative to this reference. Supply the expected 1-based
+Resolve SCRIPT relative to this reference. CHECKPOINT is the output path
+reserved in that stage's handoff, not a different path returned by the reader.
+Supply the expected 1-based
 stage number I and total N from the parent's sequence, not numbers copied
 from the checkpoint. The validator requires `FIRST READ I/N: <location>`
 as the first line, exactly one terminal `STAGE: COMPLETE` line, and no

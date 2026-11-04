@@ -73,6 +73,8 @@ def validate_checkpoint(lines, index, total):
         raise ValueError(f"expected checkpoint {index}/{total}, got {match[1]}/{match[2]}")
     if markers(lines) != ["FIRST READ", "STAGE"]:
         raise ValueError("checkpoint requires one FIRST READ, one STAGE, and no VERDICT")
+    if lines[-1] == "STAGE: INCOMPLETE":
+        raise ValueError("checkpoint reports STAGE: INCOMPLETE; required reading did not finish")
     if lines[-1] != "STAGE: COMPLETE":
         raise ValueError("checkpoint must end with STAGE: COMPLETE")
 
