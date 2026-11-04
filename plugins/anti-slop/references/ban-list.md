@@ -3,8 +3,8 @@
 The patterns below are examples of each class, not the full boundary. Judge
 borderline text by one test: would an experienced human editor cut it?
 Factual meaning, explicit negations, and conditions take priority over a
-style pattern. A banned word stays when it is part of a fixed technical
-name, such as "robust regression" or "loss landscape"; general praise
+style pattern. A banned word stays when it has a literal technical meaning,
+such as "test harness", "robust regression", or "loss landscape"; general praise
 such as "robust method" is still subject to the ban.
 
 ## Banned constructions
@@ -36,6 +36,18 @@ underscores, game-changer, game-changing, cutting-edge, elevate,
 "in the realm of".
 
 ## Banned rhetoric
+- Dramatic framing: turn discoveries, failures, and corrections into direct
+  observations rather than a story of blame, betrayal, or revelation.
+  "We blamed the dictionary" → "We attributed this to the dictionary". Preserve who
+  held the hypothesis, any later correction, failed or discarded runs,
+  negative results, and stated causal links. A suspicion is not a confirmed
+  cause. Factual chronology and first-person accounts are allowed.
+- Personification: replace human motives or deception attributed to tools
+  with the behavior the source establishes. "A harness that was lying" →
+  "a harness that gave misleading results". Do not invent the failure
+  mechanism or drop a stated absence of warnings. Conventional technical
+  verbs such as "AFL++ found", "the compiler reports", and "the server
+  rejects" are allowed.
 - Importance puffery: adjectives that assert significance instead of showing
   it ("a pivotal advance").
 - Weasel attribution without a citation: "experts agree", "studies show",
@@ -50,6 +62,11 @@ A heading names its topic and stops: "Enumeration methodology", "How we
 enumerated". A short status tag may follow, such as "(optional)". Claims,
 reasons, and previews go in the body.
 Apply these rules to bold lead-in labels in list items too.
+- Story-like headings that stage an origin, setback, or reveal: name the
+  topic or event instead. "Step 0: the failure that started it" → "Step 0:
+  Initial failure". Keep numbering that identifies procedure steps or the
+  document's chronology; preserve factual triggers and dependencies in
+  the body.
 - A tail after the topic (in parentheses, after a dash or a colon) that adds
   only a slogan, decorative contrast, or preview: cut it. "How we enumerated
   (method, not guesswork)" → "How we enumerated". "How we found the bugs — the reasoning,

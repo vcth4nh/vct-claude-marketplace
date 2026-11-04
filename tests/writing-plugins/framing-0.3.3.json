@@ -1,0 +1,129 @@
+{
+  "scope": "Focused direct-instruction probes for the dramatic-framing, personification, and story-heading additions in anti-slop 0.3.3.",
+  "base_commit": "1cad7e638b80ff1158c39384eea8a1b3fd016cdc",
+  "instruction_state": "Working-tree rules on this base commit, identified by the hashes below. The packaging version was bumped after the probes; tested deslop and ban-list bytes still match the final source.",
+  "protocol": {
+    "harness": "Collaboration subagents, fresh context for each model/case; explicit skill path and linked reference. Native plugin installation and automatic dispatch were not exercised.",
+    "effort": "medium, requested through the collaboration model configuration",
+    "input": "Only that case request/draft plus the isolated copied plugin instructions. Rubrics, other cases, and the parent conversation were withheld.",
+    "attempts": 9,
+    "retries": 0,
+    "cases": "a16-a19 on both models; existing a10 uncertainty/cadence control on Luna.",
+    "grading": "Parent assessment checked by an independent reviewer against source, rubric, and actual output. No exact wording required.",
+    "word_count": "Whitespace-separated tokens in source and rewritten artifact, including heading tokens; excludes Changes notes. Null means a clean response or review-only output.",
+    "integrity": "All copied input files retained their recorded SHA-256 values. Tested deslop and ban-list bytes match the final working tree."
+  },
+  "source_sha256": {
+    "plugins/anti-slop/skills/deslop/SKILL.md": "70984a963d278279cf030777b8123c24da9ed31e3c758573efb0350fc9386a8f",
+    "plugins/anti-slop/references/ban-list.md": "64386e2e695b196db75b65f17c7c2e88a926979330f84185f262b63a921f1913",
+    "tests/writing-plugins/anti-slop.json": "e0c439b38452719097edc4e429baf02cb68042400f5f79e3569485e61433a1ca",
+    "tests/writing-plugins/rubrics.json": "e6c8bf05437e930b7ddbcae2bfabfeed416567c92ab961553f07abde54a2fb6a"
+  },
+  "limits": [
+    "One attempt per listed model/case. No baseline comparison or estimate of reliability across repeats.",
+    "The author-supplied case overlaps the rule examples; a17 checks a different narrative. These are small synthetic cases, not a full-document effectiveness study.",
+    "Academic-voice reads the shared ban list, but its behavior was not rerun for this change.",
+    "The new rule does not guarantee adherence: missed blame framing, length overflow, an awkward suggested edit, and report punctuation misses are retained below."
+  ],
+  "runs": [
+    {
+      "case_id": "a10",
+      "model": "gpt-6-luna",
+      "attempt": 1,
+      "output": "We use a retry queue. I suspect the wake-up path is involved. I reproduced it once, after my laptop woke from sleep. I left tracing on because the next failure may happen while I am away.\n\nChanges:\n`utilize` → `use`\n",
+      "output_sha256": "c9ca4ef9efd00537cee2f127d321fd63224dc9e843c11d8c24a3f1326e04a01e",
+      "source_words": 36,
+      "rewrite_words": 36,
+      "result": "pass",
+      "assessment": "Replaced utilize; preserved the suspicion, single reproduction, tracing rationale, and personal cadence."
+    },
+    {
+      "case_id": "a16",
+      "model": "gpt-6-luna",
+      "attempt": 1,
+      "output": "## Step 0: Initial failure\n\nWe found the bugs by fixing a harness that gave misleading results without warning. In the discarded runs, AFL++ found nothing on gguf, and we blamed the dictionary.\n\nChanges:\n- `the failure that started it` → `Initial failure`\n- `silently lying` → `gave misleading results without warning`\n",
+      "output_sha256": "d7ba7c2bd8a098e54fade75bb8d8393ca07d54bfea2afc0685d8bd1397619bb8",
+      "source_words": 34,
+      "rewrite_words": 33,
+      "result": "fail",
+      "assessment": "Removed the story heading and tool deception but retained we blamed the dictionary. Facts and the length limit were preserved."
+    },
+    {
+      "case_id": "a17",
+      "model": "gpt-6-luna",
+      "attempt": 1,
+      "output": "## Worker status and queue stall\n\nThe worker returned status 200 after its queue stopped advancing. We first suspected the client, but replaying the request reproduced the stall without it. No warning was logged.\n\nChanges:\n`The logs finally confessed` → `Worker status and queue stall`\n`kept pretending it was healthy: it returned` → `returned`\n",
+      "output_sha256": "3db1e8da826ad8633f8bbd606cdf4fcfb79a7bd0281d7b544f858aae759f081c",
+      "source_words": 39,
+      "rewrite_words": 34,
+      "result": "pass",
+      "assessment": "Replaced the story heading and tool pretense. Preserved status 200 after the queue stalled, the initial suspicion, reproduction without the client, and absence of a warning."
+    },
+    {
+      "case_id": "a18",
+      "model": "gpt-6-luna",
+      "attempt": 1,
+      "output": "Clean, no slop found.\n",
+      "output_sha256": "89a71559dcdad0e9efaf0f519de0600a6768035c18a8fe8a3491e9370dae66c0",
+      "source_words": 39,
+      "rewrite_words": null,
+      "result": "pass",
+      "assessment": "Returned the exact clean response; accepted the procedural heading, literal test harness, ordinary tool verbs, silent behavior, chronology, and hypothesis."
+    },
+    {
+      "case_id": "a19",
+      "model": "gpt-6-luna",
+      "attempt": 1,
+      "output": "- `Our harness betrayed us` — dramatic framing and personification. Suggested fix: `Our harness reported zero failures`.\n",
+      "output_sha256": "d271a50921b030ca4a9fe9ffd4f60b975e38b77ed38a1618c33ae4ce85d9411f",
+      "source_words": 30,
+      "rewrite_words": null,
+      "result": "partial",
+      "assessment": "Correctly flagged betrayal framing in review-only mode without flagging the quotation or fenced sample. The proposed replacement for the selected span duplicates the following zero-failures clause if applied literally; it does not clearly delete the three-check fact outside that span. The audit prose also uses an em dash despite the all-prose punctuation rule."
+    },
+    {
+      "case_id": "a16",
+      "model": "gpt-6.1-terra",
+      "attempt": 1,
+      "output": "## Step 0: Initial failure\n\nWe found the bugs by fixing a harness that gave misleading results without warning. In the discarded runs AFL++ found nothing on gguf, and we attributed this to the dictionary.\n\nChanges:\n`the failure that started it` → `Initial failure`\n`was silently lying` → `gave misleading results without warning`\n`blamed the dictionary` → `attributed this to the dictionary`\n",
+      "output_sha256": "66b4527aa806b53185735f353645d84bfb34190e55273793e052f4129f9679e9",
+      "source_words": 34,
+      "rewrite_words": 35,
+      "result": "fail",
+      "assessment": "Removed all three target patterns and preserved facts, but the artifact grew from 34 to 35 whitespace-separated tokens. No heading fact moved into the body to qualify for the length exception."
+    },
+    {
+      "case_id": "a17",
+      "model": "gpt-6.1-terra",
+      "attempt": 1,
+      "output": "## Incident logs\n\nThe worker returned status 200 after its queue stopped advancing. We first suspected the client, but replaying the request reproduced the stall without it. No warning was logged.\n\nChanges:\n`The logs finally confessed` → `Incident logs`\n`The worker kept pretending it was healthy: it returned status 200 after its queue stopped advancing.` → `The worker returned status 200 after its queue stopped advancing.`\n",
+      "output_sha256": "ae4d5143c030cf50ecafa6375d17edb82b6374b06fc95107639b3d165dae1841",
+      "source_words": 39,
+      "rewrite_words": 31,
+      "result": "pass",
+      "assessment": "Replaced the story heading and tool pretense. Preserved status 200 after the queue stalled, the initial suspicion, reproduction without the client, and absence of a warning."
+    },
+    {
+      "case_id": "a18",
+      "model": "gpt-6.1-terra",
+      "attempt": 1,
+      "output": "Clean, no slop found.\n",
+      "output_sha256": "89a71559dcdad0e9efaf0f519de0600a6768035c18a8fe8a3491e9370dae66c0",
+      "source_words": 39,
+      "rewrite_words": null,
+      "result": "pass",
+      "assessment": "Returned the exact clean response; accepted the procedural heading, literal test harness, ordinary tool verbs, silent behavior, chronology, and hypothesis."
+    },
+    {
+      "case_id": "a19",
+      "model": "gpt-6.1-terra",
+      "attempt": 1,
+      "output": "- `Our harness betrayed us: it reported zero failures despite three failed checks.` — Dramatic framing and personification. Suggested fix: `The harness reported zero failures despite three failed checks.`\n",
+      "output_sha256": "85b9f67f37b93874ac99b24fcfac62485ed5104291b41b6ec28ac1aa8364f713",
+      "source_words": 30,
+      "rewrite_words": null,
+      "result": "partial",
+      "assessment": "Correctly flagged the framing and supplied a complete, fact-preserving replacement in review-only mode. Neither protected span was flagged. The audit prose uses an em dash despite the all-prose punctuation rule."
+    }
+  ]
+}

@@ -96,5 +96,29 @@
     "files": {
       "ABSTRACT.md": "# Abstract\n\nWe utilize spectral features to classify damage patterns in composite-panel scans into defect categories. The evaluation measures detection sensitivity and robustness to illumination changes. Ablation tests verify the contribution of background subtraction. The inspection station has operated for seven weeks. To date, the archive contains at least 2,400 scans from at most 18 production lines.\n"
     }
+  },
+  {
+    "id": "a16",
+    "skill": "deslop",
+    "request": "Deslop this engineering write-up fragment.",
+    "draft": "## Step 0: the failure that started it\n\nWe found the bugs by fixing a harness that was silently lying. In the discarded runs AFL++ found nothing on gguf, and we blamed the dictionary."
+  },
+  {
+    "id": "a17",
+    "skill": "deslop",
+    "request": "Deslop this incident report fragment.",
+    "draft": "## The logs finally confessed\n\nThe worker kept pretending it was healthy: it returned status 200 after its queue stopped advancing. We first suspected the client, but replaying the request reproduced the stall without it. No warning was logged."
+  },
+  {
+    "id": "a18",
+    "skill": "deslop",
+    "request": "Deslop this debugging procedure fragment.",
+    "draft": "## Step 0: Record exit status\n\nThe test harness reports exit status. AFL++ found two crashes in gguf. The parser silently ignores unknown keys. We first reproduced one crash, then checked the dictionary. I suspect the dictionary affects coverage."
+  },
+  {
+    "id": "a19",
+    "skill": "deslop",
+    "request": "deslop check this incident report fragment. Review only.",
+    "draft": "The incident report says, “The harness was silently lying.”\n\nOur harness betrayed us: it reported zero failures despite three failed checks.\n\n```text\nStep 0: the failure that started it\n```"
   }
 ]

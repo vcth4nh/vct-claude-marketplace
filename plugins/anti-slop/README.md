@@ -11,9 +11,15 @@ Remove AI-slop tone from prose. Two skills, one shared ban list:
 Both audit against [`references/ban-list.md`](references/ban-list.md) and
 check the rewrite for lost facts, unsupported additions, and excessive
 editing. Meaningful uncertainty, clear cadence, and useful explanations
-survive the edit. Factual negations, conditions, and fixed technical names
+survive the edit. Factual negations, conditions, and literal technical terms
 take priority over style patterns. Rewrites cannot grow except where a
 claim moves out of a heading into the body.
+
+The audit includes dramatic framing, personification of tools, and
+story-like headings. Rewrites state observations and hypotheses directly,
+preserving factual chronology, causal links, and uncertainty. Literal
+technical terms such as "test harness" and conventional wording such as
+"the compiler reports" stay.
 
 ## Install
 

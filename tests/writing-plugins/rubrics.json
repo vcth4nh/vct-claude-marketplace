@@ -291,5 +291,45 @@
       "Exactly 2,400 scans or exactly 18 production lines.",
       "One category for each scan, or a fixed number of damage patterns per scan."
     ]
+  },
+  {
+    "id": "a16",
+    "required": [
+      "Replace the story-like heading with its topic or event; neutral numbering may remain.",
+      "Remove tool deception and blame framing while retaining harness correction as the means of bug discovery.",
+      "Preserve the discarded-run qualifier, AFL++, gguf, and the negative result without deciding what nothing counts.",
+      "Keep the dictionary attribution as the authors' interpretation, not an established cause."
+    ],
+    "must_not_invent": [
+      "A harness mechanism such as wrong exit status, missing coverage, suppressed crash reports, or failure to invoke the target.",
+      "That the discarded runs proved gguf had no bugs or that the dictionary was exonerated."
+    ]
+  },
+  {
+    "id": "a17",
+    "required": [
+      "Replace the confession heading and the worker's pretense with a topic and concrete behavior.",
+      "Preserve status 200 after the queue stopped advancing, the initial client suspicion, and the reproduction without the client.",
+      "Preserve the explicit absence of a logged warning."
+    ],
+    "must_not_invent": [
+      "A confirmed cause, a health-check implementation, or a duration for the stall."
+    ]
+  },
+  {
+    "id": "a18",
+    "required": [
+      "Leave this clean fragment unchanged and report the clean result.",
+      "Allow the actual procedure step, literal test harness, conventional tool verbs, and factual silent behavior.",
+      "Preserve the first-person chronology and the coverage hypothesis without turning it into a conclusion."
+    ]
+  },
+  {
+    "id": "a19",
+    "required": [
+      "Report the betrayal framing and suggest a direct statement preserving zero reported failures despite three failed checks.",
+      "Do not flag or rewrite the quotation or fenced sample text.",
+      "Return findings and suggested fixes only, without a complete rewritten draft."
+    ]
   }
 ]

@@ -15,7 +15,9 @@ for public-hygiene 0.4.0 and anti-slop 0.3.2.
 [Focused reliability checks](reliability/results-0.4.1.md) cover checkpoint
 validation and leak evidence for public-hygiene 0.4.1.
 [The blind style trial](style-comparison/README.md) records the rejected
-length-rule candidate; anti-slop remains at 0.3.2.
+length-rule candidate; that trial left anti-slop at 0.3.2.
+[The framing probes](framing-0.3.3.json) record nine focused instruction
+checks for anti-slop 0.3.3, including missed framing and length-limit failures.
 
 - [cold-read.json](cold-read.json) contains reader requests and drafts.
 - [anti-slop.json](anti-slop.json) contains style requests and drafts.
