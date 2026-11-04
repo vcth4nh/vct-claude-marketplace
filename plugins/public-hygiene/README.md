@@ -4,7 +4,7 @@ Two checks for public-facing text before it ships:
 
 - `leak-check` audits internal-context leaks: local paths, run/experiment
   IDs, infra names, ticket IDs, private provenance, private working notes,
-  unexpanded jargon, AI scaffolding.
+  private jargon, AI scaffolding.
 - `cold-read` finds context the audience lacks. See [cold-read](#cold-read).
 
 `leak-check` has two layers:
@@ -31,6 +31,10 @@ incomplete. Reports can contain private spans: keep them out of source control.
 Deliberate public history and design rationale are reviewed for concrete
 disclosures. A genre label or prior publication does not exempt private
 paths, infrastructure, glossary terms, or anonymity constraints.
+Each finding needs evidence of private context, a publication restriction,
+or unfinished working material. Unfamiliar names, informal tone, and missing
+separate release approval alone do not establish a leak. An unmarked private
+name can therefore escape detection; PASS does not establish release approval.
 
 ## Install
 
@@ -157,9 +161,11 @@ Two additional modes run only when requested:
   cannot erase a first-use gap unless the text explicitly pointed to it.
   Slides retain their same-slide notes and script timing. Preparation uses
   a Python 3 helper to create temporary verbatim copies and leaves the
-  source untouched. Each stage saves a checkpoint before the next is supplied;
-  a second helper assembles those records without rewriting them. A missing
-  chunk or unavailable independent reader leaves the check incomplete.
+  source untouched. Each stage saves a checkpoint, and the parent must run
+  the validator on its reserved output path before supplying the next chunk
+  or requesting consolidation. The helper also assembles those records
+  without rewriting them. A missing chunk, rejected checkpoint, or unavailable
+  independent reader leaves the check incomplete.
 
 Both modes require a fresh reviewer, including for short inputs. They may
 be combined. Sequential reading adds tool calls; testing has not established

@@ -56,7 +56,7 @@ or awkward prose alone belong to context or style review, not leak findings.
 | meta | AI/session scaffolding: "Here is the updated...", placeholders, tool or session references | Emit only the finalized deliverable. |
 
 Apply the same evidence test to documented service coordinates and paths:
-absolute syntax or a hostname alone does not establish a private working
+absolute syntax alone does not establish a private working
 location. A generic example does not exempt actual private details within it.
 
 Replacements come from the glossary or by generalizing. Never invent facts,
