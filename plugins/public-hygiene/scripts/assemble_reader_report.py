@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Assemble validated reader checkpoints without rewriting their bytes.
+"""Validate a reading stage or assemble checkpoints without rewriting their bytes.
 
 This checks report structure, not semantic correctness, reading chronology, or
 whether an input was edited before assembly. Hashes identify the bytes used.
@@ -65,6 +65,8 @@ def validate_summary(lines):
 
 
 def validate_checkpoint(lines, index, total):
+    if not 1 <= index <= total:
+        raise ValueError("stage and total must satisfy 1 <= stage <= total")
     if not lines or not (match := HEADER.fullmatch(lines[0])):
         raise ValueError("checkpoint must start with FIRST READ i/n: <location>")
     if (int(match[1]), int(match[2])) != (index, total):
@@ -73,6 +75,13 @@ def validate_checkpoint(lines, index, total):
         raise ValueError("checkpoint requires one FIRST READ, one STAGE, and no VERDICT")
     if lines[-1] != "STAGE: COMPLETE":
         raise ValueError("checkpoint must end with STAGE: COMPLETE")
+
+
+def validate_checkpoint_file(path, index, total):
+    """Validate one saved stage without changing it or creating any output file."""
+    _, _, lines, record = read_input(path, set())
+    validate_checkpoint(lines, index, total)
+    return {**record, "stage": index, "total": total, "status": "COMPLETE"}
 
 
 def assemble_report(output, summary, checkpoints):
@@ -130,13 +139,29 @@ def assemble_report(output, summary, checkpoints):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("output", type=Path)
-    parser.add_argument("--summary", required=True, type=Path)
-    parser.add_argument("--checkpoints", required=True, nargs="+", type=Path,
+    parser.add_argument("output", nargs="?", type=Path,
+                        help="new assembled report (assembly mode only)")
+    parser.add_argument("--summary", type=Path)
+    parser.add_argument("--checkpoints", nargs="+", type=Path,
                         help="complete checkpoint files in FIRST READ order")
+    parser.add_argument("--validate-checkpoint", type=Path,
+                        help="validate one saved checkpoint before advancing; writes no files")
+    parser.add_argument("--stage", type=int, help="expected 1-based stage number")
+    parser.add_argument("--total", type=int, help="expected total number of stages")
     args = parser.parse_args()
     try:
-        result = assemble_report(args.output, args.summary, args.checkpoints)
+        if args.validate_checkpoint is not None:
+            if any(value is not None for value in (args.output, args.summary, args.checkpoints)):
+                parser.error("--validate-checkpoint cannot be combined with assembly arguments")
+            if args.stage is None or args.total is None:
+                parser.error("--validate-checkpoint requires --stage and --total")
+            result = validate_checkpoint_file(args.validate_checkpoint, args.stage, args.total)
+        else:
+            if args.stage is not None or args.total is not None:
+                parser.error("--stage and --total require --validate-checkpoint")
+            if any(value is None for value in (args.output, args.summary, args.checkpoints)):
+                parser.error("assembly requires output, --summary, and --checkpoints")
+            result = assemble_report(args.output, args.summary, args.checkpoints)
     except (OSError, ValueError) as error:
         parser.error(str(error))
     print(json.dumps(result, indent=2))

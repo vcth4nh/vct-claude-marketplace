@@ -3,6 +3,7 @@ import importlib.util
 import json
 import os
 from pathlib import Path
+import shlex
 import subprocess
 import sys
 import tempfile
@@ -42,6 +43,89 @@ class AssembleReaderReportTests(unittest.TestCase):
         self.assertEqual(result.stdout, "")
         self.assertIn("error:", result.stderr)
         return result
+
+    def stage_command(self, checkpoint=None, stage=1, total=2):
+        return [sys.executable, str(SCRIPT), "--validate-checkpoint",
+                str(checkpoint or self.checkpoints[0]),
+                "--stage", str(stage), "--total", str(total)]
+
+    def test_single_checkpoint_validation_preserves_bytes_with_gaps(self):
+        data = ("FIRST READ 2/3: lines 12-20\r\n"
+                "1. QUOTE: naïve retry\r\n"
+                "   QUESTION: What ends the retry?\r\n"
+                "STAGE: COMPLETE").encode()
+        path = self.checkpoints[0]
+        path.write_bytes(data)
+        files_before = set(self.root.iterdir())
+        result = subprocess.run(self.stage_command(stage=2, total=3),
+                                capture_output=True, text=True, timeout=10)
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertEqual(json.loads(result.stdout), {
+            "path": str(path), "sha256": hashlib.sha256(data).hexdigest(),
+            "stage": 2, "total": 3, "status": "COMPLETE"})
+        self.assertEqual(path.read_bytes(), data)
+        self.assertEqual(set(self.root.iterdir()), files_before)
+
+    def test_malformed_checkpoint_blocks_chained_advancement(self):
+        path = self.checkpoints[0]
+        data = b"AUDIENCE: Readers\nFIRST READ 1/2: intro\nNo gaps.\nSTAGE: COMPLETE\n"
+        path.write_bytes(data)
+        advanced = self.root / "next-stage-dispatched"
+        next_stage = [sys.executable, "-c",
+                      "from pathlib import Path; import sys; Path(sys.argv[1]).write_text('sent')",
+                      str(advanced)]
+        command = shlex.join(self.stage_command()) + " && " + shlex.join(next_stage)
+        rejected = subprocess.run(["sh", "-c", command], capture_output=True,
+                                  text=True, timeout=10)
+        self.assertEqual(rejected.returncode, 2, rejected.stderr)
+        self.assertEqual(rejected.stdout, "")
+        self.assertFalse(advanced.exists())
+        self.assertEqual(path.read_bytes(), data)
+
+        path.write_bytes(data.split(b"\n", 1)[1])
+        accepted = subprocess.run(["sh", "-c", command], capture_output=True,
+                                  text=True, timeout=10)
+        self.assertEqual(accepted.returncode, 0, accepted.stderr)
+        self.assertTrue(advanced.exists())
+
+    def test_stage_validation_rejects_incomplete_and_wrong_expected_position(self):
+        path = self.checkpoints[0]
+        for data, stage, total in (
+                (b"FIRST READ 1/2: intro\nSTAGE: INCOMPLETE", 1, 2),
+                (b"FIRST READ 1/2: intro\nSTAGE: COMPLETE", 2, 2),
+                (b"FIRST READ 1/2: intro\nSTAGE: COMPLETE", 1, 3),
+                (b"FIRST READ 1/2: intro\nSTAGE: COMPLETE", 0, 2),
+                (b"FIRST READ 1/2: intro\nSTAGE: COMPLETE", 1, 0),
+                (b"FIRST READ 1/2: intro\nSTAGE: COMPLETE", 3, 2),
+                (b"FIRST READ 1/2: intro\nSTAGE: COMPLETE\nSTAGE: COMPLETE", 1, 2),
+                (b"FIRST READ 1/2: intro\nVERDICT: PASS\nSTAGE: COMPLETE", 1, 2)):
+            with self.subTest(data=data, stage=stage, total=total):
+                path.write_bytes(data)
+                result = subprocess.run(self.stage_command(stage=stage, total=total),
+                                        capture_output=True, text=True, timeout=10)
+                self.assertEqual(result.returncode, 2, result.stderr)
+                self.assertEqual(result.stdout, "")
+                self.assertEqual(path.read_bytes(), data)
+                self.assertFalse(self.output.exists())
+
+    def test_stage_and_assembly_arguments_cannot_be_mixed_or_omitted(self):
+        prefix = [sys.executable, str(SCRIPT)]
+        checkpoint = ["--validate-checkpoint", str(self.checkpoints[0])]
+        cases = [checkpoint, checkpoint + ["--stage", "1"],
+                 checkpoint + ["--total", "2"],
+                 self.stage_command()[2:] + [str(self.output)],
+                 self.stage_command()[2:] + ["--summary", str(self.summary)],
+                 self.stage_command()[2:] + ["--checkpoints", str(self.checkpoints[1])],
+                 [str(self.output), "--summary", str(self.summary)],
+                 [str(self.output), "--summary", str(self.summary), "--checkpoints",
+                  *map(str, self.checkpoints), "--stage", "1", "--total", "2"]]
+        for args in cases:
+            with self.subTest(args=args):
+                result = subprocess.run(prefix + args, capture_output=True,
+                                        text=True, timeout=10)
+                self.assertEqual(result.returncode, 2, result.stderr)
+                self.assertEqual(result.stdout, "")
+                self.assertFalse(self.output.exists())
 
     def test_cli_preserves_original_bytes_and_reports_ordered_hashes(self):
         for ending in (b"\n", b"\r\n", b"\r"):
