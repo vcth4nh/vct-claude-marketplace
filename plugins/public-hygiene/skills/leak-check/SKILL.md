@@ -38,19 +38,20 @@ failed the audit.
      incomplete instead of issuing a PASS.
    - **Routine** (commit messages, README fragments, short snippets): audit
      inline. Read the text as an external reader with no access to this
-     team's infrastructure, chat history, or trackers. Flag every span that
-     reader could not resolve or should not see — novel leak classes
-     included. A codename is still a leak even when it reads as an ordinary
-     word or matches nothing you recognize — do not exempt it for sounding
-     plausible.
+     team's infrastructure, chat history, or trackers. Apply the hygiene
+     rules' evidence test, including to novel leak classes. An explicitly
+     private codename remains a leak even when its spelling looks ordinary;
+     unfamiliarity or absent separate approval alone does not make a name
+     private.
 4. For an inline audit, report in the format below. A subagent review keeps
    the reviewer's findings and verdict format.
 5. On "fix" or "apply": reread a delegated review's saved report, then
    emit the corrected text, changing only flagged
    spans. Replacements come from the glossary or by generalizing — never
    invent facts, names, numbers, or citations to fill a redaction.
-6. A term whose public status is unclear needs the user's answer. For an
-   inline audit, ask the user. In a delegated review, the question belongs
+6. A supported disclosure concern whose intended publication is unclear
+   needs the user's answer. For an inline audit, ask the user. In a
+   delegated review, the question belongs
    in the saved report; do not repeat it in the delivery message. Before
    applying a requested fix, ask for any answers still missing. Never guess.
 
@@ -75,8 +76,9 @@ else in the report.
   Apply the hygiene rules' installation-identifier exception and any
   explicit glossary or publication constraints.
 - FIX text is assembled only from the glossary and from facts the
-  source states — a characterization the source never makes ("default",
-  "legacy", "temporary") is invention, even offered as an example.
+  source states — a role or characterization the source never states
+  ("on-call", "default", "legacy", "temporary") is invention, even offered
+  as an example.
 
 ## Modes
 

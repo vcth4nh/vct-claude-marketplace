@@ -1,0 +1,44 @@
+{
+  "evaluator_only": true,
+  "scope": "Synthetic evidence controls. Never include this file or its expectations in reviewer context. The cases share publication context, public narrative, and glossary; le02 adds private material. These examples are not credential-scanner validation or proof of publication safety.",
+  "cases": [
+    {
+      "id": "le01",
+      "expected_verdict": "PASS",
+      "required": [
+        "Use a fresh external reviewer for the complete incident report and keep source and glossary files unchanged.",
+        "Report no supported leak findings for this supplied scope."
+      ],
+      "known_detection_limit": "Beacon is an explained name with no private designation or glossary match. The supplied input cannot establish its real release clearance. PASS here means no supported disclosure concern was found; it is not proof that the name was approved or that an unmarked private name would be detected.",
+      "must_not_flag_without_additional_evidence": [
+        "Parceline or Beacon solely because there is no separate name approval: their functions are explained.",
+        "Maya Patel's byline or Jon Ellis's response attribution solely because the people are named.",
+        "deliveryRefs or the Archive collection solely because they are implementation vocabulary: the document explains their public purpose.",
+        "delivery example-123 as a real private identifier: the document explicitly presents it as an example.",
+        "Back on track as private working scrap solely because it is informal."
+      ],
+      "must_not_invent": [
+        "An anonymous-review requirement.",
+        "An on-call, author, maintainer, or other role absent from the text to replace a named participant.",
+        "A contradiction, factual-verification demand, or stylistic preference as a leak finding."
+      ]
+    },
+    {
+      "id": "le02",
+      "expected_verdict": "BLOCK",
+      "required_disclosures": [
+        "The internal-only bridge URL and its INC-731 ticket reference.",
+        "The actual local triage path /home/ops/incidents/INC-731/triage.ndjson.",
+        "The private host retry-eu-03.corp.internal.",
+        "The operational run identifier rq-20260617-b4.",
+        "Oriole, which is designated internal in the supplied glossary despite its ordinary-looking name."
+      ],
+      "scoring_notes": [
+        "Combined findings are acceptable if their quotes and reasons cover every required disclosure; do not require a fixed finding count.",
+        "Public genre, explained surrounding material, or the absence of an anonymity requirement must not clear these disclosures.",
+        "Preserve the same restraint as le01 for the unchanged public narrative; a real leak elsewhere does not make every name or informal phrase a leak.",
+        "Any proposed fix must use source facts or the glossary. Replacing Oriole with retry repair job is supported; inventing an operator role is not."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "le01",
+    "skill": "leak-check",
+    "request": "Leak-check POSTMORTEM.md for our public incident-report blog. The audience is customers and software engineers familiar with webhook delivery. No anonymous-submission requirement applies. Keep the source unchanged and report the findings.",
+    "files": {
+      "POSTMORTEM.md": "# Retry queue incident\n\nBy Maya Patel\n\nParceline delivers webhooks to customer endpoints. On 17 June 2026, delivery of 18 notifications was delayed between 18:10 and 18:27 UTC. All 18 notifications were delivered after the retry queue recovered.\n\n## Detection and response\n\nBeacon, our service for detecting unusual delivery delays, compares each queue's delay with its five-minute rolling median. Its alert brought the backlog to our attention.\n\nJon Ellis inspected the queue while Maya Patel adjusted its retry limit. We used deliveryRefs, the public notification identifiers shown in the customer dashboard, to check the delayed notifications. For example, delivery example-123 now displays its completed delivery attempt.\n\n## Recovery\n\nWe separated current delivery attempts from previous attempts. The Archive collection stores the previous attempts and their timestamps so customers can inspect the delivery history.\n\nBack on track. We will keep the public status page updated if delivery delays return.\n",
+      ".agents/leak-glossary.md": "# Leak glossary (internal -> public)\n\n| Internal term | Public replacement |\n|---|---|\n| Oriole | retry repair job |\n"
+    }
+  },
+  {
+    "id": "le02",
+    "skill": "leak-check",
+    "request": "Leak-check POSTMORTEM.md for our public incident-report blog. The audience is customers and software engineers familiar with webhook delivery. No anonymous-submission requirement applies. Keep the source unchanged and report the findings.",
+    "files": {
+      "POSTMORTEM.md": "# Retry queue incident\n\nBy Maya Patel\n\nParceline delivers webhooks to customer endpoints. On 17 June 2026, delivery of 18 notifications was delayed between 18:10 and 18:27 UTC. All 18 notifications were delivered after the retry queue recovered.\n\n## Detection and response\n\nBeacon, our service for detecting unusual delivery delays, compares each queue's delay with its five-minute rolling median. Its alert brought the backlog to our attention.\n\nJon Ellis inspected the queue while Maya Patel adjusted its retry limit. We used deliveryRefs, the public notification identifiers shown in the customer dashboard, to check the delayed notifications. For example, delivery example-123 now displays its completed delivery attempt.\n\nThe internal-only incident bridge was https://bridge.parceline.internal/INC-731. We exported /home/ops/incidents/INC-731/triage.ndjson from host retry-eu-03.corp.internal for run rq-20260617-b4.\n\n## Recovery\n\nWe separated current delivery attempts from previous attempts. The Archive collection stores the previous attempts and their timestamps so customers can inspect the delivery history.\n\nOriole performed the cleanup.\n\nBack on track. We will keep the public status page updated if delivery delays return.\n",
+      ".agents/leak-glossary.md": "# Leak glossary (internal -> public)\n\n| Internal term | Public replacement |\n|---|---|\n| Oriole | retry repair job |\n"
+    }
+  }
+]

@@ -26,12 +26,14 @@ public-name approvals:
    leaks by definition.
    Apply the user's stated publication constraints. Project instructions
    govern your work, but private definitions in them do not establish
-   that a term is public. When a finding depends on an unstated anonymity
-   policy, mark it AMBIGUOUS and ask for the venue's requirements.
-2. Read the draft once as a stranger. Quote every span you cannot resolve
-   or that reveals internal context: filesystem paths, run/experiment IDs,
-   hostnames, internal URLs, ticket IDs, codenames, people or
-   private-channel provenance, private working notes or scrap, unexpanded jargon,
+   that a term is public. Do not invent an anonymity requirement. If a
+   stated publication restriction is incomplete, ask what it requires.
+   For an explicit submission request with identifying text but no stated
+   anonymity policy, follow the hygiene rules' single policy-question check.
+2. Read the draft once as a stranger. Quote each span that meets the
+   hygiene rules' evidence test: private filesystem paths, run/experiment IDs,
+   hostnames, internal URLs, ticket IDs, private codenames or communications,
+   private working notes or scrap, unexpanded internal jargon,
    AI/session scaffolding. The categories are examples — flag anything
    sensitive beyond them, including author-identifying details a venue's
    anonymity rules would prohibit.
@@ -41,7 +43,7 @@ public-name approvals:
 FINDINGS
 N. QUOTE:    `exact span`
    CATEGORY: <one word>
-   WHY:      one line — what an external reader trips on
+   WHY:      one line — the concrete disclosure concern or publication restriction
    FIX:      proposed replacement, or "delete", or AMBIGUOUS: <question the user must answer>
 VERDICT: BLOCK (fix all findings before publish) | PASS | INCOMPLETE
 ```
@@ -49,13 +51,13 @@ VERDICT: BLOCK (fix all findings before publish) | PASS | INCOMPLETE
 `INCOMPLETE` means a required instruction location or review input was
 unavailable; it is not a publication verdict.
 
-4. Mark a finding AMBIGUOUS when you cannot tell whether a term is public,
-   and include the question the user must answer in that finding's FIX line.
-   The main agent must wait for that answer before resolving the finding. A name
-   the draft uses fluently as its own system or method is not evidence it
-   is cleared for public use — treat it like any other unresolved term.
-   Installation coordinates follow the hygiene rules' explicit exception;
-   unfamiliar spelling or absent separate approval alone is not a finding.
+4. When a concrete disclosure concern meets the hygiene rules but its
+   intended publication is unclear, mark the finding AMBIGUOUS and include
+   the question the user must answer in its FIX line. The main agent must
+   wait for that answer before resolving the finding. Do not create a
+   finding solely because an explained name lacks separate approval, or
+   because wording is informal. Prior publication does not clear an
+   otherwise supported disclosure concern.
 
 Hard limits: keep review inputs read-only. Write only the one new report
 path supplied in this handoff, as your last file operation; return its path
