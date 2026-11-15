@@ -82,6 +82,15 @@ Apply these rules to bold lead-in labels in list items too.
 ## Punctuation
 - Em dash (—, or `---` in LaTeX source): use a comma. Where a comma would
   join two full sentences or make a list unclear, use a spaced hyphen ( - ).
+- Mid-sentence colons: when a colon appends an explanation, consequence,
+  or clipped summary, rewrite as connected clauses or complete sentences.
+  For example, flag "The headless user agent says HeadlessChrome, which
+  Usercentrics treats as a bot: no dialog, every service on".
+  Make the appended facts grammatical; do not just swap in a dash or put
+  a period before a fragment. Preserve the original relationship, using
+  "so" or "because" only when the source supports causality.
+  Keep colons introducing explicit lists ("Supported formats: JSON, CSV")
+  or quotations, and colons in technical notation or protected spans.
 
 ## Replacement principle
 Cut, or replace with a concrete, checkable statement. The rewrite must not

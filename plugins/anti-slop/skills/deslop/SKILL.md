@@ -15,9 +15,10 @@ Resolve bundled links relative to this file's directory.
 1. Read the [ban list](../../references/ban-list.md).
 2. Audit prose only, outside the protected spans listed below: collect
    every violation as `span` + pattern class.
-   Check every heading line and every `—`. Also check for dramatic framing,
-   personification of tools or systems, and story-like headings, even when
-   none of their words appear in the vocabulary ban.
+   Check every heading line, every `—`, and every mid-sentence colon.
+   Also check for dramatic framing, personification of tools or systems,
+   and story-like headings, even when none of their words appear in the
+   vocabulary ban.
 3. Rewrite. Change only what a ban or the replacement principle requires.
    Compare the result with the source for lost facts, negations, and
    conditions as well as unsupported additions. Check for excessive
