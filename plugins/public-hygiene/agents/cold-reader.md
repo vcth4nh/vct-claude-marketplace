@@ -2,6 +2,8 @@
 name: cold-reader
 description: Fresh-context reader that checks high-stakes audience-facing text (slides, talk scripts, papers, READMEs, docs, blog posts, release notes, PR descriptions) for spans its target audience cannot resolve, before the text goes out. Keeps review inputs read-only and writes one designated report. Reports quoted spans with audience questions and a NEEDS CONTEXT or PASS verdict; never rewrites.
 tools: Read, Grep, Glob, Write
+model: sonnet
+effort: medium
 omitClaudeMd: true
 ---
 

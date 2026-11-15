@@ -71,6 +71,15 @@ instructions can still load. Reviewers must not use private definitions
 as evidence of what the audience knows. On either harness, an unavailable
 fresh reviewer leaves the independent check incomplete.
 
+The bundled Claude reviewers default to Sonnet at medium effort. Codex
+parents request GPT-6.1 Terra at medium effort when available. Explicit
+reviewer choices and enforced harness settings take precedence. Haiku and
+Luna are options for bounded extraction or pattern checks; substantive
+reviews go directly to the chosen reviewer. Difficult reviews can use more
+effort or a stronger available model. These defaults are starting choices,
+not a measured model ranking. See [reviewer selection](references/reviewer-models.md)
+for fallback behavior and review constraints.
+
 ## leak-check
 
 ```text

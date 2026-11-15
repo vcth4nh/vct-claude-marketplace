@@ -30,6 +30,9 @@ failed the audit.
      background, and do not inherit the conversation. Follow
      [report delivery](../../references/report-delivery.md): the draft stays
      read-only; the reviewer may write only its designated temporary report.
+     Choose the reviewer model and effort using
+     [reviewer selection](../../references/reviewer-models.md), preserving
+     explicit user choices and fresh context.
      Verify the saved report and unchanged inputs, then return a link and
      its exact verdict line without restating the findings.
      Never audit high-stakes text inline — a context saturated with

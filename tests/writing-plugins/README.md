@@ -18,6 +18,10 @@ validation and leak evidence for public-hygiene 0.4.1.
 length-rule candidate; that trial left anti-slop at 0.3.2.
 [The framing probes](framing-0.3.3.json) record nine focused instruction
 checks for anti-slop 0.3.3, including missed framing and length-limit failures.
+[Reviewer model checks](reviewer-models-0.4.2.json) record sixteen direct
+leak reviews through `hc`, with two runs per case and model, plus native
+Claude agent discovery checks. These do not rank models or validate parent
+dispatch and fallback behavior.
 
 - [cold-read.json](cold-read.json) contains reader requests and drafts.
 - [anti-slop.json](anti-slop.json) contains style requests and drafts.
@@ -81,6 +85,11 @@ and pass/fail reasons. A single successful run is a pilot. Repeat cases
 whose behavior is known to vary, and retain failures rather than selecting
 only successful outputs. Compare a suspected regression with the original
 instructions before adding another rule.
+For model selection, repeat the clean and planted-disclosure cases in
+[leak-evidence.json](leak-evidence.json), withholding
+[their rubrics](leak-evidence-rubrics.json) from the tested reviewers.
+Compare missed findings, false alarms, report completion, and cost and
+elapsed time per acceptable report, including retries and parent corrections.
 
 Direct instruction probes do not verify native plugin dispatch. When
 changing agents or handoffs, also run the installed harness and inspect

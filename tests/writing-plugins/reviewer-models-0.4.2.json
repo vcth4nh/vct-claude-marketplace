@@ -1,0 +1,294 @@
+{
+  "scope": "Focused reviewer-model checks for public-hygiene 0.4.2. Direct reviewer tasks, not an end-to-end parent dispatch or fallback test.",
+  "base_commit": "7b0087207aed298d2ea3f8cdf7599c9b1ea3b45c",
+  "cases": "le01 and le02 from leak-evidence.json; expectations from leak-evidence-rubrics.json were withheld from tested reviewers.",
+  "protocol": {
+    "runs": 16,
+    "attempts_per_model_case": 2,
+    "concurrency": 2,
+    "launcher": "hc interactive terminals; fresh native Claude Code or Codex session for each report; Codex used --no-daemon. No inherited conversation or nested agents.",
+    "effort": "Medium requested on each CLI; UI headers/status identified the requested models and medium effort.",
+    "claude_versions": [
+      "2.1.323",
+      "2.1.325"
+    ],
+    "codex_version": "0.167.0",
+    "permissions": "Claude file tools with scratch-write permissions; Codex used danger-full-access to match the host environment after nested workspace-write sandbox startup failed. Instruction isolation, not OS filesystem isolation.",
+    "grading": "A separate hc-launched Terra session received source fixtures, the rubric, and randomly labeled reports, without model names or timing. The parent checked its assessment against the reports.",
+    "grading_limit": "The grader marked all reports acceptable despite flagging unsupported characterizations in four reports. Those flags are retained separately; a correct verdict is not an unqualified quality pass.",
+    "cost_usd": null,
+    "cost_note": "Dollar billing telemetry was not collected from the interactive harnesses."
+  },
+  "summary": [
+    {
+      "model": "claude-haiku-5-5",
+      "reports_saved": 4,
+      "expected_verdicts": 4,
+      "reports_with_missed_disclosures": 0,
+      "reports_with_unsupported_findings": 0,
+      "reports_with_unsupported_characterizations": 2,
+      "median_elapsed_seconds": 16.96
+    },
+    {
+      "model": "claude-sonnet-5-5",
+      "reports_saved": 4,
+      "expected_verdicts": 4,
+      "reports_with_missed_disclosures": 0,
+      "reports_with_unsupported_findings": 0,
+      "reports_with_unsupported_characterizations": 2,
+      "median_elapsed_seconds": 13.1
+    },
+    {
+      "model": "gpt-6-luna",
+      "reports_saved": 4,
+      "expected_verdicts": 4,
+      "reports_with_missed_disclosures": 0,
+      "reports_with_unsupported_findings": 0,
+      "reports_with_unsupported_characterizations": 0,
+      "median_elapsed_seconds": 25.15
+    },
+    {
+      "model": "gpt-6.1-terra",
+      "reports_saved": 4,
+      "expected_verdicts": 4,
+      "reports_with_missed_disclosures": 0,
+      "reports_with_unsupported_findings": 0,
+      "reports_with_unsupported_characterizations": 0,
+      "median_elapsed_seconds": 21.03
+    }
+  ],
+  "runs": [
+    {
+      "id": "haiku-le01-1",
+      "requested_model": "claude-haiku-5-5",
+      "requested_effort": "medium",
+      "elapsed_seconds": 12.7,
+      "verdict": "VERDICT: PASS",
+      "report_sha256": "61e4eaf8e4cae1542759ba99e139aba7d6f578016ebbdb2f7a45bdb38ba77309",
+      "changed_inputs": [],
+      "missed_disclosures": [],
+      "unsupported_findings": [],
+      "unsupported_characterizations": []
+    },
+    {
+      "id": "haiku-le01-2",
+      "requested_model": "claude-haiku-5-5",
+      "requested_effort": "medium",
+      "elapsed_seconds": 14.13,
+      "verdict": "VERDICT: PASS",
+      "report_sha256": "a482893687c23efa79cff55ad89789fcd3c52eea7c7240a2be43d3e48df18912",
+      "changed_inputs": [],
+      "missed_disclosures": [],
+      "unsupported_findings": [],
+      "unsupported_characterizations": []
+    },
+    {
+      "id": "haiku-le02-1",
+      "requested_model": "claude-haiku-5-5",
+      "requested_effort": "medium",
+      "elapsed_seconds": 19.79,
+      "verdict": "VERDICT: BLOCK (fix all findings before publish)",
+      "report_sha256": "548a19eb491e31259624ff2bb32013ee5f5d92ff9b9dd3af9b6a41fd94805f51",
+      "changed_inputs": [],
+      "missed_disclosures": [],
+      "unsupported_findings": [],
+      "unsupported_characterizations": [
+        "\"production retry server\": the source names a host but does not establish its production status or server function."
+      ]
+    },
+    {
+      "id": "haiku-le02-2",
+      "requested_model": "claude-haiku-5-5",
+      "requested_effort": "medium",
+      "elapsed_seconds": 21.94,
+      "verdict": "VERDICT: BLOCK (fix all findings before publish)",
+      "report_sha256": "7fb8d4f8d48937e041892a6f37dcbaeaab5bb54ba1e95d4c3472d5bec64cfaeb",
+      "changed_inputs": [],
+      "missed_disclosures": [],
+      "unsupported_findings": [],
+      "unsupported_characterizations": [
+        "\"private production host\": the source identifies a private host but does not establish that it is production."
+      ]
+    },
+    {
+      "id": "luna-le01-1",
+      "requested_model": "gpt-6-luna",
+      "requested_effort": "medium",
+      "elapsed_seconds": 20.61,
+      "verdict": "VERDICT: PASS",
+      "report_sha256": "ec00129a01829b96ca26e2af26588e4feb0446ae35eebb06824e10fd92d224ef",
+      "changed_inputs": [],
+      "missed_disclosures": [],
+      "unsupported_findings": [],
+      "unsupported_characterizations": []
+    },
+    {
+      "id": "luna-le01-2",
+      "requested_model": "gpt-6-luna",
+      "requested_effort": "medium",
+      "elapsed_seconds": 22.73,
+      "verdict": "VERDICT: PASS",
+      "report_sha256": "ec00129a01829b96ca26e2af26588e4feb0446ae35eebb06824e10fd92d224ef",
+      "changed_inputs": [],
+      "missed_disclosures": [],
+      "unsupported_findings": [],
+      "unsupported_characterizations": []
+    },
+    {
+      "id": "luna-le02-1",
+      "requested_model": "gpt-6-luna",
+      "requested_effort": "medium",
+      "elapsed_seconds": 27.57,
+      "verdict": "VERDICT: BLOCK (fix all findings before publish)",
+      "report_sha256": "f2504b2d50ff7b858b8e5c63cf5bc8d5221a676ab0619fdcce2aeef92e650916",
+      "changed_inputs": [],
+      "missed_disclosures": [],
+      "unsupported_findings": [],
+      "unsupported_characterizations": []
+    },
+    {
+      "id": "luna-le02-2",
+      "requested_model": "gpt-6-luna",
+      "requested_effort": "medium",
+      "elapsed_seconds": 28.92,
+      "verdict": "VERDICT: BLOCK (fix all findings before publish)",
+      "report_sha256": "018606961b62b6488a29315fe4208e02debc252fec2d59763ccd06240db91e15",
+      "changed_inputs": [],
+      "missed_disclosures": [],
+      "unsupported_findings": [],
+      "unsupported_characterizations": []
+    },
+    {
+      "id": "sonnet-le01-1",
+      "requested_model": "claude-sonnet-5-5",
+      "requested_effort": "medium",
+      "elapsed_seconds": 12.69,
+      "verdict": "VERDICT: PASS",
+      "report_sha256": "6df9cb491c714b149b07d2e65f5b00a7070a62b8a0ea46c933215a9d0c2f72a6",
+      "changed_inputs": [],
+      "missed_disclosures": [],
+      "unsupported_findings": [],
+      "unsupported_characterizations": []
+    },
+    {
+      "id": "sonnet-le01-2",
+      "requested_model": "claude-sonnet-5-5",
+      "requested_effort": "medium",
+      "elapsed_seconds": 11.55,
+      "verdict": "VERDICT: PASS",
+      "report_sha256": "a482893687c23efa79cff55ad89789fcd3c52eea7c7240a2be43d3e48df18912",
+      "changed_inputs": [],
+      "missed_disclosures": [],
+      "unsupported_findings": [],
+      "unsupported_characterizations": []
+    },
+    {
+      "id": "sonnet-le02-1",
+      "requested_model": "claude-sonnet-5-5",
+      "requested_effort": "medium",
+      "elapsed_seconds": 14.97,
+      "verdict": "VERDICT: BLOCK (fix all findings before publish)",
+      "report_sha256": "669e882eb53f743742219985ae205057f9c127f3fffa461c49993d6ed76b548d",
+      "changed_inputs": [],
+      "missed_disclosures": [],
+      "unsupported_findings": [],
+      "unsupported_characterizations": [
+        "\"not meaningful to or resolvable by customers\": customer meaning and resolvability are not established.",
+        "\"revealing infrastructure naming and region\": the hostname does not establish the actual region."
+      ]
+    },
+    {
+      "id": "sonnet-le02-2",
+      "requested_model": "claude-sonnet-5-5",
+      "requested_effort": "medium",
+      "elapsed_seconds": 13.51,
+      "verdict": "VERDICT: BLOCK (fix all findings before publish)",
+      "report_sha256": "1aad25a04b80c0969cefe067cf72671910eadc3f2c750cb3040c01b50442078b",
+      "changed_inputs": [],
+      "missed_disclosures": [],
+      "unsupported_findings": [],
+      "unsupported_characterizations": [
+        "\"not reachable or meaningful to readers\": reachability and meaning are not established.",
+        "\"readers cannot resolve\": the run identifier's resolvability is not established.",
+        "\"exposing infrastructure naming and region\": the hostname does not establish the actual region."
+      ]
+    },
+    {
+      "id": "terra-le01-1",
+      "requested_model": "gpt-6.1-terra",
+      "requested_effort": "medium",
+      "elapsed_seconds": 19.59,
+      "verdict": "VERDICT: PASS",
+      "report_sha256": "ec00129a01829b96ca26e2af26588e4feb0446ae35eebb06824e10fd92d224ef",
+      "changed_inputs": [],
+      "missed_disclosures": [],
+      "unsupported_findings": [],
+      "unsupported_characterizations": []
+    },
+    {
+      "id": "terra-le01-2",
+      "requested_model": "gpt-6.1-terra",
+      "requested_effort": "medium",
+      "elapsed_seconds": 16.08,
+      "verdict": "VERDICT: PASS",
+      "report_sha256": "ec00129a01829b96ca26e2af26588e4feb0446ae35eebb06824e10fd92d224ef",
+      "changed_inputs": [],
+      "missed_disclosures": [],
+      "unsupported_findings": [],
+      "unsupported_characterizations": []
+    },
+    {
+      "id": "terra-le02-1",
+      "requested_model": "gpt-6.1-terra",
+      "requested_effort": "medium",
+      "elapsed_seconds": 22.47,
+      "verdict": "VERDICT: BLOCK (fix all findings before publish)",
+      "report_sha256": "ef3891d087202ad39e6b2586c474ec974b9ed66d2931a973a000c1ff70486a06",
+      "changed_inputs": [],
+      "missed_disclosures": [],
+      "unsupported_findings": [],
+      "unsupported_characterizations": []
+    },
+    {
+      "id": "terra-le02-2",
+      "requested_model": "gpt-6.1-terra",
+      "requested_effort": "medium",
+      "elapsed_seconds": 23.61,
+      "verdict": "VERDICT: BLOCK (fix all findings before publish)",
+      "report_sha256": "036d81e57fee07f660b760c68a0a5fc7fd18b0db7ddb5bdabcea1a5249724db8",
+      "changed_inputs": [],
+      "missed_disclosures": [],
+      "unsupported_findings": [],
+      "unsupported_characterizations": []
+    }
+  ],
+  "instruction_sha256": {
+    "agents/external-reviewer.md": "0046110b66527b50c862195434eb8ac4f8b81419aaef6b761b3884a67ef04bc6",
+    "references/hygiene-rules.md": "b7348dae2f2f7c6dbb320a0d48a612ccb32df8363ee2b34229f5e79d299174a8",
+    "references/report-delivery.md": "e66cfe60fa8b481eb5589cdde93dde61b1a04a98042c9fa829f17694cf34ad91"
+  },
+  "native_agent_checks": {
+    "route": "Separate hc interactive Claude sessions loaded the candidate plugin using --plugin-dir and selected each bundled agent with --agent, with no CLI model or effort override.",
+    "agents": [
+      "public-hygiene:cold-reader",
+      "public-hygiene:external-reviewer"
+    ],
+    "observed_model": "Sonnet 5.5",
+    "configured_effort": "medium",
+    "effective_effort_verified": false,
+    "note": "The native agent UI showed Sonnet but did not display effort for this invocation route. These checks establish discovery and model selection, not parent dispatch or effective effort."
+  },
+  "preflight_issues": [
+    "Two initial runner tasks could not locate hc on the terminal PATH; no model ran.",
+    "One Codex launch could not locate node; no model ran.",
+    "One Codex session failed to read instructions because the nested workspace-write sandbox could not start. It produced no report. Its record was retained separately before retrying with the host-equivalent unrestricted profile."
+  ],
+  "limits": [
+    "Two small synthetic cases, reused from earlier evaluations, with two attempts per model/case. No general model ranking or reliability estimate.",
+    "Claude Code changed from 2.1.323 to 2.1.325 during the runs. Native tool differences and concurrent execution also limit latency comparisons.",
+    "All sixteen reports had the expected verdict and disclosure coverage, but four contained unsupported characterizations. None of the sixteen source drafts or glossaries changed.",
+    "No parent-selected fallback, user override, escalation, sequential review, or mixed-model orchestration was behaviorally tested.",
+    "Without dollar telemetry, the checks do not establish cost per acceptable report or the cheapest reliable combination."
+  ],
+  "evidence": "Raw reports, terminal captures, commands, source hashes, and the blinded assessment were retained in a temporary evaluation directory outside source control. They are local evidence, not permanent hosted artifacts."
+}

@@ -48,6 +48,9 @@ reader's experience in order.
    For delegated reviews, read [report delivery](../../references/report-delivery.md):
    the draft stays read-only and the reviewer may write only its designated
    temporary report.
+   Choose the reviewer model and effort using
+   [reviewer selection](../../references/reviewer-models.md), preserving
+   explicit user choices and fresh context.
 5. Clean handoff. The dispatch carries the absolute reader instruction-file
    path (not just an agent type or a paraphrase of its rules),
    the draft (path or pasted text), the companions (paths or quoted public

@@ -2,6 +2,8 @@
 name: external-reviewer
 description: Fresh-context reviewer that audits high-stakes public text (papers, release notes, public PR descriptions, blog posts, whole READMEs and docs, slides and talk scripts) for internal-context leaks before it is published, submitted, or released. Keeps review inputs read-only and writes one designated report. Reports quoted spans and a BLOCK/PASS verdict; never rewrites.
 tools: Read, Grep, Glob, Write
+model: sonnet
+effort: medium
 omitClaudeMd: true
 ---
 
