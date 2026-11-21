@@ -1,7 +1,8 @@
 # public-hygiene
 
-Two checks for public-facing text before it ships:
+Documentation care and checks for public-facing text:
 
+- `doc-care` keeps project docs focused on their readers. See [doc-care](#doc-care).
 - `leak-check` audits internal-context leaks: local paths, run/experiment
   IDs, infra names, ticket IDs, private provenance, private working notes,
   private jargon, AI scaffolding.
@@ -57,11 +58,11 @@ skills, rules, and reviewer instructions.
 
 ## Harness notes
 
-- **Claude Code:** invoke `/public-hygiene:leak-check` or
+- **Claude Code:** invoke `/public-hygiene:doc-care`, `/public-hygiene:leak-check`, or
   `/public-hygiene:cold-read`. The bundled `external-reviewer` and
   `cold-reader` agents provide the fresh reviews.
-- **Codex:** invoke `$public-hygiene:leak-check` or
-  `$public-hygiene:cold-read`. The skills link the instructions for a
+- **Codex:** invoke `$public-hygiene:doc-care`, `$public-hygiene:leak-check`, or
+  `$public-hygiene:cold-read`. The review skills link the instructions for a
   fresh subagent to read, without inheriting the conversation.
 
 On Claude Code 2.1.271 or later, the bundled reviewers use `omitClaudeMd`
@@ -79,6 +80,20 @@ reviews go directly to the chosen reviewer. Difficult reviews can use more
 effort or a stronger available model. These defaults are starting choices,
 not a measured model ranking. See [reviewer selection](references/reviewer-models.md)
 for fallback behavior and review constraints.
+
+## doc-care
+
+Use [doc-care](skills/doc-care/SKILL.md) for public or internal project docs,
+including changes made during implementation. It checks what belongs in
+each doc and where facts should be maintained.
+
+A review request returns findings and proposed edits. An edit request
+applies the rules within that task's scope and reports each added line
+with the reader who needs it.
+
+For a standing instruction, reference the [rules](skills/doc-care/SKILL.md#rules)
+from the agent instructions you normally load. Installing the plugin does
+not modify those instructions.
 
 ## leak-check
 
@@ -98,7 +113,7 @@ approvals you state, so those constraints survive the fresh handoff.
 ## Per-repo glossary (recommended)
 
 Create `.agents/leak-glossary.md` (the `leak-check` skill offers to
-scaffold it, and `cold-read` does not). Both skills fall back to an
+scaffold it, and `cold-read` does not). These two skills fall back to an
 existing `.claude/leak-glossary.md`:
 
 ```markdown
@@ -185,7 +200,8 @@ forward-reference handling.
 
 ## Pipeline order
 
-Context first, style next, leaks last:
+For project docs, apply `doc-care` during editing, then follow the
+publication checks:
 
 ```text
 cold-read -> answer its questions, apply -> deslop / academic-voice -> leak-check -> publish
@@ -197,10 +213,11 @@ audit runs on the final text, never before a rewrite.
 
 ## Scope
 
-Context leaks and missing context, not credentials. For actual secrets
-(keys, tokens), run [gitleaks](https://github.com/gitleaks/gitleaks) or
-equivalent in CI. Never leave credentials to an LLM. Neither skill has a
-rule-based commit hook yet; a commit-message denylist hook is planned.
+This plugin covers document placement, context leaks, and missing context.
+For actual secrets (keys, tokens), run [gitleaks](https://github.com/gitleaks/gitleaks)
+or equivalent in CI. Never leave credentials to an LLM. The publication
+checks have no rule-based commit hook yet; a commit-message denylist hook
+is planned.
 
 ## Related reader workflows
 

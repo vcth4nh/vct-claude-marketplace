@@ -1,10 +1,10 @@
 {
   "name": "public-hygiene",
-  "version": "0.4.2",
-  "description": "Check public-facing text before it ships. leak-check finds internal-context leaks (local paths, run IDs, infra names, private provenance, private working notes, private jargon) and sends high-stakes text to a fresh subagent reviewer with a BLOCK/PASS verdict. cold-read finds context the audience lacks (terms nobody introduced, numbers without a base, unclear referents, unattributed quotes), applies separate standards to slides and documents, and asks the author for the missing facts.",
+  "version": "0.5.0",
+  "description": "Maintain project documentation and check public-facing text before it ships. doc-care keeps docs focused on their readers and addresses duplicate, misplaced, or stale claims. leak-check finds internal-context leaks (local paths, run IDs, infra names, private provenance, private working notes, private jargon) and sends high-stakes text to a fresh subagent reviewer with a BLOCK/PASS verdict. cold-read finds context the audience lacks (terms nobody introduced, numbers without a base, unclear referents, unattributed quotes), applies separate standards to slides and documents, and asks the author for the missing facts.",
   "author": {
     "name": "vcth4nh"
   },
-  "keywords": ["leak", "sanitize", "public", "hygiene", "review", "paper", "audience", "context", "slides", "clarity", "skill"],
+  "keywords": ["leak", "sanitize", "public", "hygiene", "review", "paper", "audience", "context", "slides", "clarity", "documentation", "doc-care", "skill"],
   "license": "CC-BY-SA-4.0"
 }
