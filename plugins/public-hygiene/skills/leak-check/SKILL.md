@@ -1,11 +1,11 @@
 ---
 name: leak-check
-description: Use when text is about to go public — before any publish, submit, release, tag, or push of papers, abstracts, camera-ready text, READMEs, release notes, commit messages, PR descriptions, or blog posts — or when the user says "leak check", "check for leaks", "sanitize", "is this safe to publish". Also use before finalizing any text written for an external audience.
+description: Check the final wording for information that should stay private before it reaches an external audience. Examples include a customer email, a conference talk, and a public GitHub issue. Also use when asked to check text for leaks, sanitize it for publication, or assess whether it is safe to share.
 ---
 
 # Leak Check
 
-Audit text for internal-context leaks before it goes public. Report first;
+Audit text for internal-context leaks before sharing it outside the team. Report first;
 rewrite only on request. Never end a turn by silently emitting text that
 failed the audit.
 
@@ -18,15 +18,18 @@ failed the audit.
    by definition, wherever they appear.
    - No glossary → still audit every generic category, then offer once to
      create the file from the template below. Do not block on the offer.
-3. Route by stakes:
-   - **High-stakes** (paper prose, release notes, public PR descriptions,
-     blog posts, whole READMEs and docs, slides and talk scripts): launch a
-     fresh subagent reviewer using the
+3. If a prior leak check [still applies](../../references/report-delivery.md#reusing-a-review), reuse its result.
+   Route a new review by stakes.
+   - For **high-stakes text**, launch a fresh subagent reviewer. This includes
+     paper prose, release notes, public GitHub issues and PR descriptions,
+     blog posts, whole READMEs and docs, slides and talk scripts, and messages
+     that contain information restricted to particular recipients. Use the
      [reviewer instructions](../../agents/external-reviewer.md). Pass it
      the absolute instruction-file path (not just an agent type or a
      paraphrase of its rules), the draft or its file path, and the
-     new absolute report output path, and the user's own words about the venue, anonymity requirements, and names
-     approved for release. Leave out your explanations and private
+     new absolute report output path, and the user's own words about the
+     audience, venue, anonymity requirements, and names approved for that
+     audience. Leave out your explanations and private
      background, and do not inherit the conversation. Follow
      [report delivery](../../references/report-delivery.md): the draft stays
      read-only; the reviewer may write only its designated temporary report.

@@ -15,9 +15,9 @@ Documentation care and checks for public-facing text:
   proposes a fix. Applies fixes only on request; never invents facts to
   fill a redaction.
 - **Fresh subagent reviewer** — a reviewer that keeps the draft read-only for
-  high-stakes text (papers, release notes, public PR descriptions, blog
-  posts, whole READMEs and docs, slides and talk scripts). It uses the
-  audience's field knowledge without private project context.
+  high-stakes text (papers, release notes, public GitHub issues and PR
+  descriptions, blog posts, whole READMEs and docs, slides and talk scripts).
+  It uses the audience's field knowledge without private project context.
   Returns quoted findings and a BLOCK/PASS verdict;
   ambiguous terms come back as questions, never guesses.
 
@@ -101,14 +101,11 @@ not modify those instructions.
 Leak check this commit message: <paste>
 Leak check and fix this text: <paste>
 Leak check paper/intro.tex          # high-stakes → fresh subagent reviewer
-Is this changelog safe to publish?
+Is this update safe to email to our customers?
 ```
 
-The skill also applies before publishing, submitting, tagging, or pushing
-public-facing text.
-
-The reviewer receives any venue, anonymity requirements, and public-name
-approvals you state, so those constraints survive the fresh handoff.
+The reviewer receives any audience, venue, or sharing restrictions you specify,
+such as an anonymity requirement for a submission.
 
 ## Per-repo glossary (recommended)
 
@@ -168,9 +165,6 @@ cold-read comprehension proposal.md
 cold-read sequential guide.md             # experimental, text/Markdown
 ```
 
-The skill also applies before publishing, submitting, tagging, or pushing
-audience-facing text.
-
 Two additional modes run only when requested:
 
 - **Comprehension** adds a readback: the requested action when the document
@@ -207,9 +201,12 @@ publication checks:
 cold-read -> answer its questions, apply -> deslop / academic-voice -> leak-check -> publish
 ```
 
-`cold-read` adds text from your answers, so the later passes must see it.
-Style passes ([`anti-slop`](../anti-slop/)) rewrite sentences, so the leak
-audit runs on the final text, never before a rewrite.
+Run `cold-read` while the author can still answer readers' questions.
+Run `leak-check` on the final wording after any [style edits](../anti-slop/).
+You can [reuse a completed review](references/report-delivery.md#reusing-a-review)
+when its inputs still match. An email reviewed yesterday can go to the same
+customers today under the same terms. Forwarding it to a new partner
+changes the audience and calls for a fresh check.
 
 ## Scope
 

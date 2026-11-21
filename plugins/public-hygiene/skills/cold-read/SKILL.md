@@ -1,6 +1,6 @@
 ---
 name: cold-read
-description: Use when audience-facing text is about to go out (before any publish, submit, release, tag, push, or presentation of slides, talk scripts, papers, READMEs, docs, blog posts, release notes, PR descriptions, or commit messages), after a slide deck or talk draft is written, or when the user says "cold read", "audience check", or "will readers follow this", or asks whether outsiders will understand a text.
+description: Check what the intended audience can understand once a draft is ready for readers and the author can still clarify it, preferably before final style edits. Examples include a customer email, a conference talk, and a public GitHub issue. Also use when asked for a cold read, an audience check, or whether readers will follow the text.
 ---
 
 # Cold Read
@@ -30,13 +30,16 @@ reader's experience in order.
    the publication surface or the user's supplied text.
    If the target change is unclear, ask which change to review; do not
    substitute an unrelated working-tree diff.
-4. For a requested mode, follow its fresh-reviewer procedure. Otherwise
+4. If a prior cold read [still applies](../../references/report-delivery.md#reusing-a-review), reuse its result.
+   For a new review in a requested mode, follow its fresh-reviewer procedure. Otherwise
    route by stakes. For slides and talk scripts, papers, READMEs and docs,
-   blog posts, release notes, and PR descriptions, send the whole document
-   at any length to a fresh subagent reviewer using the
+   blog posts, release notes, public GitHub issues, and PR descriptions,
+   send the whole document at any length to a fresh subagent reviewer using the
    [reader instructions](../../agents/cold-reader.md), without inherited
-   conversation. A commit message, or a fragment of any class (a paragraph
-   or less, not a whole document), gets an inline pass unless an optional
+   conversation. For other formats, use a fresh reader when a misunderstanding
+   could change a decision, such as when customers must act on an incident update.
+   A routine message (including a commit message), or a fragment of any class
+   (a paragraph or less, not a whole document), gets an inline pass unless an optional
    mode was requested. For the inline pass, skip the terms in
    `.agents/leak-glossary.md` (falling back to `.claude/leak-glossary.md`)
    if it exists, apply the rules as the reader they describe, and report
@@ -58,7 +61,7 @@ reader's experience in order.
    type in one line (slide or doc), the new absolute report output path,
    and the user's own words about the
    audience or venue. Leave out
-   the author's notes and their paths, glossary meanings, your
+   private drafting notes and their paths, glossary meanings, your
    explanations, and any audience profile that the user did not give,
    because they carry internal context into the fresh reader.
    Sequential mode sends one chunk at a time and waits for each returned

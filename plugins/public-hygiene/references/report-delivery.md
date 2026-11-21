@@ -4,6 +4,17 @@ The reviewer's saved report is the authoritative result. Deliver a link
 and its verdict; regenerating a long report in the parent's answer can
 change quotes or omit findings.
 
+## Reusing a review
+
+Reuse a completed review when you can verify that the same skill and mode
+covered the same wording, intended audience, supporting material, and
+disclosure constraints. Include any reader questions, linked docs, diffs,
+glossary entries, or release approvals that affect the current check.
+Keep the original inline result or link to the verified report with its exact
+verdict, including any block or open questions. Handle missing reports and
+incomplete checks under the failure procedure below. If a relevant input changes
+or the user asks for a fresh review, follow the skill's usual workflow.
+
 ## Parent
 
 1. Create a uniquely named temporary directory outside the reviewed source
