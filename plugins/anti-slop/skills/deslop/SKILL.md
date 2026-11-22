@@ -1,6 +1,6 @@
 ---
 name: deslop
-description: Use when writing, editing, or polishing engineering prose for a human reader (READMEs, docs, reports, write-ups, commit messages, PR descriptions, release notes, blog posts), or when the user says "deslop", "remove AI slop", "sounds like AI", "make this sound human", or "fix the tone".
+description: Use when the task calls for drafting or revising technical prose for readers, such as a design note, customer incident update, README, or commit message. Also use when the user says "deslop", "remove AI slop", "sounds like AI", "make this sound human", or "fix the tone".
 ---
 
 # Deslop
@@ -25,6 +25,11 @@ Resolve bundled links relative to this file's directory.
    editing as described in the replacement principle.
 4. Return the result according to the mode below.
 
+When revising a draft that has already had a style pass, check the changed
+passages in context. Reread any other passage whose meaning the edit affects.
+Reuse the completed pass wherever the wording and context stay the same,
+including when a draft is committed or published. Run a fresh pass on request.
+
 ## Modes
 
 | Request | Behavior |
@@ -32,7 +37,7 @@ Resolve bundled links relative to this file's directory.
 | `deslop <text>` or `deslop <file path>` | Read and rewrite; return the text followed by `Changes:` with one line per edit: `` `span` `` → `` `replacement` `` (or "cut"). If clean, return `Clean, no slop found.` |
 | `deslop check <text or file path>`, or a review-only request | Report violations and suggested fixes only; do not rewrite or change files. If clean, return `Clean, no slop found.` |
 | Explicitly edit or update a file | Apply prose edits to that file, then briefly summarize them. Do not write the change report into the file. Leave a clean file untouched and report that result. |
-| Used within another drafting task, such as a commit message or PR description | Return only the requested artifact, including when no edits are needed. Add no preface or follow-up offer. Keep audit notes, `Changes:`, and clean-status messages out of it. |
+| Used within another drafting task, such as a customer incident update or commit message | Return only the draft in its intended format. Leave plain-text messages unfenced. Omit prefaces, audit notes, `Changes:`, clean-status messages, and follow-up offers even when the draft needs no edits. |
 
 Choose the mode from the user's request. Naming a path alone reads the file;
 an explicit request to edit it authorizes the write. A review-only request

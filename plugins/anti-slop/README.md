@@ -2,8 +2,9 @@
 
 Remove AI-slop tone from prose. Two skills, one shared ban list:
 
-- **`deslop`** for engineering prose: READMEs, docs, reports, write-ups,
-  commit messages, PR descriptions, release notes, blog posts.
+- **`deslop`** applies when a task calls for drafting or revising technical
+  prose for readers, such as an internal design note, customer incident
+  update, README, or PR description.
 - **`academic-voice`** for paper prose: abstracts, methods, results, related
   work, camera-ready text. Matches your voice from an optional per-repo
   samples file.
@@ -48,14 +49,12 @@ Edit paper/intro.tex in place with academic-voice
 ```
 
 Claude Code uses `/anti-slop:<skill>`; Codex uses `$anti-slop:<skill>`.
-The skills also apply automatically when the agent writes prose for a
-human reader.
 
 Standalone rewrites include a change report. Naming a file alone reads it
 and returns a rewrite; asking to edit it applies the changes to the file
 and returns a brief summary. Review-only requests leave files untouched.
-When used inside a drafting task, the skills return only the requested
-artifact, with no change report or setup offer attached.
+Within a drafting task, either skill returns only the requested text.
+For a customer incident update, that’s the message customers will read.
 
 File edits change prose only. Code, commands, paths, YAML metadata, data,
 and link targets stay byte-identical; `academic-voice` also protects math,
